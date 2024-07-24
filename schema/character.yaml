@@ -16,7 +16,7 @@ properties:
         description: "Height of the character in appropriate units."
       weight:
         type: "integer"
-        description: "Weight of the character in appropriate units."
+        description: "Weight of the character in appropriate units..."
       species:
         type: "multi-link"
         items:
