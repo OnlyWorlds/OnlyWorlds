@@ -13,7 +13,7 @@ properties:
         description: "Psychological traits and mindset descriptions."
       height:
         type: "integer"
-        description: "Height of the character in appropriate units."
+        description: "Height of the character in appropriate units.."
       weight:
         type: "integer"
         description: "Weight of the character in appropriate units..."
