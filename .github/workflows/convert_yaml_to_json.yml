@@ -26,13 +26,12 @@ jobs:
         run: python ./scripts/yaml_to_json.py
 
       - name: Commit JSON files 
-        run: |
-          echo secrets.ACTIONS_ACCESS_TOKEN
+        run: | 
           git config --global user.email "you@example.com"
           git config --global user.name "Your Name"
           git add languages/json/*.json
           git commit -m "Auto-update JSON files from YAML" || echo "No changes to commit"
-          git push https://${{ secrets.ACTIONS_ACCESS_TOKEN }}@github.com/OnlyWorlds/OnlyWorlds.git
+          git push https://${{ secrets.ACTIONS_TOKEN }}@github.com/OnlyWorlds/OnlyWorlds.git
 
       - name: Complete job
         run: echo "Conversion and update complete!"
