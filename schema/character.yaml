@@ -138,7 +138,7 @@ games:
   properties:
     backstory:
       type: string
-      description: "The backstory of the character."
+      description: "The backstory of the character.."
     level:
       type: integer
       description: "Level of the character."
