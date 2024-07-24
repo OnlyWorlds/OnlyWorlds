@@ -31,7 +31,7 @@ jobs:
           git config --global user.name "Your Name"
           git add languages/json/*.json
           git commit -m "Auto-update JSON files from YAML" || echo "No changes to commit"
-          git push
+          git push https://${{ secrets.ACTIONS_ACCESS_TOKEN }}@github.com/OnlyWorlds/OnlyWorlds.git
 
       - name: Complete job
         run: echo "Conversion and update complete!"
