@@ -26,6 +26,7 @@ jobs:
         run: python ./scripts/yaml_to_json.py
 
       - name: Commit JSON files
+        run: echo secrets.ACTIONS_ACCESS_TOKEN
         run: |
           git config --global user.email "you@example.com"
           git config --global user.name "Your Name"
