@@ -8,19 +8,19 @@
             "properties": {
                 "physicality": {
                     "type": "string",
-                    "description": "Physical traits and appearance descriptions."
+                    "description": "Physical traits and appearance descriptions...."
                 },
                 "psychology": {
                     "type": "string",
-                    "description": "Psychological traits and mindset descriptions."
+                    "description": "Psychological traits and mindset descriptions....."
                 },
                 "height": {
                     "type": "integer",
-                    "description": "Height of the character in appropriate units."
+                    "description": "Height of the character in appropriate units..."
                 },
                 "weight": {
                     "type": "integer",
-                    "description": "Weight of the character in appropriate units."
+                    "description": "Weight of the character in appropriate units....."
                 },
                 "species": {
                     "type": "multi-link",
@@ -186,7 +186,7 @@
         "properties": {
             "backstory": {
                 "type": "string",
-                "description": "The backstory of the character."
+                "description": "The backstory of the character.."
             },
             "level": {
                 "type": "integer",
