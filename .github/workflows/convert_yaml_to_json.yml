@@ -1,34 +1,30 @@
-name: Convert YAML to JSON
+name: YAML to JSON Conversion
 
 on:
   push:
     paths:
-      - 'schema/**/*.yaml'
+      - 'schema/**/*.yaml'  # Trigger the workflow when a YAML file in the schema directory is pushed
 
 jobs:
   convert:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    runs-on: ubuntu-latest  # Running the job on the latest version of Ubuntu
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2  # Checks out your repository under $GITHUB_WORKSPACE, so your workflow can access it
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
+          python-version: '3.8'  # Sets up Python version 3.8
 
       - name: Install dependencies
         run: |
-          pip install pyyaml
+          python -m pip install --upgrade pip
+          pip install pyyaml  # Install PyYAML to work with YAML files
 
       - name: Convert YAML to JSON
         run: |
           python ./scripts/yaml_to_json.py
+        working-directory: ${{ github.workspace }}  # Sets the working directory to the root of your repository
 
-      - name: Commit and push if changes
-        run: |
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
-          git add languages/json/*
-          git commit -m "Automated JSON updates" || echo "No changes to commit"
-          git push
