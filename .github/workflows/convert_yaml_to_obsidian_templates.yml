@@ -23,6 +23,9 @@ jobs:
       - name: Install dependencies
         run: pip install pyyaml
 
+      - name: Clean existing templates
+        run: rm -f languages/obsidian_templates/*.md
+
       - name: Convert YAML to Templates
         run: python ./scripts/yaml_to_obsidian_templates.py
 
@@ -32,7 +35,7 @@ jobs:
         with:
           commit_message: Auto-update Templates files from YAML
           branch: ${{ github.ref }}
-          file_pattern: languages/obsidian_templates/*.md  # Specify the pattern to add files to the commit
+          file_pattern: languages/obsidian_templates/*.md
           commit_user_name: GitHub Actions
           commit_user_email: actions@github.com
 
