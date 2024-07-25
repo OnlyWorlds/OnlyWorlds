@@ -21,12 +21,7 @@ jobs:
           python-version: '3.8'
 
       - name: Install dependencies
-        run: pip install pyyaml
-
-      - name: Fetch and Reset to Latest Main
-        run: |
-          git fetch origin main
-          git reset --hard origin/main
+        run: pip install pyyaml 
 
       - name: Convert YAML to Templates
         run: python ./scripts/yaml_to_obsidian_templates.py

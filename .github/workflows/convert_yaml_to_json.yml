@@ -21,7 +21,7 @@ jobs:
           python-version: '3.8'
 
       - name: Install dependencies
-        run: pip install pyyaml
+        run: pip install pyyaml 
 
       - name: Convert YAML to JSON
         run: python ./scripts/yaml_to_json.py
