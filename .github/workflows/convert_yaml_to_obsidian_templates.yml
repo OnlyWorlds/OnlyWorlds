@@ -24,7 +24,7 @@ jobs:
         run: pip install pyyaml
 
       - name: Convert YAML to Templates
-        run: python ./scripts/yaml_to_templates.py
+        run: python ./scripts/yaml_to_obsidian_templates.py
 
       # Auto-commit changes
       - name: Commit Templates files
