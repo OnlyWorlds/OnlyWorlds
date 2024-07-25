@@ -1,1 +1,177 @@
-{}
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Construct",
+    "type": "object",
+    "properties": {
+        "Nature": {
+            "type": "object",
+            "properties": {
+                "history": {
+                    "type": "string",
+                    "description": "Historical background of the construct."
+                },
+                "understanding": {
+                    "type": "string",
+                    "description": "Level of understanding or knowledge about the construct."
+                },
+                "state": {
+                    "type": "string",
+                    "description": "Current state or condition of the construct."
+                },
+                "start_date": {
+                    "type": "integer",
+                    "maximum": 0,
+                    "description": "Date when the construct was initiated, represented as an integer (e.g., YYYYMMDD)."
+                },
+                "end_date": {
+                    "type": "integer",
+                    "maximum": 0,
+                    "description": "Date when the construct was concluded or terminated, if applicable."
+                },
+                "founder": {
+                    "type": "single-link",
+                    "description": "Character who founded or initiated the construct, link to a Character entity.",
+                    "category": "Character"
+                },
+                "organiser": {
+                    "type": "single-link",
+                    "description": "Institution responsible for organising or managing the construct, link to an Institution entity.",
+                    "category": "Institution"
+                }
+            }
+        },
+        "Involves": {
+            "type": "object",
+            "properties": {
+                "characters": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Characters involved in or associated with the construct, links to Character entities.",
+                    "category": "Character"
+                },
+                "objects": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Objects integral to the construct, links to Object entities.",
+                    "category": "Object"
+                },
+                "locations": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Locations where the construct is relevant or operational, links to Location entities.",
+                    "category": "Location"
+                },
+                "species": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Species involved or affected by the construct, links to Species entities.",
+                    "category": "Species"
+                },
+                "creatures": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Creatures associated with the construct, links to Creature entities.",
+                    "category": "Creature"
+                },
+                "institutions": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Institutions that play a role in the construct, links to Institution entities.",
+                    "category": "Institution"
+                },
+                "traits": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Traits that are emphasized or affected by the construct, links to Trait entities.",
+                    "category": "Trait"
+                },
+                "collectives": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Collectives that are part of or formed because of the construct, links to Collective entities.",
+                    "category": "Collective"
+                },
+                "territories": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Territories under the influence or control of the construct, links to Territory entities.",
+                    "category": "Territory"
+                },
+                "abilities": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Abilities developed or required by the construct, links to Ability entities.",
+                    "category": "Ability"
+                },
+                "phenomena": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Phenomena that occur or are studied within the construct, links to Phenomenon entities.",
+                    "category": "Phenomenon"
+                },
+                "languages": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Languages used or promoted by the construct, links to Language entities.",
+                    "category": "Language"
+                },
+                "families": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Families that are central or integral to the construct, links to Family entities.",
+                    "category": "Family"
+                },
+                "relations": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Relations forged or affected by the construct, links to Relation entities.",
+                    "category": "Relation"
+                },
+                "titles": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Titles granted or recognized within the construct, links to Title entities.",
+                    "category": "Title"
+                },
+                "constructs": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Other constructs that are connected to or derived from this construct, links to Construct entities.",
+                    "category": "Construct"
+                }
+            }
+        }
+    }
+}
