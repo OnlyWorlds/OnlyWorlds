@@ -24,7 +24,7 @@ jobs:
         run: pip install pyyaml
 
       - name: Convert YAML to Handlebars
-        run: python ./scripts/yaml_to_handlebars.py
+        run: python ./scripts/yaml_to_obsidian_handlebars.py
 
       # Auto-commit changes
       - name: Commit Handlebars files

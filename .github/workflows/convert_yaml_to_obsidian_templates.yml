@@ -1,4 +1,4 @@
-name: YAML to Obsidian Handlebars Conversion
+name: YAML to Obsidian Templates Conversion
 
 on:
   push:
@@ -23,16 +23,16 @@ jobs:
       - name: Install dependencies
         run: pip install pyyaml
 
-      - name: Convert YAML to Handlebars
-        run: python ./scripts/yaml_to_handlebars.py
+      - name: Convert YAML to Templates
+        run: python ./scripts/yaml_to_templates.py
 
       # Auto-commit changes
-      - name: Commit Handlebars files
+      - name: Commit Templates files
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Auto-update Handlebars files from YAML
+          commit_message: Auto-update Templates files from YAML
           branch: ${{ github.ref }}
-          file_pattern: languages/obsidian_handlebars/*.md  # Specify the pattern to add files to the commit
+          file_pattern: languages/obsidian_templates/*.md  # Specify the pattern to add files to the commit
           commit_user_name: GitHub Actions
           commit_user_email: actions@github.com
 
