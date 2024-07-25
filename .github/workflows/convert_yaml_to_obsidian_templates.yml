@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetches all history for all branches and tags
 
       - name: Set up Python
         uses: actions/setup-python@v3
@@ -23,21 +25,26 @@ jobs:
       - name: Install dependencies
         run: pip install pyyaml
 
-      - name: Clean existing templates
-        run: rm -f languages/obsidian_templates/*.md
+      - name: Fetch latest changes from main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
 
       - name: Convert YAML to Templates
         run: python ./scripts/yaml_to_obsidian_templates.py
 
       # Auto-commit changes
-      - name: Commit Templates files
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: Auto-update Templates files from YAML
-          branch: ${{ github.ref }}
-          file_pattern: languages/obsidian_templates/*.md
-          commit_user_name: GitHub Actions
-          commit_user_email: actions@github.com
+      - name: Add changes
+        run: git add .
+
+      - name: Commit and Push Templates files
+        run: |
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Auto-update Templates files from YAML"
+            git push origin HEAD:main
+          fi
 
       - name: Complete job
         run: echo "Conversion and update complete!"
