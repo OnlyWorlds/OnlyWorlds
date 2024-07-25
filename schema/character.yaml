@@ -14,7 +14,7 @@ properties:
       height:
         type: "integer"
         maximum: 0
-        description: "Height of the character in appropriate units......"
+        description: "Height of the character in appropriate units.."
       weight:
         type: "integer"
         maximum: 0
