@@ -10,7 +10,7 @@ properties:
         description: "Physical traits and appearance descriptions."
       psychology:
         type: "string"
-        description: "Psychological traits and mindset descriptions."
+        description: "Psychological traits and mindset descriptions.."
       height:
         type: "integer"
         maximum: 0
