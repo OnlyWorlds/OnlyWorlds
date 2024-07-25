@@ -8,7 +8,7 @@
             "properties": {
                 "physicality": {
                     "type": "string",
-                    "description": "Physical traits and appearance descriptions...."
+                    "description": "Physical traits and appearance descriptions."
                 },
                 "psychology": {
                     "type": "string",
