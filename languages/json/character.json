@@ -22,7 +22,7 @@
                 "weight": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Weight of the character in appropriate units....."
+                    "description": "Weight of the character in appropriate units."
                 },
                 "species": {
                     "type": "multi-link",
