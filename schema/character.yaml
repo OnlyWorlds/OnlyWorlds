@@ -13,9 +13,11 @@ properties:
         description: "Psychological traits and mindset descriptions....."
       height:
         type: "integer"
+        maximum: 0
         description: "Height of the character in appropriate units..."
       weight:
         type: "integer"
+        maximum: 0
         description: "Weight of the character in appropriate units....."
       species:
         type: "multi-link"
@@ -46,6 +48,7 @@ properties:
         description: "Driving motivations behind the character's actions."
       birth_date:
         type: "integer"
+        maximum: 0
         description: "Birth date of the character."
       birthplace:
         type: "single-link"
@@ -57,168 +60,171 @@ properties:
           type: "string"
         description: "Languages the character can speak, links to Language entities."
         category: "Language" 
-world:
-  type: object
-  properties:
-    situation:
-      type: string
-      description: "Current situation or predicament of the character."
-    location:
-      type: single-link
-      description: "The character's current location, link to a Location entity."
-      category: "Location"
-    titles:
-      type: multi-link
-      items:
-        type: string
-      description: "Titles held by the character, links to Title entities."
-      category: "Title"
-    objects:
-      type: multi-link
-      items:
-        type: string
-      description: "Objects owned or associated with the character, links to Object entities."
-      category: "Object"
-    institutions:
-      type: multi-link
-      items:
-        type: string
-      description: "Institutions associated with the character, links to Institution entities."
-      category: "Institution"
-personality:
-  type: object
-  properties:
-    charisma:
-      type: integer
-      maximum: 100
-      description: "Charisma score of the character."
-    coercion:
-      type: integer
-      maximum: 100
-      description: "Coercion score of the character."
-    capability:
-      type: integer
-      maximum: 100
-      description: "Capability score of the character."
-    compassion:
-      type: integer
-      maximum: 100
-      description: "Compassion score of the character."
-    creativity:
-      type: integer
-      maximum: 100
-      description: "Creativity score of the character."
-    courage:
-      type: integer
-      maximum: 100
-      description: "Courage score of the character."
-social:
-  type: object
-  properties:
-    family:
-      type: multi-link
-      items:
-        type: string
-      description: "Family members of the character, links to Family entities."
-      category: "Family"
-    friends:
-      type: multi-link
-      items:
-        type: string
-      description: "Friends of the character, links to Character entities."
-      category: "Character"
-    rivals:
-      type: multi-link
-      items:
-        type: string
-      description: "Rivals of the character, links to Character entities."
-      category: "Character" 
-games:
-  type: object
-  properties:
-    backstory:
-      type: string
-      description: "The backstory of the character.."
-    level:
-      type: integer
-      description: "Level of the character."
-    power:
-      type: integer
-      description: "Power level of the character."
-    price:
-      type: integer
-      maximum: 9999
-      description: "Price or value associated with the character."
-    hit_points:
-      type: integer
-      maximum: 999
-      description: "Total hit points of the character."
-    skill_stealth:
-      type: integer
-      description: "Stealth skill level of the character."
-    tt_str:
-      type: integer
-      maximum: 20
-      description: "Strength attribute of the character."
-    tt_int:
-      type: integer
-      maximum: 20
-      description: "Intelligence attribute of the character."
-    tt_con:
-      type: integer
-      maximum: 20
-      description: "Constitution attribute of the character."
-    tt_dex:
-      type: integer
-      maximum: 20
-      description: "Dexterity attribute of the character."
-    tt_wis:
-      type: integer
-      maximum: 20
-      description: "Wisdom attribute of the character."
-    tt_cha:
-      type: integer
-      maximum: 20
-      description: "Charisma attribute of the character."
-    class:
-      type: string
-      description: "Class of the character."
-    alignment:
-      type: string
-      description: "Alignment of the character."
-    equipment:
-      type: multi-link
-      items:
-        type: string
-      description: "Equipment carried by the character, links to Object entities."
-      category: "Object"
-    backpack:
-      type: multi-link
-      items:
-        type: string
-      description: "Items in the character's backpack, links to Object entities."
-      category: "Object"
-    proficiencies:
-      type: multi-link
-      items:
-        type: string
-      description: "Proficiencies of the character, links to Construct entities."
-      category: "Construct"
-    features:
-      type: multi-link
-      items:
-        type: string
-      description: "Features of the character, links to Trait entities."
-      category: "Trait"
-    spells:
-      type: multi-link
-      items:
-        type: string
-      description: "Spells known by the character, links to Ability entities."
-      category: "Ability"
-    inspirations:
-      type: multi-link
-      items:
-        type: string
-      description: "Inspirations of the character, links to Construct entities."
-      category: "Construct"
+  world:
+    type: "object"
+    properties:
+      situation:
+        type: "string"
+        description: "Current situation or predicament of the character."
+      location:
+        type: "single-link"
+        description: "The character's current location, link to a Location entity."
+        category: "Location"
+      titles:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Titles held by the character, links to Title entities."
+        category: "Title"
+      objects:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Objects owned or associated with the character, links to Object entities."
+        category: "Object"
+      institutions:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Institutions associated with the character, links to Institution entities."
+        category: "Institution"
+  personality:
+    type: "object"
+    properties:
+      charisma:
+        type: "integer"
+        maximum: 100
+        description: "Charisma score of the character."
+      coercion:
+        type: "integer"
+        maximum: 100
+        description: "Coercion score of the character."
+      capability:
+        type: "integer"
+        maximum: 100
+        description: "Capability score of the character."
+      compassion:
+        type: "integer"
+        maximum: 100
+        description: "Compassion score of the character."
+      creativity:
+        type: "integer"
+        maximum: 100
+        description: "Creativity score of the character."
+      courage:
+        type: "integer"
+        maximum: 100
+        description: "Courage score of the character."
+  social:
+    type: "object"
+    properties:
+      family:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Family members of the character, links to Family entities."
+        category: "Family"
+      friends:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Friends of the character, links to Character entities."
+        category: "Character"
+      rivals:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Rivals of the character, links to Character entities."
+        category: "Character" 
+  games:
+    type: "object"
+    properties:
+      backstory:
+        type: "string"
+        description: "The backstory of the character.."
+      level:
+        type: "integer"
+        maximum: 0
+        description: "Level of the character."
+      power:
+        type: "integer"
+        maximum: 0
+        description: "Power level of the character."
+      price:
+        type: "integer"
+        maximum: 9999
+        description: "Price or value associated with the character."
+      hit_points:
+        type: "integer"
+        maximum: 999
+        description: "Total hit points of the character."
+      skill_stealth:
+        type: "integer"
+        maximum: 0
+        description: "Stealth skill level of the character."
+      tt_str:
+        type: "integer"
+        maximum: 20
+        description: "Strength attribute of the character."
+      tt_int:
+        type: "integer"
+        maximum: 20
+        description: "Intelligence attribute of the character."
+      tt_con:
+        type: "integer"
+        maximum: 20
+        description: "Constitution attribute of the character."
+      tt_dex:
+        type: "integer"
+        maximum: 20
+        description: "Dexterity attribute of the character."
+      tt_wis:
+        type: "integer"
+        maximum: 20
+        description: "Wisdom attribute of the character."
+      tt_cha:
+        type: "integer"
+        maximum: 20
+        description: "Charisma attribute of the character."
+      class:
+        type: "string"
+        description: "Class of the character."
+      alignment:
+        type: "string"
+        description: "Alignment of the character."
+      equipment:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Equipment carried by the character, links to Object entities."
+        category: "Object"
+      backpack:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Items in the character's backpack, links to Object entities."
+        category: "Object"
+      proficiencies:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Proficiencies of the character, links to Construct entities."
+        category: "Construct"
+      features:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Features of the character, links to Trait entities."
+        category: "Trait"
+      spells:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Spells known by the character, links to Ability entities."
+        category: "Ability"
+      inspirations:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Inspirations of the character, links to Construct entities."
+        category: "Construct"
