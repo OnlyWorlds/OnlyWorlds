@@ -1,0 +1,40 @@
+name: YAML to Obsidian Handlebars Conversion
+
+on:
+  push:
+    paths:
+      - 'schema/**/*.yaml'  # Trigger the workflow when a YAML file in the schema directory is pushed
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Ensures the workflow has permission to commit and push
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.8'
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Convert YAML to Handlebars
+        run: python ./scripts/yaml_to_handlebars.py
+
+      # Auto-commit changes
+      - name: Commit Handlebars files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Auto-update Handlebars files from YAML
+          branch: ${{ github.ref }}
+          file_pattern: languages/obsidian_handlebars/*Handlebar.md  # Specify the pattern to add files to the commit
+          commit_user_name: GitHub Actions
+          commit_user_email: actions@github.com
+
+      - name: Complete job
+        run: echo "Conversion and update complete!"

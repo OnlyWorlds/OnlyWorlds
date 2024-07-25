@@ -50,7 +50,7 @@ if __name__ == "__main__":
     for filename in os.listdir(yaml_dir):
         if filename.endswith('.yaml'):
             yaml_path = os.path.join(yaml_dir, filename)
-            handlebars_filename = filename.replace('.yaml', '.md')
+            handlebars_filename = filename[:-5].capitalize() + 'Handlebar.md'
             handlebars_path = os.path.join(handlebars_dir, handlebars_filename)
             convert_yaml_to_handlebars(yaml_path, handlebars_path)
             print(f"Converted {filename} to Handlebars Template: {handlebars_filename}")

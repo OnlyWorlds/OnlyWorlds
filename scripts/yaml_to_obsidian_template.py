@@ -45,7 +45,7 @@ if __name__ == "__main__":
     for filename in os.listdir(yaml_dir):
         if filename.endswith('.yaml'):
             yaml_path = os.path.join(yaml_dir, filename)
-            md_filename = filename.replace('.yaml', '.md')
+            md_filename = filename[:-5].capitalize() + '.md'
             md_path = os.path.join(md_dir, md_filename)
             convert_yaml_to_md(yaml_path, md_path)
             print(f"Converted {filename} to Markdown Template: {md_filename}")
