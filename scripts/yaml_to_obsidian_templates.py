@@ -1,8 +1,16 @@
 import os
 import yaml
 
-def generate_obsidian_template(yaml_content, template_path):
+def generate_obsidian_template(base_properties, yaml_content, template_path):
     with open(template_path, 'w') as md_file:
+        # Write the 'Base' properties first
+        md_file.write("## Base\n")
+        for field, details in base_properties.items():
+            tooltip = "Text" if details.get('type', 'string') == 'string' else "Number"
+            md_file.write(f"- <span class=\"text-field\" data-tooltip=\"{tooltip}\">{field}</span>: \n")
+        md_file.write("\n")
+
+        # Then write other properties from the category
         if 'properties' in yaml_content:
             for section, section_content in yaml_content['properties'].items():
                 md_file.write(f"## {section.capitalize()}\n")
@@ -27,25 +35,28 @@ def generate_obsidian_template(yaml_content, template_path):
                     # Write the field to the markdown file
                     md_file.write(f"- <span class=\"{field_type}\" data-tooltip=\"{tooltip}\">{field_name}</span>: \n")
                 md_file.write("\n")
-        else:
-            print(f"No 'properties' key found in YAML file for {template_path}")
 
-def convert_yaml_to_md(yaml_path, md_path):
+def convert_yaml_to_md(base_properties, yaml_path, md_path):
     with open(yaml_path, 'r') as yaml_file:
         yaml_content = yaml.safe_load(yaml_file)
-    generate_obsidian_template(yaml_content, md_path)
+    generate_obsidian_template(base_properties, yaml_content, md_path)
 
 if __name__ == "__main__":
     script_directory = os.path.dirname(__file__)
     yaml_dir = os.path.join(script_directory, '..', 'schema')
     md_dir = os.path.join(script_directory, '..', 'languages', 'obsidian_templates')
+    base_path = os.path.join(yaml_dir, 'base_properties.yaml')
+
+    # Load base properties once
+    with open(base_path, 'r') as file:
+        base_properties = yaml.safe_load(file)['properties']
 
     os.makedirs(md_dir, exist_ok=True)
 
     for filename in os.listdir(yaml_dir):
-        if filename.endswith('.yaml'):
+        if filename.endswith('.yaml') and filename != 'base_properties.yaml':
             yaml_path = os.path.join(yaml_dir, filename)
             md_filename = filename[:-5].capitalize() + '.md'
             md_path = os.path.join(md_dir, md_filename)
-            convert_yaml_to_md(yaml_path, md_path)
+            convert_yaml_to_md(base_properties, yaml_path, md_path)
             print(f"Converted {filename} to Markdown Template: {md_filename}")
