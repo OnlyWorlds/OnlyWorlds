@@ -54,7 +54,8 @@ jobs:
           mv Handlebars-files/* languages/obsidian_handlebars/
           mv JSON-files/* languages/json/
           mv Templates-files/* languages/obsidian_templates/
-          rm -r Handlebars-files JSON-files Templates-files  # Clean up
+          mv SQL-files/* languages/sql/
+          rm -r Handlebars-files JSON-files Templates-files SQL-files # Clean up
 
       - name: Configure git
         run: |
