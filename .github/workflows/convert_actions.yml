@@ -36,31 +36,30 @@ jobs:
           path: languages/${{ matrix.folder }}/*
 
   commit:
-  needs: convert
-  runs-on: ubuntu-latest
-  permissions:
-    contents: write
+    needs: convert
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
-  steps:
-    - uses: actions/checkout@v2
-    - name: Download all artifacts
-      uses: actions/download-artifact@v2
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download all artifacts
+        uses: actions/download-artifact@v2
 
-    - name: Move files to correct directory
-      run: |
-        mv Handlebars-files/* languages/obsidian_handlebars/
-        mv JSON-files/* languages/json/
-        mv Templates-files/* languages/obsidian_templates/
-        rm -r Handlebars-files JSON-files Templates-files  # Clean up
+      - name: Move files to correct directory
+        run: |
+          mv Handlebars-files/* languages/obsidian_handlebars/
+          mv JSON-files/* languages/json/
+          mv Templates-files/* languages/obsidian_templates/
+          rm -r Handlebars-files JSON-files Templates-files  # Clean up
 
-    - name: Configure git
-      run: |
-        git config --local user.email "actions@github.com"
-        git config --local user.name "GitHub Actions"
+      - name: Configure git
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
 
-    - name: Add and Commit Changes
-      run: |
-        git add languages/*
-        git commit -m "Auto-update files from YAML conversions"
-        git push
-
+      - name: Add and Commit Changes
+        run: |
+          git add languages/*
+          git commit -m "Auto-update files from YAML conversions"
+          git push
