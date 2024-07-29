@@ -35,7 +35,7 @@ jobs:
           name: ${{ matrix.type }}-files
           path: languages/${{ matrix.folder }}/*
 
-commit:
+  commit:
   needs: convert
   runs-on: ubuntu-latest
   permissions:
@@ -63,3 +63,4 @@ commit:
         git add languages/*
         git commit -m "Auto-update files from YAML conversions"
         git push
+
