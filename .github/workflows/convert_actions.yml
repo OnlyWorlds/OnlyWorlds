@@ -1,0 +1,53 @@
+name: Unified Conversion Workflow
+
+on:
+  push:
+    paths:
+      - 'schema/**/*.yaml'
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - type: "JSON"
+            script: "yaml_to_json.py"
+            folder: "json"
+          - type: "Handlebars"
+            script: "yaml_to_obsidian_handlebars.py"
+            folder: "obsidian_handlebars"
+          - type: "Templates"
+            script: "yaml_to_obsidian_templates.py"
+            folder: "obsidian_templates"
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+      - run: pip install pyyaml
+      - run: python ./scripts/${{ matrix.script }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.type }}-files
+          path: languages/${{ matrix.folder }}/*
+
+  commit:
+    needs: convert
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download all artifacts
+        uses: actions/download-artifact@v2
+      - run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add languages/*
+          git commit -m "Auto-update files from YAML conversions"
+          git push
