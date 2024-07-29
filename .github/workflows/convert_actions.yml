@@ -20,6 +20,9 @@ jobs:
           - type: "Templates"
             script: "yaml_to_obsidian_templates.py"
             folder: "obsidian_templates"
+          - type: "SQL"
+            script: "yaml_to_sql.py"
+            folder: "sql"
     permissions:
       contents: write
 
