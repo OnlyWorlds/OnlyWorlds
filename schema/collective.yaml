@@ -18,13 +18,13 @@ properties:
         description: "The date the collective was formed, represented as an integer (e.g., YYYYMMDD)."
       operator:
         type: "single-link"
-        description: "The institution or entity operating or managing the collective, link to an Institution entity."
+        description: "The institution or entity operating or managing the collective"
         category: "Institution"
       equipment:
         type: "multi-link"
         items:
           type: "string"
-        description: "Equipment or tools used by the collective, links to Construct entities."
+        description: "Equipment or tools used by the collective"
         category: "Construct"
   Agency:
     type: "object"
@@ -39,13 +39,13 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-        description: "Skills or abilities prevalent within the collective, links to Ability entities."
+        description: "Skills or abilities prevalent within the collective"
         category: "Ability"
       rituals:
         type: "multi-link"
         items:
           type: "string"
-        description: "Rituals or customary practices observed by the collective, links to Construct entities."
+        description: "Rituals or customary practices observed by the collective"
         category: "Construct"
   World:
     type: "object"
@@ -54,23 +54,23 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-        description: "Species that make up the collective, links to Species entities."
+        description: "Species that make up the collective"
         category: "Species"
       characters:
         type: "multi-link"
         items:
           type: "string"
-        description: "Characters who are part of the collective, links to Character entities."
+        description: "Characters who are part of the collective"
         category: "Character"
       creatures:
         type: "multi-link"
         items:
           type: "string"
-        description: "Creatures associated with the collective, links to Creature entities."
+        description: "Creatures associated with the collective"
         category: "Creature"
       phenomena:
         type: "multi-link"
         items:
           type: "string"
-        description: "Phenomena connected or significant to the collective, links to Phenomenon entities."
+        description: "Phenomena connected or significant to the collective"
         category: "Phenomenon"
