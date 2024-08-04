@@ -37,5 +37,22 @@ CREATE TABLE location (
     primary_extraction_market TEXT,
     primary_industry_market TEXT,
     secondary_extraction_markets TEXT,
-    secondary_industry_markets TEXT
+    secondary_industry_markets TEXT,
+    government TEXT,
+    opposition TEXT,
+    governing_title TEXT,
+    primary_faction TEXT,
+    secondary_factions TEXT,
+    territorial_policies TEXT,
+    territory TEXT,
+    rival TEXT,
+    friend TEXT,
+    soft_influence_on TEXT,
+    hard_influence_on TEXT,
+    defensibility TEXT,
+    height INTEGER,
+    primary_fighter TEXT,
+    secondary_fighters TEXT,
+    defenses TEXT,
+    fortifications TEXT
 );

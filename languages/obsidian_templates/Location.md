@@ -51,3 +51,26 @@
 - <span class="multi-link-field" data-tooltip="Multi Location">Secondary_extraction_markets</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Location">Secondary_industry_markets</span>: 
 
+## Localpolitics
+- <span class="text-field" data-tooltip="Text">Government</span>: 
+- <span class="text-field" data-tooltip="Text">Opposition</span>: 
+- <span class="link-field" data-tooltip="Single Title">Governing_title</span>: 
+- <span class="link-field" data-tooltip="Single Institution">Primary_faction</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Institution">Secondary_factions</span>: 
+
+## Regionalpolitics
+- <span class="text-field" data-tooltip="Text">Territorial_policies</span>: 
+- <span class="link-field" data-tooltip="Single Territory">Territory</span>: 
+- <span class="link-field" data-tooltip="Single Location">Rival</span>: 
+- <span class="link-field" data-tooltip="Single Location">Friend</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Location">Soft_influence_on</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Location">Hard_influence_on</span>: 
+
+## Strategics
+- <span class="text-field" data-tooltip="Text">Defensibility</span>: 
+- <span class="number-field" data-tooltip="Number">Height</span>: 
+- <span class="link-field" data-tooltip="Single Institution">Primary_fighter</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Institution">Secondary_fighters</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Location">Defenses</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Object">Fortifications</span>: 
+

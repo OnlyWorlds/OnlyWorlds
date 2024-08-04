@@ -51,3 +51,26 @@
 - <span class="multi-link-field" data-tooltip="Multi Location">Secondary_extraction_markets</span>: {{linkify secondary_extraction_markets}}
 - <span class="multi-link-field" data-tooltip="Multi Location">Secondary_industry_markets</span>: {{linkify secondary_industry_markets}}
 
+## Localpolitics
+- <span class="text-field" data-tooltip="Text">Government</span>: {{government}}
+- <span class="text-field" data-tooltip="Text">Opposition</span>: {{opposition}}
+- <span class="link-field" data-tooltip="Single Title">Governing_title</span>: {{linkify governing_title}}
+- <span class="link-field" data-tooltip="Single Institution">Primary_faction</span>: {{linkify primary_faction}}
+- <span class="multi-link-field" data-tooltip="Multi Institution">Secondary_factions</span>: {{linkify secondary_factions}}
+
+## Regionalpolitics
+- <span class="text-field" data-tooltip="Text">Territorial_policies</span>: {{territorial_policies}}
+- <span class="link-field" data-tooltip="Single Territory">Territory</span>: {{linkify territory}}
+- <span class="link-field" data-tooltip="Single Location">Rival</span>: {{linkify rival}}
+- <span class="link-field" data-tooltip="Single Location">Friend</span>: {{linkify friend}}
+- <span class="multi-link-field" data-tooltip="Multi Location">Soft_influence_on</span>: {{linkify soft_influence_on}}
+- <span class="multi-link-field" data-tooltip="Multi Location">Hard_influence_on</span>: {{linkify hard_influence_on}}
+
+## Strategics
+- <span class="text-field" data-tooltip="Text">Defensibility</span>: {{defensibility}}
+- <span class="number-field" data-tooltip="Number">Height</span>: {{height}}
+- <span class="link-field" data-tooltip="Single Institution">Primary_fighter</span>: {{linkify primary_fighter}}
+- <span class="multi-link-field" data-tooltip="Multi Institution">Secondary_fighters</span>: {{linkify secondary_fighters}}
+- <span class="multi-link-field" data-tooltip="Multi Location">Defenses</span>: {{linkify defenses}}
+- <span class="multi-link-field" data-tooltip="Multi Object">Fortifications</span>: {{linkify fortifications}}
+
