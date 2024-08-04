@@ -6,21 +6,25 @@
 - <span class="text-field" data-tooltip="Text">Subtype</span>: {{subtype}}
 - <span class="text-field" data-tooltip="Text">Image_url</span>: {{image_url}}
 
-## Biology
-- <span class="text-field" data-tooltip="Text">Appearance</span>: {{appearance}}
-- <span class="number-field" data-tooltip="Number">Life_span</span>: {{life_span}}
-- <span class="number-field" data-tooltip="Number">Average_weight</span>: {{average_weight}}
-- <span class="multi-link-field" data-tooltip="Multi Species">Nourishment</span>: {{linkify nourishment}}
+## Nature
+- <span class="text-field" data-tooltip="Text">Privileges</span>: {{privileges}}
+- <span class="text-field" data-tooltip="Text">Conditions</span>: {{conditions}}
+- <span class="number-field" data-tooltip="Number">Create_date</span>: {{create_date}}
+- <span class="number-field" data-tooltip="Number">Assign_date</span>: {{assign_date}}
+- <span class="number-field" data-tooltip="Number">Revoke_date</span>: {{revoke_date}}
+- <span class="number-field" data-tooltip="Number">Hierarchy</span>: {{hierarchy}}
 
-## Psychology
-- <span class="text-field" data-tooltip="Text">Instincts</span>: {{instincts}}
-- <span class="number-field" data-tooltip="Number">Aggression</span>: {{aggression}}
-- <span class="text-field" data-tooltip="Text">Agency</span>: {{agency}}
-- <span class="multi-link-field" data-tooltip="Multi Language">Languages</span>: {{linkify languages}}
+## Issue
+- <span class="text-field" data-tooltip="Text">Rights</span>: {{rights}}
+- <span class="link-field" data-tooltip="Single Institution">Author</span>: {{linkify author}}
 
 ## World
-- <span class="text-field" data-tooltip="Text">Impact</span>: {{impact}}
-- <span class="multi-link-field" data-tooltip="Multi Location">Habitat</span>: {{linkify habitat}}
-- <span class="multi-link-field" data-tooltip="Multi Phenomenon">Interaction</span>: {{linkify interaction}}
-- <span class="multi-link-field" data-tooltip="Multi Construct">Consumables</span>: {{linkify consumables}}
+- <span class="link-field" data-tooltip="Single Character">Character</span>: {{linkify character}}
+- <span class="link-field" data-tooltip="Single Location">Location</span>: {{linkify location}}
+- <span class="link-field" data-tooltip="Single Object">Object</span>: {{linkify object}}
+- <span class="link-field" data-tooltip="Single Institution">Institution</span>: {{linkify institution}}
+- <span class="link-field" data-tooltip="Single Creature">Creature</span>: {{linkify creature}}
+- <span class="link-field" data-tooltip="Single Territory">Territory</span>: {{linkify territory}}
+- <span class="link-field" data-tooltip="Single Collective">Collective</span>: {{linkify collective}}
+- <span class="link-field" data-tooltip="Single Construct">Construct</span>: {{linkify construct}}
 
