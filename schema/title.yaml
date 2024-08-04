@@ -1,68 +1,74 @@
 $schema: "http://json-schema.org/draft-07/schema#"
-title: "Species"
+title: "Title"
 type: "object"
 properties:
-  Biology:
+  Nature:
     type: "object"
     properties:
-      appearance:
+      privileges:
         type: "string"
-        description: "Physical description of the species, including notable features."
-      life_span:
+        description: "Specific rights or benefits associated with the title."
+      conditions:
+        type: "string"
+        description: "Conditions or requirements for obtaining and holding the title."
+      create_date:
         type: "integer"
         maximum: 0
-        description: "Average life expectancy of the species under natural conditions."
-      average_weight:
+        description: "Date when the title was first created."
+      assign_date:
         type: "integer"
         maximum: 0
-        description: "Typical weight range for mature individuals of the species."
-      nourishment:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Primary sources of food and nutrition for the species."
-        category: "Species"
-  Psychology:
+        description: "Date when the title was last assigned to an individual or entity."
+      revoke_date:
+        type: "integer"
+        maximum: 0
+        description: "Date when the title was revoked or nullified, if applicable."
+      hierarchy:
+        type: "integer"
+        maximum: 0
+        description: "Numerical value indicating the rank or level of the title within a hierarchical system."
+  Issue:
     type: "object"
     properties:
-      instincts:
+      rights:
         type: "string"
-        description: "Innate behaviors and survival instincts of the species."
-      aggression:
-        type: "integer"
-        maximum: 100
-        description: "Typical level of aggressiveness exhibited by the species."
-      agency:
-        type: "string"
-        description: "Capacity for self-directed behavior and decision-making in the species."
-      languages:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Languages known or used by the species, if any."
-        category: "Language"
+        description: "Legal or customary rights conferred by the title."
+      author:
+        type: "single-link"
+        description: "The institution or authority that issued the title."
+        category: "Institution"
   World:
     type: "object"
     properties:
-      impact:
-        type: "string"
-        description: "Overall effect or influence the species has on its environment."
-      habitat:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Primary natural habitats where the species is typically found."
+      character:
+        type: "single-link"
+        description: "Character who currently holds or is associated with the title."
+        category: "Character"
+      location:
+        type: "single-link"
+        description: "Location that is governed by or significantly associated with the title."
         category: "Location"
-      interaction:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Typical interactions of the species with other species or environmental elements."
-        category: "Phenomenon"
-      consumables:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Items that the species commonly consumes or utilizes."
+      object:
+        type: "single-link"
+        description: "Object that symbolizes or is tied to the title."
+        category: "Object"
+      institution:
+        type: "single-link"
+        description: "Institution that is linked to the administration or history of the title."
+        category: "Institution"
+      creature:
+        type: "single-link"
+        description: "Creature associated with the title, possibly as a symbol or totem."
+        category: "Creature"
+      territory:
+        type: "single-link"
+        description: "Territory under the jurisdiction or influence of the title."
+        category: "Territory"
+      collective:
+        type: "single-link"
+        description: "Group or collective that is integral to the role or function of the title."
+        category: "Collective"
+      construct:
+        type: "single-link"
+        description: "Construct or principle that underpins the philosophical or legal basis of the title."
         category: "Construct"
- 
