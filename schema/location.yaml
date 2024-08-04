@@ -160,3 +160,88 @@ properties:
           type: "string"
         description: "Markets for products from other significant industries."
         category: "Location"
+  LocalPolitics:
+    type: "object"
+    properties:
+      government:
+        type: "string"
+        description: "Governing body or administration of the location."
+      opposition:
+        type: "string"
+        description: "Primary opposition groups or political rivals within the location."
+      governing_title:
+        type: "single-link"
+        description: "Title of the main governing authority."
+        category: "Title"
+      primary_faction:
+        type: "single-link"
+        description: "Leading political or administrative institution."
+        category: "Institution"
+      secondary_factions:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Secondary or minor political factions."
+        category: "Institution"
+  RegionalPolitics:
+    type: "object"
+    properties:
+      territorial_policies:
+        type: "string"
+        description: "Policies that govern territorial claims and management."
+      territory:
+        type: "single-link"
+        description: "Territorial jurisdiction of the location."
+        category: "Territory"
+      rival:
+        type: "single-link"
+        description: "Neighboring rival locations."
+        category: "Location"
+      friend:
+        type: "single-link"
+        description: "Friendly neighboring locations."
+        category: "Location"
+      soft_influence_on:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Locations under the soft influence of this location."
+        category: "Location"
+      hard_influence_on:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Locations under the hard control or influence of this location."
+        category: "Location"
+  Strategics:
+    type: "object"
+    properties:
+      defensibility:
+        type: "string"
+        description: "Assessment of the location’s defensibility against threats."
+      height:
+        type: "integer"
+        maximum: 0
+        description: "Elevation or strategic height of the location."
+      primary_fighter:
+        type: "single-link"
+        description: "Primary defensive institution or military presence."
+        category: "Institution"
+      secondary_fighters:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Supportive or auxiliary defensive forces."
+        category: "Institution"
+      defenses:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Defensive structures or mechanisms in place."
+        category: "Location"
+      fortifications:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Fortifications built to protect the location."
+        category: "Object"
