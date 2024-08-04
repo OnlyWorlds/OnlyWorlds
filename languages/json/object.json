@@ -1,4 +1,7 @@
 {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Object",
+    "type": "object",
     "properties": {
         "Base": {
             "ID": {
@@ -24,6 +27,134 @@
             "Image_URL": {
                 "type": "string",
                 "description": "URL to an image representing the element."
+            }
+        },
+        "Form": {
+            "type": "object",
+            "properties": {
+                "aesthetics": {
+                    "type": "string",
+                    "description": "Visual and design characteristics of the object."
+                },
+                "weight": {
+                    "type": "integer",
+                    "maximum": 0,
+                    "description": "Physical weight of the object, usually in kilograms or pounds."
+                },
+                "amount": {
+                    "type": "integer",
+                    "maximum": 0,
+                    "description": "Quantity or count of the object, particularly if it is part of a set or collection."
+                },
+                "parent_object": {
+                    "type": "single-link",
+                    "description": "Directly related or parent object from which this one is derived or part of.",
+                    "category": "Object"
+                },
+                "technology": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Technological aspects or mechanisms incorporated within the object.",
+                    "category": "Construct"
+                }
+            }
+        },
+        "Function": {
+            "type": "object",
+            "properties": {
+                "utility": {
+                    "type": "string",
+                    "description": "Primary function or use of the object."
+                },
+                "effects": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Effects or outcomes produced by the object when used.",
+                    "category": "Phenomenon"
+                },
+                "enables": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Abilities or actions enabled by using the object.",
+                    "category": "Ability"
+                },
+                "consumes": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Resources or materials consumed by the object during use.",
+                    "category": "Construct"
+                }
+            }
+        },
+        "World": {
+            "type": "object",
+            "properties": {
+                "origins": {
+                    "type": "string",
+                    "description": "Origins or historical background of the object."
+                },
+                "location": {
+                    "type": "single-link",
+                    "description": "Current location or usual storage place of the object.",
+                    "category": "Location"
+                }
+            }
+        },
+        "Games": {
+            "type": "object",
+            "properties": {
+                "craftsmanship": {
+                    "type": "string",
+                    "description": "Quality of workmanship or level of craftsmanship of the object."
+                },
+                "requirements": {
+                    "type": "string",
+                    "description": "Conditions or prerequisites required to use the object effectively."
+                },
+                "durability": {
+                    "type": "string",
+                    "description": "Measure of the object's resistance to wear and damage."
+                },
+                "value": {
+                    "type": "integer",
+                    "maximum": 0,
+                    "description": "Monetary or trade value of the object."
+                },
+                "damage": {
+                    "type": "integer",
+                    "maximum": 0,
+                    "description": "Potential damage the object can inflict, applicable if used as a weapon."
+                },
+                "armor": {
+                    "type": "integer",
+                    "maximum": 0,
+                    "description": "Armor rating, applicable if the object provides protection."
+                },
+                "rarity": {
+                    "type": "string",
+                    "description": "Scarcity or uniqueness of the object."
+                },
+                "language": {
+                    "type": "single-link",
+                    "description": "Language associated with or required to understand the object.",
+                    "category": "Language"
+                },
+                "requires": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specific traits or skills required to use the object.",
+                    "category": "Trait"
+                }
             }
         }
     }

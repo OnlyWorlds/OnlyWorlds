@@ -1,8 +1,28 @@
-CREATE TABLE default_table_name (
+CREATE TABLE object (
     id TEXT,
     name TEXT,
     description TEXT,
     supertype TEXT,
     subtype TEXT,
-    image_url TEXT
+    image_url TEXT,
+    aesthetics TEXT,
+    weight INTEGER,
+    amount INTEGER,
+    parent_object TEXT,
+    technology TEXT,
+    utility TEXT,
+    effects TEXT,
+    enables TEXT,
+    consumes TEXT,
+    origins TEXT,
+    location TEXT,
+    craftsmanship TEXT,
+    requirements TEXT,
+    durability TEXT,
+    value INTEGER,
+    damage INTEGER,
+    armor INTEGER,
+    rarity TEXT,
+    language TEXT,
+    requires TEXT
 );

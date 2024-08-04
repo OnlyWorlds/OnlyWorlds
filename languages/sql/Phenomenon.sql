@@ -1,8 +1,22 @@
-CREATE TABLE default_table_name (
+CREATE TABLE phenomenon (
     id TEXT,
     name TEXT,
     description TEXT,
     supertype TEXT,
     subtype TEXT,
-    image_url TEXT
+    image_url TEXT,
+    presence TEXT,
+    scope TEXT,
+    duration INTEGER,
+    intensity TEXT,
+    empowerments TEXT,
+    environments TEXT,
+    carriers TEXT,
+    effect TEXT,
+    catalysts TEXT,
+    wielders TEXT,
+    handlers TEXT,
+    enablers TEXT,
+    triggers TEXT,
+    affinity TEXT
 );

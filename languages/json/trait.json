@@ -1,4 +1,7 @@
 {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Trait",
+    "type": "object",
     "properties": {
         "Base": {
             "ID": {
@@ -24,6 +27,88 @@
             "Image_URL": {
                 "type": "string",
                 "description": "URL to an image representing the element."
+            }
+        },
+        "Qualitative": {
+            "type": "object",
+            "properties": {
+                "social_effects": {
+                    "type": "string",
+                    "description": "Effects of the trait on social interactions and relationships."
+                },
+                "physical_effects": {
+                    "type": "string",
+                    "description": "Physical changes or impacts caused by the trait."
+                },
+                "skill_effects": {
+                    "type": "string",
+                    "description": "Influences of the trait on the skills or abilities of an individual."
+                },
+                "personality_effects": {
+                    "type": "string",
+                    "description": "How the trait affects personality or mental states."
+                },
+                "artistic_effects": {
+                    "type": "string",
+                    "description": "Impact of the trait on artistic abilities or perceptions."
+                },
+                "behaviour_effects": {
+                    "type": "string",
+                    "description": "Changes in behavior attributed to the trait."
+                }
+            }
+        },
+        "Quantitative": {
+            "type": "object",
+            "properties": {
+                "charisma": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "description": "Influence of the trait on charisma scores."
+                },
+                "coercion": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "description": "Effect of the trait on coercion capabilities."
+                },
+                "capability": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "description": "Impact of the trait on overall capability."
+                },
+                "compassion": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "description": "Influence of the trait on compassion levels."
+                },
+                "creativity": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "description": "Effect of the trait on creativity scores."
+                },
+                "courage": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "description": "Contribution of the trait to courage."
+                }
+            }
+        },
+        "World": {
+            "type": "object",
+            "properties": {
+                "anti_trait": {
+                    "type": "single-link",
+                    "description": "A trait that opposes or negates this trait.",
+                    "category": "Trait"
+                },
+                "empowered_abilities": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Abilities that are enhanced or activated by this trait.",
+                    "category": "Ability"
+                }
             }
         }
     }

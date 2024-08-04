@@ -1,8 +1,20 @@
-CREATE TABLE default_table_name (
+CREATE TABLE relation (
     id TEXT,
     name TEXT,
     description TEXT,
     supertype TEXT,
     subtype TEXT,
-    image_url TEXT
+    image_url TEXT,
+    history TEXT,
+    impact TEXT,
+    start_date INTEGER,
+    end_date INTEGER,
+    debt INTEGER,
+    events TEXT,
+    primary_character TEXT,
+    primary_creature TEXT,
+    primary_institution TEXT,
+    secondary_characters TEXT,
+    secondary_creatures TEXT,
+    secondary_institutions TEXT
 );

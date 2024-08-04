@@ -6,3 +6,48 @@
 - <span class="text-field" data-tooltip="Text">Subtype</span>: {{subtype}}
 - <span class="text-field" data-tooltip="Text">Image_url</span>: {{image_url}}
 
+## Locality
+- <span class="text-field" data-tooltip="Text">Scene</span>: {{scene}}
+- <span class="text-field" data-tooltip="Text">Activity</span>: {{activity}}
+- <span class="number-field" data-tooltip="Number">Founding_date</span>: {{founding_date}}
+- <span class="number-field" data-tooltip="Number">Population_size</span>: {{population_size}}
+- <span class="link-field" data-tooltip="Single Location">Parent_location</span>: {{linkify parent_location}}
+- <span class="multi-link-field" data-tooltip="Multi Collective">Populations</span>: {{linkify populations}}
+
+## Culture
+- <span class="text-field" data-tooltip="Text">Traditions</span>: {{traditions}}
+- <span class="text-field" data-tooltip="Text">Celebrations</span>: {{celebrations}}
+- <span class="link-field" data-tooltip="Single Construct">Primary_cult</span>: {{linkify primary_cult}}
+- <span class="multi-link-field" data-tooltip="Multi Construct">Secondary_cults</span>: {{linkify secondary_cults}}
+- <span class="multi-link-field" data-tooltip="Multi Species">Delicacies</span>: {{linkify delicacies}}
+
+## World
+- <span class="text-field" data-tooltip="Text">Coordinates</span>: {{coordinates}}
+- <span class="multi-link-field" data-tooltip="Multi Character">Founders</span>: {{linkify founders}}
+
+## Construction
+- <span class="text-field" data-tooltip="Text">Logistics</span>: {{logistics}}
+- <span class="text-field" data-tooltip="Text">Architecture</span>: {{architecture}}
+- <span class="number-field" data-tooltip="Number">Construction_rate</span>: {{construction_rate}}
+- <span class="multi-link-field" data-tooltip="Multi Location">Buildings</span>: {{linkify buildings}}
+- <span class="multi-link-field" data-tooltip="Multi Construct">Building_expertise</span>: {{linkify building_expertise}}
+
+## Production
+- <span class="text-field" data-tooltip="Text">Extraction</span>: {{extraction}}
+- <span class="text-field" data-tooltip="Text">Industry</span>: {{industry}}
+- <span class="number-field" data-tooltip="Number">Extraction_output</span>: {{extraction_output}}
+- <span class="number-field" data-tooltip="Number">Industry_output</span>: {{industry_output}}
+- <span class="link-field" data-tooltip="Single Construct">Primary_resource</span>: {{linkify primary_resource}}
+- <span class="link-field" data-tooltip="Single Construct">Primary_industry</span>: {{linkify primary_industry}}
+- <span class="multi-link-field" data-tooltip="Multi Construct">Secondary_resources</span>: {{linkify secondary_resources}}
+- <span class="multi-link-field" data-tooltip="Multi Construct">Secondary_industries</span>: {{linkify secondary_industries}}
+
+## Commerce
+- <span class="text-field" data-tooltip="Text">Trade</span>: {{trade}}
+- <span class="text-field" data-tooltip="Text">Infrastructure</span>: {{infrastructure}}
+- <span class="text-field" data-tooltip="Text">Currency</span>: {{currency}}
+- <span class="link-field" data-tooltip="Single Location">Primary_extraction_market</span>: {{linkify primary_extraction_market}}
+- <span class="link-field" data-tooltip="Single Location">Primary_industry_market</span>: {{linkify primary_industry_market}}
+- <span class="multi-link-field" data-tooltip="Multi Location">Secondary_extraction_markets</span>: {{linkify secondary_extraction_markets}}
+- <span class="multi-link-field" data-tooltip="Multi Location">Secondary_industry_markets</span>: {{linkify secondary_industry_markets}}
+
