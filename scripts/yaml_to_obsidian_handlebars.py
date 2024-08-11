@@ -16,34 +16,32 @@ def generate_handlebars_template(base_properties, yaml_content, template_path):
         # Then write other properties from the category
         if 'properties' in yaml_content:
             for section, section_content in yaml_content['properties'].items():
-                if section != 'Base':  # Skip 'Base' as it is already written
-                    md_file.write(f"## {section.capitalize()}\n")
-                    for field, details in section_content.get('properties', {}).items():
-                        field_name = field.capitalize()
-                        field_variable = field.lower()
-                        field_type = details.get('type', 'text')  # Default to text if type is not specified
+                md_file.write(f"## {section.capitalize()}\n")
+                for field, details in section_content.get('properties', {}).items():
+                    field_name = field.capitalize()
+                    field_variable = field.lower()
+                    field_type = details.get('type', 'text')  # Default to text if type is not specified
 
-                        # Determine tooltip and append handlebars syntax
-                        if field_type == 'integer':
-                            field_type = "number-field"
-                            tooltip = "Number"
-                            handlebars_value = f"{{{{{field_variable}}}}}"
-                        elif 'items' in details or field_type == 'multi-link':
-                            field_type = "multi-link-field"
-                            tooltip = f"Multi {details.get('category', '').strip()}"
-                            handlebars_value = f"{{{{linkify {field_variable}}}}}"
-                        elif field_type == 'single-link':
-                            field_type = "link-field"
-                            tooltip = f"Single {details.get('category', '').strip()}"
-                            handlebars_value = f"{{{{linkify {field_variable}}}}}"
-                        else:
-                            field_type = "text-field"
-                            tooltip = "Text"
-                            handlebars_value = f"{{{{{field_variable}}}}}"
+                    # Append maximum value to tooltip if it's an integer with a defined maximum
+                    max_value = details.get('maximum')
+                    if field_type == 'integer' and max_value is not None:
+                        tooltip = f"Number, max: {max_value}"
+                    else:
+                        tooltip = "Number" if field_type == 'integer' else "Text"
 
-                        # Write the field to the markdown file
-                        md_file.write(f"- <span class=\"{field_type}\" data-tooltip=\"{tooltip}\">{field_name}</span>: {handlebars_value}\n")
-                    md_file.write("\n")
+                    handlebars_value = f"{{{{{field_variable}}}}}"
+                    if 'items' in details or field_type == 'multi-link':
+                        field_type = "multi-link-field"
+                        tooltip = f"Multi {details.get('category', '').strip()}"
+                        handlebars_value = f"{{{{linkify {field_variable}}}}}"
+                    elif field_type == 'single-link':
+                        field_type = "link-field"
+                        tooltip = f"Single {details.get('category', '').strip()}"
+                        handlebars_value = f"{{{{linkify {field_variable}}}}}"
+
+                    # Write the field to the markdown file
+                    md_file.write(f"- <span class=\"{field_type}\" data-tooltip=\"{tooltip}\">{field_name}</span>: {handlebars_value}\n")
+                md_file.write("\n")
 
 def convert_yaml_to_handlebars(base_properties, yaml_path, handlebars_path):
     with open(yaml_path, 'r') as yaml_file:
