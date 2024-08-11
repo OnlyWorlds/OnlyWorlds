@@ -2,7 +2,7 @@ $schema: "http://json-schema.org/draft-07/schema#"
 title: "BaseProperties"
 type: "object"
 properties:
-  ID:
+  Id:
     type: "string"
     description: "Unique identifier for the element, uuidv7 format"
   Name:
