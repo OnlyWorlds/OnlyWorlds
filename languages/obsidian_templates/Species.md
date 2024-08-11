@@ -8,13 +8,13 @@
 
 ## Biology
 - <span class="text-field" data-tooltip="Text">Appearance</span>: 
-- <span class="number-field" data-tooltip="Number">Life_span</span>: 
-- <span class="number-field" data-tooltip="Number">Average_weight</span>: 
+- <span class="number-field" data-tooltip="Number, max: 0">Life_span</span>: 
+- <span class="number-field" data-tooltip="Number, max: 0">Average_weight</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Species">Nourishment</span>: 
 
 ## Psychology
 - <span class="text-field" data-tooltip="Text">Instincts</span>: 
-- <span class="number-field" data-tooltip="Number">Aggression</span>: 
+- <span class="number-field" data-tooltip="Number, max: 100">Aggression</span>: 
 - <span class="text-field" data-tooltip="Text">Agency</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Language">Languages</span>: 
 

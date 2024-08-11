@@ -10,8 +10,8 @@
 - <span class="text-field" data-tooltip="Text">History</span>: 
 - <span class="text-field" data-tooltip="Text">Understanding</span>: 
 - <span class="text-field" data-tooltip="Text">State</span>: 
-- <span class="number-field" data-tooltip="Number">Start_date</span>: 
-- <span class="number-field" data-tooltip="Number">End_date</span>: 
+- <span class="number-field" data-tooltip="Number, max: 0">Start_date</span>: 
+- <span class="number-field" data-tooltip="Number, max: 0">End_date</span>: 
 - <span class="link-field" data-tooltip="Single Character">Founder</span>: 
 - <span class="link-field" data-tooltip="Single Institution">Organiser</span>: 
 

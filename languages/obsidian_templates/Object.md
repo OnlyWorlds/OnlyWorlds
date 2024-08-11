@@ -8,8 +8,8 @@
 
 ## Form
 - <span class="text-field" data-tooltip="Text">Aesthetics</span>: 
-- <span class="number-field" data-tooltip="Number">Weight</span>: 
-- <span class="number-field" data-tooltip="Number">Amount</span>: 
+- <span class="number-field" data-tooltip="Number, max: 0">Weight</span>: 
+- <span class="number-field" data-tooltip="Number, max: 0">Amount</span>: 
 - <span class="link-field" data-tooltip="Single Object">Parent_object</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Construct">Technology</span>: 
 
@@ -27,9 +27,9 @@
 - <span class="text-field" data-tooltip="Text">Craftsmanship</span>: 
 - <span class="text-field" data-tooltip="Text">Requirements</span>: 
 - <span class="text-field" data-tooltip="Text">Durability</span>: 
-- <span class="number-field" data-tooltip="Number">Value</span>: 
-- <span class="number-field" data-tooltip="Number">Damage</span>: 
-- <span class="number-field" data-tooltip="Number">Armor</span>: 
+- <span class="number-field" data-tooltip="Number, max: 0">Value</span>: 
+- <span class="number-field" data-tooltip="Number, max: 0">Damage</span>: 
+- <span class="number-field" data-tooltip="Number, max: 0">Armor</span>: 
 - <span class="text-field" data-tooltip="Text">Rarity</span>: 
 - <span class="link-field" data-tooltip="Single Language">Language</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Trait">Requires</span>: 

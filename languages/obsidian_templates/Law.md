@@ -8,7 +8,7 @@
 
 ## Code
 - <span class="text-field" data-tooltip="Text">Decree</span>: 
-- <span class="number-field" data-tooltip="Number">Date</span>: 
+- <span class="number-field" data-tooltip="Number, max: 0">Date</span>: 
 - <span class="text-field" data-tooltip="Text">Purpose</span>: 
 - <span class="link-field" data-tooltip="Single Institution">Author</span>: 
 

@@ -151,7 +151,7 @@
                 "charisma": {
                     "type": "integer",
                     "maximum": 100,
-                    "description": "Charisma score of the character.."
+                    "description": "Charisma score of the character."
                 },
                 "coercion": {
                     "type": "integer",

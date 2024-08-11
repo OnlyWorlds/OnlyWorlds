@@ -8,8 +8,8 @@
 
 ## Mechanics
 - <span class="text-field" data-tooltip="Text">Usage</span>: 
-- <span class="number-field" data-tooltip="Number">Range</span>: 
-- <span class="number-field" data-tooltip="Number">Strength</span>: 
+- <span class="number-field" data-tooltip="Number, max: 0">Range</span>: 
+- <span class="number-field" data-tooltip="Number, max: 100">Strength</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Phenomenon">Effects</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Construct">Utility</span>: 
 

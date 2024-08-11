@@ -15,7 +15,7 @@
 
 ## Spread
 - <span class="text-field" data-tooltip="Text">Prose</span>: 
-- <span class="number-field" data-tooltip="Number">Speakers</span>: 
+- <span class="number-field" data-tooltip="Number, max: 0">Speakers</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Language">Dialects</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Location">Range</span>: 
 

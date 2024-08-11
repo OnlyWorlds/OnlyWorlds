@@ -8,8 +8,8 @@
 
 ## Foundation
 - <span class="text-field" data-tooltip="Text">Premise</span>: 
-- <span class="number-field" data-tooltip="Number">Found_date</span>: 
-- <span class="number-field" data-tooltip="Number">End_date</span>: 
+- <span class="number-field" data-tooltip="Number, max: 0">Found_date</span>: 
+- <span class="number-field" data-tooltip="Number, max: 0">End_date</span>: 
 - <span class="link-field" data-tooltip="Single Institution">Parent_institution</span>: 
 
 ## Claim

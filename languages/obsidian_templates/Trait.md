@@ -15,12 +15,12 @@
 - <span class="text-field" data-tooltip="Text">Behaviour_effects</span>: 
 
 ## Quantitative
-- <span class="number-field" data-tooltip="Number">Charisma</span>: 
-- <span class="number-field" data-tooltip="Number">Coercion</span>: 
-- <span class="number-field" data-tooltip="Number">Capability</span>: 
-- <span class="number-field" data-tooltip="Number">Compassion</span>: 
-- <span class="number-field" data-tooltip="Number">Creativity</span>: 
-- <span class="number-field" data-tooltip="Number">Courage</span>: 
+- <span class="number-field" data-tooltip="Number, max: 100">Charisma</span>: 
+- <span class="number-field" data-tooltip="Number, max: 100">Coercion</span>: 
+- <span class="number-field" data-tooltip="Number, max: 100">Capability</span>: 
+- <span class="number-field" data-tooltip="Number, max: 100">Compassion</span>: 
+- <span class="number-field" data-tooltip="Number, max: 100">Creativity</span>: 
+- <span class="number-field" data-tooltip="Number, max: 100">Courage</span>: 
 
 ## World
 - <span class="link-field" data-tooltip="Single Trait">Anti_trait</span>: 
