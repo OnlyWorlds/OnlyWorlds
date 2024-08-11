@@ -7,9 +7,9 @@
 - <span class="text-field" data-tooltip="Text">Image_url</span>: {{image_url}}
 
 ## Foundation
-- <span class="text-field" data-tooltip="Text">Premise</span>: {{premise}}
-- <span class="number-field" data-tooltip="Number">Found_date</span>: {{found_date}}
-- <span class="number-field" data-tooltip="Number">End_date</span>: {{end_date}}
+- <span class="string" data-tooltip="Text">Premise</span>: {{premise}}
+- <span class="integer" data-tooltip="Number, max: 0">Found_date</span>: {{found_date}}
+- <span class="integer" data-tooltip="Number, max: 0">End_date</span>: {{end_date}}
 - <span class="link-field" data-tooltip="Single Institution">Parent_institution</span>: {{linkify parent_institution}}
 
 ## Claim
@@ -19,7 +19,7 @@
 - <span class="multi-link-field" data-tooltip="Multi Law">Legal</span>: {{linkify legal}}
 
 ## World
-- <span class="text-field" data-tooltip="Text">Situation</span>: {{situation}}
+- <span class="string" data-tooltip="Text">Situation</span>: {{situation}}
 - <span class="multi-link-field" data-tooltip="Multi Institution">Cooperates</span>: {{linkify cooperates}}
 - <span class="multi-link-field" data-tooltip="Multi Institution">Competition</span>: {{linkify competition}}
 - <span class="multi-link-field" data-tooltip="Multi Construct">Constructs</span>: {{linkify constructs}}

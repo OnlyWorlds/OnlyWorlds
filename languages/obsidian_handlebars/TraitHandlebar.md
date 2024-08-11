@@ -7,20 +7,20 @@
 - <span class="text-field" data-tooltip="Text">Image_url</span>: {{image_url}}
 
 ## Qualitative
-- <span class="text-field" data-tooltip="Text">Social_effects</span>: {{social_effects}}
-- <span class="text-field" data-tooltip="Text">Physical_effects</span>: {{physical_effects}}
-- <span class="text-field" data-tooltip="Text">Skill_effects</span>: {{skill_effects}}
-- <span class="text-field" data-tooltip="Text">Personality_effects</span>: {{personality_effects}}
-- <span class="text-field" data-tooltip="Text">Artistic_effects</span>: {{artistic_effects}}
-- <span class="text-field" data-tooltip="Text">Behaviour_effects</span>: {{behaviour_effects}}
+- <span class="string" data-tooltip="Text">Social_effects</span>: {{social_effects}}
+- <span class="string" data-tooltip="Text">Physical_effects</span>: {{physical_effects}}
+- <span class="string" data-tooltip="Text">Skill_effects</span>: {{skill_effects}}
+- <span class="string" data-tooltip="Text">Personality_effects</span>: {{personality_effects}}
+- <span class="string" data-tooltip="Text">Artistic_effects</span>: {{artistic_effects}}
+- <span class="string" data-tooltip="Text">Behaviour_effects</span>: {{behaviour_effects}}
 
 ## Quantitative
-- <span class="number-field" data-tooltip="Number">Charisma</span>: {{charisma}}
-- <span class="number-field" data-tooltip="Number">Coercion</span>: {{coercion}}
-- <span class="number-field" data-tooltip="Number">Capability</span>: {{capability}}
-- <span class="number-field" data-tooltip="Number">Compassion</span>: {{compassion}}
-- <span class="number-field" data-tooltip="Number">Creativity</span>: {{creativity}}
-- <span class="number-field" data-tooltip="Number">Courage</span>: {{courage}}
+- <span class="integer" data-tooltip="Number, max: 100">Charisma</span>: {{charisma}}
+- <span class="integer" data-tooltip="Number, max: 100">Coercion</span>: {{coercion}}
+- <span class="integer" data-tooltip="Number, max: 100">Capability</span>: {{capability}}
+- <span class="integer" data-tooltip="Number, max: 100">Compassion</span>: {{compassion}}
+- <span class="integer" data-tooltip="Number, max: 100">Creativity</span>: {{creativity}}
+- <span class="integer" data-tooltip="Number, max: 100">Courage</span>: {{courage}}
 
 ## World
 - <span class="link-field" data-tooltip="Single Trait">Anti_trait</span>: {{linkify anti_trait}}

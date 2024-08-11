@@ -7,15 +7,15 @@
 - <span class="text-field" data-tooltip="Text">Image_url</span>: {{image_url}}
 
 ## Nature
-- <span class="text-field" data-tooltip="Text">Privileges</span>: {{privileges}}
-- <span class="text-field" data-tooltip="Text">Conditions</span>: {{conditions}}
-- <span class="number-field" data-tooltip="Number">Create_date</span>: {{create_date}}
-- <span class="number-field" data-tooltip="Number">Assign_date</span>: {{assign_date}}
-- <span class="number-field" data-tooltip="Number">Revoke_date</span>: {{revoke_date}}
-- <span class="number-field" data-tooltip="Number">Hierarchy</span>: {{hierarchy}}
+- <span class="string" data-tooltip="Text">Privileges</span>: {{privileges}}
+- <span class="string" data-tooltip="Text">Conditions</span>: {{conditions}}
+- <span class="integer" data-tooltip="Number, max: 0">Create_date</span>: {{create_date}}
+- <span class="integer" data-tooltip="Number, max: 0">Assign_date</span>: {{assign_date}}
+- <span class="integer" data-tooltip="Number, max: 0">Revoke_date</span>: {{revoke_date}}
+- <span class="integer" data-tooltip="Number, max: 0">Hierarchy</span>: {{hierarchy}}
 
 ## Issue
-- <span class="text-field" data-tooltip="Text">Rights</span>: {{rights}}
+- <span class="string" data-tooltip="Text">Rights</span>: {{rights}}
 - <span class="link-field" data-tooltip="Single Institution">Author</span>: {{linkify author}}
 
 ## World

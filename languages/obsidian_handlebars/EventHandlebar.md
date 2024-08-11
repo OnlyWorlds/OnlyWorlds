@@ -7,11 +7,11 @@
 - <span class="text-field" data-tooltip="Text">Image_url</span>: {{image_url}}
 
 ## Nature
-- <span class="text-field" data-tooltip="Text">History</span>: {{history}}
-- <span class="text-field" data-tooltip="Text">Consequences</span>: {{consequences}}
-- <span class="number-field" data-tooltip="Number">Start_date</span>: {{start_date}}
-- <span class="number-field" data-tooltip="Number">End_date</span>: {{end_date}}
-- <span class="text-field" data-tooltip="Text">Adversity</span>: {{adversity}}
+- <span class="string" data-tooltip="Text">History</span>: {{history}}
+- <span class="string" data-tooltip="Text">Consequences</span>: {{consequences}}
+- <span class="integer" data-tooltip="Number, max: 0">Start_date</span>: {{start_date}}
+- <span class="integer" data-tooltip="Number, max: 0">End_date</span>: {{end_date}}
+- <span class="string" data-tooltip="Text">Adversity</span>: {{adversity}}
 
 ## Involves
 - <span class="multi-link-field" data-tooltip="Multi Character">Characters</span>: {{linkify characters}}

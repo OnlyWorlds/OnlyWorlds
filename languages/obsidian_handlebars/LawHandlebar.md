@@ -7,9 +7,9 @@
 - <span class="text-field" data-tooltip="Text">Image_url</span>: {{image_url}}
 
 ## Code
-- <span class="text-field" data-tooltip="Text">Decree</span>: {{decree}}
-- <span class="number-field" data-tooltip="Number">Date</span>: {{date}}
-- <span class="text-field" data-tooltip="Text">Purpose</span>: {{purpose}}
+- <span class="string" data-tooltip="Text">Decree</span>: {{decree}}
+- <span class="integer" data-tooltip="Number, max: 0">Date</span>: {{date}}
+- <span class="string" data-tooltip="Text">Purpose</span>: {{purpose}}
 - <span class="link-field" data-tooltip="Single Institution">Author</span>: {{linkify author}}
 
 ## Compulsion

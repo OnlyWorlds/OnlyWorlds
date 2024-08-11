@@ -7,11 +7,11 @@
 - <span class="text-field" data-tooltip="Text">Image_url</span>: {{image_url}}
 
 ## Nature
-- <span class="text-field" data-tooltip="Text">History</span>: {{history}}
-- <span class="text-field" data-tooltip="Text">Understanding</span>: {{understanding}}
-- <span class="text-field" data-tooltip="Text">State</span>: {{state}}
-- <span class="number-field" data-tooltip="Number">Start_date</span>: {{start_date}}
-- <span class="number-field" data-tooltip="Number">End_date</span>: {{end_date}}
+- <span class="string" data-tooltip="Text">History</span>: {{history}}
+- <span class="string" data-tooltip="Text">Understanding</span>: {{understanding}}
+- <span class="string" data-tooltip="Text">State</span>: {{state}}
+- <span class="integer" data-tooltip="Number, max: 0">Start_date</span>: {{start_date}}
+- <span class="integer" data-tooltip="Number, max: 0">End_date</span>: {{end_date}}
 - <span class="link-field" data-tooltip="Single Character">Founder</span>: {{linkify founder}}
 - <span class="link-field" data-tooltip="Single Institution">Organiser</span>: {{linkify organiser}}
 
