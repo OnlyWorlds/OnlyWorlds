@@ -18,8 +18,11 @@ def generate_obsidian_template(base_properties, yaml_content, template_path):
                     field_name = field.capitalize()
                     field_type = details.get('type', 'text')  # Default to text if type is not specified
 
-                    # Adjust tooltip text based on the type
-                    if field_type == 'integer':
+                    max_value = details.get('maximum')
+                    if field_type == 'integer' and max_value is not None:
+                        field_type = "number-field"
+                        tooltip = f"Number, max: {max_value}"
+                    elif field_type == 'integer':
                         field_type = "number-field"
                         tooltip = "Number"
                     elif 'items' in details or field_type == 'multi-link':
@@ -29,7 +32,7 @@ def generate_obsidian_template(base_properties, yaml_content, template_path):
                         field_type = "link-field"
                         tooltip = f"Single {details.get('category', '').strip()}"
                     else:
-                        field_type = "text-field"  # Ensure string types are represented as text-field
+                        field_type = "text-field"
                         tooltip = "Text"
 
                     # Write the field to the markdown file
