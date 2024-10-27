@@ -1,16 +1,18 @@
-### Hi there 👋
+### OnlyWorlds Development Repository
 
-<!--
-**OnlyWorlds/OnlyWorlds** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+OnlyWorlds is a world-building framework that enables the creation, sharing and simulation of worlds across a wide range of tools and applications.
 
-Here are some ideas to get you started:
+It is currently in closed alpha release. The core data definitions are available in their first public draft, and several prototype tools are avalaible that enable you to build worlds to share between them.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+This repository is under construction with the future goal of supporting developers to build for and integrate the framework in any kind of tooling or application.
+
+The _schema_ folder has the source-of-truth data definitions in YAML.
+
+The _languages_ folder contains subfolders with that same schema in various languages, auto-updated when the _schema_ folder gets changed. Many more languages to follow.
+
+Please visit https://www.onlyworlds.com to request a key code for initial access, or email onlyworldsdev@gmail.com.
+
+Visit the _discussions_ page for specific feedback and comments.
+
+
+
