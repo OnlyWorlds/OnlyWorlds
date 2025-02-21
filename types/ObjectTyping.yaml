@@ -1,0 +1,79 @@
+ObjectTyping:
+  types:
+    Component:
+    - Structural
+    - Mechanical
+    - Storage
+    - Aesthetic
+    - Functional
+    - Modular
+    - Electronic
+    Construction:
+    - Mechanical
+    - Monument
+    - Landmark
+    - Infrastructure
+    - Shelter
+    Information:
+    - Document
+    - Transmission
+    - DataStorage
+    - Recording
+    - Engraving
+    - Map
+    - Archive
+    - Cipher
+    Item:
+    - Weapon
+    - Wearable
+    - Artifact
+    - Instrument
+    - Consumable
+    - Storage
+    - Draggable
+    Machine:
+    - Operation
+    - Security
+    - Communication
+    - Generation
+    - Fabrication
+    - Transport
+    - AudioVisual
+    Resource:
+    - Edible
+    - Natural
+    - Currency
+    - Harvestable
+    - Raw
+    - Processed
+    - Alive
+    System:
+    - Storage
+    - Operations
+    - Security
+    - Surveillance
+    - Communication
+    - Generation
+    - Manufacturing
+    - Transport
+    Tool:
+    - Crafting
+    - Measuring
+    - Agricultural
+    - Medical
+    - Survival
+    - Scientific
+    - Culinary
+    - Mechanical
+    - Technological
+    - Artistic
+    Vehicle:
+    - Wagon
+    - Bike
+    - Car
+    - Boat
+    - Ship
+    - Copter
+    - Aircraft
+    - Spacecraft
+    - Transport

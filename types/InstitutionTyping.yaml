@@ -1,0 +1,71 @@
+InstitutionTyping:
+  types:
+    Conglomerate:
+    - Syndicate
+    - Holding
+    - Multinational
+    Culture:
+    - Heritage
+    - Artistic
+    - Educational
+    - Religious
+    Division:
+    - Executive
+    - Advisory
+    - Governance
+    - Administrative
+    - Operational
+    - Diplomatic
+    - Strategic
+    - Tactical
+    Enterprise:
+    - Commercial
+    - Spiritual
+    - Industrial
+    - Agricultural
+    - Service
+    Faction:
+    - Political
+    - Militant
+    - Insurgent
+    - Guild
+    - Technocratic
+    Familial:
+    - Biological
+    - Nuclear
+    - Adoptive
+    - Ancestral
+    - Extended
+    - Dynasty
+    - Bloodline
+    Military:
+    - Army
+    - Navy
+    - Militia
+    - Defensive
+    - Expeditionary
+    - Marine
+    - SpecialOps
+    - Intelligence
+    - Engineering
+    - Medical
+    - Logistical
+    - Communication
+    - Space
+    - Template
+    Organization:
+    - Governmental
+    - Military
+    - Spiritual
+    - Research
+    - Cooperative
+    - Regulatory
+    - Nonprofit
+    Sovereignty:
+    - Imperial
+    - Monarchy
+    - Federated
+    - National
+    - Statehood
+    - Unilateral
+    - Consortium

@@ -1,0 +1,18 @@
+AbilityTyping:
+  types:
+    Combat: []
+    Magical: []
+    Mental: []
+    Musical:
+    - String
+    - Flute
+    - Percussion
+    - Keys
+    - Vocal
+    - Other
+    Physical: []
+    Professional: []
+    Social: []
+    Spiritual: []
+    Survival: []
+    Transformative: []

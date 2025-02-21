@@ -1,0 +1,36 @@
+PhenomenonTyping:
+  types:
+    Barrier: []
+    Biological:
+    - Organism
+    - Process
+    - Disease
+    Chemical: []
+    Cosmic: []
+    Divine: []
+    Energy: []
+    Entity:
+    - Physical
+    - Abstract
+    - Supernatural
+    - Artifical
+    - Animate
+    Geological:
+    - Accumulation
+    - Erosion
+    - Drift
+    - Igneous
+    - Glaciation
+    Magical: []
+    Meteorological:
+    - Atmosphere
+    - Precipitation
+    - Storm
+    - Radiation
+    - Temperature
+    - Discharge
+    - Wind
+    Planetary: []
+    Social: []
+    Supernatural: []
+    Temporal: []

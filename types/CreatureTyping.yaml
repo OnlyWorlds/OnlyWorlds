@@ -1,0 +1,18 @@
+CreatureTyping:
+  types:
+    Alien:
+    - Scary
+    - Spooky
+    Animal:
+    - Herbivore
+    - Carnivore
+    - Omnivore
+    - Dinosaur
+    - Bird
+    - Insect
+    - Reptile
+    - Mammal
+    Monster:
+    - Flying
+    - Landbound
+    - Waterbound

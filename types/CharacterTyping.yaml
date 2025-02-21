@@ -1,0 +1,12 @@
+CharacterTyping:
+  types:
+    Animal: []
+    Antagonist: []
+    Entity: []
+    God: []
+    Historical: []
+    Human: []
+    Humanoid: []
+    NPC: []
+    Protagonist: []
+    Unidentified: []

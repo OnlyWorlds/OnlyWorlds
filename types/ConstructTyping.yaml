@@ -1,0 +1,127 @@
+ConstructTyping:
+  types:
+    Activity:
+    - Industry
+    - Commerce
+    - Creation
+    - Reaction
+    - Control
+    - Summon
+    - Violence
+    - Negation
+    Compensation:
+    - Physical
+    - Abstract
+    - Supernatural
+    - Artifical
+    - Animate
+    Composition:
+    - Material
+    - Conceptual
+    - Cultural
+    - Genetic
+    - Chemical
+    - Numeral
+    - Creative
+    - Recipe
+    Dilemma:
+    - Ethical
+    - Practical
+    - Political
+    - Intelligence
+    - Strategic
+    - Tactical
+    History:
+    - Cultural
+    - Personal
+    - Professional
+    - Sociological
+    - Psychological
+    - Economic
+    - Military
+    - Technological
+    - Environmental
+    Information:
+    - Myth
+    - Lore
+    - Knowledge
+    - Data
+    - Spatial
+    Object:
+    - Resource
+    - Item
+    - Vehicle
+    - Machine
+    - Tool
+    - Component
+    - Construct
+    - System
+    - Information
+    Occupation:
+    - Professional
+    - Vocational
+    - Service
+    - Administrative
+    - Academic
+    - Military
+    - Serfdom
+    Political:
+    - Governance
+    - Election
+    - Assignment
+    - Pressure
+    Punishment:
+    - Criminal
+    - Professional
+    - Personal
+    - Malicious
+    Religion:
+    - Worship
+    - Mythos
+    - Doctrine
+    - Canon
+    - Sect
+    - Ritual
+    - Dogma
+    - Symbolism
+    - Ethics
+    Situation:
+    - Social
+    - Employment
+    - Competition
+    - Title
+    - Acquisition
+    - Achievement
+    - Stasis
+    - Revenge
+    Social:
+    - Identity
+    - Beauty
+    - Gender
+    - Race
+    - Norm
+    - Hierarchy
+    Solution:
+    - Industrial
+    - Remedial
+    - Preventative
+    - Optimizing
+    - Innovative
+    - Adapative
+    - Destructive
+    Technology:
+    - Security
+    - Communication
+    - Operation
+    - Construction
+    - Military
+    - Transport
+    - Propulsion
+    - Gateway
+    Title:
+    - Ownership
+    - Leadership
+    - Foundership
+    - Administration
+    - Diplomatic
+    - Ceremonial

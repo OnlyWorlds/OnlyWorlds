@@ -1,0 +1,107 @@
+LocationTyping:
+  types:
+    Anomalous:
+    - Mysterious
+    - Temporal
+    - Dimensional
+    - Magical
+    - Physical
+    Biome:
+    - Desert
+    - Forest
+    - Tundra
+    - Jungle
+    - Ocean
+    - River
+    - Swamp
+    - Marsh
+    - Bog
+    Building:
+    - Residential
+    - Civic
+    - Religious
+    - Entertainment
+    - Educational
+    - ''
+    - Hospitality
+    - Governmental
+    - Transport
+    Celestial:
+    - Galaxy
+    - System
+    - Stellar
+    - World
+    - Planet
+    - Moon
+    - Body
+    Commercial:
+    - Market
+    - Port
+    - District
+    - Post
+    - Park
+    - Hub
+    Cultural:
+    - Artistic
+    - Academic
+    - Spiritual
+    - Commemorative
+    - Recreational
+    Defensive:
+    - Stronghold
+    - Camp
+    - Emplacement
+    - Concealment
+    Generative:
+    - Agriculture
+    - Collection
+    - Extraction
+    - Renewable
+    Geographical:
+    - Water
+    - Island
+    - Continental
+    - Plains
+    - MountainRange
+    - Hills
+    - Valley
+    - Ridge
+    - Glacier
+    - Liquid
+    Industrial:
+    - Manufacturing
+    - Processing
+    - Construction
+    - Energy
+    - Research
+    - Logistics
+    - Waste
+    - Manipulation
+    Natural:
+    - Geomorphic
+    - Hydrologic
+    - Botanical
+    - Zoological
+    - Geothermal
+    Political: []
+    Protective:
+    - Peak
+    - Mountain
+    - Hill
+    - Ridge
+    - Walkway
+    - Water
+    - Fissure
+    - Space
+    Settlement:
+    - Capital
+    - Metropolis
+    - City
+    - Town
+    - Village
+    - Hamlet
+    - District
+    - Dwelling
+    - Logistical
+    - Outpost
+    - Abandoned

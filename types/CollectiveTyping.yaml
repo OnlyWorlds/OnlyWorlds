@@ -1,0 +1,42 @@
+CollectiveTyping:
+  types:
+    Assembly:
+    - Crowd
+    - Gathering
+    - Congregation
+    - Celebration
+    - Mob
+    Cohort:
+    - Survivors
+    - Hunters
+    - Foragers
+    - Scouts
+    Fleet:
+    - Flotilla
+    - Navy
+    - Support
+    - Marauder
+    - Migration
+    Outfit:
+    - Military
+    - Mercenary
+    - Militia
+    - Raider
+    - Rebel
+    Population:
+    - Settler
+    - Resident
+    - Commune
+    - Nomad
+    Retinue:
+    - Entourage
+    - Servants
+    - HonorGuard
+    - Court
+    Workforce:
+    - Scattered
+    - Guild
+    - Brigade
+    - Research
+    - Cooperative
+    - Crew

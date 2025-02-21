@@ -1,0 +1,10 @@
+RelationTyping:
+  types:
+    Adverserial: []
+    Beneficial: []
+    Commercial: []
+    Informational: []
+    Institutional: []
+    International: []
+    Personal: []
+    Transactional: []

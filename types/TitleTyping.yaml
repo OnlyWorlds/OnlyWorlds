@@ -1,0 +1,31 @@
+TitleTyping:
+  types:
+    Administration:
+    - Executive
+    - Managerial
+    - Supervisory
+    Ceremonial:
+    - Trophy
+    - Symbolic
+    - Honorary
+    - Ritualistic
+    Diplomatic:
+    - Envoy
+    - Negotiator
+    - Emissary
+    Foundership:
+    - Creator
+    - Inventor
+    - Pioneer
+    - Originator
+    - Architect
+    Leadership:
+    - Sovereign
+    - Commanding
+    - Executive
+    - NonCommissioned
+    Ownership:
+    - Proprietor
+    - Landlord
+    - Patron
+    - Holder

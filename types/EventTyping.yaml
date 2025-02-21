@@ -1,0 +1,59 @@
+EventTyping:
+  types:
+    Construction: []
+    Cultural:
+    - Signal
+    - Journey
+    - Expression
+    - Transformation
+    Future: []
+    Historical:
+    - Consequential
+    - Procedural
+    - Transformative
+    - Offensive
+    - Defensive
+    - Silent
+    Knowledge:
+    - Receive
+    - Exchange
+    - Supply
+    - Steal
+    Military:
+    - Summon
+    - Assignment
+    - Deployment
+    - Invasion
+    - War
+    - Assault
+    - Infrastructure
+    - Assist
+    Natural: []
+    Personal: []
+    Political: []
+    Professional:
+    - Promotion
+    - Resignation
+    - Achievement
+    - Disaster
+    Scientific:
+    - Construction
+    - Temporal
+    - Atemporal
+    - Gravitational
+    - Physical
+    Situation:
+    - Social
+    - Noise
+    - Movement
+    - Crisis
+    - Confrontation
+    - Discovery
+    - Change
+    - Stasis
+    - Tension
+    - Expedition
+    - Resolution
+    - Revolution
+    - ''
+    Violence: []

@@ -1,0 +1,11 @@
+LawTyping:
+  types:
+    Administrative: []
+    Civil: []
+    Criminal: []
+    Environmental: []
+    International: []
+    Judicial: []
+    Maritime: []
+    Military: []
+    Monetary: []
