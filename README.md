@@ -15,4 +15,12 @@ Please visit https://www.onlyworlds.com to request a key code for initial access
 Visit the _discussions_ page for specific feedback and comments.
 
 
+### API (in development)
+ 
+Users can create worlds on the OnlyWorlds website. These worlds are created with a unique API key.
+
+Applications can send and receive worlds using these API keys and private user PIN codes.
+
+
+
 
