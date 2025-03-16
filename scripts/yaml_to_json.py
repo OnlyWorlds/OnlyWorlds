@@ -9,11 +9,13 @@ def load_base_properties(base_path):
         base_data = yaml.safe_load(file)
         return base_data['properties']  # Extract only the properties part.
 
-def merge_properties(base_properties, category_properties):
+def merge_properties(base_properties, category_properties, is_world=False):
     """Merge base properties under 'Base' header into category-specific properties."""
     # Create an ordered dictionary to preserve the order of insertion.
     ordered_properties = OrderedDict()
-    ordered_properties['Base'] = base_properties  # Insert the base properties first.
+    
+    if not is_world:
+        ordered_properties['Base'] = base_properties  # Insert the base properties first.
     
     # Check if there are existing properties and add them after the base properties.
     if 'properties' in category_properties:
@@ -28,7 +30,12 @@ def convert_yaml_to_json(base_properties, yaml_path, json_path):
     """Convert YAML file to JSON file with base properties included under 'Base' header and placed at the top."""
     with open(yaml_path, 'r') as yaml_file:
         category_properties = yaml.safe_load(yaml_file)
-        merged_properties = merge_properties(base_properties, category_properties)
+        
+        # Check if this is the world.yaml file
+        filename = os.path.basename(yaml_path)
+        is_world = filename == 'world.yaml'
+        
+        merged_properties = merge_properties(base_properties, category_properties, is_world)
     with open(json_path, 'w') as json_file:
         json.dump(merged_properties, json_file, indent=4)
 
