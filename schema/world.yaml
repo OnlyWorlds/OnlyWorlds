@@ -1,0 +1,20 @@
+World:
+  id: UUID
+  api_key: String
+  name: String
+  description: String | Null
+  version: String
+  image_url: URL | Null 
+  time_format_equivalents:
+    type: List
+    items: String
+    description: Canonical time unit names (e.g., ["Eon", "Era", "Period", "Epoch", "Age", "Year", "Month", "Day", "Hour", "Minute", "Second"])
+  time_format_names:
+    type: List
+    items: String
+  time_basic_unit: String # e.g. "Year"
+  time_range_min: Integer # Earliest time position
+  time_range_max: Integer # Latest time position
+  time_current: Integer   # Current time position within range
+  image_url: URL | Null # URL to representative image (optional) 
+ 
