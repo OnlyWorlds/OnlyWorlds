@@ -23,6 +23,12 @@ jobs:
           - type: "SQL"
             script: "yaml_to_sql.py"
             folder: "sql"
+          - type: "Dart"
+            script: "yaml_to_dart.py"
+            folder: "dart"
+          - type: "Django"
+            script: "yaml_to_django.py"
+            folder: "django"
     permissions:
       contents: write
 
@@ -55,7 +61,9 @@ jobs:
           mv JSON-files/* languages/json/
           mv Templates-files/* languages/obsidian_templates/
           mv SQL-files/* languages/sql/
-          rm -r Handlebars-files JSON-files Templates-files SQL-files # Clean up
+          mv Dart-files/* languages/dart/
+          mv Django-files/* languages/django/
+          rm -r Handlebars-files JSON-files Templates-files SQL-files Dart-files Django-files # Clean up
 
       - name: Configure git
         run: |
