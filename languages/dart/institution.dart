@@ -1,4 +1,4 @@
-class Institution extends BaseModel {
+class Institution extends BaseElement {
   // Foundation
   final String premise;
   final int foundDate;

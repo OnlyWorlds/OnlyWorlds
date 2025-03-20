@@ -1,4 +1,4 @@
-class Territory extends BaseModel {
+class Territory extends BaseElement {
   // Situation
   final String terrain;
   final int size;

@@ -1,4 +1,4 @@
-class Construct extends BaseModel {
+class Construct extends BaseElement {
   // Nature
   final String history;
   final String understanding;

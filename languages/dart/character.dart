@@ -1,4 +1,4 @@
-class Character extends BaseModel {
+class Character extends BaseElement {
   // Constitution
   final String physicality;
   final String psychology;

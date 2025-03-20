@@ -1,4 +1,4 @@
-class Ability extends BaseModel {
+class Ability extends BaseElement {
   // Mechanics
   final String usage;
   final int range;

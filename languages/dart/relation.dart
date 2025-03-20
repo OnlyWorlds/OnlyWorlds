@@ -1,4 +1,4 @@
-class Relation extends BaseModel {
+class Relation extends BaseElement {
   // Nature
   final String history;
   final String impact;

@@ -1,4 +1,4 @@
-class Event extends BaseModel {
+class Event extends BaseElement {
   // Nature
   final String history;
   final String consequences;

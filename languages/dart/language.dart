@@ -1,4 +1,4 @@
-class Language extends BaseModel {
+class Language extends BaseElement {
   // Syntax
   final String writing;
   final String phonology;

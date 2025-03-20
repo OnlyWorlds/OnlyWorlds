@@ -112,7 +112,7 @@ def extract_base_fields(base_properties):
 
 def create_base_model(base_properties):
     """Create the BaseModel abstract class content."""
-    dart_class = 'abstract class BaseModel {\n'
+    dart_class = 'abstract class BaseElement {\n'
     
     for field, dart_type in extract_base_fields(base_properties):
         dart_class += f'  {dart_type} {field};\n'
@@ -135,8 +135,8 @@ if __name__ == "__main__":
     
     # Generate and write the BaseModel abstract class
     base_model_content = create_base_model(base_properties)
-    write_dart_file(dart_dir, 'base_model.dart', base_model_content)
-    print('Generated base_model.dart')
+    write_dart_file(dart_dir, 'base_element.dart', base_model_content)
+    print('Generated base_element.dart')
     
     # Process each YAML file
     for filename in os.listdir(yaml_dir):
@@ -156,7 +156,7 @@ if __name__ == "__main__":
                 dart_class = generate_dart_class(
                     class_name, 
                     fields, 
-                    'BaseModel' if not is_world else None
+                    'BaseElement' if not is_world else None
                 )
                 
                 # Write to file

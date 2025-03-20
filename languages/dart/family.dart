@@ -1,4 +1,4 @@
-class Family extends BaseModel {
+class Family extends BaseElement {
   // Community
   final String spirit;
   final String alliances; //ms family

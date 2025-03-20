@@ -1,4 +1,4 @@
-class Phenomenon extends BaseModel {
+class Phenomenon extends BaseElement {
   // Manifest
   final String presence;
   final String scope;

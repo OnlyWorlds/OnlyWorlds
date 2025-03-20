@@ -1,4 +1,4 @@
-class Object extends BaseModel {
+class Object extends BaseElement {
   // Form
   final String aesthetics;
   final int weight;

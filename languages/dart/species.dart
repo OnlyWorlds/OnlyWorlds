@@ -1,4 +1,4 @@
-class Species extends BaseModel {
+class Species extends BaseElement {
   // Biology
   final String appearance;
   final int lifeSpan;

@@ -1,4 +1,4 @@
-class Title extends BaseModel {
+class Title extends BaseElement {
   // Nature
   final String privileges;
   final String conditions;

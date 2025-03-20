@@ -1,4 +1,4 @@
-class Trait extends BaseModel {
+class Trait extends BaseElement {
   // Qualitative
   final String socialEffects;
   final String physicalEffects;

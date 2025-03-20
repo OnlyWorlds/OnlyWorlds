@@ -1,4 +1,4 @@
-class Location extends BaseModel {
+class Location extends BaseElement {
   // Locality
   final String scene;
   final String activity;

@@ -1,4 +1,4 @@
-class Law extends BaseModel {
+class Law extends BaseElement {
   // Code
   final String decree;
   final int date;

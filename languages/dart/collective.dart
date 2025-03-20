@@ -1,4 +1,4 @@
-class Collective extends BaseModel {
+class Collective extends BaseElement {
   // Formation
   final String composition;
   final int count;
