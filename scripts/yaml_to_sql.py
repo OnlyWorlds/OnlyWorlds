@@ -68,41 +68,59 @@ def generate_related_tables(main_table, yaml_data):
     
     return related_tables
 
-def convert_yaml_to_sql(base_properties, yaml_path, sql_path):
-    """Convert YAML to SQL schema."""
-    with open(yaml_path, 'r') as yaml_file:
-        yaml_content = yaml.safe_load(yaml_file)
-    
-    # Determine the table name from the filename
-    filename = os.path.basename(yaml_path)
-    table_name = filename.replace('.yaml', '').lower()
-    
-    fields = []
-    
-    # Check if this is the world.yaml file
-    is_world = filename == 'world.yaml'
-    
-    # Add base properties for non-world schemas
-    if not is_world:
+def generate_base_properties_sql(base_properties, sql_path):
+    """Generate a base properties SQL file."""
+    with open(sql_path, 'w') as sql_file:
+        sql_file.write("CREATE TABLE abstract_element (\n")
+        
+        # Write SQL fields for base properties
+        base_fields = []
         for field, details in base_properties.items():
             sql_type = get_sql_type_from_yaml_type(details)
-            fields.append((field.lower(), sql_type))
-    
-    # Extract fields from the YAML content
-    yaml_fields = extract_fields_from_yaml(yaml_content, is_world)
-    fields.extend(yaml_fields)
-    
-    # Generate SQL
-    with open(sql_path, 'w') as sql_file:
-        sql = generate_sql_table(table_name, fields)
-        sql_file.write(sql)
+            base_fields.append(f"    {field.lower()} {sql_type}")
+        sql_file.write(",\n".join(base_fields))
         
-        # Add related tables for list fields if needed
-        if is_world:
+        sql_file.write("\n);")
+    print(f"Generated base properties SQL")
+
+def generate_element_sql(yaml_content, sql_path):
+    """Generate SQL schema for an element without base properties."""
+    with open(sql_path, 'w') as sql_file:
+        # Get table name from the title or filename
+        table_name = yaml_content.get('title', 'default_table_name').replace(" ", "_").lower()
+        sql_file.write(f"CREATE TABLE {table_name} (\n")
+        
+        # Only include the element-specific properties, not base properties
+        if 'properties' in yaml_content:
+            category_fields = []
+            for section, section_content in yaml_content['properties'].items():
+                for field, details in section_content.get('properties', {}).items():
+                    sql_type = get_sql_type_from_yaml_type(details)
+                    category_fields.append(f"    {field.lower()} {sql_type}")
+            if category_fields:
+                sql_file.write(",\n".join(category_fields))
+            else:
+                # If no category-specific fields, add a placeholder comment
+                sql_file.write("    -- No element-specific fields")
+        else:
+            # If no properties at all, add a placeholder comment
+            sql_file.write("    -- No properties defined")
+        
+        sql_file.write("\n);")
+        
+        # Check if this is the world schema and add related tables if needed
+        filename = os.path.basename(sql_path).lower()
+        if "world.sql" in filename:
             related_tables = generate_related_tables(table_name, yaml_content)
             for related_table in related_tables:
                 sql_file.write("\n\n")
                 sql_file.write(related_table)
+
+def convert_yaml_to_sql(yaml_path, sql_path):
+    """Convert YAML file to SQL schema without base properties."""
+    with open(yaml_path, 'r') as yaml_file:
+        yaml_content = yaml.safe_load(yaml_file)
+    generate_element_sql(yaml_content, sql_path)
 
 if __name__ == "__main__":
     script_directory = os.path.dirname(__file__)
@@ -114,12 +132,18 @@ if __name__ == "__main__":
     with open(base_path, 'r') as file:
         base_properties = yaml.safe_load(file)['properties']
 
+    # Ensure output directory exists
     os.makedirs(sql_dir, exist_ok=True)
 
+    # Generate base properties SQL
+    base_sql_path = os.path.join(sql_dir, 'abstract_element.sql')
+    generate_base_properties_sql(base_properties, base_sql_path)
+
+    # Convert all YAML files to SQL (without base properties)
     for filename in os.listdir(yaml_dir):
         if filename.endswith('.yaml') and filename != 'base_properties.yaml':
             yaml_path = os.path.join(yaml_dir, filename)
-            sql_filename = filename.replace('.yaml', '.sql')
+            sql_filename = filename[:-5].capitalize() + '.sql'
             sql_path = os.path.join(sql_dir, sql_filename)
-            convert_yaml_to_sql(base_properties, yaml_path, sql_path)
+            convert_yaml_to_sql(yaml_path, sql_path)
             print(f"Converted {filename} to SQL: {sql_filename}")

@@ -1,10 +1,4 @@
 CREATE TABLE institution (
-    id TEXT,
-    name TEXT,
-    description TEXT,
-    supertype TEXT,
-    subtype TEXT,
-    image_url TEXT,
     premise TEXT,
     found_date INTEGER,
     end_date INTEGER,

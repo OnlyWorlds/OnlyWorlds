@@ -1,10 +1,4 @@
 CREATE TABLE relation (
-    id TEXT,
-    name TEXT,
-    description TEXT,
-    supertype TEXT,
-    subtype TEXT,
-    image_url TEXT,
     history TEXT,
     impact TEXT,
     start_date INTEGER,

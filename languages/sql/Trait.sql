@@ -1,10 +1,4 @@
 CREATE TABLE trait (
-    id TEXT,
-    name TEXT,
-    description TEXT,
-    supertype TEXT,
-    subtype TEXT,
-    image_url TEXT,
     social_effects TEXT,
     physical_effects TEXT,
     skill_effects TEXT,

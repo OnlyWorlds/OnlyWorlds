@@ -1,10 +1,4 @@
 CREATE TABLE character (
-    id TEXT,
-    name TEXT,
-    description TEXT,
-    supertype TEXT,
-    subtype TEXT,
-    image_url TEXT,
     physicality TEXT,
     psychology TEXT,
     height INTEGER,

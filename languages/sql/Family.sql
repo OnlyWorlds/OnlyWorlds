@@ -1,10 +1,4 @@
 CREATE TABLE family (
-    id TEXT,
-    name TEXT,
-    description TEXT,
-    supertype TEXT,
-    subtype TEXT,
-    image_url TEXT,
     spirit TEXT,
     alliances TEXT,
     rivalries TEXT,

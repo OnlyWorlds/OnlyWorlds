@@ -1,10 +1,4 @@
 CREATE TABLE creature (
-    id TEXT,
-    name TEXT,
-    description TEXT,
-    supertype TEXT,
-    subtype TEXT,
-    image_url TEXT,
     appearance TEXT,
     weight INTEGER,
     height INTEGER,

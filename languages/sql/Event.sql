@@ -1,10 +1,4 @@
 CREATE TABLE event (
-    id TEXT,
-    name TEXT,
-    description TEXT,
-    supertype TEXT,
-    subtype TEXT,
-    image_url TEXT,
     history TEXT,
     consequences TEXT,
     start_date INTEGER,

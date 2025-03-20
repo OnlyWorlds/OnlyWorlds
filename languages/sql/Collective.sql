@@ -1,10 +1,4 @@
 CREATE TABLE collective (
-    id TEXT,
-    name TEXT,
-    description TEXT,
-    supertype TEXT,
-    subtype TEXT,
-    image_url TEXT,
     composition TEXT,
     count INTEGER,
     formation_date INTEGER,

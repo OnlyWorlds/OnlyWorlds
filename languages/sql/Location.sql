@@ -1,10 +1,4 @@
 CREATE TABLE location (
-    id TEXT,
-    name TEXT,
-    description TEXT,
-    supertype TEXT,
-    subtype TEXT,
-    image_url TEXT,
     scene TEXT,
     activity TEXT,
     founding_date INTEGER,

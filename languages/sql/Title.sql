@@ -1,10 +1,4 @@
 CREATE TABLE title (
-    id TEXT,
-    name TEXT,
-    description TEXT,
-    supertype TEXT,
-    subtype TEXT,
-    image_url TEXT,
     privileges TEXT,
     conditions TEXT,
     create_date INTEGER,
