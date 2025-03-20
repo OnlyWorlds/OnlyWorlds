@@ -20,3 +20,6 @@ properties:
   Image_URL:
     type: "string"
     description: "URL to an image representing the element."
+  World:
+    type: "string"
+    description: "UUID of the world the element is part of."
