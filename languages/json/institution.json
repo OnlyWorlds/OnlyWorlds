@@ -3,32 +3,6 @@
     "title": "Institution",
     "type": "object",
     "properties": {
-        "Base": {
-            "Id": {
-                "type": "string",
-                "description": "Unique identifier for the element, uuidv7 format"
-            },
-            "Name": {
-                "type": "string",
-                "description": "Name of the element."
-            },
-            "Description": {
-                "type": "string",
-                "description": "Detailed description of the element."
-            },
-            "Supertype": {
-                "type": "string",
-                "description": "The supertype category to which the element belongs."
-            },
-            "Subtype": {
-                "type": "string",
-                "description": "The subtype category under which the element is further classified."
-            },
-            "Image_URL": {
-                "type": "string",
-                "description": "URL to an image representing the element."
-            }
-        },
         "Foundation": {
             "type": "object",
             "properties": {

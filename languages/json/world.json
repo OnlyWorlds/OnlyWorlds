@@ -19,6 +19,5 @@
         "time_range_min": "Integer",
         "time_range_max": "Integer",
         "time_current": "Integer"
-    },
-    "properties": {}
+    }
 }
