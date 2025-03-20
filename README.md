@@ -21,10 +21,10 @@ OnlyWorlds provides:
 - They are **subject to community input**: a collaborative effort towards intuitive building blocks for the widest range of worlds, applications, and socio-political-economic dynamics.
 
 ### Example Use Cases
-- Writers: Create intricate and well-organized worlds that can be adapted to various medias.
-- TTRPG Game Masters: Organize maps, content, world lore, and track or generate party progress.
-- Game Developers: Emplo world data in game-ready formats (e.g. in Unity editor plugins, Unreal, Godot).
-- Educators & Academics: Use structured data for world simulation and historical recreation.
+- **Writers**: Create intricate and well-organized worlds that can be adapted to various medias.
+- **TTRPG Game Masters**: Organize maps, content, world lore, and track or generate party progress.
+- **Game Developers**: Employ world data in game-ready formats (e.g. in Unity editor plugins, Unreal, Godot).
+- **Educators & Academics**: Use structured data for world simulation and historical recreation.
 
 ### Getting Started
 - Read the [technical documentation](https://onlyworlds.github.io/) and try free existing tools.
