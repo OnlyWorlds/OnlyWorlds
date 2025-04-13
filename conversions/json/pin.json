@@ -1,0 +1,34 @@
+{
+    "version": "1.0.0",
+    "type": "Pin",
+    "description": "Represents a clickable point on a Map that links to a specific world Element.",
+    "properties": {
+        "details": {
+            "type": "object",
+            "properties": {
+                "map": {
+                    "type": "single-link",
+                    "description": "Map this pin is placed on",
+                    "category": "Map"
+                },
+                "element": {
+                    "type": "single-link",
+                    "description": "Map this pin is placed on",
+                    "category": "Element"
+                },
+                "x": {
+                    "type": "integer",
+                    "description": "x coordinate, from bottom left of the map"
+                },
+                "y": {
+                    "type": "integer",
+                    "description": "y coordinate, from bottom left of the map"
+                },
+                "z": {
+                    "type": "integer",
+                    "description": "z coordinate, in case of depth"
+                }
+            }
+        }
+    }
+}

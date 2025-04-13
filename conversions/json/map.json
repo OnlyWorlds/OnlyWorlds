@@ -1,0 +1,29 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Map",
+    "type": "object",
+    "properties": {
+        "details": {
+            "type": "object",
+            "properties": {
+                "background_color": {
+                    "type": "string",
+                    "description": "Color of the space around the map when zoomed out"
+                },
+                "width": {
+                    "type": "integer",
+                    "description": "In pixels"
+                },
+                "height": {
+                    "type": "integer",
+                    "description": "In pixels"
+                },
+                "map": {
+                    "type": "single-link",
+                    "description": "Parent map",
+                    "category": "Map"
+                }
+            }
+        }
+    }
+}

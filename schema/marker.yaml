@@ -1,0 +1,26 @@
+version: 1.0.0
+type: Marker
+description: Represents a graphical marker on a Map, such as a line (road, river) or polygon (territory, region)
+
+properties: 
+  details:
+    type: "object"
+    properties:
+      map:  
+        type: "single-link"
+        description: "Map this marker is placed on" 
+        category: "Map" 
+      x:
+        type: "integer" 
+        description: "x coordinate, from bottom left of the map"
+      y:
+        type: "integer" 
+        description: "y coordinate, from bottom left of the map"
+      z:
+        type: "integer" 
+        description: "z coordinate, in case of depth"
+
+
+
+
+ 
