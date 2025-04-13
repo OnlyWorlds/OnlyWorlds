@@ -1,3 +1,6 @@
+from django.db import models
+from .abstract_element_model import AbstractElementModel
+
 class Family(AbstractElementModel):
 
     # Community

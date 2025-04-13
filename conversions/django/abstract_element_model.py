@@ -1,3 +1,6 @@
+from django.db import models
+import uuid
+
 class AbstractElementModel(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.TextField(max_length=255)

@@ -1,3 +1,7 @@
+from django.db import models
+from django.core.validators import MaxValueValidator
+from .abstract_element_model import AbstractElementModel
+
 class Ability(AbstractElementModel):
 
     # Mechanics
