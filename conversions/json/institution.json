@@ -1,0 +1,109 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Institution",
+    "type": "object",
+    "properties": {
+        "Foundation": {
+            "type": "object",
+            "properties": {
+                "premise": {
+                    "type": "string",
+                    "description": "Core purpose or fundamental principle of the institution."
+                },
+                "found_date": {
+                    "type": "integer",
+                    "maximum": 0,
+                    "description": "Date the institution was established."
+                },
+                "end_date": {
+                    "type": "integer",
+                    "maximum": 0,
+                    "description": "Date the institution was dissolved, if applicable."
+                },
+                "parent_institution": {
+                    "type": "single-link",
+                    "description": "The institution that founded or governs this institution.",
+                    "category": "Institution"
+                }
+            }
+        },
+        "Claim": {
+            "type": "object",
+            "properties": {
+                "territories": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Areas of land or regions claimed or controlled by the institution.",
+                    "category": "Territory"
+                },
+                "objects": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Physical objects owned or significant to the institution.",
+                    "category": "Object"
+                },
+                "creatures": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Creatures associated with or protected by the institution.",
+                    "category": "Creature"
+                },
+                "legal": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Laws or legal frameworks established by the institution.",
+                    "category": "Law"
+                }
+            }
+        },
+        "World": {
+            "type": "object",
+            "properties": {
+                "situation": {
+                    "type": "string",
+                    "description": "Current state or conditions affecting the institution."
+                },
+                "cooperates": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Other institutions with which this one cooperates.",
+                    "category": "Institution"
+                },
+                "competition": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Competing institutions or rivals.",
+                    "category": "Institution"
+                },
+                "constructs": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Structures, policies, or systems established by the institution.",
+                    "category": "Construct"
+                },
+                "phenomena": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Natural or social phenomena linked to the institution.",
+                    "category": "Phenomenon"
+                }
+            }
+        }
+    }
+}

@@ -124,7 +124,7 @@ if __name__ == "__main__":
     # Define paths
     script_directory = os.path.dirname(__file__)
     yaml_dir = os.path.join(script_directory, '..', 'schema')
-    dart_dir = os.path.join(script_directory, '..', 'languages', 'dart')
+    dart_dir = os.path.join(script_directory, '..', 'conversions', 'dart')
     base_path = os.path.join(yaml_dir, 'base_properties.yaml')
     
     # Create output directory

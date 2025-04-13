@@ -1,0 +1,167 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Event",
+    "type": "object",
+    "properties": {
+        "Nature": {
+            "type": "object",
+            "properties": {
+                "history": {
+                    "type": "string",
+                    "description": "Historical context and background of the event."
+                },
+                "consequences": {
+                    "type": "string",
+                    "description": "Outcomes and impacts resulting from the event."
+                },
+                "start_date": {
+                    "type": "integer",
+                    "maximum": 0,
+                    "description": "Date on which the event began."
+                },
+                "end_date": {
+                    "type": "integer",
+                    "maximum": 0,
+                    "description": "Date on which the event concluded."
+                },
+                "adversity": {
+                    "type": "string",
+                    "description": "Challenges or difficulties faced during the event."
+                }
+            }
+        },
+        "Involves": {
+            "type": "object",
+            "properties": {
+                "characters": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Key characters involved in the event.",
+                    "category": "Character"
+                },
+                "objects": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Objects significant to the unfolding of the event.",
+                    "category": "Object"
+                },
+                "locations": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Locations where the event took place.",
+                    "category": "Location"
+                },
+                "species": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Species that played a role in the event.",
+                    "category": "Species"
+                },
+                "creatures": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Creatures involved in the event.",
+                    "category": "Creature"
+                },
+                "institutions": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Institutions implicated in or affected by the event.",
+                    "category": "Institution"
+                },
+                "traits": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Traits emphasized or revealed by the event.",
+                    "category": "Trait"
+                },
+                "collectives": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Groups or collectives that participated in or were affected by the event.",
+                    "category": "Collective"
+                },
+                "territories": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Territorial areas involved in the event.",
+                    "category": "Territory"
+                },
+                "abilities": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Abilities used or showcased during the event.",
+                    "category": "Ability"
+                },
+                "phenomena": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Natural or supernatural phenomena that occurred during the event.",
+                    "category": "Phenomenon"
+                },
+                "languages": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Languages used or affected by the event.",
+                    "category": "Language"
+                },
+                "families": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Families involved in or impacted by the event.",
+                    "category": "Family"
+                },
+                "relations": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Interpersonal or political relations that played a role in the event.",
+                    "category": "Relation"
+                },
+                "titles": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Titles bestowed, contested, or central to the event.",
+                    "category": "Title"
+                },
+                "constructs": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Concepts, laws, or built entities that were important to the event.",
+                    "category": "Construct"
+                }
+            }
+        }
+    }
+}

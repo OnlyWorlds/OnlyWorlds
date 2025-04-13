@@ -27,7 +27,7 @@ if __name__ == "__main__":
     # Define paths relative to the script location.
     script_directory = os.path.dirname(__file__)
     yaml_dir = os.path.join(script_directory, '..', 'schema')
-    json_dir = os.path.join(script_directory, '..', 'languages', 'json')
+    json_dir = os.path.join(script_directory, '..', 'conversions', 'json')
     base_path = os.path.join(yaml_dir, 'base_properties.yaml')
 
     # Load base properties from the designated YAML file.

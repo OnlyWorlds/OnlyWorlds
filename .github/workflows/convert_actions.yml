@@ -42,7 +42,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: ${{ matrix.type }}-files
-          path: languages/${{ matrix.folder }}/*
+          path: conversions/${{ matrix.folder }}/*
 
   commit:
     needs: convert
@@ -57,12 +57,12 @@ jobs:
 
       - name: Move files to correct directory
         run: |
-          mv Handlebars-files/* languages/obsidian_handlebars/
-          mv JSON-files/* languages/json/
-          mv Templates-files/* languages/obsidian_templates/
-          mv SQL-files/* languages/sql/
-          mv Dart-files/* languages/dart/
-          mv Django-files/* languages/django/
+          mv Handlebars-files/* conversions/obsidian_handlebars/
+          mv JSON-files/* conversions/json/
+          mv Templates-files/* conversions/obsidian_templates/
+          mv SQL-files/* conversions/sql/
+          mv Dart-files/* conversions/dart/
+          mv Django-files/* conversions/django/
           rm -r Handlebars-files JSON-files Templates-files SQL-files Dart-files Django-files # Clean up
 
       - name: Configure git
@@ -72,6 +72,6 @@ jobs:
 
       - name: Add and Commit Changes
         run: |
-          git add languages/*
+          git add conversions/*
           git commit -m "Auto-update files from YAML conversions"
           git push

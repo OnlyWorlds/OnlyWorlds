@@ -125,7 +125,7 @@ def convert_yaml_to_sql(yaml_path, sql_path):
 if __name__ == "__main__":
     script_directory = os.path.dirname(__file__)
     yaml_dir = os.path.join(script_directory, '..', 'schema')
-    sql_dir = os.path.join(script_directory, '..', 'languages', 'sql')
+    sql_dir = os.path.join(script_directory, '..', 'conversions', 'sql')
     base_path = os.path.join(yaml_dir, 'base_properties.yaml')
 
     # Load base properties once
