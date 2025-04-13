@@ -11,8 +11,6 @@ class Pin(AbstractElementModel):
     x = models.PositiveIntegerField(blank=True, null=True)
     y = models.PositiveIntegerField(blank=True, null=True)
     z = models.PositiveIntegerField(blank=True, null=True)
-
-    # Generic Foreign Key to any Element
     content_type = models.ForeignKey(ContentType, on_delete=models.SET_NULL, blank=True, null=True)
     object_id = models.UUIDField(blank=True, null=True)
     element = GenericForeignKey('content_type', 'object_id')

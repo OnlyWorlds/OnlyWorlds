@@ -9,6 +9,7 @@
 
 ## Details
 - <span class="string" data-tooltip="Text">Background_color</span>: {{background_color}}
+- <span class="integer" data-tooltip="Number">Hierarchy</span>: {{hierarchy}}
 - <span class="integer" data-tooltip="Number">Width</span>: {{width}}
 - <span class="integer" data-tooltip="Number">Height</span>: {{height}}
 - <span class="link-field" data-tooltip="Single Map">Map</span>: {{linkify map}}

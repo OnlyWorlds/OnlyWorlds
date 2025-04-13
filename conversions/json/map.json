@@ -10,6 +10,10 @@
                     "type": "string",
                     "description": "Color of the space around the map when zoomed out"
                 },
+                "hierarchy": {
+                    "type": "integer",
+                    "description": "To associate or differentiate between maps with a common parent"
+                },
                 "width": {
                     "type": "integer",
                     "description": "In pixels"
