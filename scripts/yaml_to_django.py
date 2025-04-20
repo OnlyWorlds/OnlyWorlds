@@ -226,7 +226,7 @@ def convert_yaml_to_django(yaml_path, django_path):
 if __name__ == "__main__":
     script_directory = os.path.dirname(__file__)
     yaml_dir = os.path.join(script_directory, '..', 'schema')
-    django_dir = os.path.join(script_directory, '..', 'conversions', 'django')
+    django_dir = os.path.join(script_directory, '..', 'conversions', 'django_models')
     base_path = os.path.join(yaml_dir, 'base_properties.yaml')
     
     os.makedirs(django_dir, exist_ok=True)
