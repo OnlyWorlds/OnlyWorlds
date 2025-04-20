@@ -123,7 +123,7 @@ def generate_base_schemas(base_yaml_path, output_file):
 
     # Match target import style
     imports_content = textwrap.dedent("""\
-        from ninja import Field, Schema # type: ignore
+        from ninja import Field, Schema, FilterSchema # type: ignore
         from typing import Optional
         import uuid
     """)
@@ -180,7 +180,14 @@ def generate_base_schemas(base_yaml_path, output_file):
 
     content += "class ElementNestedOutSchema(Schema):\n"
     # content += '    """Minimal schema for representing elements nested within other responses."""\n' # Remove docstring
-    content += textwrap.indent("\n".join(nested_out_fields), "    ") + "\n"
+    content += textwrap.indent("\n".join(nested_out_fields), "    ") + "\n\n\n"
+
+    # Add BaseFilterSchema
+    content += "class BaseFilterSchema(FilterSchema):\n"
+    content += '    """Base filter schema including common element fields."""\n'
+    content += "    name__icontains: Optional[str] = Field(None, q='name__icontains')\n"
+    content += "    supertype: Optional[str] = Field(None, q='supertype')\n"
+    content += "    subtype: Optional[str] = Field(None, q='subtype')\n"
 
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(content)
@@ -188,7 +195,7 @@ def generate_base_schemas(base_yaml_path, output_file):
 
 
 def generate_category_schema(category_name, category_yaml_path, output_file):
-    """Generates a specific category's schema file (e.g., character.py)."""
+    """Generates a specific category's schema file (e.g., character_schemas.py)."""
     category_yaml = safe_load_yaml(category_yaml_path)
     if not category_yaml or 'properties' not in category_yaml:
         print(f"Warning: Skipping {category_name}. Could not load or parse YAML.")
@@ -198,7 +205,7 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
 
     # Define needed imports based on target file structure
     imports_needed = {
-        'base': f"from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema",
+        'base': f"from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema",
         'ninja': "from ninja import Field, FilterSchema  # type: ignore", # Assuming Field/Filter always needed
         'typing_List': "from typing import List",
         'typing_Optional': "from typing import Optional",
@@ -213,6 +220,7 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
 
     base_schema_fields_dict = defaultdict(list)
     out_schema_fields_dict = defaultdict(list)
+    filter_schema_fields = []
 
     # Process fields and group by section
     for section, section_data in category_yaml.get('properties', {}).items():
@@ -232,9 +240,13 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
                 if yaml_link_type == 'single-link':
                     out_schema_fields_dict[section].append(f"{out_field_name}: Optional[ElementNestedOutSchema] = None")
                     imports_tracker['typing_Optional'] = True
+                    # Add filter field for single-link
+                    filter_schema_fields.append(f"{field}_id: Optional[uuid.UUID] = Field(None, q='{field}_id')")
                 elif yaml_link_type == 'multi-link':
                     out_schema_fields_dict[section].append(f"{out_field_name}: List[ElementNestedOutSchema] = []")
                     imports_tracker['typing_List'] = True # Track usage of typing.List
+                    # Add filter field for multi-link
+                    filter_schema_fields.append(f"{field}_ids: Optional[uuid.UUID] = Field(None, q='{field}__id')")
                 else:
                     # Regular field, potentially with constraints for Out schema too
                     field_def_out = generate_field_definition(field, details, imports_tracker, context="out")
@@ -282,9 +294,12 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
     content += f"    name: Optional[str] = None\n"
     content += "\n\n"
 
-    # --- <Category>FilterSchema (Placeholder) ---
-    content += f"class {class_name_base}FilterSchema(FilterSchema):\n"
-    content += f"    pass # Add fields here\n" # Minimal placeholder
+    # --- <Category>FilterSchema with all foreign key fields ---
+    content += f"class {class_name_base}FilterSchema(BaseFilterSchema):\n"
+    if filter_schema_fields:
+        content += textwrap.indent("\n".join(filter_schema_fields), "    ") + "\n"
+    else:
+        content += f"    pass # No foreign key fields found\n" # Fallback if no foreign keys
     content += "\n\n"
 
     # --- <Category>OutSchema ---
@@ -314,7 +329,7 @@ if __name__ == "__main__":
         if filename.endswith('.yaml') and filename != BASE_PROPERTIES_FILE:
             category_name = filename[:-5] # Remove .yaml
             yaml_path = os.path.join(YAML_SCHEMA_DIR, filename)
-            output_path = os.path.join(OUTPUT_DIR, f"{category_name}_schemas.py")
+            output_path = os.path.join(OUTPUT_DIR, f"{category_name}_schemas.py") # Append _schemas here
             generate_category_schema(category_name, yaml_path, output_path)
 
     print("Schema generation complete.")
