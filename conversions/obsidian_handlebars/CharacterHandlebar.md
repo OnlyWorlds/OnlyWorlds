@@ -19,7 +19,7 @@
 ## Origins
 - <span class="string" data-tooltip="Text">Background</span>: {{background}}
 - <span class="string" data-tooltip="Text">Motivations</span>: {{motivations}}
-- <span class="integer" data-tooltip="Number, max: 0">Birth_date</span>: {{birth_date}}
+- <span class="integer" data-tooltip="Number">Birth_date</span>: {{birth_date}}
 - <span class="link-field" data-tooltip="Single Location">Birthplace</span>: {{linkify birthplace}}
 - <span class="multi-link-field" data-tooltip="Multi Language">Languages</span>: {{linkify languages}}
 
@@ -47,9 +47,9 @@
 - <span class="string" data-tooltip="Text">Backstory</span>: {{backstory}}
 - <span class="integer" data-tooltip="Number, max: 0">Level</span>: {{level}}
 - <span class="integer" data-tooltip="Number, max: 0">Power</span>: {{power}}
-- <span class="integer" data-tooltip="Number, max: 9999">Price</span>: {{price}}
-- <span class="integer" data-tooltip="Number, max: 999">Hit_points</span>: {{hit_points}}
-- <span class="integer" data-tooltip="Number, max: 0">Skill_stealth</span>: {{skill_stealth}}
+- <span class="integer" data-tooltip="Number">Price</span>: {{price}}
+- <span class="integer" data-tooltip="Number">Hit_points</span>: {{hit_points}}
+- <span class="integer" data-tooltip="Number">Skill_stealth</span>: {{skill_stealth}}
 - <span class="integer" data-tooltip="Number, max: 20">Tt_str</span>: {{tt_str}}
 - <span class="integer" data-tooltip="Number, max: 20">Tt_int</span>: {{tt_int}}
 - <span class="integer" data-tooltip="Number, max: 20">Tt_con</span>: {{tt_con}}

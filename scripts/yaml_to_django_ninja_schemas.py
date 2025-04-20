@@ -28,12 +28,12 @@ def safe_load_yaml(filepath):
 
 def get_python_type_hint(yaml_type_details, context="base"):
     """Maps YAML type details to Python type hints for Ninja schemas.
-       Context can be 'base' or 'out'.
+       Uses `| None` instead of `Optional`. Context can be 'base' or 'out'.
     """
     yaml_type = yaml_type_details.get('type') if isinstance(yaml_type_details, dict) else yaml_type_details
 
     if not yaml_type:
-        return "Any | None"
+        return "Any | None" # Keep Any | None as it's not Optional[Any]
 
     # Types for Base/In/Update Schemas
     if context == "base":
@@ -46,9 +46,9 @@ def get_python_type_hint(yaml_type_details, context="base"):
         elif yaml_type == 'number':
             return "float | None"
         elif yaml_type == 'single-link':
-            return "uuid.UUID | None" # Use UUID directly for base/input IDs
+            return "uuid.UUID | None"
         elif yaml_type == 'multi-link':
-            return "list[uuid.UUID] | None" # Use list[uuid.UUID] for base/input IDs
+            return "list[uuid.UUID] | None"
         elif yaml_type == 'array':
             item_type_hint = get_python_type_hint(yaml_type_details.get('items', {'type': 'string'}), context)
             item_type_base = item_type_hint.replace(" | None", "")
@@ -60,6 +60,10 @@ def get_python_type_hint(yaml_type_details, context="base"):
             return "str | None"
          elif yaml_type == 'integer':
             return "int | None"
+         elif yaml_type == 'boolean':
+            return "bool | None"
+         elif yaml_type == 'number':
+            return "float | None"
          # Add other non-link types if needed for Out context specifically
          else: # Fallback for non-link types in Out context
              return get_python_type_hint(yaml_type_details, context="base")
@@ -69,37 +73,49 @@ def get_python_type_hint(yaml_type_details, context="base"):
         if yaml_type.lower() == 'string': return "str | None"
         if yaml_type.lower() == 'integer': return "int | None"
         if yaml_type.lower() == 'url': return "str | None"
-        if yaml_type.lower() == 'uuid': return "uuid.UUID"
+        if yaml_type.lower() == 'uuid': return "uuid.UUID" # UUID itself is not optional here
 
-    return "Any | None"
+    return "Any | None" # Default fallback
 
-def generate_field_definition(field_name, yaml_details, imports_tracker, context="base"):
+def generate_field_definition(field_name, yaml_details, imports_tracker, context="base", alias=None):
     """Generates a Ninja schema field definition string."""
     py_type_hint = get_python_type_hint(yaml_details, context=context)
-    py_field_name = field_name
+    py_field_name = field_name # Use the name passed in
 
     field_args = []
-    default_value = "None"
+    # Determine default value based on type hint and context
+    if context == 'out' and py_type_hint.startswith('List['):
+        default_value = "[]"
+    else:
+        default_value = "None"
 
-    # Handle reserved keywords - use trailing underscore convention
-    if keyword.iskeyword(field_name):
-        py_field_name = f"{field_name}_"
-        field_args.append(f"alias='{field_name}'")
-        imports_tracker['Field'] = "from ninja import Field" # Ensure Field is imported
+    # Handle explicit alias first (usually for base properties like Image_URL)
+    # We will NOT add aliases for keywords here anymore, that's handled by renaming.
+    if alias:
+        field_args.append(f"alias='{alias}'")
+        imports_tracker['Field'] = "from ninja import Field"
 
     # Handle constraints (only 'maximum' for 'le' currently)
     maximum = yaml_details.get('maximum') if isinstance(yaml_details, dict) else None
     if maximum is not None and isinstance(maximum, (int, float)) and maximum > 0:
-        # Don't add default_value=None to Field args if we already have constraints
         constraint_args = [f"le={maximum}"]
-        field_args.extend(constraint_args)
-        imports_tracker['Field'] = "from ninja import Field" # Ensure Field is imported
+        if field_args: # Already using Field(...) for alias
+             field_args.extend(constraint_args)
+        # If not using Field for alias, check if default needed
+        elif "| None" in py_type_hint or default_value == "None":
+             field_args = [default_value] + constraint_args
+        else: # Type is not optional (e.g., List) or default is []
+             field_args = constraint_args
+        imports_tracker['Field'] = "from ninja import Field"
 
     # Build Field string if needed
     if field_args:
-        # Add default 'None' as first arg for Field(...) unless type doesn't include '| None'
-        field_content = [default_value] + field_args if "| None" in py_type_hint else field_args
-        field_args_str = ", ".join(field_content)
+        # Check if default 'None' should be the first arg (if not already added by constraints)
+        final_field_args = field_args
+        if default_value == "None" and ("| None" in py_type_hint or "ElementNestedOutSchema | None" in py_type_hint) and (not final_field_args or default_value not in final_field_args[0]):
+             final_field_args.insert(0, default_value)
+
+        field_args_str = ", ".join(final_field_args)
         return f"{py_field_name}: {py_type_hint} = Field({field_args_str})"
     else:
         # Simple assignment if no Field args
@@ -124,7 +140,7 @@ def generate_base_schemas(base_yaml_path, output_file):
     # Match target import style
     imports_content = textwrap.dedent("""\
         from ninja import Field, Schema, FilterSchema # type: ignore
-        from typing import Optional
+        from typing import List # Only List needed now
         import uuid
     """)
 
@@ -185,9 +201,9 @@ def generate_base_schemas(base_yaml_path, output_file):
     # Add BaseFilterSchema
     content += "class BaseFilterSchema(FilterSchema):\n"
     content += '    """Base filter schema including common element fields."""\n'
-    content += "    name__icontains: Optional[str] = Field(None, q='name__icontains')\n"
-    content += "    supertype: Optional[str] = Field(None, q='supertype')\n"
-    content += "    subtype: Optional[str] = Field(None, q='subtype')\n"
+    content += "    name__icontains: str | None = Field(None, q='name__icontains')\n" # Changed to | None
+    content += "    supertype: str | None = Field(None, q='supertype')\n" # Changed to | None
+    content += "    subtype: str | None = Field(None, q='subtype')\n" # Changed to | None
 
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(content)
@@ -208,7 +224,6 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
         'base': f"from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema",
         'ninja': "from ninja import Field, FilterSchema  # type: ignore", # Assuming Field/Filter always needed
         'typing_List': "from typing import List",
-        'typing_Optional': "from typing import Optional",
         'uuid': "import uuid"
     }
     # Track which specific imports are actually used by the fields generated
@@ -216,7 +231,6 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
     imports_tracker['base'] = True # Always needed
     imports_tracker['ninja'] = True # Assume always needed
     imports_tracker['uuid'] = True # Assume always needed
-    imports_tracker['typing_Optional'] = True # Likely needed for | None or Optional[]
 
     base_schema_fields_dict = defaultdict(list)
     out_schema_fields_dict = defaultdict(list)
@@ -226,30 +240,79 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
     for section, section_data in category_yaml.get('properties', {}).items():
         if isinstance(section_data, dict) and 'properties' in section_data:
             for field, details in section_data['properties'].items():
+                yaml_link_type = details.get('type') if isinstance(details, dict) else None
+                original_field_name = field
+
+                # Determine the python field name for use in the schema definition
+                # And the alias if the python name differs from the original yaml key
+                py_schema_name = original_field_name
+                py_explicit_alias_for_base = None # Alias ONLY needed if name changes (e.g. Image_URL)
+                # py_alias_name_for_out = None # We won't use aliases for keywords/links in OutSchema
+
+                if keyword.iskeyword(original_field_name):
+                    # Rename consistently by prepending category name (lowercase)
+                    py_schema_name = f"{category_name.lower()}_{original_field_name}";
+                    # No alias needed as the name is changed everywhere
+                    # py_alias_name_for_base = original_field_name # Removed
+                    # py_alias_name_for_out = original_field_name # Removed
+
+                # Determine names specific to links, overriding py_schema_name for *Base* schema
+                py_schema_name_for_base_link = py_schema_name # Start with potentially keyword-modified name
+                if yaml_link_type == 'single-link':
+                    py_link_name = f"{py_schema_name}_id" # Use the potentially modified name + _id
+                    # Example: if original was 'class', py_schema_name is 'character_class', py_link_name is 'character_class_id'
+                    py_schema_name_for_base_link = py_link_name # Use the link name (_id) for BaseSchema
+                    # Alias is *only* needed for OutSchema to map back, unless already set for keyword
+                    # if not py_alias_name_for_out:
+                    #      py_alias_name_for_out = original_field_name # Removed logic
+                elif yaml_link_type == 'multi-link':
+                    py_link_name = f"{py_schema_name}_ids" # Use the potentially modified name + _ids
+                    # Example: if original was 'items', py_schema_name is 'category_items', py_link_name is 'category_items_ids'
+                    py_schema_name_for_base_link = py_link_name # Use the link name (_ids) for BaseSchema
+                    # Alias is *only* needed for OutSchema to map back, unless already set for keyword
+                    # if not py_alias_name_for_out:
+                    #      py_alias_name_for_out = original_field_name # Removed logic
+
+                # Use the potentially link-modified name for the final Base schema name
+                py_final_schema_name_for_base = py_schema_name_for_base_link
+                # Use the non-link name (but potentially keyword-modified) for the Out schema name
+                py_final_schema_name_for_out = py_schema_name
+
+
                 # --- Field for Base Schema ---
-                # Use the raw field name (e.g., 'species', 'birthplace')
-                field_def_base = generate_field_definition(field, details, imports_tracker, context="base")
+                # Generate using the final base schema name (_id/_ids included)
+                # Pass alias ONLY if explicitly needed (e.g. Image_URL, not for keywords)
+                field_def_base = generate_field_definition(
+                    py_final_schema_name_for_base, details, imports_tracker, context="base", alias=py_explicit_alias_for_base
+                )
                 base_schema_fields_dict[section].append(field_def_base)
-                if 'list[' in field_def_base: imports_tracker['typing_list_primitive'] = True # Track primitive list usage
+                if 'list[' in field_def_base: imports_tracker['typing_list_primitive'] = True
                 if 'uuid.UUID' in field_def_base: imports_tracker['uuid'] = True
 
                 # --- Field for Out Schema ---
-                yaml_link_type = details.get('type') if isinstance(details, dict) else None
-                out_field_name = get_nested_out_field_name(field, yaml_link_type)
 
                 if yaml_link_type == 'single-link':
-                    out_schema_fields_dict[section].append(f"{out_field_name}: Optional[ElementNestedOutSchema] = None")
-                    imports_tracker['typing_Optional'] = True
-                    # Add filter field for single-link
-                    filter_schema_fields.append(f"{field}_id: Optional[uuid.UUID] = Field(None, q='{field}_id')")
+                    # Use py_final_schema_name_for_out (original name or keyword_)
+                    # No alias needed. Default is None.
+                    out_schema_fields_dict[section].append(f"{py_final_schema_name_for_out}: ElementNestedOutSchema | None = None")
+                    # imports_tracker['typing_Optional'] = True # No longer needed
+                    # Filter field uses the base schema name (_id) for the schema field definition
+                    # and the same base schema name (_id) for q lookup
+                    filter_schema_fields.append(f"{py_schema_name_for_base_link}: uuid.UUID | None = Field(None, q='{py_schema_name_for_base_link}')") # Use base name for field and q
                 elif yaml_link_type == 'multi-link':
-                    out_schema_fields_dict[section].append(f"{out_field_name}: List[ElementNestedOutSchema] = []")
-                    imports_tracker['typing_List'] = True # Track usage of typing.List
-                    # Add filter field for multi-link
-                    filter_schema_fields.append(f"{field}_ids: Optional[uuid.UUID] = Field(None, q='{field}__id')")
+                    # Use py_final_schema_name_for_out (original name or keyword_)
+                    # No alias needed. Default is [].
+                    out_schema_fields_dict[section].append(f"{py_final_schema_name_for_out}: List[ElementNestedOutSchema] = []")
+                    imports_tracker['typing_List'] = True
+                    # Filter field uses the base schema name (_ids) for the schema field definition
+                    # but uses original field name + __id for q lookup on the M2M field
+                    filter_schema_fields.append(f"{py_schema_name_for_base_link}: uuid.UUID | None = Field(None, q='{original_field_name}__id')") # Use base name for field, original_name__id for q
                 else:
-                    # Regular field, potentially with constraints for Out schema too
-                    field_def_out = generate_field_definition(field, details, imports_tracker, context="out")
+                    # Regular field - generate using py_final_schema_name_for_out
+                    # Pass alias ONLY if explicitly needed (e.g. Image_URL, not for keywords)
+                    field_def_out = generate_field_definition(
+                         py_final_schema_name_for_out, details, imports_tracker, context="out", alias=py_explicit_alias_for_base # Use base alias here if it was explicit (e.g. Image_URL)
+                    )
                     out_schema_fields_dict[section].append(field_def_out)
 
     # Build import string based on tracked usage
@@ -257,12 +320,12 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
     if imports_tracker['ninja']: final_import_lines.append(imports_needed['ninja'])
     # Combine List/Optional imports if both needed
     typing_imports = []
-    if imports_tracker['typing_List']: typing_imports.append("List")
-    if imports_tracker['typing_Optional']: typing_imports.append("Optional")
+    if imports_tracker['typing_List'] or imports_tracker['typing_list_primitive']:
+         typing_imports.append("List")
+    # Optional removed
+
     if typing_imports:
         final_import_lines.append(f"from typing import {', '.join(typing_imports)}")
-    elif imports_tracker['typing_list_primitive']: # If only primitive list used
-         final_import_lines.append("from typing import List") # Or just keep Optional? Target uses list[]
 
     if imports_tracker['uuid']: final_import_lines.append(imports_needed['uuid'])
     # Sort or order imports as per target file? Example seems semi-ordered.
@@ -285,13 +348,13 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
 
     # --- <Category>CreateInSchema ---
     content += f"class {class_name_base}CreateInSchema({class_name_base}BaseSchema):\n"
-    content += f"    id: Optional[uuid.UUID] = Field(None, exclude=True)\n"
+    content += f"    id: uuid.UUID | None = Field(None, exclude=True)\n" # Changed to | None
     content += "\n\n"
 
     # --- <Category>UpdateInSchema ---
     content += f"class {class_name_base}UpdateInSchema({class_name_base}BaseSchema):\n"
-    content += f"    id: Optional[uuid.UUID] = Field(None, exclude=True)\n"
-    content += f"    name: Optional[str] = None\n"
+    content += f"    id: uuid.UUID | None = Field(None, exclude=True)\n" # Changed to | None
+    content += f"    name: str | None = None\n" # Changed to | None
     content += "\n\n"
 
     # --- <Category>FilterSchema with all foreign key fields ---

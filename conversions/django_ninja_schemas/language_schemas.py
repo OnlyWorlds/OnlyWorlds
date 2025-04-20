@@ -1,6 +1,6 @@
 from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema
 from ninja import Field, FilterSchema  # type: ignore
-from typing import List, Optional
+from typing import List
 import uuid
 
 
@@ -11,28 +11,28 @@ class LanguageBaseSchema(AbstractElementBaseSchema):
     phonology: str | None = None
     grammar: str | None = None
     vocabulary: str | None = None
-    classification: uuid.UUID | None = None
+    classification_id: uuid.UUID | None = None
 
     # Spread
     prose: str | None = None
     speakers: int | None = None
-    dialects: list[uuid.UUID] | None = None
-    range: list[uuid.UUID] | None = None
+    dialects_ids: list[uuid.UUID] | None = None
+    range_ids: list[uuid.UUID] | None = None
 
 
 class LanguageCreateInSchema(LanguageBaseSchema):
-    id: Optional[uuid.UUID] = Field(None, exclude=True)
+    id: uuid.UUID | None = Field(None, exclude=True)
 
 
 class LanguageUpdateInSchema(LanguageBaseSchema):
-    id: Optional[uuid.UUID] = Field(None, exclude=True)
-    name: Optional[str] = None
+    id: uuid.UUID | None = Field(None, exclude=True)
+    name: str | None = None
 
 
 class LanguageFilterSchema(BaseFilterSchema):
-    classification_id: Optional[uuid.UUID] = Field(None, q='classification_id')
-    dialects_ids: Optional[uuid.UUID] = Field(None, q='dialects__id')
-    range_ids: Optional[uuid.UUID] = Field(None, q='range__id')
+    classification_id: uuid.UUID | None = Field(None, q='classification_id')
+    dialects_ids: uuid.UUID | None = Field(None, q='dialects__id')
+    range_ids: uuid.UUID | None = Field(None, q='range__id')
 
 
 class LanguageOutSchema(AbstractElementBaseSchema):
@@ -42,7 +42,7 @@ class LanguageOutSchema(AbstractElementBaseSchema):
     phonology: str | None = None
     grammar: str | None = None
     vocabulary: str | None = None
-    classification: Optional[ElementNestedOutSchema] = None
+    classification: ElementNestedOutSchema | None = None
 
     # Spread
     prose: str | None = None

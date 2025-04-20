@@ -1,5 +1,5 @@
 from ninja import Field, Schema, FilterSchema # type: ignore
-from typing import Optional
+from typing import List # Only List needed now
 import uuid
 
 
@@ -23,6 +23,6 @@ class ElementNestedOutSchema(Schema):
 
 class BaseFilterSchema(FilterSchema):
     """Base filter schema including common element fields."""
-    name__icontains: Optional[str] = Field(None, q='name__icontains')
-    supertype: Optional[str] = Field(None, q='supertype')
-    subtype: Optional[str] = Field(None, q='subtype')
+    name__icontains: str | None = Field(None, q='name__icontains')
+    supertype: str | None = Field(None, q='supertype')
+    subtype: str | None = Field(None, q='subtype')

@@ -1,6 +1,6 @@
 from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema
 from ninja import Field, FilterSchema  # type: ignore
-from typing import List, Optional
+from typing import List
 import uuid
 
 
@@ -10,38 +10,38 @@ class AbilityBaseSchema(AbstractElementBaseSchema):
     usage: str | None = None
     range: int | None = None
     strength: int | None = Field(None, le=100)
-    effects: list[uuid.UUID] | None = None
-    utility: list[uuid.UUID] | None = None
+    effects_ids: list[uuid.UUID] | None = None
+    utility_ids: list[uuid.UUID] | None = None
 
     # Dynamics
     difficulty: str | None = None
-    talent: list[uuid.UUID] | None = None
-    enablers: list[uuid.UUID] | None = None
-    requirements: list[uuid.UUID] | None = None
+    talent_ids: list[uuid.UUID] | None = None
+    enablers_ids: list[uuid.UUID] | None = None
+    requirements_ids: list[uuid.UUID] | None = None
 
     # World
     prevalence: str | None = None
-    system: uuid.UUID | None = None
-    construct: uuid.UUID | None = None
+    system_id: uuid.UUID | None = None
+    construct_id: uuid.UUID | None = None
 
 
 class AbilityCreateInSchema(AbilityBaseSchema):
-    id: Optional[uuid.UUID] = Field(None, exclude=True)
+    id: uuid.UUID | None = Field(None, exclude=True)
 
 
 class AbilityUpdateInSchema(AbilityBaseSchema):
-    id: Optional[uuid.UUID] = Field(None, exclude=True)
-    name: Optional[str] = None
+    id: uuid.UUID | None = Field(None, exclude=True)
+    name: str | None = None
 
 
 class AbilityFilterSchema(BaseFilterSchema):
-    effects_ids: Optional[uuid.UUID] = Field(None, q='effects__id')
-    utility_ids: Optional[uuid.UUID] = Field(None, q='utility__id')
-    talent_ids: Optional[uuid.UUID] = Field(None, q='talent__id')
-    enablers_ids: Optional[uuid.UUID] = Field(None, q='enablers__id')
-    requirements_ids: Optional[uuid.UUID] = Field(None, q='requirements__id')
-    system_id: Optional[uuid.UUID] = Field(None, q='system_id')
-    construct_id: Optional[uuid.UUID] = Field(None, q='construct_id')
+    effects_ids: uuid.UUID | None = Field(None, q='effects__id')
+    utility_ids: uuid.UUID | None = Field(None, q='utility__id')
+    talent_ids: uuid.UUID | None = Field(None, q='talent__id')
+    enablers_ids: uuid.UUID | None = Field(None, q='enablers__id')
+    requirements_ids: uuid.UUID | None = Field(None, q='requirements__id')
+    system_id: uuid.UUID | None = Field(None, q='system_id')
+    construct_id: uuid.UUID | None = Field(None, q='construct_id')
 
 
 class AbilityOutSchema(AbstractElementBaseSchema):
@@ -61,6 +61,6 @@ class AbilityOutSchema(AbstractElementBaseSchema):
 
     # World
     prevalence: str | None = None
-    system: Optional[ElementNestedOutSchema] = None
-    construct: Optional[ElementNestedOutSchema] = None
+    system: ElementNestedOutSchema | None = None
+    construct: ElementNestedOutSchema | None = None
 

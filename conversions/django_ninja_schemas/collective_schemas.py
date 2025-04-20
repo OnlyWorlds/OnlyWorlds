@@ -1,6 +1,6 @@
 from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema
 from ninja import Field, FilterSchema  # type: ignore
-from typing import List, Optional
+from typing import List
 import uuid
 
 
@@ -10,40 +10,40 @@ class CollectiveBaseSchema(AbstractElementBaseSchema):
     composition: str | None = None
     count: int | None = None
     formation_date: int | None = None
-    operator: uuid.UUID | None = None
-    equipment: list[uuid.UUID] | None = None
+    operator_id: uuid.UUID | None = None
+    equipment_ids: list[uuid.UUID] | None = None
 
     # Agency
     activity: str | None = None
     temperance: str | None = None
-    skills: list[uuid.UUID] | None = None
-    rituals: list[uuid.UUID] | None = None
+    skills_ids: list[uuid.UUID] | None = None
+    rituals_ids: list[uuid.UUID] | None = None
 
     # World
-    species: list[uuid.UUID] | None = None
-    characters: list[uuid.UUID] | None = None
-    creatures: list[uuid.UUID] | None = None
-    phenomena: list[uuid.UUID] | None = None
+    species_ids: list[uuid.UUID] | None = None
+    characters_ids: list[uuid.UUID] | None = None
+    creatures_ids: list[uuid.UUID] | None = None
+    phenomena_ids: list[uuid.UUID] | None = None
 
 
 class CollectiveCreateInSchema(CollectiveBaseSchema):
-    id: Optional[uuid.UUID] = Field(None, exclude=True)
+    id: uuid.UUID | None = Field(None, exclude=True)
 
 
 class CollectiveUpdateInSchema(CollectiveBaseSchema):
-    id: Optional[uuid.UUID] = Field(None, exclude=True)
-    name: Optional[str] = None
+    id: uuid.UUID | None = Field(None, exclude=True)
+    name: str | None = None
 
 
 class CollectiveFilterSchema(BaseFilterSchema):
-    operator_id: Optional[uuid.UUID] = Field(None, q='operator_id')
-    equipment_ids: Optional[uuid.UUID] = Field(None, q='equipment__id')
-    skills_ids: Optional[uuid.UUID] = Field(None, q='skills__id')
-    rituals_ids: Optional[uuid.UUID] = Field(None, q='rituals__id')
-    species_ids: Optional[uuid.UUID] = Field(None, q='species__id')
-    characters_ids: Optional[uuid.UUID] = Field(None, q='characters__id')
-    creatures_ids: Optional[uuid.UUID] = Field(None, q='creatures__id')
-    phenomena_ids: Optional[uuid.UUID] = Field(None, q='phenomena__id')
+    operator_id: uuid.UUID | None = Field(None, q='operator_id')
+    equipment_ids: uuid.UUID | None = Field(None, q='equipment__id')
+    skills_ids: uuid.UUID | None = Field(None, q='skills__id')
+    rituals_ids: uuid.UUID | None = Field(None, q='rituals__id')
+    species_ids: uuid.UUID | None = Field(None, q='species__id')
+    characters_ids: uuid.UUID | None = Field(None, q='characters__id')
+    creatures_ids: uuid.UUID | None = Field(None, q='creatures__id')
+    phenomena_ids: uuid.UUID | None = Field(None, q='phenomena__id')
 
 
 class CollectiveOutSchema(AbstractElementBaseSchema):
@@ -52,7 +52,7 @@ class CollectiveOutSchema(AbstractElementBaseSchema):
     composition: str | None = None
     count: int | None = None
     formation_date: int | None = None
-    operator: Optional[ElementNestedOutSchema] = None
+    operator: ElementNestedOutSchema | None = None
     equipment: List[ElementNestedOutSchema] = []
 
     # Agency

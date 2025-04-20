@@ -1,6 +1,6 @@
 from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema
 from ninja import Field, FilterSchema  # type: ignore
-from typing import List, Optional
+from typing import List
 import uuid
 
 
@@ -10,18 +10,18 @@ class ObjectBaseSchema(AbstractElementBaseSchema):
     aesthetics: str | None = None
     weight: int | None = None
     amount: int | None = None
-    parent_object: uuid.UUID | None = None
-    technology: list[uuid.UUID] | None = None
+    parent_object_id: uuid.UUID | None = None
+    technology_ids: list[uuid.UUID] | None = None
 
     # Function
     utility: str | None = None
-    effects: list[uuid.UUID] | None = None
-    enables: list[uuid.UUID] | None = None
-    consumes: list[uuid.UUID] | None = None
+    effects_ids: list[uuid.UUID] | None = None
+    enables_ids: list[uuid.UUID] | None = None
+    consumes_ids: list[uuid.UUID] | None = None
 
     # World
     origins: str | None = None
-    location: uuid.UUID | None = None
+    location_id: uuid.UUID | None = None
 
     # Games
     craftsmanship: str | None = None
@@ -31,28 +31,28 @@ class ObjectBaseSchema(AbstractElementBaseSchema):
     damage: int | None = None
     armor: int | None = None
     rarity: str | None = None
-    language: uuid.UUID | None = None
-    requires: list[uuid.UUID] | None = None
+    language_id: uuid.UUID | None = None
+    requires_ids: list[uuid.UUID] | None = None
 
 
 class ObjectCreateInSchema(ObjectBaseSchema):
-    id: Optional[uuid.UUID] = Field(None, exclude=True)
+    id: uuid.UUID | None = Field(None, exclude=True)
 
 
 class ObjectUpdateInSchema(ObjectBaseSchema):
-    id: Optional[uuid.UUID] = Field(None, exclude=True)
-    name: Optional[str] = None
+    id: uuid.UUID | None = Field(None, exclude=True)
+    name: str | None = None
 
 
 class ObjectFilterSchema(BaseFilterSchema):
-    parent_object_id: Optional[uuid.UUID] = Field(None, q='parent_object_id')
-    technology_ids: Optional[uuid.UUID] = Field(None, q='technology__id')
-    effects_ids: Optional[uuid.UUID] = Field(None, q='effects__id')
-    enables_ids: Optional[uuid.UUID] = Field(None, q='enables__id')
-    consumes_ids: Optional[uuid.UUID] = Field(None, q='consumes__id')
-    location_id: Optional[uuid.UUID] = Field(None, q='location_id')
-    language_id: Optional[uuid.UUID] = Field(None, q='language_id')
-    requires_ids: Optional[uuid.UUID] = Field(None, q='requires__id')
+    parent_object_id: uuid.UUID | None = Field(None, q='parent_object_id')
+    technology_ids: uuid.UUID | None = Field(None, q='technology__id')
+    effects_ids: uuid.UUID | None = Field(None, q='effects__id')
+    enables_ids: uuid.UUID | None = Field(None, q='enables__id')
+    consumes_ids: uuid.UUID | None = Field(None, q='consumes__id')
+    location_id: uuid.UUID | None = Field(None, q='location_id')
+    language_id: uuid.UUID | None = Field(None, q='language_id')
+    requires_ids: uuid.UUID | None = Field(None, q='requires__id')
 
 
 class ObjectOutSchema(AbstractElementBaseSchema):
@@ -61,7 +61,7 @@ class ObjectOutSchema(AbstractElementBaseSchema):
     aesthetics: str | None = None
     weight: int | None = None
     amount: int | None = None
-    parent_object: Optional[ElementNestedOutSchema] = None
+    parent_object: ElementNestedOutSchema | None = None
     technology: List[ElementNestedOutSchema] = []
 
     # Function
@@ -72,7 +72,7 @@ class ObjectOutSchema(AbstractElementBaseSchema):
 
     # World
     origins: str | None = None
-    location: Optional[ElementNestedOutSchema] = None
+    location: ElementNestedOutSchema | None = None
 
     # Games
     craftsmanship: str | None = None
@@ -82,6 +82,6 @@ class ObjectOutSchema(AbstractElementBaseSchema):
     damage: int | None = None
     armor: int | None = None
     rarity: str | None = None
-    language: Optional[ElementNestedOutSchema] = None
+    language: ElementNestedOutSchema | None = None
     requires: List[ElementNestedOutSchema] = []
 

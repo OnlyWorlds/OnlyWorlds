@@ -34,8 +34,8 @@ class Character extends BaseElement {
   final String backstory;
   final int level;
   final int power;
-  final int price; // maxint
-  final int hitPoints; // maxint
+  final int price;
+  final int hitPoints;
   final int skillStealth;
   final int ttStr; // maxint
   final int ttInt; // maxint

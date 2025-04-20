@@ -1,6 +1,6 @@
 from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema
 from ninja import Field, FilterSchema  # type: ignore
-from typing import List, Optional
+from typing import List
 import uuid
 
 
@@ -23,22 +23,22 @@ class TraitBaseSchema(AbstractElementBaseSchema):
     courage: int | None = Field(None, le=100)
 
     # World
-    anti_trait: uuid.UUID | None = None
-    empowered_abilities: list[uuid.UUID] | None = None
+    anti_trait_id: uuid.UUID | None = None
+    empowered_abilities_ids: list[uuid.UUID] | None = None
 
 
 class TraitCreateInSchema(TraitBaseSchema):
-    id: Optional[uuid.UUID] = Field(None, exclude=True)
+    id: uuid.UUID | None = Field(None, exclude=True)
 
 
 class TraitUpdateInSchema(TraitBaseSchema):
-    id: Optional[uuid.UUID] = Field(None, exclude=True)
-    name: Optional[str] = None
+    id: uuid.UUID | None = Field(None, exclude=True)
+    name: str | None = None
 
 
 class TraitFilterSchema(BaseFilterSchema):
-    anti_trait_id: Optional[uuid.UUID] = Field(None, q='anti_trait_id')
-    empowered_abilities_ids: Optional[uuid.UUID] = Field(None, q='empowered_abilities__id')
+    anti_trait_id: uuid.UUID | None = Field(None, q='anti_trait_id')
+    empowered_abilities_ids: uuid.UUID | None = Field(None, q='empowered_abilities__id')
 
 
 class TraitOutSchema(AbstractElementBaseSchema):
@@ -60,6 +60,6 @@ class TraitOutSchema(AbstractElementBaseSchema):
     courage: int | None = Field(None, le=100)
 
     # World
-    anti_trait: Optional[ElementNestedOutSchema] = None
+    anti_trait: ElementNestedOutSchema | None = None
     empowered_abilities: List[ElementNestedOutSchema] = []
 

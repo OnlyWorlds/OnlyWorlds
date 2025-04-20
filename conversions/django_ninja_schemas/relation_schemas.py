@@ -1,6 +1,6 @@
 from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema
 from ninja import Field, FilterSchema  # type: ignore
-from typing import List, Optional
+from typing import List
 import uuid
 
 
@@ -12,34 +12,34 @@ class RelationBaseSchema(AbstractElementBaseSchema):
     start_date: int | None = None
     end_date: int | None = None
     debt: int | None = None
-    events: list[uuid.UUID] | None = None
+    events_ids: list[uuid.UUID] | None = None
 
     # Involves
-    primary_character: uuid.UUID | None = None
-    primary_creature: uuid.UUID | None = None
-    primary_institution: uuid.UUID | None = None
-    secondary_characters: list[uuid.UUID] | None = None
-    secondary_creatures: list[uuid.UUID] | None = None
-    secondary_institutions: list[uuid.UUID] | None = None
+    primary_character_id: uuid.UUID | None = None
+    primary_creature_id: uuid.UUID | None = None
+    primary_institution_id: uuid.UUID | None = None
+    secondary_characters_ids: list[uuid.UUID] | None = None
+    secondary_creatures_ids: list[uuid.UUID] | None = None
+    secondary_institutions_ids: list[uuid.UUID] | None = None
 
 
 class RelationCreateInSchema(RelationBaseSchema):
-    id: Optional[uuid.UUID] = Field(None, exclude=True)
+    id: uuid.UUID | None = Field(None, exclude=True)
 
 
 class RelationUpdateInSchema(RelationBaseSchema):
-    id: Optional[uuid.UUID] = Field(None, exclude=True)
-    name: Optional[str] = None
+    id: uuid.UUID | None = Field(None, exclude=True)
+    name: str | None = None
 
 
 class RelationFilterSchema(BaseFilterSchema):
-    events_ids: Optional[uuid.UUID] = Field(None, q='events__id')
-    primary_character_id: Optional[uuid.UUID] = Field(None, q='primary_character_id')
-    primary_creature_id: Optional[uuid.UUID] = Field(None, q='primary_creature_id')
-    primary_institution_id: Optional[uuid.UUID] = Field(None, q='primary_institution_id')
-    secondary_characters_ids: Optional[uuid.UUID] = Field(None, q='secondary_characters__id')
-    secondary_creatures_ids: Optional[uuid.UUID] = Field(None, q='secondary_creatures__id')
-    secondary_institutions_ids: Optional[uuid.UUID] = Field(None, q='secondary_institutions__id')
+    events_ids: uuid.UUID | None = Field(None, q='events__id')
+    primary_character_id: uuid.UUID | None = Field(None, q='primary_character_id')
+    primary_creature_id: uuid.UUID | None = Field(None, q='primary_creature_id')
+    primary_institution_id: uuid.UUID | None = Field(None, q='primary_institution_id')
+    secondary_characters_ids: uuid.UUID | None = Field(None, q='secondary_characters__id')
+    secondary_creatures_ids: uuid.UUID | None = Field(None, q='secondary_creatures__id')
+    secondary_institutions_ids: uuid.UUID | None = Field(None, q='secondary_institutions__id')
 
 
 class RelationOutSchema(AbstractElementBaseSchema):
@@ -53,9 +53,9 @@ class RelationOutSchema(AbstractElementBaseSchema):
     events: List[ElementNestedOutSchema] = []
 
     # Involves
-    primary_character: Optional[ElementNestedOutSchema] = None
-    primary_creature: Optional[ElementNestedOutSchema] = None
-    primary_institution: Optional[ElementNestedOutSchema] = None
+    primary_character: ElementNestedOutSchema | None = None
+    primary_creature: ElementNestedOutSchema | None = None
+    primary_institution: ElementNestedOutSchema | None = None
     secondary_characters: List[ElementNestedOutSchema] = []
     secondary_creatures: List[ElementNestedOutSchema] = []
     secondary_institutions: List[ElementNestedOutSchema] = []

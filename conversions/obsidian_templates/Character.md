@@ -19,7 +19,7 @@
 ## Origins
 - <span class="text-field" data-tooltip="Text">Background</span>: 
 - <span class="text-field" data-tooltip="Text">Motivations</span>: 
-- <span class="number-field" data-tooltip="Number, max: 0">Birth_date</span>: 
+- <span class="number-field" data-tooltip="Number">Birth_date</span>: 
 - <span class="link-field" data-tooltip="Single Location">Birthplace</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Language">Languages</span>: 
 
@@ -47,9 +47,9 @@
 - <span class="text-field" data-tooltip="Text">Backstory</span>: 
 - <span class="number-field" data-tooltip="Number, max: 0">Level</span>: 
 - <span class="number-field" data-tooltip="Number, max: 0">Power</span>: 
-- <span class="number-field" data-tooltip="Number, max: 9999">Price</span>: 
-- <span class="number-field" data-tooltip="Number, max: 999">Hit_points</span>: 
-- <span class="number-field" data-tooltip="Number, max: 0">Skill_stealth</span>: 
+- <span class="number-field" data-tooltip="Number">Price</span>: 
+- <span class="number-field" data-tooltip="Number">Hit_points</span>: 
+- <span class="number-field" data-tooltip="Number">Skill_stealth</span>: 
 - <span class="number-field" data-tooltip="Number, max: 20">Tt_str</span>: 
 - <span class="number-field" data-tooltip="Number, max: 20">Tt_int</span>: 
 - <span class="number-field" data-tooltip="Number, max: 20">Tt_con</span>: 

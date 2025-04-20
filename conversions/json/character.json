@@ -63,7 +63,6 @@
                 },
                 "birth_date": {
                     "type": "integer",
-                    "maximum": 0,
                     "description": "Birth date of the character."
                 },
                 "birthplace": {
@@ -202,17 +201,14 @@
                 },
                 "price": {
                     "type": "integer",
-                    "maximum": 9999,
                     "description": "Price or value associated with the character."
                 },
                 "hit_points": {
                     "type": "integer",
-                    "maximum": 999,
                     "description": "Total hit points of the character."
                 },
                 "skill_stealth": {
                     "type": "integer",
-                    "maximum": 0,
                     "description": "Stealth skill level of the character."
                 },
                 "tt_str": {

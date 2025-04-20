@@ -47,8 +47,7 @@ properties:
         type: "string"
         description: "Driving motivations behind the character's actions."
       birth_date:
-        type: "integer"
-        maximum: 0
+        type: "integer" 
         description: "Birth date of the character."
       birthplace:
         type: "single-link"
@@ -151,16 +150,13 @@ properties:
         maximum: 0
         description: "Power level of the character."
       price:
-        type: "integer"
-        maximum: 9999
+        type: "integer" 
         description: "Price or value associated with the character."
       hit_points:
-        type: "integer"
-        maximum: 999
+        type: "integer" 
         description: "Total hit points of the character."
       skill_stealth:
-        type: "integer"
-        maximum: 0
+        type: "integer" 
         description: "Stealth skill level of the character."
       tt_str:
         type: "integer"

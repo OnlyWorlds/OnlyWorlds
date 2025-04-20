@@ -1,6 +1,6 @@
 from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema
 from ninja import Field, FilterSchema  # type: ignore
-from typing import List, Optional
+from typing import List
 import uuid
 
 
@@ -9,36 +9,36 @@ class TerritoryBaseSchema(AbstractElementBaseSchema):
     # Situation
     terrain: str | None = None
     size: int | None = None
-    parent_territory: uuid.UUID | None = None
+    parent_territory_id: uuid.UUID | None = None
 
     # Yield
     maintenance: str | None = None
     primary_output: int | None = None
     secondary_output: int | None = None
-    primary_resource: uuid.UUID | None = None
-    secondary_resources: list[uuid.UUID] | None = None
+    primary_resource_id: uuid.UUID | None = None
+    secondary_resources_ids: list[uuid.UUID] | None = None
 
     # World
     history: str | None = None
-    occupants: list[uuid.UUID] | None = None
-    occurrences: list[uuid.UUID] | None = None
+    occupants_ids: list[uuid.UUID] | None = None
+    occurrences_ids: list[uuid.UUID] | None = None
 
 
 class TerritoryCreateInSchema(TerritoryBaseSchema):
-    id: Optional[uuid.UUID] = Field(None, exclude=True)
+    id: uuid.UUID | None = Field(None, exclude=True)
 
 
 class TerritoryUpdateInSchema(TerritoryBaseSchema):
-    id: Optional[uuid.UUID] = Field(None, exclude=True)
-    name: Optional[str] = None
+    id: uuid.UUID | None = Field(None, exclude=True)
+    name: str | None = None
 
 
 class TerritoryFilterSchema(BaseFilterSchema):
-    parent_territory_id: Optional[uuid.UUID] = Field(None, q='parent_territory_id')
-    primary_resource_id: Optional[uuid.UUID] = Field(None, q='primary_resource_id')
-    secondary_resources_ids: Optional[uuid.UUID] = Field(None, q='secondary_resources__id')
-    occupants_ids: Optional[uuid.UUID] = Field(None, q='occupants__id')
-    occurrences_ids: Optional[uuid.UUID] = Field(None, q='occurrences__id')
+    parent_territory_id: uuid.UUID | None = Field(None, q='parent_territory_id')
+    primary_resource_id: uuid.UUID | None = Field(None, q='primary_resource_id')
+    secondary_resources_ids: uuid.UUID | None = Field(None, q='secondary_resources__id')
+    occupants_ids: uuid.UUID | None = Field(None, q='occupants__id')
+    occurrences_ids: uuid.UUID | None = Field(None, q='occurrences__id')
 
 
 class TerritoryOutSchema(AbstractElementBaseSchema):
@@ -46,13 +46,13 @@ class TerritoryOutSchema(AbstractElementBaseSchema):
     # Situation
     terrain: str | None = None
     size: int | None = None
-    parent_territory: Optional[ElementNestedOutSchema] = None
+    parent_territory: ElementNestedOutSchema | None = None
 
     # Yield
     maintenance: str | None = None
     primary_output: int | None = None
     secondary_output: int | None = None
-    primary_resource: Optional[ElementNestedOutSchema] = None
+    primary_resource: ElementNestedOutSchema | None = None
     secondary_resources: List[ElementNestedOutSchema] = []
 
     # World
