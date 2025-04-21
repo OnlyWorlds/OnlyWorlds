@@ -1,4 +1,7 @@
 {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "BaseProperties",
+    "type": "object",
     "properties": {
         "Id": {
             "type": "string",
@@ -28,5 +31,10 @@
             "type": "string",
             "description": "UUID of the world the element is part of."
         }
-    }
+    },
+    "required": [
+        "Id",
+        "Name",
+        "World"
+    ]
 }
