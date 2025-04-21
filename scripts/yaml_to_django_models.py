@@ -79,10 +79,8 @@ def get_base_field_type(field_name, field_details, is_required=False):
     required_imports = {"models"}
     
     # Base attributes for fields, adjusted based on whether they are required
-    base_attrs = "" if is_required else ", blank=True, null=True"
-    # SET_NULL requires null=True, PROTECT is better if null is False
-    fk_on_delete = "models.PROTECT" if is_required else "models.CASCADE" # Cascade for World FK seems reasonable
-    fk_attrs = f", on_delete={fk_on_delete}" + ("" if is_required else ", blank=True, null=True") # Though World FK is required by structure
+    # Used for general fields if not specifically handled below
+    base_attrs_nullable = "" if is_required else ", blank=True, null=True"
 
     # Handle special fields for the base model - ID and Name are inherently required
     if field_name.lower() == 'id':
@@ -92,29 +90,43 @@ def get_base_field_type(field_name, field_details, is_required=False):
         return "models.TextField(max_length=255)", description, required_imports # Always required
     elif field_name.lower() == 'description':
          # Description can be optional unless explicitly required
-        return f"models.TextField({base_attrs.lstrip(', ')})", description, required_imports
+        return f"models.TextField({base_attrs_nullable.lstrip(', ')})", description, required_imports
     elif field_name.lower() == 'image_url':
          # Image URL can be optional unless explicitly required
-        return f"models.URLField({base_attrs.lstrip(', ')})", description, required_imports
+        return f"models.URLField({base_attrs_nullable.lstrip(', ')})", description, required_imports
     elif field_name.lower() == 'world':
-        # World FK is always required for an element, hence no blank/null
-        return ('models.ForeignKey(\n        "worlds.World",\n        on_delete=models.CASCADE,'
-                '\n        related_name="%(class)s_related",\n    )', description, required_imports)
+        # World FK relationship. on_delete=CASCADE makes sense regardless of requirement.
+        # Nullability depends on whether 'World' is in the 'required' list in base_properties.yaml
+        fk_args = [
+            '"worlds.World"',
+            'on_delete=models.CASCADE',
+            'related_name="%(class)s_related"'
+        ]
+        if not is_required:
+            # Add blank=True, null=True only if World is NOT required
+            fk_args.append('blank=True')
+            fk_args.append('null=True')
+
+        # Format with newlines for readability
+        fk_args_str = f",\n        ".join(fk_args)
+        field_string = f'models.ForeignKey(\n        {fk_args_str}\n    )'
+        return (field_string, description, required_imports)
     
     # General field type mapping (less likely needed with current base_properties)
+    # Use base_attrs_nullable which respects is_required
     if field_type == 'integer':
         if maximum:
             required_imports.add("validators")
             validators_str = f", validators=[MaxValueValidator({maximum})]"
             # Assuming base integer fields are nullable unless required
-            return f"models.PositiveIntegerField(validators=[MaxValueValidator({maximum})]{base_attrs})", description, required_imports
-        return f"models.IntegerField({base_attrs.lstrip(', ')})", description, required_imports
+            return f"models.PositiveIntegerField(validators=[MaxValueValidator({maximum})]{base_attrs_nullable})", description, required_imports
+        return f"models.IntegerField({base_attrs_nullable.lstrip(', ')})", description, required_imports
     elif field_type == 'string':
         # Assuming base string fields are nullable unless required
-        return f"models.CharField(max_length=255{base_attrs})", description, required_imports
+        return f"models.CharField(max_length=255{base_attrs_nullable})", description, required_imports
     else:
          # Default to nullable TextField unless required
-        return f"models.TextField({base_attrs.lstrip(', ')})", description, required_imports
+        return f"models.TextField({base_attrs_nullable.lstrip(', ')})", description, required_imports
 
 def generate_abstract_element_model(base_properties_path, django_path):
     """Generate abstract base model for all element types."""

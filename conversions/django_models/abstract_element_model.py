@@ -11,7 +11,7 @@ class AbstractElementModel(models.Model):
     world = models.ForeignKey(
         "worlds.World",
         on_delete=models.CASCADE,
-        related_name="%(class)s_related",
+        related_name="%(class)s_related"
     )
 
     class Meta:
