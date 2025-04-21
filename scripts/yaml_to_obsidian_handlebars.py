@@ -61,7 +61,7 @@ if __name__ == "__main__":
     os.makedirs(handlebars_dir, exist_ok=True)
 
     for filename in os.listdir(yaml_dir):
-        if filename.endswith('.yaml') and filename != 'base_properties.yaml':
+        if filename.endswith('.yaml') and filename != 'base_properties.yaml' and filename != 'world.yaml':
             yaml_path = os.path.join(yaml_dir, filename)
             handlebars_filename = filename[:-5].capitalize() + 'Handlebar.md'
             handlebars_path = os.path.join(handlebars_dir, handlebars_filename)

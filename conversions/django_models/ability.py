@@ -1,6 +1,6 @@
-from django.db import models
-from django.core.validators import MaxValueValidator
 from .abstract_element_model import AbstractElementModel
+from django.core.validators import MaxValueValidator
+from django.db import models
 
 class Ability(AbstractElementModel):
 

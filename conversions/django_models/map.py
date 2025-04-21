@@ -1,5 +1,5 @@
-from django.db import models
 from .abstract_element_model import AbstractElementModel
+from django.db import models
 
 class Map(AbstractElementModel):
 

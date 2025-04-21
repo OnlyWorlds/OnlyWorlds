@@ -1,23 +1,85 @@
 {
-    "World": {
-        "id": "UUID",
-        "api_key": "String",
-        "name": "String",
-        "description": "String | Null",
-        "version": "String",
-        "image_url": "URL | Null",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "World",
+    "type": "object",
+    "description": "Represents the overarching world container, settings, and metadata.",
+    "properties": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Unique identifier for the world, uuidv7 format.",
+            "readOnly": true
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the world."
+        },
+        "description": {
+            "type": "string",
+            "description": "Detailed description of the world."
+        },
+        "image_url": {
+            "type": "string",
+            "format": "url",
+            "description": "URL to an image representing the world."
+        },
+        "api_key": {
+            "type": "string",
+            "description": "Unique API key for external access (uniqueness enforced by application).",
+            "maxLength": 10
+        },
+        "version": {
+            "type": "string",
+            "description": "The version of the OnlyWorlds data format this world instance conforms to.",
+            "default": "0.20.10"
+        },
+        "user": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of the user who owns this world."
+        },
         "time_format_equivalents": {
-            "type": "List",
-            "items": "String",
-            "description": "Canonical time unit names (e.g., [\"Eon\", \"Era\", \"Period\", \"Epoch\", \"Age\", \"Year\", \"Month\", \"Day\", \"Hour\", \"Minute\", \"Second\"])"
+            "type": "array",
+            "description": "List of integers representing the equivalent number of basic units for each time format step (e.g., [1, 7, 30, 365] for Day, Week, Month, Year if basic unit is Day).",
+            "items": {
+                "type": "integer"
+            },
+            "default": []
         },
         "time_format_names": {
-            "type": "List",
-            "items": "String"
+            "type": "array",
+            "description": "List of strings for the names of time format steps (e.g., ['Day', 'Week', 'Month', 'Year']).",
+            "items": {
+                "type": "string"
+            },
+            "default": []
         },
-        "time_basic_unit": "String",
-        "time_range_min": "Integer",
-        "time_range_max": "Integer",
-        "time_current": "Integer"
-    }
+        "time_basic_unit": {
+            "type": "string",
+            "description": "The fundamental unit of time measurement (e.g., 'Year', 'Day').",
+            "default": "Year"
+        },
+        "time_range_min": {
+            "type": "integer",
+            "description": "The earliest point in time representable or tracked in the world's timeline.",
+            "default": 0
+        },
+        "time_range_max": {
+            "type": "integer",
+            "description": "The latest point in time representable or tracked in the world's timeline.",
+            "default": 100
+        },
+        "time_current": {
+            "type": "integer",
+            "description": "The current point in time within the world's timeline.",
+            "default": 0
+        }
+    },
+    "required": [
+        "id",
+        "name",
+        "api_key",
+        "version",
+        "user"
+    ]
 }

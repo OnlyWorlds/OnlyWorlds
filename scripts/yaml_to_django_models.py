@@ -1,7 +1,5 @@
 import os
 import yaml
-from collections import defaultdict
- 
 
 def get_django_field_type(yaml_type, field_details=None, model_name=None, is_world=False, is_required=False):
     """Determine Django field type based on YAML type and collect required imports."""
@@ -154,79 +152,127 @@ def generate_abstract_element_model(base_properties_path, django_path):
     # Write the file with imports
     write_django_file(os.path.dirname(django_path), os.path.basename(django_path), model_content, required_imports, "AbstractElementModel", is_world=False, is_abstract=True)
 
+def get_world_django_field_string(field_name, field_details):
+    """Generate the specific Django field string for a World model field based on YAML details."""
+    field_type = field_details.get('type', 'string')
+    field_format = field_details.get('format')
+    default = field_details.get('default')
+    max_length = field_details.get('maxLength')
+    imports = {"models"} # Base import
+
+    if field_name == 'id':
+        imports.add("uuid")
+        return "models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)", imports
+    elif field_name == 'api_key':
+        # Use maxLength from schema, default to 10 if not specified
+        length = max_length if max_length is not None else 10
+        return f"models.CharField(max_length={length}, unique=True)", imports
+    elif field_name == 'name':
+        return "models.CharField(max_length=255)", imports
+    elif field_name == 'description':
+        return "models.TextField(blank=True, null=True)", imports
+    elif field_name == 'version':
+        # Use default from schema, fallback if not present
+        default_val = default if default is not None else '0.00.00' # Default specified in your example
+        return f"models.CharField(max_length=50, default='{default_val}')", imports
+    elif field_name == 'image_url':
+        return "models.URLField(blank=True, null=True)", imports
+    elif field_name == 'user':
+        imports.add("settings")
+        return 'models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="worlds")', imports
+    elif field_type == 'array':
+        imports.add("JSONField")
+        # Assuming all array types map to JSONField(default=list) for World
+        return "JSONField(default=list)", imports
+    elif field_name == 'time_basic_unit':
+        default_val = default if default is not None else 'Year'
+        return f"models.CharField(max_length=50, default='{default_val}')", imports
+    elif field_name in ['time_range_min', 'time_range_max', 'time_current']:
+        # Use default from schema, provide fallback if needed
+        default_val = default if default is not None else 0
+        # Ensure default is treated as integer for PositiveIntegerField
+        return f"models.PositiveIntegerField(default={int(default_val)})", imports
+    else:
+        # Fallback for any unexpected fields in world.yaml
+        # print(f"Warning: Unhandled field '{field_name}' in World schema. Defaulting to TextField.")
+        return "models.TextField(blank=True, null=True)", imports
 
 def extract_fields(yaml_data, class_name=None, is_world=False):
-    """Extract field definitions from YAML data and collect required imports."""
+    """Extract field definitions from YAML data and collect required imports.
+    The required_imports set tracks strings needed for the *output file*.
+    """
     fields = []
-    required_imports = set()
-    
-    # Handle World fields separately if needed (currently no required logic shown here)
-    if is_world and 'World' in yaml_data:
-        # Assuming 'World' structure doesn't use 'required' keyword like element properties
-        world_props = yaml_data['World']
-        for field, field_type in world_props.items():
-            if isinstance(field_type, dict):
-                field_type['field_name'] = field
-            # World fields are treated as required by default in get_django_field_type
-            django_field, imports = get_django_field_type(field_type, field_type, 'World', is_world=True, is_required=True) 
+    required_imports = {"models"} # Default needed for models.Model etc.
+
+    if is_world:
+        world_props = yaml_data.get('properties', {})
+        temp_fields = {}
+        for field_name, field_details in world_props.items():
+            # Use the new helper function to get the exact string and imports
+            field_string, imports = get_world_django_field_string(field_name, field_details)
+            temp_fields[field_name] = field_string
             required_imports.update(imports)
-            fields.append((field, django_field))
+
+        # Reorder fields to match the desired model structure
+        ordered_fields = []
+        field_order = [
+            'id', 'api_key', 'name', 'description', 'version', 'image_url',
+            'time_format_equivalents', 'time_format_names', 'time_basic_unit',
+            'time_range_min', 'time_range_max', 'time_current', 'user'
+        ]
+        for field_name in field_order:
+            if field_name in temp_fields:
+                ordered_fields.append((field_name, temp_fields[field_name]))
+        # Add any fields from YAML not in the predefined order (for robustness)
+        for field_name, field_string in temp_fields.items():
+            if field_name not in field_order:
+                # print(f"Warning: Field '{field_name}' found in world.yaml but not in expected order.")
+                ordered_fields.append((field_name, field_string))
+        fields = ordered_fields
+
+    # Existing logic for non-world elements
     elif 'properties' in yaml_data:
         top_level_properties = yaml_data['properties']
-        # Check for required fields at the top level (less common for nested structure)
-        top_level_required = yaml_data.get('required', []) 
+        top_level_required = yaml_data.get('required', []) # Get top-level required list
 
         for section, section_data in top_level_properties.items():
             section_fields = []
-            # Check if this section represents a nested object with its own properties and requirements
+            # Check if this section represents a nested object
             if isinstance(section_data, dict) and section_data.get('type') == 'object' and 'properties' in section_data:
                 nested_properties = section_data['properties']
-                # Get the list of required fields *within* this nested object
-                nested_required = section_data.get('required', []) 
-                
+                nested_required = section_data.get('required', []) # Required fields *within* this section
+
                 for field, field_details in nested_properties.items():
                     if isinstance(field_details, dict):
-                        field_details['field_name'] = field # Add field name for context if needed
-                    
-                    # Determine if the current field is required within its nested section
+                        field_details['field_name'] = field # Pass field name for context
+
                     is_field_required = field in nested_required
-                    
-                    # Pass the is_field_required status to the type getter
+                    # Use the original get_django_field_type for non-world elements
                     django_field, imports = get_django_field_type(
                         field_details, field_details, class_name, is_world=False, is_required=is_field_required
                     )
                     required_imports.update(imports)
                     section_fields.append((field, django_field))
-            # Handle simpler top-level fields if necessary (might need adjustment based on schema design)
-            # elif section not in ['title', '$schema', 'type', 'description', 'version']: # Example check
-            #     is_field_required = section in top_level_required
-            #     django_field, imports = get_django_field_type(section_data, section_data, class_name, is_world=False, is_required=is_field_required)
-            #     required_imports.update(imports)
-            #     # Decide how to structure fields if not nested under 'details', 'meta' etc.
-            #     # This part might need refinement based on actual YAML structures used.
-            #     # For now, assuming primary fields are under nested objects like 'details'.
-            #     pass 
 
             if section_fields:
                 fields.append((section, section_fields))
-                
+
     return fields, required_imports
 
 def generate_django_model(class_name, fields, required_imports, is_world=False):
     """Generate Django model class string from field definitions."""
-    # Determine base class
-    base_class = 'AbstractBaseModel' if is_world else 'AbstractElementModel'
+    base_class = 'models.Model' if is_world else 'AbstractElementModel'
     model = f"class {class_name}({base_class}):\n"
-    
+
     if is_world:
-        required_imports.add("models") # Manager needs models
         model += "    objects = models.Manager()\n"
-        for field, field_type in fields:
-            model += f"    {field} = {field_type}\n"
+        for field, field_type_str in fields:
+            model += f"    {field} = {field_type_str}\n"
     elif class_name == 'Pin':
         # Special case for Pin model GFK
         required_imports.add("models")
-        required_imports.add("contenttypes")
+        required_imports.add("contenttypes_fields") # for GenericForeignKey
+        required_imports.add("contenttypes_models") # for ContentType
         required_imports.add("uuid") # For object_id
         
         for section_name, section_fields in fields:
@@ -252,28 +298,36 @@ def generate_django_model(class_name, fields, required_imports, is_world=False):
     return model, required_imports
 
 def generate_import_statements(required_imports, class_name, is_world, is_abstract=False):
-    """Generate import statements based on collected requirements."""
+    """Generate import statement strings based on collected requirements for the output file."""
     import_lines = []
+    # Map the collected strings to actual import statements
     if "models" in required_imports:
         import_lines.append("from django.db import models")
     if "uuid" in required_imports:
         import_lines.append("import uuid")
     if "validators" in required_imports:
         import_lines.append("from django.core.validators import MaxValueValidator")
-    if "contenttypes" in required_imports:
+    # Use distinct keys for GFK imports to avoid ambiguity
+    if "contenttypes_fields" in required_imports:
         import_lines.append("from django.contrib.contenttypes.fields import GenericForeignKey")
+    if "contenttypes_models" in required_imports:
         import_lines.append("from django.contrib.contenttypes.models import ContentType")
+    if "settings" in required_imports:
+        import_lines.append("from django.conf import settings")
+    if "JSONField" in required_imports:
+        import_lines.append("from django.db.models import JSONField")
 
-    # Add base model import unless it's the abstract model itself
+    # Add base model import string unless it's the abstract model itself
     if not is_abstract:
         if is_world:
-            # Assuming a base model exists for World, adjust if needed
-            # import_lines.append("from .abstract_base_model import AbstractBaseModel") 
-            pass # No abstract base for World currently defined
+            # World inherits directly from models.Model
+            pass
         else:
+            # All other elements inherit from AbstractElementModel
             import_lines.append(f"from .abstract_element_model import AbstractElementModel")
-            
-    return "\n".join(import_lines) + "\n\n" if import_lines else ""
+
+    # Sort for consistency and add newlines
+    return "\n".join(sorted(list(set(import_lines)))) + "\n\n" if import_lines else ""
 
 
 def write_django_file(directory, filename, model_content, required_imports, class_name, is_world, is_abstract=False):

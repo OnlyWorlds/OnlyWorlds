@@ -3,19 +3,35 @@ import yaml
 
 def get_dart_type(yaml_type, field_details=None):
     """Determine Dart type from YAML type information."""
-    if isinstance(yaml_type, dict):
-        if 'type' in yaml_type:
-            if yaml_type['type'] == 'integer':
-                return 'int'
-            elif yaml_type['type'] in ['string', 'multi-link', 'single-link', 'List']:
-                return 'String'
+    # If field_details is provided and has type info, use it preferentially
+    current_type_info = field_details if isinstance(field_details, dict) and 'type' in field_details else yaml_type
+
+    if isinstance(current_type_info, dict):
+        field_type = current_type_info.get('type')
+        if field_type == 'integer':
+            return 'int'
+        elif field_type == 'string' or current_type_info.get('format') in ['uuid', 'url'] :
+             return 'String'
+        elif field_type == 'array':
+            items = current_type_info.get('items', {})
+            item_type = items.get('type')
+            if item_type == 'integer':
+                return 'List<int>'
+            elif item_type == 'string':
+                return 'List<String>'
+            else:
+                return 'List<dynamic>' # Fallback for unknown item types
+        elif field_type in ['multi-link', 'single-link']:
+             return 'String' # Represent links as String IDs
+
+    # Handle cases where yaml_type is just a string (less common with full schema)
     elif isinstance(yaml_type, str):
         if yaml_type == 'Integer':
             return 'int'
         elif yaml_type in ['String', 'UUID', 'URL'] or '|' in yaml_type:
             return 'String'
-    
-    # Default to String for unknown types
+
+    # Default to String for unknown or unspecified types
     return 'String'
 
 def snake_to_camel(snake_str):
@@ -45,29 +61,32 @@ def generate_comment(field_details):
 def extract_fields(yaml_data, is_world=False):
     """Extract field definitions from YAML data."""
     fields = []
-    
-    # Handle World schema
-    if is_world and 'World' in yaml_data:
-        for field, field_type in yaml_data['World'].items():
-            dart_type = get_dart_type(field_type)
+
+    if 'properties' not in yaml_data:
+        return fields # No properties to extract
+
+    # Handle World schema specifically (flat structure under 'properties')
+    if is_world:
+        for field, field_details in yaml_data['properties'].items():
+            dart_type = get_dart_type(field_details, field_details) # Pass details for better type inference
             field_name = snake_to_camel(field)
-            comment = ''
+            comment = generate_comment(field_details)
             fields.append((field_name, dart_type, comment))
-    # Handle schemas with properties
-    elif 'properties' in yaml_data:
+    # Handle other schemas with potentially nested properties sections
+    else:
         for section, section_data in yaml_data['properties'].items():
             section_fields = []
-            
+
             if isinstance(section_data, dict) and 'properties' in section_data:
                 for field, field_details in section_data['properties'].items():
-                    dart_type = get_dart_type(field_details, field_details)
+                    dart_type = get_dart_type(field_details, field_details) # Pass details
                     field_name = snake_to_camel(field)
                     comment = generate_comment(field_details)
                     section_fields.append((field_name, dart_type, comment))
-            
+
             if section_fields:
                 fields.append((section, section_fields))
-    
+
     return fields
 
 def generate_dart_class(class_name, fields, base_class=None):
