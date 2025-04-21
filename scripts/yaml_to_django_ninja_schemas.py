@@ -26,71 +26,80 @@ def safe_load_yaml(filepath):
         print(f"Error parsing YAML file {filepath}: {e}")
         return None
 
-def get_python_type_hint(yaml_type_details, context="base"):
+def get_python_type_hint(yaml_type_details, context="base", is_required=False):
     """Maps YAML type details to Python type hints for Ninja schemas.
-       Uses `| None` instead of `Optional`. Context can be 'base' or 'out'.
+       Uses `| None` instead of `Optional` unless `is_required` is True for base context.
     """
     yaml_type = yaml_type_details.get('type') if isinstance(yaml_type_details, dict) else yaml_type_details
 
     if not yaml_type:
-        return "Any | None" # Keep Any | None as it's not Optional[Any]
+        return "Any" if is_required and context == "base" else "Any | None"
 
-    # Types for Base/In/Update Schemas
+    optional_suffix = "" if is_required and context == "base" else " | None"
+
+    # Types for Base/In/Update Schemas (influenced by is_required)
     if context == "base":
         if yaml_type == 'string':
-            return "str | None"
+            return f"str{optional_suffix}"
         elif yaml_type == 'integer':
-            return "int | None"
+            return f"int{optional_suffix}"
         elif yaml_type == 'boolean':
-            return "bool | None"
+            return f"bool{optional_suffix}"
         elif yaml_type == 'number':
-            return "float | None"
+            return f"float{optional_suffix}"
         elif yaml_type == 'single-link':
-            return "uuid.UUID | None"
+             # UUID itself is not optional, the field is.
+            return f"uuid.UUID{optional_suffix}"
         elif yaml_type == 'multi-link':
-            return "list[uuid.UUID] | None"
+             # List structure itself isn't optional, but the field can be None
+            return f"list[uuid.UUID]{optional_suffix}"
         elif yaml_type == 'array':
-            item_type_hint = get_python_type_hint(yaml_type_details.get('items', {'type': 'string'}), context)
-            item_type_base = item_type_hint.replace(" | None", "")
-            return f"list[{item_type_base}] | None"
+             # Get the base type hint for the item, assuming items themselves aren't required *within* the list
+            item_type_hint = get_python_type_hint(yaml_type_details.get('items', {'type': 'string'}), context, is_required=False)
+            item_type_base = item_type_hint.replace(" | None", "") # Item type within list shouldn't be optional unless specified
+            return f"list[{item_type_base}]{optional_suffix}"
 
-    # Types for Out Schemas (handled in generate_category_schema)
+    # Types for Out Schemas (generally keep optional unless it's a list)
     elif context == "out":
-         if yaml_type == 'string':
-            return "str | None"
-         elif yaml_type == 'integer':
-            return "int | None"
-         elif yaml_type == 'boolean':
-            return "bool | None"
-         elif yaml_type == 'number':
-            return "float | None"
-         # Add other non-link types if needed for Out context specifically
-         else: # Fallback for non-link types in Out context
-             return get_python_type_hint(yaml_type_details, context="base")
+         if yaml_type == 'string': return "str | None"
+         if yaml_type == 'integer': return "int | None"
+         if yaml_type == 'boolean': return "bool | None"
+         if yaml_type == 'number': return "float | None"
+         # Links handled elsewhere for Out schema (become nested)
+         # Non-link types fall through to base logic but without required affecting them
+         return get_python_type_hint(yaml_type_details, context="base", is_required=False)
 
     # Fallback for simple types defined directly (like in base_properties)
     if isinstance(yaml_type, str):
-        if yaml_type.lower() == 'string': return "str | None"
-        if yaml_type.lower() == 'integer': return "int | None"
-        if yaml_type.lower() == 'url': return "str | None"
-        if yaml_type.lower() == 'uuid': return "uuid.UUID" # UUID itself is not optional here
+        if yaml_type.lower() == 'string': return f"str{optional_suffix}"
+        if yaml_type.lower() == 'integer': return f"int{optional_suffix}"
+        if yaml_type.lower() == 'url': return f"str{optional_suffix}"
+        if yaml_type.lower() == 'uuid': return "uuid.UUID" # UUID primary key is never optional
 
-    return "Any | None" # Default fallback
+    # Default fallback
+    return "Any" if is_required and context == "base" else "Any | None"
 
-def generate_field_definition(field_name, yaml_details, imports_tracker, context="base", alias=None):
+def generate_field_definition(field_name, yaml_details, imports_tracker, context="base", alias=None, is_required=False):
     """Generates a Ninja schema field definition string."""
-    py_type_hint = get_python_type_hint(yaml_details, context=context)
+    # Pass is_required to get the correct type hint
+    py_type_hint = get_python_type_hint(yaml_details, context=context, is_required=is_required)
     py_field_name = field_name # Use the name passed in
 
     field_args = []
-    # Determine default value based on type hint and context
-    if context == 'out' and py_type_hint.startswith('List['):
-        default_value = "[]"
-    else:
-        default_value = "None"
+    field_args_str = ""
+    default_assignment = "" # Will be empty for required fields
 
-    # Handle explicit alias first (usually for base properties like Image_URL)
-    # We will NOT add aliases for keywords here anymore, that's handled by renaming.
+    # Determine default assignment string based on type hint and context
+    if not is_required or context != "base": # Only add default if not required in base context
+        if context == 'out' and py_type_hint.startswith('list['):
+            default_value = "[]"
+            default_assignment = f" = {default_value}"
+        elif " | None" in py_type_hint: # Check if the final type hint allows None
+             default_value = "None"
+             default_assignment = f" = {default_value}"
+        # If required, default_assignment remains ""
+
+    # Handle explicit alias (usually for base properties like Image_URL)
     if alias:
         field_args.append(f"alias='{alias}'")
         imports_tracker['Field'] = "from ninja import Field"
@@ -99,27 +108,30 @@ def generate_field_definition(field_name, yaml_details, imports_tracker, context
     maximum = yaml_details.get('maximum') if isinstance(yaml_details, dict) else None
     if maximum is not None and isinstance(maximum, (int, float)) and maximum > 0:
         constraint_args = [f"le={maximum}"]
-        if field_args: # Already using Field(...) for alias
+        # If we already have an alias, append constraint
+        if field_args:
              field_args.extend(constraint_args)
-        # If not using Field for alias, check if default needed
-        elif "| None" in py_type_hint or default_value == "None":
-             field_args = [default_value] + constraint_args
-        else: # Type is not optional (e.g., List) or default is []
+        # If no alias, but the field is optional, add None first
+        elif not is_required and (" | None" in py_type_hint or default_assignment == " = None"):
+            field_args = ["None"] + constraint_args
+        # Otherwise (required or non-optional type with constraint), just add constraint
+        else:
              field_args = constraint_args
         imports_tracker['Field'] = "from ninja import Field"
 
     # Build Field string if needed
     if field_args:
-        # Check if default 'None' should be the first arg (if not already added by constraints)
-        final_field_args = field_args
-        if default_value == "None" and ("| None" in py_type_hint or "ElementNestedOutSchema | None" in py_type_hint) and (not final_field_args or default_value not in final_field_args[0]):
-             final_field_args.insert(0, default_value)
+        # Check if default 'None' should be the first arg if field is optional and not already added
+        if not is_required and (" | None" in py_type_hint or default_assignment == " = None") and (not field_args or "None" not in field_args[0]):
+             # Ensure "None" is the first argument for optional fields when using Field(...)
+             if "None" not in field_args: # Avoid duplicates if added by constraint logic
+                 field_args.insert(0, "None")
 
-        field_args_str = ", ".join(final_field_args)
+        field_args_str = ", ".join(field_args)
         return f"{py_field_name}: {py_type_hint} = Field({field_args_str})"
     else:
-        # Simple assignment if no Field args
-        return f"{py_field_name}: {py_type_hint} = {default_value}"
+        # Simple assignment with conditional default
+        return f"{py_field_name}: {py_type_hint}{default_assignment}"
 
 
 def get_nested_out_field_name(yaml_field_name, yaml_link_type):
@@ -147,29 +159,43 @@ def generate_base_schemas(base_yaml_path, output_file):
     base_fields = []
     nested_out_fields = []
     base_properties = base_yaml.get('properties', {})
+    required_base_fields = base_yaml.get('required', []) # Read required fields
     imports_tracker = defaultdict(str) # Track needed imports like Field
 
     # Generate AbstractElementBaseSchema
     for field, details in base_properties.items():
         py_field_name = field.lower()
-        py_type_hint = get_python_type_hint(details)
-        field_def = f"{py_field_name}: {py_type_hint}"
+        is_required = field in required_base_fields # Check if field is required
 
+        # --- Generate field definition for Base Schema ---
+        field_def = ""
+        py_explicit_alias = None
+        if field != py_field_name: # Original name differs (e.g., Image_URL)
+            py_explicit_alias = field
+
+        # Special handling for id, name, world which have specific requirements
         if py_field_name == 'id':
-            field_def = f"id: uuid.UUID"
+            field_def = f"id: uuid.UUID" # Always required
         elif py_field_name == 'name':
-             field_def = f"name: str"
+             field_def = f"name: str" # Always required
         elif py_field_name == 'world':
-             field_def = f"world: uuid.UUID | None = None"
-        elif field != py_field_name: # Original name differs (e.g., Image_URL)
-             field_def += f" = Field(None, alias='{field}')"
-             imports_tracker['Field'] = "from ninja import Field" # Ensure Field imported
+             # World is conceptually required for an element, but represented by UUID
+             # Keep it optional in base schema for flexibility? Let's make it required.
+             field_def = f"world: uuid.UUID" # Changed to required
         else:
-            field_def += " = None"
+            # Use generate_field_definition for other fields
+            field_def = generate_field_definition(
+                py_field_name,
+                details,
+                imports_tracker,
+                context="base",
+                alias=py_explicit_alias,
+                is_required=is_required
+            )
 
         base_fields.append(field_def)
 
-        # Define fields for NestedOutSchema based on target file
+        # --- Define fields for NestedOutSchema (remains mostly the same) ---
         if py_field_name in ['id', 'name', 'supertype', 'subtype', 'image_url']:
              if py_field_name == 'id':
                  nested_out_fields.append(f"id: uuid.UUID")
@@ -177,15 +203,16 @@ def generate_base_schemas(base_yaml_path, output_file):
                  nested_out_fields.append(f"name: str")
              elif py_field_name == 'image_url' and field != py_field_name:
                  nested_out_fields.append(f"{py_field_name}: str | None = Field(None, alias='{field}')")
-                 imports_tracker['Field'] = "from ninja import Field"
+                 # Ensure Field is tracked if used here, though likely caught by base schema generation
+                 if 'Field' not in imports_tracker: imports_tracker['Field'] = "from ninja import Field"
              else:
                  nested_out_fields.append(f"{py_field_name}: str | None = None")
 
 
     # Ensure Field import is added if used
-    if 'Field' in imports_tracker and 'Field' not in imports_content:
+    if imports_tracker['Field'] and 'Field' not in imports_content:
          # This logic might need refinement based on final import structure
-         pass # Assuming Field is included in the initial import block
+         imports_content += "\n" + imports_tracker['Field'] # Basic append for now
 
     content = ""
     content += imports_content + "\n\n" # Use the defined import block
@@ -239,9 +266,13 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
     # Process fields and group by section
     for section, section_data in category_yaml.get('properties', {}).items():
         if isinstance(section_data, dict) and 'properties' in section_data:
-            for field, details in section_data['properties'].items():
+            nested_properties = section_data['properties'] # Get nested props
+            nested_required = section_data.get('required', []) # Get required list for this section
+
+            for field, details in nested_properties.items(): # Use nested_properties here
                 yaml_link_type = details.get('type') if isinstance(details, dict) else None
                 original_field_name = field
+                is_field_required = original_field_name in nested_required # Check requirement
 
                 # Determine the python field name for use in the schema definition
                 # And the alias if the python name differs from the original yaml key
@@ -279,11 +310,10 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
                 py_final_schema_name_for_out = py_schema_name
 
 
-                # --- Field for Base Schema ---
-                # Generate using the final base schema name (_id/_ids included)
-                # Pass alias ONLY if explicitly needed (e.g. Image_URL, not for keywords)
+                # --- Field for Base Schema --- (Pass is_required)
                 field_def_base = generate_field_definition(
-                    py_final_schema_name_for_base, details, imports_tracker, context="base", alias=py_explicit_alias_for_base
+                    py_final_schema_name_for_base, details, imports_tracker, context="base", alias=py_explicit_alias_for_base,
+                    is_required=is_field_required # Pass the flag here
                 )
                 base_schema_fields_dict[section].append(field_def_base)
                 if 'list[' in field_def_base: imports_tracker['typing_list_primitive'] = True

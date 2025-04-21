@@ -6,7 +6,7 @@ import uuid
 class MarkerBaseSchema(AbstractElementBaseSchema):
 
     # Details
-    map_id: uuid.UUID | None = None
+    map_id: uuid.UUID
     x: int | None = None
     y: int | None = None
     z: int | None = None

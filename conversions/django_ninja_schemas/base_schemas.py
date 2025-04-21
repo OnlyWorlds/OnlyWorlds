@@ -10,7 +10,7 @@ class AbstractElementBaseSchema(Schema):
     supertype: str | None = Field(None, alias='Supertype')
     subtype: str | None = Field(None, alias='Subtype')
     image_url: str | None = Field(None, alias='Image_URL')
-    world: uuid.UUID | None = None
+    world: uuid.UUID
 
 
 class ElementNestedOutSchema(Schema):

@@ -6,7 +6,7 @@ import uuid
 class PinBaseSchema(AbstractElementBaseSchema):
 
     # Details
-    map_id: uuid.UUID | None = None
+    map_id: uuid.UUID
     element_id: uuid.UUID | None = None
     x: int | None = None
     y: int | None = None
