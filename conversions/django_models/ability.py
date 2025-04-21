@@ -7,7 +7,7 @@ class Ability(AbstractElementModel):
     # Mechanics
     usage = models.TextField(blank=True, null=True)
     range = models.PositiveIntegerField(blank=True, null=True)
-    strength = models.PositiveIntegerField(blank=True, null=True, validators=[MaxValueValidator(100)])
+    strength = models.PositiveIntegerField(validators=[MaxValueValidator(100)], blank=True, null=True)
     effects = models.ManyToManyField("Phenomenon", blank=True, related_name="ability_effects")
     utility = models.ManyToManyField("Construct", blank=True, related_name="ability_utility")
 

@@ -26,7 +26,7 @@ class Location(AbstractElementModel):
     # Construction
     logistics = models.TextField(blank=True, null=True)
     architecture = models.TextField(blank=True, null=True)
-    construction_rate = models.PositiveIntegerField(blank=True, null=True, validators=[MaxValueValidator(100)])
+    construction_rate = models.PositiveIntegerField(validators=[MaxValueValidator(100)], blank=True, null=True)
     buildings = models.ManyToManyField("Location", blank=True, related_name="location_buildings")
     building_expertise = models.ManyToManyField("Construct", blank=True, related_name="location_building_expertise")
 

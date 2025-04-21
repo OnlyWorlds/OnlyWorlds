@@ -13,12 +13,12 @@ class Trait(AbstractElementModel):
     behaviour_effects = models.TextField(blank=True, null=True)
 
     # Quantitative
-    charisma = models.PositiveIntegerField(blank=True, null=True, validators=[MaxValueValidator(100)])
-    coercion = models.PositiveIntegerField(blank=True, null=True, validators=[MaxValueValidator(100)])
-    capability = models.PositiveIntegerField(blank=True, null=True, validators=[MaxValueValidator(100)])
-    compassion = models.PositiveIntegerField(blank=True, null=True, validators=[MaxValueValidator(100)])
-    creativity = models.PositiveIntegerField(blank=True, null=True, validators=[MaxValueValidator(100)])
-    courage = models.PositiveIntegerField(blank=True, null=True, validators=[MaxValueValidator(100)])
+    charisma = models.PositiveIntegerField(validators=[MaxValueValidator(100)], blank=True, null=True)
+    coercion = models.PositiveIntegerField(validators=[MaxValueValidator(100)], blank=True, null=True)
+    capability = models.PositiveIntegerField(validators=[MaxValueValidator(100)], blank=True, null=True)
+    compassion = models.PositiveIntegerField(validators=[MaxValueValidator(100)], blank=True, null=True)
+    creativity = models.PositiveIntegerField(validators=[MaxValueValidator(100)], blank=True, null=True)
+    courage = models.PositiveIntegerField(validators=[MaxValueValidator(100)], blank=True, null=True)
 
     # World
     anti_trait = models.ForeignKey("Trait", on_delete=models.SET_NULL, blank=True, null=True, related_name="trait_anti_trait")

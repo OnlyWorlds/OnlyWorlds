@@ -1,4 +1,5 @@
 {
+    "+$schema": "http://json-schema.org/draft-07/schema#",
     "version": "1.0.0",
     "type": "Pin",
     "description": "Represents a clickable point on a Map that links to a specific world Element.",
@@ -9,8 +10,7 @@
                 "map": {
                     "type": "single-link",
                     "description": "Map this pin is placed on",
-                    "category": "Map",
-                    "required": true
+                    "category": "Map"
                 },
                 "element": {
                     "type": "single-link",
@@ -29,7 +29,10 @@
                     "type": "integer",
                     "description": "z coordinate, in case of depth"
                 }
-            }
+            },
+            "required": [
+                "map"
+            ]
         }
     }
 }

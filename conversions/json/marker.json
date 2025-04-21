@@ -1,4 +1,5 @@
 {
+    "+$schema": "http://json-schema.org/draft-07/schema#",
     "version": "1.0.0",
     "type": "Marker",
     "description": "Represents a graphical marker on a Map, such as a line (road, river) or polygon (territory, region)",
@@ -9,8 +10,7 @@
                 "map": {
                     "type": "single-link",
                     "description": "Map this marker is placed on",
-                    "category": "Map",
-                    "required": true
+                    "category": "Map"
                 },
                 "x": {
                     "type": "integer",
@@ -24,7 +24,10 @@
                     "type": "integer",
                     "description": "z coordinate, in case of depth"
                 }
-            }
+            },
+            "required": [
+                "map"
+            ]
         }
     }
 }

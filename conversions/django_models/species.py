@@ -12,7 +12,7 @@ class Species(AbstractElementModel):
 
     # Psychology
     instincts = models.TextField(blank=True, null=True)
-    aggression = models.PositiveIntegerField(blank=True, null=True, validators=[MaxValueValidator(100)])
+    aggression = models.PositiveIntegerField(validators=[MaxValueValidator(100)], blank=True, null=True)
     agency = models.TextField(blank=True, null=True)
     languages = models.ManyToManyField("Language", blank=True, related_name="species_languages")
 
