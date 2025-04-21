@@ -9,7 +9,8 @@
                 "map": {
                     "type": "single-link",
                     "description": "Map this marker is placed on",
-                    "category": "Map"
+                    "category": "Map",
+                    "required": true
                 },
                 "x": {
                     "type": "integer",

@@ -23,3 +23,4 @@ properties:
   World:
     type: "string"
     description: "UUID of the world the element is part of."
+required: ["Id", "Name"]

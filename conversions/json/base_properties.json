@@ -2,11 +2,13 @@
     "properties": {
         "Id": {
             "type": "string",
-            "description": "Unique identifier for the element, uuidv7 format"
+            "description": "Unique identifier for the element, uuidv7 format",
+            "required": true
         },
         "Name": {
             "type": "string",
-            "description": "Name of the element."
+            "description": "Name of the element.",
+            "required": true
         },
         "Description": {
             "type": "string",

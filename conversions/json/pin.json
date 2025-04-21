@@ -9,7 +9,8 @@
                 "map": {
                     "type": "single-link",
                     "description": "Map this pin is placed on",
-                    "category": "Map"
+                    "category": "Map",
+                    "required": true
                 },
                 "element": {
                     "type": "single-link",
