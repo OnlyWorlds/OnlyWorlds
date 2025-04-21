@@ -57,6 +57,9 @@ def get_python_type_hint(yaml_type_details, context="base", is_required=False):
              # Get the base type hint for the item, assuming items themselves aren't required *within* the list
             item_type_hint = get_python_type_hint(yaml_type_details.get('items', {'type': 'string'}), context, is_required=False)
             item_type_base = item_type_hint.replace(" | None", "") # Item type within list shouldn't be optional unless specified
+            # Handle specific case for world schema's List[str] which should be required
+            if yaml_type_details.get('items', {}).get('type') == 'string' and is_required:
+                return f"List[str]"
             return f"list[{item_type_base}]{optional_suffix}"
 
     # Types for Out Schemas (generally keep optional unless it's a list)
@@ -83,6 +86,11 @@ def generate_field_definition(field_name, yaml_details, imports_tracker, context
     """Generates a Ninja schema field definition string."""
     # Pass is_required to get the correct type hint
     py_type_hint = get_python_type_hint(yaml_details, context=context, is_required=is_required)
+    # Adjust type hint for specific List case for world schema
+    if context == "base" and is_required and yaml_details.get('type') == 'array' and yaml_details.get('items', {}).get('type') == 'string':
+        py_type_hint = "List[str]"
+        imports_tracker['typing_List'] = True # Ensure List is imported
+
     py_field_name = field_name # Use the name passed in
 
     field_args = []
@@ -90,13 +98,18 @@ def generate_field_definition(field_name, yaml_details, imports_tracker, context
     default_assignment = "" # Will be empty for required fields
 
     # Determine default assignment string based on type hint and context
-    if not is_required or context != "base": # Only add default if not required in base context
+    # Exclude required base fields from getting a default assignment
+    if not (is_required and context == "base"):
         if context == 'out' and py_type_hint.startswith('list['):
             default_value = "[]"
             default_assignment = f" = {default_value}"
         elif " | None" in py_type_hint: # Check if the final type hint allows None
              default_value = "None"
              default_assignment = f" = {default_value}"
+        # Add default for List[str] if not explicitly required in base
+        elif py_type_hint == "List[str]" and not is_required:
+             default_assignment = " = []"
+             imports_tracker['typing_List'] = True
         # If required, default_assignment remains ""
 
     # Handle explicit alias (usually for base properties like Image_URL)
@@ -237,6 +250,55 @@ def generate_base_schemas(base_yaml_path, output_file):
     print(f"Generated {output_file}")
 
 
+def generate_world_schema(category_yaml_path, output_file):
+    """Generates the specific world_schemas.py file with a hardcoded structure."""
+    # This function now ignores category_yaml_path and generates the fixed structure.
+
+    content = textwrap.dedent("""\
+        import uuid
+        from typing import List
+        from ninja import Schema  # type: ignore
+
+
+        class WorldBaseSchema(Schema):
+            name: str
+            description: str | None = None
+            image_url: str | None = None
+            time_format_equivalents: List[str]
+            time_format_names: List[str]
+            time_basic_unit: str
+            time_range_min: int
+            time_range_max: int
+            time_current: int
+
+
+        class WorldOutSchema(WorldBaseSchema):
+            id: uuid.UUID
+            api_key: str
+            version: str
+
+
+        class WorldUpdateSchema(Schema):
+            name: str | None = None
+            description: str | None = None
+            version: str | None = None
+            image_url: str | None = None
+            time_format_equivalents: List[str] | None = None
+            time_format_names: List[str] | None = None
+            time_basic_unit: str | None = None
+            time_range_min: int | None = None
+            time_range_max: int | None = None
+            time_current: int | None = None
+    """)
+
+    try:
+        with open(output_file, 'w', encoding='utf-8') as f:
+            f.write(content)
+        print(f"Generated hardcoded schema {output_file}")
+    except IOError as e:
+        print(f"Error writing file {output_file}: {e}")
+
+
 def generate_category_schema(category_name, category_yaml_path, output_file):
     """Generates a specific category's schema file (e.g., character_schemas.py)."""
     category_yaml = safe_load_yaml(category_yaml_path)
@@ -316,7 +378,7 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
                     is_required=is_field_required # Pass the flag here
                 )
                 base_schema_fields_dict[section].append(field_def_base)
-                if 'list[' in field_def_base: imports_tracker['typing_list_primitive'] = True
+                if 'list[' in field_def_base or 'List[' in field_def_base: imports_tracker['typing_List'] = True # Adjusted check
                 if 'uuid.UUID' in field_def_base: imports_tracker['uuid'] = True
 
                 # --- Field for Out Schema ---
@@ -350,7 +412,7 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
     if imports_tracker['ninja']: final_import_lines.append(imports_needed['ninja'])
     # Combine List/Optional imports if both needed
     typing_imports = []
-    if imports_tracker['typing_List'] or imports_tracker['typing_list_primitive']:
+    if imports_tracker['typing_List'] or imports_tracker['typing_list_primitive']: # Keep checking primitive flag too
          typing_imports.append("List")
     # Optional removed
 
@@ -423,6 +485,11 @@ if __name__ == "__main__":
             category_name = filename[:-5] # Remove .yaml
             yaml_path = os.path.join(YAML_SCHEMA_DIR, filename)
             output_path = os.path.join(OUTPUT_DIR, f"{category_name}_schemas.py") # Append _schemas here
-            generate_category_schema(category_name, yaml_path, output_path)
+
+            # Special handling for 'world' schema
+            if category_name == 'world':
+                generate_world_schema(yaml_path, output_path)
+            else:
+                generate_category_schema(category_name, yaml_path, output_path)
 
     print("Schema generation complete.")
