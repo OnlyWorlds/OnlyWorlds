@@ -1,4 +1,11 @@
 CREATE TABLE territory (
+    id TEXT NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    description TEXT,
+    supertype TEXT,
+    subtype TEXT,
+    image_url TEXT,
+    world TEXT NOT NULL,
     terrain TEXT,
     size INTEGER,
     parent_territory TEXT,

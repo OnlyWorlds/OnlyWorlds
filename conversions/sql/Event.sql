@@ -1,4 +1,11 @@
 CREATE TABLE event (
+    id TEXT NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    description TEXT,
+    supertype TEXT,
+    subtype TEXT,
+    image_url TEXT,
+    world TEXT NOT NULL,
     history TEXT,
     consequences TEXT,
     start_date INTEGER,
