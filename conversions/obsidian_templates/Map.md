@@ -12,5 +12,5 @@
 - <span class="number-field" data-tooltip="Number">Hierarchy</span>: 
 - <span class="number-field" data-tooltip="Number">Width</span>: 
 - <span class="number-field" data-tooltip="Number">Height</span>: 
-- <span class="link-field" data-tooltip="Single Map">Map</span>: 
+- <span class="link-field" data-tooltip="Single Map">Parent_map</span>: 
 

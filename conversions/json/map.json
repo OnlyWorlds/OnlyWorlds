@@ -22,9 +22,9 @@
                     "type": "integer",
                     "description": "In pixels"
                 },
-                "map": {
+                "parent_map": {
                     "type": "single-link",
-                    "description": "Parent map",
+                    "description": "Map that represents an area that entirely contains this map",
                     "category": "Map"
                 }
             }

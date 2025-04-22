@@ -10,7 +10,7 @@ class MapBaseSchema(AbstractElementBaseSchema):
     hierarchy: int | None = None
     width: int | None = None
     height: int | None = None
-    map_id: uuid.UUID | None = None
+    parent_map_id: uuid.UUID | None = None
 
 
 class MapCreateInSchema(MapBaseSchema):
@@ -23,7 +23,7 @@ class MapUpdateInSchema(MapBaseSchema):
 
 
 class MapFilterSchema(BaseFilterSchema):
-    map_id: uuid.UUID | None = Field(None, q='map_id')
+    parent_map_id: uuid.UUID | None = Field(None, q='parent_map_id')
 
 
 class MapOutSchema(AbstractElementBaseSchema):
@@ -33,5 +33,5 @@ class MapOutSchema(AbstractElementBaseSchema):
     hierarchy: int | None = None
     width: int | None = None
     height: int | None = None
-    map: ElementNestedOutSchema | None = None
+    parent_map: ElementNestedOutSchema | None = None
 
