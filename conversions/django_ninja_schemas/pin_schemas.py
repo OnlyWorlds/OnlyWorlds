@@ -1,5 +1,5 @@
 from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema
-from ninja import Field, FilterSchema  # type: ignore
+from ninja import Field # type: ignore
 import uuid
 
 
@@ -7,9 +7,10 @@ class PinBaseSchema(AbstractElementBaseSchema):
 
     # Details
     map_id: uuid.UUID
-    element_id: uuid.UUID | None = None
-    x: int | None = None
-    y: int | None = None
+    element_type: str
+    element_id: uuid.UUID
+    x: int
+    y: int
     z: int | None = None
 
 
@@ -24,15 +25,15 @@ class PinUpdateInSchema(PinBaseSchema):
 
 class PinFilterSchema(BaseFilterSchema):
     map_id: uuid.UUID | None = Field(None, q='map_id')
-    element_id: uuid.UUID | None = Field(None, q='element_id')
 
 
 class PinOutSchema(AbstractElementBaseSchema):
 
     # Details
-    map: ElementNestedOutSchema | None = None
-    element: ElementNestedOutSchema | None = None
-    x: int | None = None
-    y: int | None = None
+    map: ElementNestedOutSchema
+    element_type: str
+    element_id: uuid.UUID
+    x: int
+    y: int
     z: int | None = None
 

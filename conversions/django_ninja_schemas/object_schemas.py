@@ -1,5 +1,5 @@
 from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema
-from ninja import Field, FilterSchema  # type: ignore
+from ninja import Field # type: ignore
 from typing import List
 import uuid
 
@@ -11,13 +11,13 @@ class ObjectBaseSchema(AbstractElementBaseSchema):
     weight: int | None = None
     amount: int | None = None
     parent_object_id: uuid.UUID | None = None
-    technology_ids: list[uuid.UUID] | None = None
+    technology_ids: list[uuid.UUID] | None = []
 
     # Function
     utility: str | None = None
-    effects_ids: list[uuid.UUID] | None = None
-    enables_ids: list[uuid.UUID] | None = None
-    consumes_ids: list[uuid.UUID] | None = None
+    effects_ids: list[uuid.UUID] | None = []
+    enables_ids: list[uuid.UUID] | None = []
+    consumes_ids: list[uuid.UUID] | None = []
 
     # World
     origins: str | None = None
@@ -32,7 +32,7 @@ class ObjectBaseSchema(AbstractElementBaseSchema):
     armor: int | None = None
     rarity: str | None = None
     language_id: uuid.UUID | None = None
-    requires_ids: list[uuid.UUID] | None = None
+    requires_ids: list[uuid.UUID] | None = []
 
 
 class ObjectCreateInSchema(ObjectBaseSchema):

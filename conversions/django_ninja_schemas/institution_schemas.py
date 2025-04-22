@@ -1,5 +1,5 @@
 from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema
-from ninja import Field, FilterSchema  # type: ignore
+from ninja import Field # type: ignore
 from typing import List
 import uuid
 
@@ -13,17 +13,17 @@ class InstitutionBaseSchema(AbstractElementBaseSchema):
     parent_institution_id: uuid.UUID | None = None
 
     # Claim
-    territories_ids: list[uuid.UUID] | None = None
-    objects_ids: list[uuid.UUID] | None = None
-    creatures_ids: list[uuid.UUID] | None = None
-    legal_ids: list[uuid.UUID] | None = None
+    territories_ids: list[uuid.UUID] | None = []
+    objects_ids: list[uuid.UUID] | None = []
+    creatures_ids: list[uuid.UUID] | None = []
+    legal_ids: list[uuid.UUID] | None = []
 
     # World
     situation: str | None = None
-    cooperates_ids: list[uuid.UUID] | None = None
-    competition_ids: list[uuid.UUID] | None = None
-    constructs_ids: list[uuid.UUID] | None = None
-    phenomena_ids: list[uuid.UUID] | None = None
+    cooperates_ids: list[uuid.UUID] | None = []
+    competition_ids: list[uuid.UUID] | None = []
+    constructs_ids: list[uuid.UUID] | None = []
+    phenomena_ids: list[uuid.UUID] | None = []
 
 
 class InstitutionCreateInSchema(InstitutionBaseSchema):

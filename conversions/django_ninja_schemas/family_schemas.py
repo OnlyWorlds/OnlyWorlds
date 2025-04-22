@@ -1,5 +1,5 @@
 from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema
-from ninja import Field, FilterSchema  # type: ignore
+from ninja import Field # type: ignore
 from typing import List
 import uuid
 
@@ -8,26 +8,26 @@ class FamilyBaseSchema(AbstractElementBaseSchema):
 
     # Community
     spirit: str | None = None
-    alliances_ids: list[uuid.UUID] | None = None
-    rivalries_ids: list[uuid.UUID] | None = None
+    alliances_ids: list[uuid.UUID] | None = []
+    rivalries_ids: list[uuid.UUID] | None = []
 
     # Lineage
     history: str | None = None
-    ancestors_ids: list[uuid.UUID] | None = None
-    traits_ids: list[uuid.UUID] | None = None
-    abilities_ids: list[uuid.UUID] | None = None
-    languages_ids: list[uuid.UUID] | None = None
+    ancestors_ids: list[uuid.UUID] | None = []
+    traits_ids: list[uuid.UUID] | None = []
+    abilities_ids: list[uuid.UUID] | None = []
+    languages_ids: list[uuid.UUID] | None = []
 
     # World
     status: str | None = None
-    competition_ids: list[uuid.UUID] | None = None
-    administrates_ids: list[uuid.UUID] | None = None
-    creatures_ids: list[uuid.UUID] | None = None
+    competition_ids: list[uuid.UUID] | None = []
+    administrates_ids: list[uuid.UUID] | None = []
+    creatures_ids: list[uuid.UUID] | None = []
 
     # Legacy
     traditions: str | None = None
     estate_id: uuid.UUID | None = None
-    heirlooms_ids: list[uuid.UUID] | None = None
+    heirlooms_ids: list[uuid.UUID] | None = []
 
 
 class FamilyCreateInSchema(FamilyBaseSchema):

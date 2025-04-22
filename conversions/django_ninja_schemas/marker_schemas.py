@@ -1,5 +1,5 @@
 from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema
-from ninja import Field, FilterSchema  # type: ignore
+from ninja import Field # type: ignore
 import uuid
 
 
@@ -28,7 +28,7 @@ class MarkerFilterSchema(BaseFilterSchema):
 class MarkerOutSchema(AbstractElementBaseSchema):
 
     # Details
-    map: ElementNestedOutSchema | None = None
+    map: ElementNestedOutSchema
     x: int | None = None
     y: int | None = None
     z: int | None = None

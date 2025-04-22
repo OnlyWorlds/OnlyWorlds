@@ -1,5 +1,5 @@
 from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema
-from ninja import Field, FilterSchema  # type: ignore
+from ninja import Field # type: ignore
 from typing import List
 import uuid
 
@@ -12,15 +12,15 @@ class RelationBaseSchema(AbstractElementBaseSchema):
     start_date: int | None = None
     end_date: int | None = None
     debt: int | None = None
-    events_ids: list[uuid.UUID] | None = None
+    events_ids: list[uuid.UUID] | None = []
 
     # Involves
     primary_character_id: uuid.UUID | None = None
     primary_creature_id: uuid.UUID | None = None
     primary_institution_id: uuid.UUID | None = None
-    secondary_characters_ids: list[uuid.UUID] | None = None
-    secondary_creatures_ids: list[uuid.UUID] | None = None
-    secondary_institutions_ids: list[uuid.UUID] | None = None
+    secondary_characters_ids: list[uuid.UUID] | None = []
+    secondary_creatures_ids: list[uuid.UUID] | None = []
+    secondary_institutions_ids: list[uuid.UUID] | None = []
 
 
 class RelationCreateInSchema(RelationBaseSchema):

@@ -1,5 +1,5 @@
 from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema
-from ninja import Field, FilterSchema  # type: ignore
+from ninja import Field # type: ignore
 from typing import List
 import uuid
 
@@ -11,19 +11,19 @@ class CollectiveBaseSchema(AbstractElementBaseSchema):
     count: int | None = None
     formation_date: int | None = None
     operator_id: uuid.UUID | None = None
-    equipment_ids: list[uuid.UUID] | None = None
+    equipment_ids: list[uuid.UUID] | None = []
 
     # Agency
     activity: str | None = None
     temperance: str | None = None
-    skills_ids: list[uuid.UUID] | None = None
-    rituals_ids: list[uuid.UUID] | None = None
+    skills_ids: list[uuid.UUID] | None = []
+    rituals_ids: list[uuid.UUID] | None = []
 
     # World
-    species_ids: list[uuid.UUID] | None = None
-    characters_ids: list[uuid.UUID] | None = None
-    creatures_ids: list[uuid.UUID] | None = None
-    phenomena_ids: list[uuid.UUID] | None = None
+    species_ids: list[uuid.UUID] | None = []
+    characters_ids: list[uuid.UUID] | None = []
+    creatures_ids: list[uuid.UUID] | None = []
+    phenomena_ids: list[uuid.UUID] | None = []
 
 
 class CollectiveCreateInSchema(CollectiveBaseSchema):

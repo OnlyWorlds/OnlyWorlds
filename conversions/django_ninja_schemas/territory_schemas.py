@@ -1,5 +1,5 @@
 from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema
-from ninja import Field, FilterSchema  # type: ignore
+from ninja import Field # type: ignore
 from typing import List
 import uuid
 
@@ -16,12 +16,12 @@ class TerritoryBaseSchema(AbstractElementBaseSchema):
     primary_output: int | None = None
     secondary_output: int | None = None
     primary_resource_id: uuid.UUID | None = None
-    secondary_resources_ids: list[uuid.UUID] | None = None
+    secondary_resources_ids: list[uuid.UUID] | None = []
 
     # World
     history: str | None = None
-    occupants_ids: list[uuid.UUID] | None = None
-    occurrences_ids: list[uuid.UUID] | None = None
+    occupants_ids: list[uuid.UUID] | None = []
+    occurrences_ids: list[uuid.UUID] | None = []
 
 
 class TerritoryCreateInSchema(TerritoryBaseSchema):

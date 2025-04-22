@@ -7,8 +7,8 @@ CREATE TABLE pin (
     image_url TEXT,
     world TEXT NOT NULL,
     map TEXT NOT NULL,
-    element TEXT,
-    x INTEGER,
-    y INTEGER,
+    element TEXT NOT NULL,
+    x INTEGER NOT NULL,
+    y INTEGER NOT NULL,
     z INTEGER
 );

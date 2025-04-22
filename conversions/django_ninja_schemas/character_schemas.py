@@ -1,5 +1,5 @@
 from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema
-from ninja import Field, FilterSchema  # type: ignore
+from ninja import Field # type: ignore
 from typing import List
 import uuid
 
@@ -11,23 +11,23 @@ class CharacterBaseSchema(AbstractElementBaseSchema):
     psychology: str | None = None
     height: int | None = None
     weight: int | None = None
-    species_ids: list[uuid.UUID] | None = None
-    traits_ids: list[uuid.UUID] | None = None
-    abilities_ids: list[uuid.UUID] | None = None
+    species_ids: list[uuid.UUID] | None = []
+    traits_ids: list[uuid.UUID] | None = []
+    abilities_ids: list[uuid.UUID] | None = []
 
     # Origins
     background: str | None = None
     motivations: str | None = None
     birth_date: int | None = None
     birthplace_id: uuid.UUID | None = None
-    languages_ids: list[uuid.UUID] | None = None
+    languages_ids: list[uuid.UUID] | None = []
 
     # World
     situation: str | None = None
     location_id: uuid.UUID | None = None
-    titles_ids: list[uuid.UUID] | None = None
-    objects_ids: list[uuid.UUID] | None = None
-    institutions_ids: list[uuid.UUID] | None = None
+    titles_ids: list[uuid.UUID] | None = []
+    objects_ids: list[uuid.UUID] | None = []
+    institutions_ids: list[uuid.UUID] | None = []
 
     # Personality
     charisma: int | None = Field(None, le=100)
@@ -38,9 +38,9 @@ class CharacterBaseSchema(AbstractElementBaseSchema):
     courage: int | None = Field(None, le=100)
 
     # Social
-    family_ids: list[uuid.UUID] | None = None
-    friends_ids: list[uuid.UUID] | None = None
-    rivals_ids: list[uuid.UUID] | None = None
+    family_ids: list[uuid.UUID] | None = []
+    friends_ids: list[uuid.UUID] | None = []
+    rivals_ids: list[uuid.UUID] | None = []
 
     # Games
     backstory: str | None = None
@@ -55,14 +55,14 @@ class CharacterBaseSchema(AbstractElementBaseSchema):
     tt_dex: int | None = Field(None, le=20)
     tt_wis: int | None = Field(None, le=20)
     tt_cha: int | None = Field(None, le=20)
-    character_class: str | None = None
+    class: str | None = None
     alignment: str | None = None
-    equipment_ids: list[uuid.UUID] | None = None
-    backpack_ids: list[uuid.UUID] | None = None
-    proficiencies_ids: list[uuid.UUID] | None = None
-    features_ids: list[uuid.UUID] | None = None
-    spells_ids: list[uuid.UUID] | None = None
-    inspirations_ids: list[uuid.UUID] | None = None
+    equipment_ids: list[uuid.UUID] | None = []
+    backpack_ids: list[uuid.UUID] | None = []
+    proficiencies_ids: list[uuid.UUID] | None = []
+    features_ids: list[uuid.UUID] | None = []
+    spells_ids: list[uuid.UUID] | None = []
+    inspirations_ids: list[uuid.UUID] | None = []
 
 
 class CharacterCreateInSchema(CharacterBaseSchema):

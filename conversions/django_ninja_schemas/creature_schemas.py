@@ -1,5 +1,5 @@
 from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema
-from ninja import Field, FilterSchema  # type: ignore
+from ninja import Field # type: ignore
 from typing import List
 import uuid
 
@@ -10,14 +10,14 @@ class CreatureBaseSchema(AbstractElementBaseSchema):
     appearance: str | None = None
     weight: int | None = None
     height: int | None = None
-    species_ids: list[uuid.UUID] | None = None
+    species_ids: list[uuid.UUID] | None = []
 
     # Lifestyle
     behaviour: str | None = None
     demeanour: str | None = None
-    traits_ids: list[uuid.UUID] | None = None
-    abilities_ids: list[uuid.UUID] | None = None
-    languages_ids: list[uuid.UUID] | None = None
+    traits_ids: list[uuid.UUID] | None = []
+    abilities_ids: list[uuid.UUID] | None = []
+    languages_ids: list[uuid.UUID] | None = []
 
     # World
     birth_date: int | None = None
@@ -37,8 +37,8 @@ class CreatureBaseSchema(AbstractElementBaseSchema):
     tt_dex: int | None = Field(None, le=20)
     tt_wis: int | None = Field(None, le=20)
     tt_cha: int | None = Field(None, le=20)
-    actions_ids: list[uuid.UUID] | None = None
-    reactions_ids: list[uuid.UUID] | None = None
+    actions_ids: list[uuid.UUID] | None = []
+    reactions_ids: list[uuid.UUID] | None = []
     alignment: str | None = None
 
 

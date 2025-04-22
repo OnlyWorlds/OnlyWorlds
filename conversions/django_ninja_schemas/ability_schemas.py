@@ -1,5 +1,5 @@
 from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema
-from ninja import Field, FilterSchema  # type: ignore
+from ninja import Field # type: ignore
 from typing import List
 import uuid
 
@@ -10,14 +10,14 @@ class AbilityBaseSchema(AbstractElementBaseSchema):
     usage: str | None = None
     range: int | None = None
     strength: int | None = Field(None, le=100)
-    effects_ids: list[uuid.UUID] | None = None
-    utility_ids: list[uuid.UUID] | None = None
+    effects_ids: list[uuid.UUID] | None = []
+    utility_ids: list[uuid.UUID] | None = []
 
     # Dynamics
     difficulty: str | None = None
-    talent_ids: list[uuid.UUID] | None = None
-    enablers_ids: list[uuid.UUID] | None = None
-    requirements_ids: list[uuid.UUID] | None = None
+    talent_ids: list[uuid.UUID] | None = []
+    enablers_ids: list[uuid.UUID] | None = []
+    requirements_ids: list[uuid.UUID] | None = []
 
     # World
     prevalence: str | None = None

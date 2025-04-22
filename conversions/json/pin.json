@@ -1,8 +1,8 @@
 {
     "+$schema": "http://json-schema.org/draft-07/schema#",
-    "version": "1.0.0",
-    "type": "Pin",
-    "description": "Represents a clickable point on a Map that links to a specific world Element.",
+    "title": "Pin",
+    "type": "object",
+    "description": "Represents a clickable point on a Map that links to a specific world Element using generic relations.",
     "properties": {
         "details": {
             "type": "object",
@@ -13,9 +13,10 @@
                     "category": "Map"
                 },
                 "element": {
-                    "type": "single-link",
-                    "description": "Map this pin is placed on",
-                    "category": "Element"
+                    "type": "generic-link",
+                    "description": "Link to any Element (managed by ContentType + UUID)",
+                    "content_type_field_name": "element_type",
+                    "object_id_field_name": "element_id"
                 },
                 "x": {
                     "type": "integer",
@@ -27,11 +28,14 @@
                 },
                 "z": {
                     "type": "integer",
-                    "description": "z coordinate, in case of depth"
+                    "description": "z coordinate, in case of depth (optional)"
                 }
             },
             "required": [
-                "map"
+                "map",
+                "element",
+                "x",
+                "y"
             ]
         }
     }

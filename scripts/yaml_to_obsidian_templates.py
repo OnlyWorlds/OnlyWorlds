@@ -56,8 +56,9 @@ if __name__ == "__main__":
 
     os.makedirs(md_dir, exist_ok=True)
 
+    files_to_exclude = ['base_properties.yaml', 'world.yaml', 'map.yaml', 'pin.yaml', 'marker.yaml']
     for filename in os.listdir(yaml_dir):
-        if filename.endswith('.yaml') and filename != 'base_properties.yaml' and filename != 'world.yaml':
+        if filename.endswith('.yaml') and filename not in files_to_exclude:
             yaml_path = os.path.join(yaml_dir, filename)
             md_filename = filename[:-5].capitalize() + '.md'
             md_path = os.path.join(md_dir, md_filename)

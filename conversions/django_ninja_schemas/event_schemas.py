@@ -1,5 +1,5 @@
 from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema
-from ninja import Field, FilterSchema  # type: ignore
+from ninja import Field # type: ignore
 from typing import List
 import uuid
 
@@ -14,22 +14,22 @@ class EventBaseSchema(AbstractElementBaseSchema):
     adversity: str | None = None
 
     # Involves
-    characters_ids: list[uuid.UUID] | None = None
-    objects_ids: list[uuid.UUID] | None = None
-    locations_ids: list[uuid.UUID] | None = None
-    species_ids: list[uuid.UUID] | None = None
-    creatures_ids: list[uuid.UUID] | None = None
-    institutions_ids: list[uuid.UUID] | None = None
-    traits_ids: list[uuid.UUID] | None = None
-    collectives_ids: list[uuid.UUID] | None = None
-    territories_ids: list[uuid.UUID] | None = None
-    abilities_ids: list[uuid.UUID] | None = None
-    phenomena_ids: list[uuid.UUID] | None = None
-    languages_ids: list[uuid.UUID] | None = None
-    families_ids: list[uuid.UUID] | None = None
-    relations_ids: list[uuid.UUID] | None = None
-    titles_ids: list[uuid.UUID] | None = None
-    constructs_ids: list[uuid.UUID] | None = None
+    characters_ids: list[uuid.UUID] | None = []
+    objects_ids: list[uuid.UUID] | None = []
+    locations_ids: list[uuid.UUID] | None = []
+    species_ids: list[uuid.UUID] | None = []
+    creatures_ids: list[uuid.UUID] | None = []
+    institutions_ids: list[uuid.UUID] | None = []
+    traits_ids: list[uuid.UUID] | None = []
+    collectives_ids: list[uuid.UUID] | None = []
+    territories_ids: list[uuid.UUID] | None = []
+    abilities_ids: list[uuid.UUID] | None = []
+    phenomena_ids: list[uuid.UUID] | None = []
+    languages_ids: list[uuid.UUID] | None = []
+    families_ids: list[uuid.UUID] | None = []
+    relations_ids: list[uuid.UUID] | None = []
+    titles_ids: list[uuid.UUID] | None = []
+    constructs_ids: list[uuid.UUID] | None = []
 
 
 class EventCreateInSchema(EventBaseSchema):

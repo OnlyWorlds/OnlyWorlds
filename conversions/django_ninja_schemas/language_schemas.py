@@ -1,5 +1,5 @@
 from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema
-from ninja import Field, FilterSchema  # type: ignore
+from ninja import Field # type: ignore
 from typing import List
 import uuid
 
@@ -16,8 +16,8 @@ class LanguageBaseSchema(AbstractElementBaseSchema):
     # Spread
     prose: str | None = None
     speakers: int | None = None
-    dialects_ids: list[uuid.UUID] | None = None
-    range_ids: list[uuid.UUID] | None = None
+    dialects_ids: list[uuid.UUID] | None = []
+    range_ids: list[uuid.UUID] | None = []
 
 
 class LanguageCreateInSchema(LanguageBaseSchema):
