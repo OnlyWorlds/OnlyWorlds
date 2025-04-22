@@ -8,12 +8,12 @@ class Pin(AbstractElementModel):
 
     # Details
     map = models.ForeignKey("Map", on_delete=models.CASCADE, related_name="pin_map")
-    x = models.PositiveIntegerField(blank=True, null=True)
-    y = models.PositiveIntegerField(blank=True, null=True)
+    element_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, blank=True, null=True)
+    element_id = models.UUIDField(blank=True, null=True)
+    element = GenericForeignKey('element_type', 'element_id')
+    x = models.PositiveIntegerField()
+    y = models.PositiveIntegerField()
     z = models.PositiveIntegerField(blank=True, null=True)
-    content_type = models.ForeignKey(ContentType, on_delete=models.SET_NULL, blank=True, null=True)
-    object_id = models.UUIDField(blank=True, null=True)
-    element = GenericForeignKey('content_type', 'object_id')
 
     def __str__(self):
         return self.name

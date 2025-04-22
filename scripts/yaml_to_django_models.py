@@ -51,6 +51,17 @@ def get_django_field_type(yaml_type, field_details=None, model_name=None, is_wor
         elif yaml_type_str == 'List':
              # JSONField specific default, blank/null handling might differ or be less relevant
             return "models.JSONField(default=list)", required_imports 
+        elif yaml_type_str == 'generic-link':
+            ct_field_name = 'element_type' # Default
+            obj_id_field_name = 'element_id' # Default
+            if isinstance(field_details, dict):
+                ct_field_name = field_details.get('content_type_field_name', ct_field_name)
+                obj_id_field_name = field_details.get('object_id_field_name', obj_id_field_name)
+
+            required_imports.add("contenttypes_fields")
+            required_imports.add("contenttypes_models")
+            required_imports.add("uuid")
+            return ('generic-link', ct_field_name, obj_id_field_name), required_imports
     elif isinstance(yaml_type, str):
         if yaml_type == 'UUID':
             required_imports.add("uuid")
@@ -268,33 +279,31 @@ def generate_django_model(class_name, fields, required_imports, is_world=False):
         model += "    objects = models.Manager()\n"
         for field, field_type_str in fields:
             model += f"    {field} = {field_type_str}\n"
-    elif class_name == 'Pin':
-        # Special case for Pin model GFK
-        required_imports.add("models")
-        required_imports.add("contenttypes_fields") # for GenericForeignKey
-        required_imports.add("contenttypes_models") # for ContentType
-        required_imports.add("uuid") # For object_id
-        
-        for section_name, section_fields in fields:
-            model += f"\n    # {section_name.capitalize()}\n"
-            for field, field_type in section_fields:
-                # Skip the original 'element' field derived from YAML
-                if field == 'element': 
-                    continue
-                model += f"    {field} = {field_type}\n"
-        
-        # Add the GenericForeignKey fields 
-        model += "    content_type = models.ForeignKey(ContentType, on_delete=models.SET_NULL, blank=True, null=True)\n"
-        model += "    object_id = models.UUIDField(blank=True, null=True)\n"
-        model += "    element = GenericForeignKey('content_type', 'object_id')\n"
+    else: # Standard element model generation (including those with generic links)
+        # Ensure UUID import if needed by generic link fields
+        if any(isinstance(ft, tuple) and ft[0] == 'generic-link' for _, s_fields in fields for _, ft in s_fields):
+            required_imports.add("uuid")
+            required_imports.add("contenttypes_fields")
+            required_imports.add("contenttypes_models")
 
-    else: # Standard element model generation
         for section_name, section_fields in fields:
             model += f"\n    # {section_name.capitalize()}\n"
             for field, field_type in section_fields:
-                model += f"    {field} = {field_type}\n"
-    
-    model += "\n    def __str__(self):\n        return self.name\n"
+                # Check if it's the special marker for a generic link
+                if isinstance(field_type, tuple) and field_type[0] == 'generic-link':
+                    ct_name = field_type[1]
+                    obj_name = field_type[2]
+                    # Add the three fields for the GenericForeignKey relationship
+                    model += f"    {ct_name} = models.ForeignKey(ContentType, on_delete=models.CASCADE, blank=True, null=True)\n"
+                    model += f"    {obj_name} = models.UUIDField(blank=True, null=True)\n"
+                    model += f"    {field} = GenericForeignKey('{ct_name}', '{obj_name}')\n"
+                else:
+                    # Generate standard field
+                    model += f"    {field} = {field_type}\n"
+
+    model += "\n    def __str__(self):\n"
+    model += "        return self.name\n"
+
     return model, required_imports
 
 def generate_import_statements(required_imports, class_name, is_world, is_abstract=False):
