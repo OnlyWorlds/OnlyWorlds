@@ -11,23 +11,23 @@ class CharacterBaseSchema(AbstractElementBaseSchema):
     psychology: str | None = None
     height: int | None = None
     weight: int | None = None
-    species_ids: list[uuid.UUID] | None = []
-    traits_ids: list[uuid.UUID] | None = []
-    abilities_ids: list[uuid.UUID] | None = []
+    species_ids: list[uuid.UUID] | None = None
+    traits_ids: list[uuid.UUID] | None = None
+    abilities_ids: list[uuid.UUID] | None = None
 
     # Origins
     background: str | None = None
     motivations: str | None = None
     birth_date: int | None = None
     birthplace_id: uuid.UUID | None = None
-    languages_ids: list[uuid.UUID] | None = []
+    languages_ids: list[uuid.UUID] | None = None
 
     # World
     situation: str | None = None
     location_id: uuid.UUID | None = None
-    titles_ids: list[uuid.UUID] | None = []
-    objects_ids: list[uuid.UUID] | None = []
-    institutions_ids: list[uuid.UUID] | None = []
+    titles_ids: list[uuid.UUID] | None = None
+    objects_ids: list[uuid.UUID] | None = None
+    institutions_ids: list[uuid.UUID] | None = None
 
     # Personality
     charisma: int | None = Field(None, le=100)
@@ -38,9 +38,9 @@ class CharacterBaseSchema(AbstractElementBaseSchema):
     courage: int | None = Field(None, le=100)
 
     # Social
-    family_ids: list[uuid.UUID] | None = []
-    friends_ids: list[uuid.UUID] | None = []
-    rivals_ids: list[uuid.UUID] | None = []
+    family_ids: list[uuid.UUID] | None = None
+    friends_ids: list[uuid.UUID] | None = None
+    rivals_ids: list[uuid.UUID] | None = None
 
     # Games
     backstory: str | None = None
@@ -57,12 +57,12 @@ class CharacterBaseSchema(AbstractElementBaseSchema):
     tt_cha: int | None = Field(None, le=20)
     class: str | None = None
     alignment: str | None = None
-    equipment_ids: list[uuid.UUID] | None = []
-    backpack_ids: list[uuid.UUID] | None = []
-    proficiencies_ids: list[uuid.UUID] | None = []
-    features_ids: list[uuid.UUID] | None = []
-    spells_ids: list[uuid.UUID] | None = []
-    inspirations_ids: list[uuid.UUID] | None = []
+    equipment_ids: list[uuid.UUID] | None = None
+    backpack_ids: list[uuid.UUID] | None = None
+    proficiencies_ids: list[uuid.UUID] | None = None
+    features_ids: list[uuid.UUID] | None = None
+    spells_ids: list[uuid.UUID] | None = None
+    inspirations_ids: list[uuid.UUID] | None = None
 
 
 class CharacterCreateInSchema(CharacterBaseSchema):

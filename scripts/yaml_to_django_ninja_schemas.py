@@ -94,14 +94,11 @@ def generate_field_definition(field_name, yaml_details, imports_tracker, context
     default_assignment = ""
 
     if not is_required:
-        if py_type_hint.startswith('list['):
-             default_assignment = " = []"
+        if py_type_hint.startswith('list[') or py_type_hint == "List[str]":
+             default_assignment = " = None"
              imports_tracker['typing_List'] = True
         elif " | None" in py_type_hint:
             default_assignment = " = None"
-        elif py_type_hint == "List[str]":
-             default_assignment = " = []"
-             imports_tracker['typing_List'] = True
 
     if alias:
         field_args.append(f"alias='{alias}'")

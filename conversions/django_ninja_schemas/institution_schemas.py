@@ -13,17 +13,17 @@ class InstitutionBaseSchema(AbstractElementBaseSchema):
     parent_institution_id: uuid.UUID | None = None
 
     # Claim
-    territories_ids: list[uuid.UUID] | None = []
-    objects_ids: list[uuid.UUID] | None = []
-    creatures_ids: list[uuid.UUID] | None = []
-    legal_ids: list[uuid.UUID] | None = []
+    territories_ids: list[uuid.UUID] | None = None
+    objects_ids: list[uuid.UUID] | None = None
+    creatures_ids: list[uuid.UUID] | None = None
+    legal_ids: list[uuid.UUID] | None = None
 
     # World
     situation: str | None = None
-    cooperates_ids: list[uuid.UUID] | None = []
-    competition_ids: list[uuid.UUID] | None = []
-    constructs_ids: list[uuid.UUID] | None = []
-    phenomena_ids: list[uuid.UUID] | None = []
+    cooperates_ids: list[uuid.UUID] | None = None
+    competition_ids: list[uuid.UUID] | None = None
+    constructs_ids: list[uuid.UUID] | None = None
+    phenomena_ids: list[uuid.UUID] | None = None
 
 
 class InstitutionCreateInSchema(InstitutionBaseSchema):

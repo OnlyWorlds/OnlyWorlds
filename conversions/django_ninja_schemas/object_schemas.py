@@ -11,13 +11,13 @@ class ObjectBaseSchema(AbstractElementBaseSchema):
     weight: int | None = None
     amount: int | None = None
     parent_object_id: uuid.UUID | None = None
-    technology_ids: list[uuid.UUID] | None = []
+    technology_ids: list[uuid.UUID] | None = None
 
     # Function
     utility: str | None = None
-    effects_ids: list[uuid.UUID] | None = []
-    enables_ids: list[uuid.UUID] | None = []
-    consumes_ids: list[uuid.UUID] | None = []
+    effects_ids: list[uuid.UUID] | None = None
+    enables_ids: list[uuid.UUID] | None = None
+    consumes_ids: list[uuid.UUID] | None = None
 
     # World
     origins: str | None = None
@@ -32,7 +32,7 @@ class ObjectBaseSchema(AbstractElementBaseSchema):
     armor: int | None = None
     rarity: str | None = None
     language_id: uuid.UUID | None = None
-    requires_ids: list[uuid.UUID] | None = []
+    requires_ids: list[uuid.UUID] | None = None
 
 
 class ObjectCreateInSchema(ObjectBaseSchema):

@@ -10,19 +10,19 @@ class SpeciesBaseSchema(AbstractElementBaseSchema):
     appearance: str | None = None
     life_span: int | None = None
     average_weight: int | None = None
-    nourishment_ids: list[uuid.UUID] | None = []
+    nourishment_ids: list[uuid.UUID] | None = None
 
     # Psychology
     instincts: str | None = None
     aggression: int | None = Field(None, le=100)
     agency: str | None = None
-    languages_ids: list[uuid.UUID] | None = []
+    languages_ids: list[uuid.UUID] | None = None
 
     # World
     impact: str | None = None
-    habitat_ids: list[uuid.UUID] | None = []
-    interaction_ids: list[uuid.UUID] | None = []
-    consumables_ids: list[uuid.UUID] | None = []
+    habitat_ids: list[uuid.UUID] | None = None
+    interaction_ids: list[uuid.UUID] | None = None
+    consumables_ids: list[uuid.UUID] | None = None
 
 
 class SpeciesCreateInSchema(SpeciesBaseSchema):

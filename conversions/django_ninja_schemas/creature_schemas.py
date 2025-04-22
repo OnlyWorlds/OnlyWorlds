@@ -10,14 +10,14 @@ class CreatureBaseSchema(AbstractElementBaseSchema):
     appearance: str | None = None
     weight: int | None = None
     height: int | None = None
-    species_ids: list[uuid.UUID] | None = []
+    species_ids: list[uuid.UUID] | None = None
 
     # Lifestyle
     behaviour: str | None = None
     demeanour: str | None = None
-    traits_ids: list[uuid.UUID] | None = []
-    abilities_ids: list[uuid.UUID] | None = []
-    languages_ids: list[uuid.UUID] | None = []
+    traits_ids: list[uuid.UUID] | None = None
+    abilities_ids: list[uuid.UUID] | None = None
+    languages_ids: list[uuid.UUID] | None = None
 
     # World
     birth_date: int | None = None
@@ -37,8 +37,8 @@ class CreatureBaseSchema(AbstractElementBaseSchema):
     tt_dex: int | None = Field(None, le=20)
     tt_wis: int | None = Field(None, le=20)
     tt_cha: int | None = Field(None, le=20)
-    actions_ids: list[uuid.UUID] | None = []
-    reactions_ids: list[uuid.UUID] | None = []
+    actions_ids: list[uuid.UUID] | None = None
+    reactions_ids: list[uuid.UUID] | None = None
     alignment: str | None = None
 
 

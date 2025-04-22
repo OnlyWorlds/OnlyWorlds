@@ -11,18 +11,18 @@ class PhenomenonBaseSchema(AbstractElementBaseSchema):
     scope: str | None = None
     duration: int | None = None
     intensity: str | None = None
-    empowerments_ids: list[uuid.UUID] | None = []
-    environments_ids: list[uuid.UUID] | None = []
-    carriers_ids: list[uuid.UUID] | None = []
+    empowerments_ids: list[uuid.UUID] | None = None
+    environments_ids: list[uuid.UUID] | None = None
+    carriers_ids: list[uuid.UUID] | None = None
 
     # Actuate
     effect: str | None = None
     catalysts_id: uuid.UUID | None = None
-    wielders_ids: list[uuid.UUID] | None = []
-    handlers_ids: list[uuid.UUID] | None = []
-    enablers_ids: list[uuid.UUID] | None = []
-    triggers_ids: list[uuid.UUID] | None = []
-    affinity_ids: list[uuid.UUID] | None = []
+    wielders_ids: list[uuid.UUID] | None = None
+    handlers_ids: list[uuid.UUID] | None = None
+    enablers_ids: list[uuid.UUID] | None = None
+    triggers_ids: list[uuid.UUID] | None = None
+    affinity_ids: list[uuid.UUID] | None = None
 
 
 class PhenomenonCreateInSchema(PhenomenonBaseSchema):

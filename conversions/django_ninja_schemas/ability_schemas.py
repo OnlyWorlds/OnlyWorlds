@@ -10,14 +10,14 @@ class AbilityBaseSchema(AbstractElementBaseSchema):
     usage: str | None = None
     range: int | None = None
     strength: int | None = Field(None, le=100)
-    effects_ids: list[uuid.UUID] | None = []
-    utility_ids: list[uuid.UUID] | None = []
+    effects_ids: list[uuid.UUID] | None = None
+    utility_ids: list[uuid.UUID] | None = None
 
     # Dynamics
     difficulty: str | None = None
-    talent_ids: list[uuid.UUID] | None = []
-    enablers_ids: list[uuid.UUID] | None = []
-    requirements_ids: list[uuid.UUID] | None = []
+    talent_ids: list[uuid.UUID] | None = None
+    enablers_ids: list[uuid.UUID] | None = None
+    requirements_ids: list[uuid.UUID] | None = None
 
     # World
     prevalence: str | None = None

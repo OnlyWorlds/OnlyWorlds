@@ -16,12 +16,12 @@ class TerritoryBaseSchema(AbstractElementBaseSchema):
     primary_output: int | None = None
     secondary_output: int | None = None
     primary_resource_id: uuid.UUID | None = None
-    secondary_resources_ids: list[uuid.UUID] | None = []
+    secondary_resources_ids: list[uuid.UUID] | None = None
 
     # World
     history: str | None = None
-    occupants_ids: list[uuid.UUID] | None = []
-    occurrences_ids: list[uuid.UUID] | None = []
+    occupants_ids: list[uuid.UUID] | None = None
+    occurrences_ids: list[uuid.UUID] | None = None
 
 
 class TerritoryCreateInSchema(TerritoryBaseSchema):

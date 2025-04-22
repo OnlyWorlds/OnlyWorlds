@@ -16,8 +16,8 @@ class LanguageBaseSchema(AbstractElementBaseSchema):
     # Spread
     prose: str | None = None
     speakers: int | None = None
-    dialects_ids: list[uuid.UUID] | None = []
-    range_ids: list[uuid.UUID] | None = []
+    dialects_ids: list[uuid.UUID] | None = None
+    range_ids: list[uuid.UUID] | None = None
 
 
 class LanguageCreateInSchema(LanguageBaseSchema):

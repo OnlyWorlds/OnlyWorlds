@@ -13,11 +13,11 @@ class LawBaseSchema(AbstractElementBaseSchema):
     author_id: uuid.UUID | None = None
 
     # Compulsion
-    jurisdictions_ids: list[uuid.UUID] | None = []
-    prohibitions_ids: list[uuid.UUID] | None = []
-    penalties_ids: list[uuid.UUID] | None = []
-    adjudicators_ids: list[uuid.UUID] | None = []
-    enforcers_ids: list[uuid.UUID] | None = []
+    jurisdictions_ids: list[uuid.UUID] | None = None
+    prohibitions_ids: list[uuid.UUID] | None = None
+    penalties_ids: list[uuid.UUID] | None = None
+    adjudicators_ids: list[uuid.UUID] | None = None
+    enforcers_ids: list[uuid.UUID] | None = None
 
 
 class LawCreateInSchema(LawBaseSchema):

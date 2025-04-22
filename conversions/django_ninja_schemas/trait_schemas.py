@@ -24,7 +24,7 @@ class TraitBaseSchema(AbstractElementBaseSchema):
 
     # World
     anti_trait_id: uuid.UUID | None = None
-    empowered_abilities_ids: list[uuid.UUID] | None = []
+    empowered_abilities_ids: list[uuid.UUID] | None = None
 
 
 class TraitCreateInSchema(TraitBaseSchema):

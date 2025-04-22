@@ -12,25 +12,25 @@ class LocationBaseSchema(AbstractElementBaseSchema):
     founding_date: int | None = None
     population_size: int | None = None
     parent_location_id: uuid.UUID | None = None
-    populations_ids: list[uuid.UUID] | None = []
+    populations_ids: list[uuid.UUID] | None = None
 
     # Culture
     traditions: str | None = None
     celebrations: str | None = None
     primary_cult_id: uuid.UUID | None = None
-    secondary_cults_ids: list[uuid.UUID] | None = []
-    delicacies_ids: list[uuid.UUID] | None = []
+    secondary_cults_ids: list[uuid.UUID] | None = None
+    delicacies_ids: list[uuid.UUID] | None = None
 
     # World
     coordinates: str | None = None
-    founders_ids: list[uuid.UUID] | None = []
+    founders_ids: list[uuid.UUID] | None = None
 
     # Construction
     logistics: str | None = None
     architecture: str | None = None
     construction_rate: int | None = Field(None, le=100)
-    buildings_ids: list[uuid.UUID] | None = []
-    building_expertise_ids: list[uuid.UUID] | None = []
+    buildings_ids: list[uuid.UUID] | None = None
+    building_expertise_ids: list[uuid.UUID] | None = None
 
     # Production
     extraction: str | None = None
@@ -39,8 +39,8 @@ class LocationBaseSchema(AbstractElementBaseSchema):
     industry_output: int | None = None
     primary_resource_id: uuid.UUID | None = None
     primary_industry_id: uuid.UUID | None = None
-    secondary_resources_ids: list[uuid.UUID] | None = []
-    secondary_industries_ids: list[uuid.UUID] | None = []
+    secondary_resources_ids: list[uuid.UUID] | None = None
+    secondary_industries_ids: list[uuid.UUID] | None = None
 
     # Commerce
     trade: str | None = None
@@ -48,31 +48,31 @@ class LocationBaseSchema(AbstractElementBaseSchema):
     currency: str | None = None
     primary_extraction_market_id: uuid.UUID | None = None
     primary_industry_market_id: uuid.UUID | None = None
-    secondary_extraction_markets_ids: list[uuid.UUID] | None = []
-    secondary_industry_markets_ids: list[uuid.UUID] | None = []
+    secondary_extraction_markets_ids: list[uuid.UUID] | None = None
+    secondary_industry_markets_ids: list[uuid.UUID] | None = None
 
     # Localpolitics
     government: str | None = None
     opposition: str | None = None
     governing_title_id: uuid.UUID | None = None
     primary_faction_id: uuid.UUID | None = None
-    secondary_factions_ids: list[uuid.UUID] | None = []
+    secondary_factions_ids: list[uuid.UUID] | None = None
 
     # Regionalpolitics
     territorial_policies: str | None = None
     territory_id: uuid.UUID | None = None
     rival_id: uuid.UUID | None = None
     friend_id: uuid.UUID | None = None
-    soft_influence_on_ids: list[uuid.UUID] | None = []
-    hard_influence_on_ids: list[uuid.UUID] | None = []
+    soft_influence_on_ids: list[uuid.UUID] | None = None
+    hard_influence_on_ids: list[uuid.UUID] | None = None
 
     # Strategics
     defensibility: str | None = None
     height: int | None = None
     primary_fighter_id: uuid.UUID | None = None
-    secondary_fighters_ids: list[uuid.UUID] | None = []
-    defenses_ids: list[uuid.UUID] | None = []
-    fortifications_ids: list[uuid.UUID] | None = []
+    secondary_fighters_ids: list[uuid.UUID] | None = None
+    defenses_ids: list[uuid.UUID] | None = None
+    fortifications_ids: list[uuid.UUID] | None = None
 
 
 class LocationCreateInSchema(LocationBaseSchema):
