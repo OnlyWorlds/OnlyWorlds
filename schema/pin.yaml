@@ -4,7 +4,7 @@ type: object
 description: Represents a clickable point on a Map that links to a specific world Element using generic relations.
 
 properties:
-  details:
+  Details:
     type: "object"
     properties:
       map:

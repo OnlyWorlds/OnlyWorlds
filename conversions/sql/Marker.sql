@@ -7,7 +7,7 @@ CREATE TABLE marker (
     image_url TEXT,
     world TEXT NOT NULL,
     map TEXT NOT NULL,
-    x INTEGER,
-    y INTEGER,
+    x INTEGER NOT NULL,
+    y INTEGER NOT NULL,
     z INTEGER
 );

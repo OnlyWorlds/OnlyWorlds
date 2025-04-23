@@ -5,8 +5,8 @@ class Marker(AbstractElementModel):
 
     # Details
     map = models.ForeignKey("Map", on_delete=models.CASCADE, related_name="marker_map")
-    x = models.PositiveIntegerField(blank=True, null=True)
-    y = models.PositiveIntegerField(blank=True, null=True)
+    x = models.PositiveIntegerField()
+    y = models.PositiveIntegerField()
     z = models.PositiveIntegerField(blank=True, null=True)
 
     def __str__(self):

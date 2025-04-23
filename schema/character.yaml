@@ -2,7 +2,7 @@ $schema: "http://json-schema.org/draft-07/schema#"
 title: "Character"
 type: "object"
 properties:
-  constitution:
+  Constitution:
     type: "object"
     properties:
       physicality:
@@ -37,7 +37,7 @@ properties:
           type: "string"
         description: "Abilities of the character"
         category: "Ability"
-  origins:
+  Origins:
     type: "object"
     properties:
       background:
@@ -59,7 +59,7 @@ properties:
           type: "string"
         description: "Languages the character can speak"
         category: "Language"
-  world:
+  World:
     type: "object"
     properties:
       situation:
@@ -87,7 +87,7 @@ properties:
           type: "string"
         description: "Institutions associated with the character"
         category: "Institution"
-  personality:
+  Personality:
     type: "object"
     properties:
       charisma:
@@ -114,7 +114,7 @@ properties:
         type: "integer"
         maximum: 100
         description: "Courage score of the character."
-  social:
+  Social:
     type: "object"
     properties:
       family:
@@ -135,7 +135,7 @@ properties:
           type: "string"
         description: "Rivals of the character"
         category: "Character"
-  games:
+  Games:
     type: "object"
     properties:
       backstory:

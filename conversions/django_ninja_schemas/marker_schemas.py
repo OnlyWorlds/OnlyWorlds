@@ -7,8 +7,8 @@ class MarkerBaseSchema(AbstractElementBaseSchema):
 
     # Details
     map_id: uuid.UUID
-    x: int | None = None
-    y: int | None = None
+    x: int
+    y: int
     z: int | None = None
 
 
@@ -29,7 +29,7 @@ class MarkerOutSchema(AbstractElementBaseSchema):
 
     # Details
     map: ElementNestedOutSchema
-    x: int | None = None
-    y: int | None = None
+    x: int
+    y: int
     z: int | None = None
 

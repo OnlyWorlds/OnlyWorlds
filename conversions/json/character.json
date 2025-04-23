@@ -3,7 +3,7 @@
     "title": "Character",
     "type": "object",
     "properties": {
-        "constitution": {
+        "Constitution": {
             "type": "object",
             "properties": {
                 "physicality": {
@@ -50,7 +50,7 @@
                 }
             }
         },
-        "origins": {
+        "Origins": {
             "type": "object",
             "properties": {
                 "background": {
@@ -80,7 +80,7 @@
                 }
             }
         },
-        "world": {
+        "World": {
             "type": "object",
             "properties": {
                 "situation": {
@@ -118,7 +118,7 @@
                 }
             }
         },
-        "personality": {
+        "Personality": {
             "type": "object",
             "properties": {
                 "charisma": {
@@ -153,7 +153,7 @@
                 }
             }
         },
-        "social": {
+        "Social": {
             "type": "object",
             "properties": {
                 "family": {
@@ -182,7 +182,7 @@
                 }
             }
         },
-        "games": {
+        "Games": {
             "type": "object",
             "properties": {
                 "backstory": {

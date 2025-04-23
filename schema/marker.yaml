@@ -4,7 +4,7 @@ type: Marker
 description: Represents a graphical marker on a Map, such as a line (road, river) or polygon (territory, region)
 
 properties: 
-  details:
+  Details:
     type: "object"
     properties:
       map:  
@@ -20,7 +20,7 @@ properties:
       z:
         type: "integer" 
         description: "z coordinate, in case of depth"
-    required: ["map"]
+    required: ["map", "x", "y"]
 
 
 

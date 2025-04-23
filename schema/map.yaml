@@ -2,7 +2,7 @@ $schema: "http://json-schema.org/draft-07/schema#"
 title: "Map"
 type: "object"
 properties: 
-  details:
+  Details:
     type: "object"
     properties:
       background_color:
