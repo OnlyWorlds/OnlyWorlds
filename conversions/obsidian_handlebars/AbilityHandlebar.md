@@ -9,7 +9,7 @@
 
 ## Mechanics
 - <span class="string" data-tooltip="Text">Usage</span>: {{usage}}
-- <span class="integer" data-tooltip="Number, max: 0">Range</span>: {{range}}
+- <span class="integer" data-tooltip="Number">Range</span>: {{range}}
 - <span class="integer" data-tooltip="Number, max: 100">Strength</span>: {{strength}}
 - <span class="multi-link-field" data-tooltip="Multi Phenomenon">Effects</span>: {{linkify effects}}
 - <span class="multi-link-field" data-tooltip="Multi Construct">Utility</span>: {{linkify utility}}

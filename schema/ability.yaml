@@ -9,9 +9,8 @@ properties:
         type: "string"
         description: "Description of how the ability is used."
       range:
-        type: "integer"
-        maximum: 0
-        description: "The effective range of the ability, in appropriate units."
+        type: "integer" 
+        description: "The effective range of the ability, in arbirtrary units."
       strength:
         type: "integer"
         maximum: 100
