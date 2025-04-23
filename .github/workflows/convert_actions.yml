@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
+        # Ensure Python scripts and output folders match!
         include:
           - type: "JSON"
             script: "yaml_to_json.py"
@@ -26,11 +27,24 @@ jobs:
           - type: "Dart"
             script: "yaml_to_dart.py"
             folder: "dart"
-          - type: "Django"
-            script: "yaml_to_django.py"
-            folder: "django"
+          - type: "TypeScript"
+            script: "yaml_to_typescript.py"
+            folder: "typescript"
+          - type: "CSharpUnity"
+            script: "yaml_to_csharp_unity.py"
+            folder: "csharp_unity"
+          - type: "CSharpUnityJsonProperties"
+            script: "yaml_to_csharp_unity_json_properties.py"
+            folder: "csharp_unity_json_properties"
+          - type: "DjangoModels"
+            script: "yaml_to_django_models.py"
+            folder: "django_models"
+          - type: "DjangoNinjaSchemas"
+            script: "yaml_to_django_ninja_schemas.py"
+            folder: "django_ninja_schemas"
+            
     permissions:
-      contents: write
+      contents: write  
 
     steps:
       - uses: actions/checkout@v2
@@ -57,13 +71,32 @@ jobs:
 
       - name: Move files to correct directory
         run: |
-          mv Handlebars-files/* conversions/obsidian_handlebars/
-          mv JSON-files/* conversions/json/
-          mv Templates-files/* conversions/obsidian_templates/
-          mv SQL-files/* conversions/sql/
-          mv Dart-files/* conversions/dart/
-          mv Django-files/* conversions/django/
-          rm -r Handlebars-files JSON-files Templates-files SQL-files Dart-files Django-files # Clean up
+          # Create target directories if they don't exist
+          mkdir -p conversions/json
+          mkdir -p conversions/obsidian_handlebars
+          mkdir -p conversions/obsidian_templates
+          mkdir -p conversions/sql
+          mkdir -p conversions/dart
+          mkdir -p conversions/typescript
+          mkdir -p conversions/csharp_unity
+          mkdir -p conversions/csharp_unity_json_properties
+          mkdir -p conversions/django_models
+          mkdir -p conversions/django_ninja_schemas
+          
+          # Move files, handle potential errors if source doesn't exist
+          mv JSON-files/* conversions/json/ || echo "No JSON files found"
+          mv Handlebars-files/* conversions/obsidian_handlebars/ || echo "No Handlebars files found"
+          mv Templates-files/* conversions/obsidian_templates/ || echo "No Templates files found"
+          mv SQL-files/* conversions/sql/ || echo "No SQL files found"
+          mv Dart-files/* conversions/dart/ || echo "No Dart files found"
+          mv TypeScript-files/* conversions/typescript/ || echo "No TypeScript files found"
+          mv CSharpUnity-files/* conversions/csharp_unity/ || echo "No CSharpUnity files found"
+          mv CSharpUnityJsonProperties-files/* conversions/csharp_unity_json_properties/ || echo "No CSharpUnityJsonProperties files found"
+          mv DjangoModels-files/* conversions/django_models/ || echo "No DjangoModels files found"
+          mv DjangoNinjaSchemas-files/* conversions/django_ninja_schemas/ || echo "No DjangoNinjaSchemas files found"
+          
+          # Clean up artifact folders
+          rm -r *-files # Removes all directories ending in -files
 
       - name: Configure git
         run: |
