@@ -5,4 +5,5 @@ class Map extends BaseElement {
   final int width;
   final int height;
   final String parentMap; //ss map
+  final String location; //ss location
 }

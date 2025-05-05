@@ -16,4 +16,6 @@ public class Map : Element
     public int height;
     [JsonProperty("parent_map"), ReferenceAttribute(typeof(Map))]
     public string parentMap;
+    [JsonProperty("location"), ReferenceAttribute(typeof(Location))]
+    public string location;
 }

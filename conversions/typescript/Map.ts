@@ -7,4 +7,5 @@ export interface Map extends BaseElement {
   width?: number | null;
   height?: number | null;
   parentMapId?: string | null;
+  locationId?: string | null;
 }

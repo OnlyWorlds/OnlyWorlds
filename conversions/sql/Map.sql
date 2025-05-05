@@ -10,5 +10,6 @@ CREATE TABLE map (
     hierarchy INTEGER,
     width INTEGER,
     height INTEGER,
-    parent_map TEXT
+    parent_map TEXT,
+    location TEXT
 );

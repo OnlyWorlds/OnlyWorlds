@@ -9,6 +9,7 @@ class Map(AbstractElementModel):
     width = models.PositiveIntegerField(blank=True, null=True)
     height = models.PositiveIntegerField(blank=True, null=True)
     parent_map = models.ForeignKey("Map", on_delete=models.SET_NULL, blank=True, null=True, related_name="map_parent_map")
+    location = models.ForeignKey("Location", on_delete=models.SET_NULL, blank=True, null=True, related_name="map_location")
 
     def __str__(self):
         return self.name

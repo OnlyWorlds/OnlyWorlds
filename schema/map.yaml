@@ -21,3 +21,7 @@ properties:
         type: "single-link"
         description: "Map that represents an area that entirely contains this map"
         category: "Map"
+      location:
+        type: "single-link"
+        description: "Location element that is directly associated with this map"
+        category: "Location"

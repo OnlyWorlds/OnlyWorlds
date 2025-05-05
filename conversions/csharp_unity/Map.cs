@@ -8,4 +8,5 @@ public class Map : BaseElement
     public int? Width;
     public int? Height;
     public string ParentMapId;
+    public string LocationId;
 }
