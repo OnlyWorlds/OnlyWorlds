@@ -1,8 +1,7 @@
   types:
-    Line:
-    - Road
-    - River
-    Polygon:
-    - Territory
-    - Terrain
-    - Zone
+    Road: []
+    River: []
+    Territory: []
+    Terrain: []
+    Zone: []
+ 
