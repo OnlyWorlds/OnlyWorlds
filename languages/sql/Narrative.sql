@@ -10,6 +10,8 @@ CREATE TABLE narrative (
     consequences TEXT,
     start_date INTEGER,
     end_date INTEGER,
+    protagonist TEXT,
+    antagonist TEXT,
     events TEXT,
     characters TEXT,
     objects TEXT,

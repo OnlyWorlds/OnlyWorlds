@@ -302,7 +302,7 @@ def main():
     workspace_root = script_dir.parent
     schema_dir = workspace_root / "schema"
     # Define C# output directory
-    output_dir = workspace_root / "conversions" / "csharp_unity"
+    output_dir = workspace_root / "languages" / "csharp_unity"
 
     logging.info(f"Workspace root determined as: {workspace_root}")
     logging.info(f"Scanning for YAML schemas in: {schema_dir}")

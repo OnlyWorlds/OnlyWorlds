@@ -5,7 +5,7 @@ import textwrap
 from collections import defaultdict
 
 YAML_SCHEMA_DIR = os.path.join(os.path.dirname(__file__), '..', 'schema')
-OUTPUT_DIR = os.path.join(os.path.dirname(__file__), '..', 'conversions', 'django_ninja_schemas')
+OUTPUT_DIR = os.path.join(os.path.dirname(__file__), '..', 'languages', 'django_ninja_schemas')
 BASE_PROPERTIES_FILE = 'base_properties.yaml'
 BASE_SCHEMAS_FILENAME = 'base_schemas.py'
 

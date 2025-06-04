@@ -47,7 +47,7 @@ def convert_yaml_to_md(base_properties, yaml_path, md_path):
 if __name__ == "__main__":
     script_directory = os.path.dirname(__file__)
     yaml_dir = os.path.join(script_directory, '..', 'schema')
-    md_dir = os.path.join(script_directory, '..', 'conversions', 'obsidian_templates')
+    md_dir = os.path.join(script_directory, '..', 'languages', 'obsidian_templates')
     base_path = os.path.join(yaml_dir, 'base_properties.yaml')
 
     # Load base properties once

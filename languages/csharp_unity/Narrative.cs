@@ -9,6 +9,8 @@ public class Narrative : BaseElement
     public int? StartDate;
     public int? EndDate;
     // Involves
+    public string ProtagonistId;
+    public string AntagonistId;
     public List<string> EventsIds; = new List<string>();
     public List<string> CharactersIds; = new List<string>();
     public List<string> ObjectsIds; = new List<string>();

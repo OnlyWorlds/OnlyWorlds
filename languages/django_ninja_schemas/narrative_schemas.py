@@ -13,6 +13,8 @@ class NarrativeBaseSchema(AbstractElementBaseSchema):
     end_date: int | None = None
 
     # Involves
+    protagonist_id: uuid.UUID | None = None
+    antagonist_id: uuid.UUID | None = None
     events_ids: list[uuid.UUID] | None = None
     characters_ids: list[uuid.UUID] | None = None
     objects_ids: list[uuid.UUID] | None = None
@@ -42,6 +44,8 @@ class NarrativeUpdateInSchema(NarrativeBaseSchema):
 
 
 class NarrativeFilterSchema(BaseFilterSchema):
+    protagonist_id: uuid.UUID | None = Field(None, q='protagonist_id')
+    antagonist_id: uuid.UUID | None = Field(None, q='antagonist_id')
     events_ids: uuid.UUID | None = Field(None, q='events__id')
     characters_ids: uuid.UUID | None = Field(None, q='characters__id')
     objects_ids: uuid.UUID | None = Field(None, q='objects__id')
@@ -70,6 +74,8 @@ class NarrativeOutSchema(AbstractElementBaseSchema):
     end_date: int | None = None
 
     # Involves
+    protagonist: ElementNestedOutSchema | None = None
+    antagonist: ElementNestedOutSchema | None = None
     events: List[ElementNestedOutSchema] = []
     characters: List[ElementNestedOutSchema] = []
     objects: List[ElementNestedOutSchema] = []

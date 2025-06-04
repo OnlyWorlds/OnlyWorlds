@@ -30,7 +30,7 @@ if __name__ == "__main__":
     # Define paths relative to the script location.
     script_directory = os.path.dirname(__file__)
     yaml_dir = os.path.join(script_directory, '..', 'schema')
-    json_dir = os.path.join(script_directory, '..', 'conversions', 'json')
+    json_dir = os.path.join(script_directory, '..', 'languages', 'json')
 
     # Create the output directory if it doesn't exist.
     os.makedirs(json_dir, exist_ok=True)

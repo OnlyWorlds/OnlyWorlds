@@ -274,7 +274,7 @@ def main():
     script_dir = Path(__file__).parent
     workspace_root = script_dir.parent
     schema_dir = workspace_root / "schema"
-    output_dir = workspace_root / "conversions" / "typescript"
+    output_dir = workspace_root / "languages" / "typescript"
 
     logging.info(f"Workspace root determined as: {workspace_root}")
     logging.info(f"Scanning for YAML schemas in: {schema_dir}")

@@ -14,6 +14,10 @@ public class Narrative : Element
     public int startDate;
     [JsonProperty("end_date"), Integer(0)]
     public int endDate;
+    [JsonProperty("protagonist"), ReferenceAttribute(typeof(Character))]
+    public string protagonist;
+    [JsonProperty("antagonist"), ReferenceAttribute(typeof(Character))]
+    public string antagonist;
     [JsonProperty("events"), ReferenceAttribute(typeof(Event), true)]
     public string events;
     [JsonProperty("characters"), ReferenceAttribute(typeof(Character), true)]

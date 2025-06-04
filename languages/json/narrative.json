@@ -29,6 +29,16 @@
         "Involves": {
             "type": "object",
             "properties": {
+                "protagonist": {
+                    "type": "single-link",
+                    "description": "The defining character of the narrative.",
+                    "category": "Character"
+                },
+                "antagonist": {
+                    "type": "single-link",
+                    "description": "The character who opposes the protagonist.",
+                    "category": "Character"
+                },
                 "events": {
                     "type": "multi-link",
                     "items": {

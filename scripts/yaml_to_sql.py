@@ -135,7 +135,7 @@ def load_yaml_data(yaml_path):
 if __name__ == "__main__":
     script_directory = os.path.dirname(__file__)
     yaml_dir = os.path.join(script_directory, '..', 'schema')
-    sql_dir = os.path.join(script_directory, '..', 'conversions', 'sql')
+    sql_dir = os.path.join(script_directory, '..', 'languages', 'sql')
     base_path = os.path.join(yaml_dir, 'base_properties.yaml')
 
     # Load full base properties data once (including required fields)
