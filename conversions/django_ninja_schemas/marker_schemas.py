@@ -7,6 +7,7 @@ class MarkerBaseSchema(AbstractElementBaseSchema):
 
     # Details
     map_id: uuid.UUID
+    zone_id: uuid.UUID | None = None
     x: int
     y: int
     z: int | None = None
@@ -23,12 +24,14 @@ class MarkerUpdateInSchema(MarkerBaseSchema):
 
 class MarkerFilterSchema(BaseFilterSchema):
     map_id: uuid.UUID | None = Field(None, q='map_id')
+    zone_id: uuid.UUID | None = Field(None, q='zone_id')
 
 
 class MarkerOutSchema(AbstractElementBaseSchema):
 
     # Details
     map: ElementNestedOutSchema
+    zone: ElementNestedOutSchema | None = None
     x: int
     y: int
     z: int | None = None

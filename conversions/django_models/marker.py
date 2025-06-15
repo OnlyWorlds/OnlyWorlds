@@ -5,6 +5,7 @@ class Marker(AbstractElementModel):
 
     # Details
     map = models.ForeignKey("Map", on_delete=models.CASCADE, related_name="marker_map")
+    zone = models.ForeignKey("Zone", on_delete=models.SET_NULL, blank=True, null=True, related_name="marker_zone")
     x = models.PositiveIntegerField()
     y = models.PositiveIntegerField()
     z = models.PositiveIntegerField(blank=True, null=True)
