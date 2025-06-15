@@ -8,8 +8,8 @@ public class Character : Element
 {
     [JsonProperty("physicality"), TextAttribute("")]
     public string physicality;
-    [JsonProperty("psychology"), TextAttribute("")]
-    public string psychology;
+    [JsonProperty("mentality"), TextAttribute("")]
+    public string mentality;
     [JsonProperty("height"), Integer(0)]
     public int height;
     [JsonProperty("weight"), Integer(0)]
@@ -30,12 +30,10 @@ public class Character : Element
     public string birthplace;
     [JsonProperty("languages"), ReferenceAttribute(typeof(Language), true)]
     public string languages;
-    [JsonProperty("situation"), TextAttribute("")]
-    public string situation;
+    [JsonProperty("reputation"), TextAttribute("")]
+    public string reputation;
     [JsonProperty("location"), ReferenceAttribute(typeof(Location))]
     public string location;
-    [JsonProperty("titles"), ReferenceAttribute(typeof(Title), true)]
-    public string titles;
     [JsonProperty("objects"), ReferenceAttribute(typeof(Object), true)]
     public string objects;
     [JsonProperty("institutions"), ReferenceAttribute(typeof(Institution), true)]
@@ -44,8 +42,8 @@ public class Character : Element
     public int charisma;
     [JsonProperty("coercion"), Integer(100)]
     public int coercion;
-    [JsonProperty("capability"), Integer(100)]
-    public int capability;
+    [JsonProperty("competence"), Integer(100)]
+    public int competence;
     [JsonProperty("compassion"), Integer(100)]
     public int compassion;
     [JsonProperty("creativity"), Integer(100)]
@@ -58,44 +56,20 @@ public class Character : Element
     public string friends;
     [JsonProperty("rivals"), ReferenceAttribute(typeof(Character), true)]
     public string rivals;
-    [JsonProperty("backstory"), TextAttribute("")]
-    public string backstory;
     [JsonProperty("level"), Integer(0)]
     public int level;
-    [JsonProperty("power"), Integer(0)]
-    public int power;
-    [JsonProperty("price"), Integer(0)]
-    public int price;
+    [JsonProperty("STR"), Integer(0)]
+    public int sTR;
+    [JsonProperty("DEX"), Integer(0)]
+    public int dEX;
+    [JsonProperty("CON"), Integer(0)]
+    public int cON;
+    [JsonProperty("INT"), Integer(0)]
+    public int iNT;
+    [JsonProperty("WIS"), Integer(0)]
+    public int wIS;
+    [JsonProperty("CHA"), Integer(0)]
+    public int cHA;
     [JsonProperty("hit_points"), Integer(0)]
     public int hitPoints;
-    [JsonProperty("skill_stealth"), Integer(0)]
-    public int skillStealth;
-    [JsonProperty("tt_str"), Integer(20)]
-    public int ttStr;
-    [JsonProperty("tt_int"), Integer(20)]
-    public int ttInt;
-    [JsonProperty("tt_con"), Integer(20)]
-    public int ttCon;
-    [JsonProperty("tt_dex"), Integer(20)]
-    public int ttDex;
-    [JsonProperty("tt_wis"), Integer(20)]
-    public int ttWis;
-    [JsonProperty("tt_cha"), Integer(20)]
-    public int ttCha;
-    [JsonProperty("class"), TextAttribute("")]
-    public string tt_class;
-    [JsonProperty("alignment"), TextAttribute("")]
-    public string alignment;
-    [JsonProperty("equipment"), ReferenceAttribute(typeof(Object), true)]
-    public string equipment;
-    [JsonProperty("backpack"), ReferenceAttribute(typeof(Object), true)]
-    public string backpack;
-    [JsonProperty("proficiencies"), ReferenceAttribute(typeof(Construct), true)]
-    public string proficiencies;
-    [JsonProperty("features"), ReferenceAttribute(typeof(Trait), true)]
-    public string features;
-    [JsonProperty("spells"), ReferenceAttribute(typeof(Ability), true)]
-    public string spells;
-    [JsonProperty("inspirations"), ReferenceAttribute(typeof(Construct), true)]
-    public string inspirations;
 }

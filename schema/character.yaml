@@ -2,118 +2,115 @@ $schema: "http://json-schema.org/draft-07/schema#"
 title: "Character"
 type: "object"
 properties:
+
   Constitution:
     type: "object"
     properties:
       physicality:
         type: "string"
-        description: "Physical traits and appearance descriptions.."
-      psychology:
+        description: "The character's visible physical features and body attributes."
+      mentality:
         type: "string"
-        description: "Psychological traits and mindset descriptions"
+        description: "The character’s mindset, emotional tone, and style of thinking."
       height:
         type: "integer"
-        maximum: 0
-        description: "Height of the character in appropriate units"
+        description: "The character’s height, using the world's defined unit of distance."
       weight:
         type: "integer"
-        maximum: 0
-        description: "Weight of the character in appropriate units"
+        description: "The character’s weight, using the world's defined unit of mass."
       species:
         type: "multi-link"
         items:
           type: "string"
-        description: "Species of the character"
+        description: "Species or species mix the character biologically belongs to."
         category: "Species"
       traits:
         type: "multi-link"
         items:
           type: "string"
-        description: "Traits of the character"
+        description: "Set of traits that describe notable behavioral, physical, or systemic characteristics."
         category: "Trait"
       abilities:
         type: "multi-link"
         items:
           type: "string"
-        description: "Abilities of the character"
+        description: "Abilities the character can perform, control, or invoke."
         category: "Ability"
+
   Origins:
     type: "object"
     properties:
       background:
         type: "string"
-        description: "The character's background story."
+        description: "The character’s history, upbringing, and formative experiences."
       motivations:
         type: "string"
-        description: "Driving motivations behind the character's actions."
+        description: "Core desires, goals, or values that drive the character’s choices and behavior."
       birth_date:
-        type: "integer" 
-        description: "Birth date of the character."
+        type: "integer"
+        description: "Character’s date of birth, expressed in the world’s time system."
       birthplace:
         type: "single-link"
-        description: "Birthplace of the character"
+        description: "Location where the character was born."
         category: "Location"
       languages:
         type: "multi-link"
         items:
           type: "string"
-        description: "Languages the character can speak"
+        description: "Languages the character can understand, speak, or use for communication."
         category: "Language"
+
   World:
     type: "object"
     properties:
-      situation:
+      reputation:
         type: "string"
-        description: "Current situation or predicament of the character."
+        description: "Brief summary of the character’s current condition, role, or predicament."
       location:
         type: "single-link"
-        description: "The character's current location"
+        description: "The character’s present physical location."
         category: "Location"
-      titles:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Titles held by the character"
-        category: "Title"
       objects:
         type: "multi-link"
         items:
           type: "string"
-        description: "Objects owned or associated with the character"
+        description: "Key objects owned by or symbolically linked to the character."
         category: "Object"
       institutions:
         type: "multi-link"
         items:
           type: "string"
-        description: "Institutions associated with the character"
+        description: "Institutions the character is affiliated with, aside from Institutions that they hold Titles in."
         category: "Institution"
+
   Personality:
     type: "object"
     properties:
       charisma:
         type: "integer"
         maximum: 100
-        description: "Charisma score of the character.."
+        description: "Ability to attract, inspire, and influence others through presence or speech."
       coercion:
         type: "integer"
         maximum: 100
-        description: "Coercion score of the character."
-      capability:
+        description: "Capacity to dominate, intimidate, or apply force to shape outcomes."
+      competence:
         type: "integer"
         maximum: 100
-        description: "Capability score of the character."
+        description: "Skill in planning, managing, and understanding complex systems or situations."
       compassion:
         type: "integer"
         maximum: 100
-        description: "Compassion score of the character."
+        description: "Willingness to empathize with and care for others."
       creativity:
         type: "integer"
         maximum: 100
-        description: "Creativity score of the character."
+        description: "Ability to generate novel ideas, perspectives, or solutions."
       courage:
         type: "integer"
         maximum: 100
-        description: "Courage score of the character."
+        description: "Readiness to face danger, risk, or adversity."
+
   Social:
     type: "object"
     properties:
@@ -121,106 +118,45 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-        description: "Family members of the character"
+        description: "Family groups the character belongs to by blood or adoption."
         category: "Family"
       friends:
         type: "multi-link"
         items:
           type: "string"
-        description: "Friends of the character"
+        description: "Other characters the character considers close allies or companions."
         category: "Character"
       rivals:
         type: "multi-link"
         items:
           type: "string"
-        description: "Rivals of the character"
+        description: "Other characters the character is in active opposition or competition with."
         category: "Character"
-  Games:
+
+  TTRPG:
     type: "object"
     properties:
-      backstory:
-        type: "string"
-        description: "The backstory of the character."
       level:
         type: "integer"
-        maximum: 0
-        description: "Level of the character."
-      power:
-        type: "integer"
-        maximum: 0
-        description: "Power level of the character."
-      price:
+        description: "Level or progression rank of the character in a game system."
+      STR:
         type: "integer" 
-        description: "Price or value associated with the character."
+        description: "Strength attribute (physical force and carrying capacity)."
+      DEX:
+        type: "integer" 
+        description: "Dexterity attribute (agility, coordination, and reflexes)."
+      CON:
+        type: "integer" 
+        description: "Constitution attribute (endurance and resistance to strain)."
+      INT:
+        type: "integer" 
+        description: "Intelligence attribute (reasoning, memory, and learning)."
+      WIS:
+        type: "integer" 
+        description: "Wisdom attribute (intuition, awareness, and judgment)."
+      CHA:
+        type: "integer" 
+        description: "Charisma attribute (persuasiveness and personal magnetism)."
       hit_points:
-        type: "integer" 
-        description: "Total hit points of the character."
-      skill_stealth:
-        type: "integer" 
-        description: "Stealth skill level of the character."
-      tt_str:
         type: "integer"
-        maximum: 20
-        description: "Strength attribute of the character."
-      tt_int:
-        type: "integer"
-        maximum: 20
-        description: "Intelligence attribute of the character."
-      tt_con:
-        type: "integer"
-        maximum: 20
-        description: "Constitution attribute of the character."
-      tt_dex:
-        type: "integer"
-        maximum: 20
-        description: "Dexterity attribute of the character."
-      tt_wis:
-        type: "integer"
-        maximum: 20
-        description: "Wisdom attribute of the character."
-      tt_cha:
-        type: "integer"
-        maximum: 20
-        description: "Charisma attribute of the character."
-      class:
-        type: "string"
-        description: "Class of the character."
-      alignment:
-        type: "string"
-        description: "Alignment of the character."
-      equipment:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Equipment carried by the character"
-        category: "Object"
-      backpack:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Items in the character's backpack"
-        category: "Object"
-      proficiencies:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Proficiencies of the character"
-        category: "Construct"
-      features:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Features of the character"
-        category: "Trait"
-      spells:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Spells known by the character"
-        category: "Ability"
-      inspirations:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Inspirations of the character"
-        category: "Construct"
+        description: "Total health points available to the character."
