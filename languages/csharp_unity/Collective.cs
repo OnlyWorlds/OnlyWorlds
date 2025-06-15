@@ -9,11 +9,12 @@ public class Collective : BaseElement
     public int? FormationDate;
     public string OperatorId;
     public List<string> EquipmentIds; = new List<string>();
-    // Agency
+    // Dynamics
     public string Activity;
-    public string Temperance;
-    public List<string> SkillsIds; = new List<string>();
-    public List<string> RitualsIds; = new List<string>();
+    public string Disposition;
+    public string State;
+    public List<string> AbilitiesIds; = new List<string>();
+    public List<string> SymbolismIds; = new List<string>();
     // World
     public List<string> SpeciesIds; = new List<string>();
     public List<string> CharactersIds; = new List<string>();

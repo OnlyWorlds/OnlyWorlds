@@ -18,12 +18,14 @@ public class Collective : Element
     public string equipment;
     [JsonProperty("activity"), TextAttribute("")]
     public string activity;
-    [JsonProperty("temperance"), TextAttribute("")]
-    public string temperance;
-    [JsonProperty("skills"), ReferenceAttribute(typeof(Ability), true)]
-    public string skills;
-    [JsonProperty("rituals"), ReferenceAttribute(typeof(Construct), true)]
-    public string rituals;
+    [JsonProperty("disposition"), TextAttribute("")]
+    public string disposition;
+    [JsonProperty("state"), TextAttribute("")]
+    public string state;
+    [JsonProperty("abilities"), ReferenceAttribute(typeof(Ability), true)]
+    public string abilities;
+    [JsonProperty("symbolism"), ReferenceAttribute(typeof(Construct), true)]
+    public string symbolism;
     [JsonProperty("species"), ReferenceAttribute(typeof(Species), true)]
     public string species;
     [JsonProperty("characters"), ReferenceAttribute(typeof(Character), true)]

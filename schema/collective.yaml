@@ -1,52 +1,58 @@
 $schema: "http://json-schema.org/draft-07/schema#"
 title: "Collective"
 type: "object"
+
 properties:
   Formation:
     type: "object"
     properties:
       composition:
         type: "string"
-        description: "The structural makeup or composition of the collective."
+        description: "Internal structure or demographic makeup of the collective."
       count:
         type: "integer"
         maximum: 0
-        description: "The number of entities or members in the collective."
+        description: "Number of members in the collective (approximate or exact)."
       formation_date:
         type: "integer"
         maximum: 0
-        description: "The date the collective was formed, represented as an integer (e.g., YYYYMMDD)."
+        description: "Date the collective was formed, using world-defined TIME units."
       operator:
         type: "single-link"
-        description: "The institution or entity operating or managing the collective"
+        description: "Institution that manages or directs the collective."
         category: "Institution"
       equipment:
         type: "multi-link"
         items:
           type: "string"
-        description: "Equipment or tools used by the collective"
+        description: "Tools or gear in possession of and/or regularly used by the collective."
         category: "Construct"
-  Agency:
+
+  Dynamics:
     type: "object"
     properties:
       activity:
         type: "string"
-        description: "Main activities or actions undertaken by the collective."
-      temperance:
+        description: "Primary behaviors or actions the collective engages in."
+      disposition:
         type: "string"
-        description: "The level of restraint or moderation practiced by the collective."
-      skills:
+        description: "Emotional control or volatility expressed by the collective."
+      state:
+        type: "string"
+        description: "Current condition or operational status of the collective."
+      abilities:
         type: "multi-link"
         items:
           type: "string"
-        description: "Skills or abilities prevalent within the collective"
+        description: "Abilities commonly shared among members of the collective, or abilities of that collective as a whole."
         category: "Ability"
-      rituals:
+      symbolism:
         type: "multi-link"
         items:
           type: "string"
-        description: "Rituals or customary practices observed by the collective"
+        description: "Cultural expressions, rituals, or symbols that unify or distinguish the collective."
         category: "Construct"
+
   World:
     type: "object"
     properties:
@@ -54,23 +60,23 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-        description: "Species that make up the collective"
+        description: "Species that compose or participate in the collective."
         category: "Species"
       characters:
         type: "multi-link"
         items:
           type: "string"
-        description: "Characters who are part of the collective"
+        description: "Characters who are members of the collective."
         category: "Character"
       creatures:
         type: "multi-link"
         items:
           type: "string"
-        description: "Creatures associated with the collective"
+        description: "Creatures associated with or included in the collective."
         category: "Creature"
       phenomena:
         type: "multi-link"
         items:
           type: "string"
-        description: "Phenomena connected or significant to the collective"
+        description: "Phenomena that influence or characterize the collective."
         category: "Phenomenon"

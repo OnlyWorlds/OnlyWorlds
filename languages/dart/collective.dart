@@ -5,11 +5,12 @@ class Collective extends BaseElement {
   final int formationDate;
   final String operator; //ss institution
   final String equipment; //ms construct
-  // Agency
+  // Dynamics
   final String activity;
-  final String temperance;
-  final String skills; //ms ability
-  final String rituals; //ms construct
+  final String disposition;
+  final String state;
+  final String abilities; //ms ability
+  final String symbolism; //ms construct
   // World
   final String species; //ms species
   final String characters; //ms character
