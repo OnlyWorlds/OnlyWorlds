@@ -7,22 +7,23 @@ import uuid
 class AbilityBaseSchema(AbstractElementBaseSchema):
 
     # Mechanics
-    usage: str | None = None
+    activation: str | None = None
+    duration: int | None = None
+    potency: int | None = Field(None, le=100)
     range: int | None = None
-    strength: int | None = Field(None, le=100)
     effects_ids: list[uuid.UUID] | None = None
-    utility_ids: list[uuid.UUID] | None = None
 
-    # Dynamics
-    difficulty: str | None = None
-    talent_ids: list[uuid.UUID] | None = None
-    enablers_ids: list[uuid.UUID] | None = None
-    requirements_ids: list[uuid.UUID] | None = None
+    # Enablement
+    challenges: str | None = None
+    source_id: uuid.UUID | None = None
+    talents_ids: list[uuid.UUID] | None = None
+    instruments_ids: list[uuid.UUID] | None = None
+    prerequisites_ids: list[uuid.UUID] | None = None
 
     # World
     prevalence: str | None = None
-    system_id: uuid.UUID | None = None
-    construct_id: uuid.UUID | None = None
+    tradition_id: uuid.UUID | None = None
+    locus_id: uuid.UUID | None = None
 
 
 class AbilityCreateInSchema(AbilityBaseSchema):
@@ -36,31 +37,32 @@ class AbilityUpdateInSchema(AbilityBaseSchema):
 
 class AbilityFilterSchema(BaseFilterSchema):
     effects_ids: uuid.UUID | None = Field(None, q='effects__id')
-    utility_ids: uuid.UUID | None = Field(None, q='utility__id')
-    talent_ids: uuid.UUID | None = Field(None, q='talent__id')
-    enablers_ids: uuid.UUID | None = Field(None, q='enablers__id')
-    requirements_ids: uuid.UUID | None = Field(None, q='requirements__id')
-    system_id: uuid.UUID | None = Field(None, q='system_id')
-    construct_id: uuid.UUID | None = Field(None, q='construct_id')
+    source_id: uuid.UUID | None = Field(None, q='source_id')
+    talents_ids: uuid.UUID | None = Field(None, q='talents__id')
+    instruments_ids: uuid.UUID | None = Field(None, q='instruments__id')
+    prerequisites_ids: uuid.UUID | None = Field(None, q='prerequisites__id')
+    tradition_id: uuid.UUID | None = Field(None, q='tradition_id')
+    locus_id: uuid.UUID | None = Field(None, q='locus_id')
 
 
 class AbilityOutSchema(AbstractElementBaseSchema):
 
     # Mechanics
-    usage: str | None = None
+    activation: str | None = None
+    duration: int | None = None
+    potency: int | None = Field(None, le=100)
     range: int | None = None
-    strength: int | None = Field(None, le=100)
     effects: List[ElementNestedOutSchema] = []
-    utility: List[ElementNestedOutSchema] = []
 
-    # Dynamics
-    difficulty: str | None = None
-    talent: List[ElementNestedOutSchema] = []
-    enablers: List[ElementNestedOutSchema] = []
-    requirements: List[ElementNestedOutSchema] = []
+    # Enablement
+    challenges: str | None = None
+    source: ElementNestedOutSchema | None = None
+    talents: List[ElementNestedOutSchema] = []
+    instruments: List[ElementNestedOutSchema] = []
+    prerequisites: List[ElementNestedOutSchema] = []
 
     # World
     prevalence: str | None = None
-    system: ElementNestedOutSchema | None = None
-    construct: ElementNestedOutSchema | None = None
+    tradition: ElementNestedOutSchema | None = None
+    locus: ElementNestedOutSchema | None = None
 

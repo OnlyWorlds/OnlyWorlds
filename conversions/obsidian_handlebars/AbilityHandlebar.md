@@ -8,20 +8,21 @@
 - <span class="text-field" data-tooltip="Text">World</span>: {{world}}
 
 ## Mechanics
-- <span class="string" data-tooltip="Text">Usage</span>: {{usage}}
+- <span class="string" data-tooltip="Text">Activation</span>: {{activation}}
+- <span class="integer" data-tooltip="Number">Duration</span>: {{duration}}
+- <span class="integer" data-tooltip="Number, max: 100">Potency</span>: {{potency}}
 - <span class="integer" data-tooltip="Number">Range</span>: {{range}}
-- <span class="integer" data-tooltip="Number, max: 100">Strength</span>: {{strength}}
 - <span class="multi-link-field" data-tooltip="Multi Phenomenon">Effects</span>: {{linkify effects}}
-- <span class="multi-link-field" data-tooltip="Multi Construct">Utility</span>: {{linkify utility}}
 
-## Dynamics
-- <span class="string" data-tooltip="Text">Difficulty</span>: {{difficulty}}
-- <span class="multi-link-field" data-tooltip="Multi Trait">Talent</span>: {{linkify talent}}
-- <span class="multi-link-field" data-tooltip="Multi Object">Enablers</span>: {{linkify enablers}}
-- <span class="multi-link-field" data-tooltip="Multi Construct">Requirements</span>: {{linkify requirements}}
+## Enablement
+- <span class="string" data-tooltip="Text">Challenges</span>: {{challenges}}
+- <span class="link-field" data-tooltip="Single Phenomenon">Source</span>: {{linkify source}}
+- <span class="multi-link-field" data-tooltip="Multi Trait">Talents</span>: {{linkify talents}}
+- <span class="multi-link-field" data-tooltip="Multi Object">Instruments</span>: {{linkify instruments}}
+- <span class="multi-link-field" data-tooltip="Multi Construct">Prerequisites</span>: {{linkify prerequisites}}
 
 ## World
 - <span class="string" data-tooltip="Text">Prevalence</span>: {{prevalence}}
-- <span class="link-field" data-tooltip="Single Phenomenon">System</span>: {{linkify system}}
-- <span class="link-field" data-tooltip="Single Construct">Construct</span>: {{linkify construct}}
+- <span class="link-field" data-tooltip="Single Construct">Tradition</span>: {{linkify tradition}}
+- <span class="link-field" data-tooltip="Single Location">Locus</span>: {{linkify locus}}
 

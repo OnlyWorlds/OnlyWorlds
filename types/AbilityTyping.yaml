@@ -1,17 +1,56 @@
-  types:
-    Combat: []
-    Magical: []
-    Mental: []
-    Musical:
-    - String
-    - Flute
-    - Percussion
-    - Keys
+types:
+  Combat:
+    - Melee
+    - Ranged
+    - Defensive
+    - Tactical
+  Magical:
+    - Elemental
+    - Enchantment
+    - Summoning
+    - Divination
+  Mental:
+    - Perception
+    - Memory
+    - Influence
+    - Focus
+  Musical:
     - Vocal
-    - Other
-    Physical: []
-    Professional: []
-    Social: []
-    Spiritual: []
-    Survival: []
-    Transformative: []
+    - String
+    - Wind
+    - Percussion
+    - Mixed
+  Physical:
+    - Movement
+    - Strength
+    - Endurance
+    - Coordination
+  Social:
+    - Persuasion
+    - Intimidation
+    - Deception
+    - Performance
+  Professional:
+    - Healing
+    - Crafting
+    - Engineering
+    - Strategy
+  Spiritual:
+    - Blessing
+    - Curse
+    - Invocation
+    - Meditation
+  Survival:
+    - Foraging
+    - Tracking
+    - Weathering
+    - Navigation
+  Transformative:
+    - Bodily
+    - Mental
+    - Environmental
+  Technological:
+    - Interface
+    - Augmentation
+    - Weaponized
+    - Computational

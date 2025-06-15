@@ -4,18 +4,19 @@ using System.Collections.Generic;
 public class Ability : BaseElement
 {
     // Mechanics
-    public string Usage;
+    public string Activation;
+    public int? Duration;
+    public int? Potency;
     public int? Range;
-    public int? Strength;
     public List<string> EffectsIds; = new List<string>();
-    public List<string> UtilityIds; = new List<string>();
-    // Dynamics
-    public string Difficulty;
-    public List<string> TalentIds; = new List<string>();
-    public List<string> EnablersIds; = new List<string>();
-    public List<string> RequirementsIds; = new List<string>();
+    // Enablement
+    public string Challenges;
+    public string SourceId;
+    public List<string> TalentsIds; = new List<string>();
+    public List<string> InstrumentsIds; = new List<string>();
+    public List<string> PrerequisitesIds; = new List<string>();
     // World
     public string Prevalence;
-    public string SystemId;
-    public string ConstructId;
+    public string TraditionId;
+    public string LocusId;
 }
