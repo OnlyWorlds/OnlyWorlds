@@ -56,7 +56,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: ${{ matrix.type }}-files
-          path: conversions/${{ matrix.folder }}/*
+          path: languages/${{ matrix.folder }}/*
 
   commit:
     needs: convert
@@ -72,28 +72,28 @@ jobs:
       - name: Move files to correct directory
         run: |
           # Create target directories if they don't exist
-          mkdir -p conversions/json
-          mkdir -p conversions/obsidian_handlebars
-          mkdir -p conversions/obsidian_templates
-          mkdir -p conversions/sql
-          mkdir -p conversions/dart
-          mkdir -p conversions/typescript
-          mkdir -p conversions/csharp_unity
-          mkdir -p conversions/csharp_unity_json_properties
-          mkdir -p conversions/django_models
-          mkdir -p conversions/django_ninja_schemas
+          mkdir -p languages/json
+          mkdir -p languages/obsidian_handlebars
+          mkdir -p languages/obsidian_templates
+          mkdir -p languages/sql
+          mkdir -p languages/dart
+          mkdir -p languages/typescript
+          mkdir -p languages/csharp_unity
+          mkdir -p languages/csharp_unity_json_properties
+          mkdir -p languages/django_models
+          mkdir -p languages/django_ninja_schemas
           
           # Move files, handle potential errors if source doesn't exist
-          mv JSON-files/* conversions/json/ || echo "No JSON files found"
-          mv Handlebars-files/* conversions/obsidian_handlebars/ || echo "No Handlebars files found"
-          mv Templates-files/* conversions/obsidian_templates/ || echo "No Templates files found"
-          mv SQL-files/* conversions/sql/ || echo "No SQL files found"
-          mv Dart-files/* conversions/dart/ || echo "No Dart files found"
-          mv TypeScript-files/* conversions/typescript/ || echo "No TypeScript files found"
-          mv CSharpUnity-files/* conversions/csharp_unity/ || echo "No CSharpUnity files found"
-          mv CSharpUnityJsonProperties-files/* conversions/csharp_unity_json_properties/ || echo "No CSharpUnityJsonProperties files found"
-          mv DjangoModels-files/* conversions/django_models/ || echo "No DjangoModels files found"
-          mv DjangoNinjaSchemas-files/* conversions/django_ninja_schemas/ || echo "No DjangoNinjaSchemas files found"
+          mv JSON-files/* languages/json/ || echo "No JSON files found"
+          mv Handlebars-files/* languages/obsidian_handlebars/ || echo "No Handlebars files found"
+          mv Templates-files/* languages/obsidian_templates/ || echo "No Templates files found"
+          mv SQL-files/* languages/sql/ || echo "No SQL files found"
+          mv Dart-files/* languages/dart/ || echo "No Dart files found"
+          mv TypeScript-files/* languages/typescript/ || echo "No TypeScript files found"
+          mv CSharpUnity-files/* languages/csharp_unity/ || echo "No CSharpUnity files found"
+          mv CSharpUnityJsonProperties-files/* languages/csharp_unity_json_properties/ || echo "No CSharpUnityJsonProperties files found"
+          mv DjangoModels-files/* languages/django_models/ || echo "No DjangoModels files found"
+          mv DjangoNinjaSchemas-files/* languages/django_ninja_schemas/ || echo "No DjangoNinjaSchemas files found"
           
           # Clean up artifact folders
           rm -r *-files # Removes all directories ending in -files
@@ -105,6 +105,6 @@ jobs:
 
       - name: Add and Commit Changes
         run: |
-          git add conversions/*
-          git commit -m "Auto-update files from YAML conversions"
+          git add languages/*
+          git commit -m "Auto-update files from YAML languages"
           git push

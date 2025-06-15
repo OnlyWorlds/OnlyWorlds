@@ -10,6 +10,8 @@ class Narrative(AbstractElementModel):
     end_date = models.PositiveIntegerField(blank=True, null=True)
 
     # Involves
+    protagonist = models.ForeignKey("Character", on_delete=models.SET_NULL, blank=True, null=True, related_name="narrative_protagonist")
+    antagonist = models.ForeignKey("Character", on_delete=models.SET_NULL, blank=True, null=True, related_name="narrative_antagonist")
     events = models.ManyToManyField("Event", blank=True, related_name="narrative_events")
     characters = models.ManyToManyField("Character", blank=True, related_name="narrative_characters")
     objects = models.ManyToManyField("Object", blank=True, related_name="narrative_objects")

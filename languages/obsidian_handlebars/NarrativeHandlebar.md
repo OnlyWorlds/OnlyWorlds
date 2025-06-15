@@ -14,6 +14,8 @@
 - <span class="integer" data-tooltip="Number, max: 0">End_date</span>: {{end_date}}
 
 ## Involves
+- <span class="link-field" data-tooltip="Single Character">Protagonist</span>: {{linkify protagonist}}
+- <span class="link-field" data-tooltip="Single Character">Antagonist</span>: {{linkify antagonist}}
 - <span class="multi-link-field" data-tooltip="Multi Event">Events</span>: {{linkify events}}
 - <span class="multi-link-field" data-tooltip="Multi Character">Characters</span>: {{linkify characters}}
 - <span class="multi-link-field" data-tooltip="Multi Object">Objects</span>: {{linkify objects}}

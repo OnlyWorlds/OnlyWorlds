@@ -51,7 +51,7 @@ def convert_yaml_to_handlebars(base_properties, yaml_path, handlebars_path):
 if __name__ == "__main__":
     script_directory = os.path.dirname(__file__)
     yaml_dir = os.path.join(script_directory, '..', 'schema')
-    handlebars_dir = os.path.join(script_directory, '..', 'conversions', 'obsidian_handlebars')
+    handlebars_dir = os.path.join(script_directory, '..', 'languages', 'obsidian_handlebars')
     base_path = os.path.join(yaml_dir, 'base_properties.yaml')
 
     # Load base properties once

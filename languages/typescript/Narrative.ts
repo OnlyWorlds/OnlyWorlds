@@ -7,6 +7,8 @@ export interface Narrative extends BaseElement {
   startDate?: number | null;
   endDate?: number | null;
   // Involves
+  protagonistId?: string | null;
+  antagonistId?: string | null;
   eventsIds?: string[] | null;
   charactersIds?: string[] | null;
   objectsIds?: string[] | null;

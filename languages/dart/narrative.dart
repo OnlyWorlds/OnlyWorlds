@@ -5,6 +5,8 @@ class Narrative extends BaseElement {
   final int startDate;
   final int endDate;
   // Involves
+  final String protagonist; //ss character
+  final String antagonist; //ss character
   final String events; //ms event
   final String characters; //ms character
   final String objects; //ms object
