@@ -58,6 +58,8 @@ public class Character : Element
     public string rivals;
     [JsonProperty("level"), Integer(0)]
     public int level;
+    [JsonProperty("hit_points"), Integer(0)]
+    public int hitPoints;
     [JsonProperty("STR"), Integer(0)]
     public int sTR;
     [JsonProperty("DEX"), Integer(0)]
@@ -70,6 +72,4 @@ public class Character : Element
     public int wIS;
     [JsonProperty("CHA"), Integer(0)]
     public int cHA;
-    [JsonProperty("hit_points"), Integer(0)]
-    public int hitPoints;
 }

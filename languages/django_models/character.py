@@ -41,13 +41,13 @@ class Character(AbstractElementModel):
 
     # Ttrpg
     level = models.PositiveIntegerField(blank=True, null=True)
+    hit_points = models.PositiveIntegerField(blank=True, null=True)
     STR = models.PositiveIntegerField(blank=True, null=True)
     DEX = models.PositiveIntegerField(blank=True, null=True)
     CON = models.PositiveIntegerField(blank=True, null=True)
     INT = models.PositiveIntegerField(blank=True, null=True)
     WIS = models.PositiveIntegerField(blank=True, null=True)
     CHA = models.PositiveIntegerField(blank=True, null=True)
-    hit_points = models.PositiveIntegerField(blank=True, null=True)
 
     def __str__(self):
         return self.name

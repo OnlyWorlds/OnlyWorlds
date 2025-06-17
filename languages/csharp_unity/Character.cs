@@ -35,11 +35,11 @@ public class Character : BaseElement
     public List<string> RivalsIds; = new List<string>();
     // TTRPG
     public int? Level;
+    public int? HitPoints;
     public int? STR;
     public int? DEX;
     public int? CON;
     public int? INT;
     public int? WIS;
     public int? CHA;
-    public int? HitPoints;
 }

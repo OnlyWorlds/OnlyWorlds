@@ -1,10 +1,11 @@
 class Event extends BaseElement {
   // Nature
   final String history;
+  final String challenges;
   final String consequences;
   final int startDate;
   final int endDate;
-  final String adversity;
+  final String triggers; //ms event
   // Involves
   final String characters; //ms character
   final String objects; //ms object

@@ -5,10 +5,11 @@ public class Event : BaseElement
 {
     // Nature
     public string History;
+    public string Challenges;
     public string Consequences;
     public int? StartDate;
     public int? EndDate;
-    public string Adversity;
+    public List<string> TriggersIds; = new List<string>();
     // Involves
     public List<string> CharactersIds; = new List<string>();
     public List<string> ObjectsIds; = new List<string>();

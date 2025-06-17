@@ -25,7 +25,7 @@
                 "start_date": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "The point in time when the construct began or was first established (uses world\u2019s TIME definition)."
+                    "description": "The point in time when the construct began or was first established (uses world's TIME definition)."
                 },
                 "end_date": {
                     "type": "integer",

@@ -9,10 +9,11 @@
 
 ## Nature
 - <span class="text-field" data-tooltip="Text">History</span>: 
+- <span class="text-field" data-tooltip="Text">Challenges</span>: 
 - <span class="text-field" data-tooltip="Text">Consequences</span>: 
 - <span class="number-field" data-tooltip="Number, max: 0">Start_date</span>: 
 - <span class="number-field" data-tooltip="Number, max: 0">End_date</span>: 
-- <span class="text-field" data-tooltip="Text">Adversity</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Event">Triggers</span>: 
 
 ## Involves
 - <span class="multi-link-field" data-tooltip="Multi Character">Characters</span>: 

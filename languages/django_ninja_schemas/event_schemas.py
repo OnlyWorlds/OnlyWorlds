@@ -8,10 +8,11 @@ class EventBaseSchema(AbstractElementBaseSchema):
 
     # Nature
     history: str | None = None
+    challenges: str | None = None
     consequences: str | None = None
     start_date: int | None = None
     end_date: int | None = None
-    adversity: str | None = None
+    triggers_ids: list[uuid.UUID] | None = None
 
     # Involves
     characters_ids: list[uuid.UUID] | None = None
@@ -42,6 +43,7 @@ class EventUpdateInSchema(EventBaseSchema):
 
 
 class EventFilterSchema(BaseFilterSchema):
+    triggers_ids: uuid.UUID | None = Field(None, q='triggers__id')
     characters_ids: uuid.UUID | None = Field(None, q='characters__id')
     objects_ids: uuid.UUID | None = Field(None, q='objects__id')
     locations_ids: uuid.UUID | None = Field(None, q='locations__id')
@@ -64,10 +66,11 @@ class EventOutSchema(AbstractElementBaseSchema):
 
     # Nature
     history: str | None = None
+    challenges: str | None = None
     consequences: str | None = None
     start_date: int | None = None
     end_date: int | None = None
-    adversity: str | None = None
+    triggers: List[ElementNestedOutSchema] = []
 
     # Involves
     characters: List[ElementNestedOutSchema] = []

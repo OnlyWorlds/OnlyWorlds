@@ -179,6 +179,10 @@
                     "type": "integer",
                     "description": "Level or progression rank of the character in a game system."
                 },
+                "hit_points": {
+                    "type": "integer",
+                    "description": "Total health points available to the character."
+                },
                 "STR": {
                     "type": "integer",
                     "description": "Strength attribute (physical force and carrying capacity)."
@@ -202,10 +206,6 @@
                 "CHA": {
                     "type": "integer",
                     "description": "Charisma attribute (persuasiveness and personal magnetism)."
-                },
-                "hit_points": {
-                    "type": "integer",
-                    "description": "Total health points available to the character."
                 }
             }
         }

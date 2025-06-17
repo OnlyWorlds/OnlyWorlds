@@ -31,11 +31,11 @@ class Character extends BaseElement {
   final String rivals; //ms character
   // Ttrpg
   final int level;
+  final int hitPoints;
   final int STR;
   final int DEX;
   final int CON;
   final int INT;
   final int WIS;
   final int CHA;
-  final int hitPoints;
 }

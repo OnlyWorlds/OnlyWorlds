@@ -43,13 +43,13 @@ class CharacterBaseSchema(AbstractElementBaseSchema):
 
     # Ttrpg
     level: int | None = None
+    hit_points: int | None = None
     STR: int | None = None
     DEX: int | None = None
     CON: int | None = None
     INT: int | None = None
     WIS: int | None = None
     CHA: int | None = None
-    hit_points: int | None = None
 
 
 class CharacterCreateInSchema(CharacterBaseSchema):
@@ -114,11 +114,11 @@ class CharacterOutSchema(AbstractElementBaseSchema):
 
     # Ttrpg
     level: int | None = None
+    hit_points: int | None = None
     STR: int | None = None
     DEX: int | None = None
     CON: int | None = None
     INT: int | None = None
     WIS: int | None = None
     CHA: int | None = None
-    hit_points: int | None = None
 

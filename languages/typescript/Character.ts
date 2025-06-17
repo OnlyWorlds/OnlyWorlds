@@ -33,11 +33,11 @@ export interface Character extends BaseElement {
   rivalsIds?: string[] | null;
   // TTRPG
   level?: number | null;
+  hitPoints?: number | null;
   sTR?: number | null;
   dEX?: number | null;
   cON?: number | null;
   iNT?: number | null;
   wIS?: number | null;
   cHA?: number | null;
-  hitPoints?: number | null;
 }

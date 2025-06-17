@@ -44,11 +44,11 @@
 
 ## Ttrpg
 - <span class="integer" data-tooltip="Number">Level</span>: {{level}}
+- <span class="integer" data-tooltip="Number">Hit_points</span>: {{hit_points}}
 - <span class="integer" data-tooltip="Number">Str</span>: {{str}}
 - <span class="integer" data-tooltip="Number">Dex</span>: {{dex}}
 - <span class="integer" data-tooltip="Number">Con</span>: {{con}}
 - <span class="integer" data-tooltip="Number">Int</span>: {{int}}
 - <span class="integer" data-tooltip="Number">Wis</span>: {{wis}}
 - <span class="integer" data-tooltip="Number">Cha</span>: {{cha}}
-- <span class="integer" data-tooltip="Number">Hit_points</span>: {{hit_points}}
 

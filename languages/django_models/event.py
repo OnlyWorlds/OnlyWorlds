@@ -5,10 +5,11 @@ class Event(AbstractElementModel):
 
     # Nature
     history = models.TextField(blank=True, null=True)
+    challenges = models.TextField(blank=True, null=True)
     consequences = models.TextField(blank=True, null=True)
     start_date = models.PositiveIntegerField(blank=True, null=True)
     end_date = models.PositiveIntegerField(blank=True, null=True)
-    adversity = models.TextField(blank=True, null=True)
+    triggers = models.ManyToManyField("Event", blank=True, related_name="event_triggers")
 
     # Involves
     characters = models.ManyToManyField("Character", blank=True, related_name="event_characters")
