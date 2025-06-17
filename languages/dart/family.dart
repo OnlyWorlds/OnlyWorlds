@@ -1,21 +1,16 @@
 class Family extends BaseElement {
-  // Community
+  // Identity
   final String spirit;
-  final String alliances; //ms family
-  final String rivalries; //ms family
-  // Lineage
   final String history;
-  final String ancestors; //ms character
+  final String traditions; //ms construct
   final String traits; //ms trait
   final String abilities; //ms ability
   final String languages; //ms language
+  final String ancestors; //ms character
   // World
-  final String status;
-  final String competition; //ms institution
-  final String administrates; //ms institution
-  final String creatures; //ms creature
-  // Legacy
-  final String traditions;
-  final String estate; //ss location
+  final String reputation;
+  final String estates; //ms location
+  final String governs; //ms institution
   final String heirlooms; //ms object
+  final String creatures; //ms creature
 }
