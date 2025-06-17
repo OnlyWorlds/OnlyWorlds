@@ -6,13 +6,14 @@ CREATE TABLE construct (
     subtype TEXT,
     image_url TEXT,
     world TEXT NOT NULL,
+    rationale TEXT,
     history TEXT,
-    understanding TEXT,
-    state TEXT,
+    status TEXT,
+    reach TEXT,
     start_date INTEGER,
     end_date INTEGER,
     founder TEXT,
-    organiser TEXT,
+    custodian TEXT,
     characters TEXT,
     objects TEXT,
     locations TEXT,
@@ -28,5 +29,7 @@ CREATE TABLE construct (
     families TEXT,
     relations TEXT,
     titles TEXT,
-    constructs TEXT
+    constructs TEXT,
+    events TEXT,
+    narratives TEXT
 );

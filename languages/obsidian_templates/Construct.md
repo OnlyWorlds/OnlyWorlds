@@ -8,13 +8,14 @@
 - <span class="text-field" data-tooltip="Text">World</span>: 
 
 ## Nature
+- <span class="text-field" data-tooltip="Text">Rationale</span>: 
 - <span class="text-field" data-tooltip="Text">History</span>: 
-- <span class="text-field" data-tooltip="Text">Understanding</span>: 
-- <span class="text-field" data-tooltip="Text">State</span>: 
+- <span class="text-field" data-tooltip="Text">Status</span>: 
+- <span class="text-field" data-tooltip="Text">Reach</span>: 
 - <span class="number-field" data-tooltip="Number, max: 0">Start_date</span>: 
 - <span class="number-field" data-tooltip="Number, max: 0">End_date</span>: 
 - <span class="link-field" data-tooltip="Single Character">Founder</span>: 
-- <span class="link-field" data-tooltip="Single Institution">Organiser</span>: 
+- <span class="link-field" data-tooltip="Single Institution">Custodian</span>: 
 
 ## Involves
 - <span class="multi-link-field" data-tooltip="Multi Character">Characters</span>: 
@@ -33,4 +34,6 @@
 - <span class="multi-link-field" data-tooltip="Multi Relation">Relations</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Title">Titles</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Construct">Constructs</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Event">Events</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Narrative">Narratives</span>: 
 

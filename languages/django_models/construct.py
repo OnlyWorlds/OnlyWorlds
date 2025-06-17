@@ -4,13 +4,14 @@ from django.db import models
 class Construct(AbstractElementModel):
 
     # Nature
+    rationale = models.TextField(blank=True, null=True)
     history = models.TextField(blank=True, null=True)
-    understanding = models.TextField(blank=True, null=True)
-    state = models.TextField(blank=True, null=True)
+    status = models.TextField(blank=True, null=True)
+    reach = models.TextField(blank=True, null=True)
     start_date = models.PositiveIntegerField(blank=True, null=True)
     end_date = models.PositiveIntegerField(blank=True, null=True)
     founder = models.ForeignKey("Character", on_delete=models.SET_NULL, blank=True, null=True, related_name="construct_founder")
-    organiser = models.ForeignKey("Institution", on_delete=models.SET_NULL, blank=True, null=True, related_name="construct_organiser")
+    custodian = models.ForeignKey("Institution", on_delete=models.SET_NULL, blank=True, null=True, related_name="construct_custodian")
 
     # Involves
     characters = models.ManyToManyField("Character", blank=True, related_name="construct_characters")
@@ -29,6 +30,8 @@ class Construct(AbstractElementModel):
     relations = models.ManyToManyField("Relation", blank=True, related_name="construct_relations")
     titles = models.ManyToManyField("Title", blank=True, related_name="construct_titles")
     constructs = models.ManyToManyField("Construct", blank=True, related_name="construct_constructs")
+    events = models.ManyToManyField("Event", blank=True, related_name="construct_events")
+    narratives = models.ManyToManyField("Narrative", blank=True, related_name="construct_narratives")
 
     def __str__(self):
         return self.name

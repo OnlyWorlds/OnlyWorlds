@@ -7,13 +7,14 @@ import uuid
 class ConstructBaseSchema(AbstractElementBaseSchema):
 
     # Nature
+    rationale: str | None = None
     history: str | None = None
-    understanding: str | None = None
-    state: str | None = None
+    status: str | None = None
+    reach: str | None = None
     start_date: int | None = None
     end_date: int | None = None
     founder_id: uuid.UUID | None = None
-    organiser_id: uuid.UUID | None = None
+    custodian_id: uuid.UUID | None = None
 
     # Involves
     characters_ids: list[uuid.UUID] | None = None
@@ -32,6 +33,8 @@ class ConstructBaseSchema(AbstractElementBaseSchema):
     relations_ids: list[uuid.UUID] | None = None
     titles_ids: list[uuid.UUID] | None = None
     constructs_ids: list[uuid.UUID] | None = None
+    events_ids: list[uuid.UUID] | None = None
+    narratives_ids: list[uuid.UUID] | None = None
 
 
 class ConstructCreateInSchema(ConstructBaseSchema):
@@ -45,7 +48,7 @@ class ConstructUpdateInSchema(ConstructBaseSchema):
 
 class ConstructFilterSchema(BaseFilterSchema):
     founder_id: uuid.UUID | None = Field(None, q='founder_id')
-    organiser_id: uuid.UUID | None = Field(None, q='organiser_id')
+    custodian_id: uuid.UUID | None = Field(None, q='custodian_id')
     characters_ids: uuid.UUID | None = Field(None, q='characters__id')
     objects_ids: uuid.UUID | None = Field(None, q='objects__id')
     locations_ids: uuid.UUID | None = Field(None, q='locations__id')
@@ -62,18 +65,21 @@ class ConstructFilterSchema(BaseFilterSchema):
     relations_ids: uuid.UUID | None = Field(None, q='relations__id')
     titles_ids: uuid.UUID | None = Field(None, q='titles__id')
     constructs_ids: uuid.UUID | None = Field(None, q='constructs__id')
+    events_ids: uuid.UUID | None = Field(None, q='events__id')
+    narratives_ids: uuid.UUID | None = Field(None, q='narratives__id')
 
 
 class ConstructOutSchema(AbstractElementBaseSchema):
 
     # Nature
+    rationale: str | None = None
     history: str | None = None
-    understanding: str | None = None
-    state: str | None = None
+    status: str | None = None
+    reach: str | None = None
     start_date: int | None = None
     end_date: int | None = None
     founder: ElementNestedOutSchema | None = None
-    organiser: ElementNestedOutSchema | None = None
+    custodian: ElementNestedOutSchema | None = None
 
     # Involves
     characters: List[ElementNestedOutSchema] = []
@@ -92,4 +98,6 @@ class ConstructOutSchema(AbstractElementBaseSchema):
     relations: List[ElementNestedOutSchema] = []
     titles: List[ElementNestedOutSchema] = []
     constructs: List[ElementNestedOutSchema] = []
+    events: List[ElementNestedOutSchema] = []
+    narratives: List[ElementNestedOutSchema] = []
 

@@ -6,20 +6,22 @@ using Utils;
 [System.Serializable]
 public class Construct : Element
 {
+    [JsonProperty("rationale"), TextAttribute("")]
+    public string rationale;
     [JsonProperty("history"), TextAttribute("")]
     public string history;
-    [JsonProperty("understanding"), TextAttribute("")]
-    public string understanding;
-    [JsonProperty("state"), TextAttribute("")]
-    public string state;
+    [JsonProperty("status"), TextAttribute("")]
+    public string status;
+    [JsonProperty("reach"), TextAttribute("")]
+    public string reach;
     [JsonProperty("start_date"), Integer(0)]
     public int startDate;
     [JsonProperty("end_date"), Integer(0)]
     public int endDate;
     [JsonProperty("founder"), ReferenceAttribute(typeof(Character))]
     public string founder;
-    [JsonProperty("organiser"), ReferenceAttribute(typeof(Institution))]
-    public string organiser;
+    [JsonProperty("custodian"), ReferenceAttribute(typeof(Institution))]
+    public string custodian;
     [JsonProperty("characters"), ReferenceAttribute(typeof(Character), true)]
     public string characters;
     [JsonProperty("objects"), ReferenceAttribute(typeof(Object), true)]
@@ -52,4 +54,8 @@ public class Construct : Element
     public string titles;
     [JsonProperty("constructs"), ReferenceAttribute(typeof(Construct), true)]
     public string constructs;
+    [JsonProperty("events"), ReferenceAttribute(typeof(Event), true)]
+    public string events;
+    [JsonProperty("narratives"), ReferenceAttribute(typeof(Narrative), true)]
+    public string narratives;
 }

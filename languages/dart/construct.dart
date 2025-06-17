@@ -1,12 +1,13 @@
 class Construct extends BaseElement {
   // Nature
+  final String rationale;
   final String history;
-  final String understanding;
-  final String state;
+  final String status;
+  final String reach;
   final int startDate;
   final int endDate;
   final String founder; //ss character
-  final String organiser; //ss institution
+  final String custodian; //ss institution
   // Involves
   final String characters; //ms character
   final String objects; //ms object
@@ -24,4 +25,6 @@ class Construct extends BaseElement {
   final String relations; //ms relation
   final String titles; //ms title
   final String constructs; //ms construct
+  final String events; //ms event
+  final String narratives; //ms narrative
 }

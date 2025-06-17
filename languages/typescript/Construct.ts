@@ -2,13 +2,14 @@ import { BaseElement } from './base_elements';
 
 export interface Construct extends BaseElement {
   // Nature
+  rationale?: string | null;
   history?: string | null;
-  understanding?: string | null;
-  state?: string | null;
+  status?: string | null;
+  reach?: string | null;
   startDate?: number | null;
   endDate?: number | null;
   founderId?: string | null;
-  organiserId?: string | null;
+  custodianId?: string | null;
   // Involves
   charactersIds?: string[] | null;
   objectsIds?: string[] | null;
@@ -26,4 +27,6 @@ export interface Construct extends BaseElement {
   relationsIds?: string[] | null;
   titlesIds?: string[] | null;
   constructsIds?: string[] | null;
+  eventsIds?: string[] | null;
+  narrativesIds?: string[] | null;
 }
