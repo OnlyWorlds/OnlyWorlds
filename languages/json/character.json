@@ -12,15 +12,15 @@
                 },
                 "mentality": {
                     "type": "string",
-                    "description": "The character\u2019s mindset, emotional tone, and style of thinking."
+                    "description": "The character's mindset, emotional tone, and style of thinking."
                 },
                 "height": {
                     "type": "integer",
-                    "description": "The character\u2019s height, using the world's defined unit of DISTANCE."
+                    "description": "The character's height, using the world's defined unit of DISTANCE."
                 },
                 "weight": {
                     "type": "integer",
-                    "description": "The character\u2019s weight, using the world's defined unit of MASS."
+                    "description": "The character's weight, using the world's defined unit of MASS."
                 },
                 "species": {
                     "type": "multi-link",
@@ -53,15 +53,15 @@
             "properties": {
                 "background": {
                     "type": "string",
-                    "description": "The character\u2019s history, upbringing, and formative experiences."
+                    "description": "The character's history, upbringing, and formative experiences."
                 },
                 "motivations": {
                     "type": "string",
-                    "description": "Core desires, goals, or values that drive the character\u2019s choices and behavior."
+                    "description": "Core desires, goals, or values that drive the character's choices and behavior."
                 },
                 "birth_date": {
                     "type": "integer",
-                    "description": "Character\u2019s date of birth, expressed in the world\u2019s time system."
+                    "description": "Character's date of birth, expressed in the world's time system."
                 },
                 "birthplace": {
                     "type": "single-link",
@@ -83,11 +83,11 @@
             "properties": {
                 "reputation": {
                     "type": "string",
-                    "description": "Brief summary of the character\u2019s current condition, role, or predicament."
+                    "description": "Brief summary of the character's current condition, role, or predicament."
                 },
                 "location": {
                     "type": "single-link",
-                    "description": "The character\u2019s present physical location.",
+                    "description": "The character's present physical location.",
                     "category": "Location"
                 },
                 "objects": {

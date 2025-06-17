@@ -13,15 +13,15 @@
         },
         "Description": {
             "type": "string",
-            "description": "Detailed description of the element."
+            "description": "Any kind of details about the element."
         },
         "Supertype": {
             "type": "string",
-            "description": "The supertype category to which the element belongs."
+            "description": "The top level category to which the element belongs."
         },
         "Subtype": {
             "type": "string",
-            "description": "The subtype category under which the element is further classified."
+            "description": "The sub level category through which the element is further classified."
         },
         "Image_URL": {
             "type": "string",

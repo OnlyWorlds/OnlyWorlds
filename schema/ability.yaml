@@ -24,7 +24,7 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-        description: "Phenomena that result from the ability’s use, such as environmental changes or sensory effects."
+        description: "Phenomena that result from the ability's use, such as environmental changes or sensory effects."
         category: "Phenomenon"
 
   Enablement:

@@ -1,130 +1,95 @@
 $schema: "http://json-schema.org/draft-07/schema#"
 title: "Creature"
 type: "object"
+
 properties:
-  Physiology:
-    type: "object"
+
+  Biology:
+    type: object
     properties:
       appearance:
-        type: "string"
-        description: "Visual description of the creature's physical appearance."
+        type: string
+        description: "Visual description of the creature."
       weight:
-        type: "integer"
+        type: integer
         maximum: 0
-        description: "Weight of the creature, typically in kilograms or pounds."
+        description: "Approximate weight of the creature, using the world's defined WEIGHT units."
       height:
-        type: "integer"
+        type: integer
         maximum: 0
-        description: "Height of the creature, usually measured in centimeters or feet."
+        description: "Approximate height of the creature, using the world's defined LENGTH units."
       species:
-        type: "multi-link"
+        type: multi-link
         items:
-          type: "string"
-        description: "Species classification of the creature."
+          type: string
+        description: "Species this creature belongs to."
         category: "Species"
-  Lifestyle:
-    type: "object"
+
+  Behaviour:
+    type: object
     properties:
-      behaviour:
-        type: "string"
-        description: "Typical behaviors or habits of the creature."
-      demeanour:
-        type: "string"
-        description: "General demeanor or attitude of the creature."
+      habits:
+        type: string
+        description: "Typical behaviors, instincts, or recurring actions the creature tends to display."
+      demeanor:
+        type: string
+        description: "The emotional tone or attitude the creature conveys through posture, expression, or aggression."
       traits:
-        type: "multi-link"
+        type: multi-link
         items:
-          type: "string"
-        description: "Distinctive traits or characteristics of the creature."
+          type: string
+        description: "Traits that influence the creature's behavior, capabilities, or appearance."
         category: "Trait"
       abilities:
-        type: "multi-link"
+        type: multi-link
         items:
-          type: "string"
-        description: "Special abilities or powers possessed by the creature."
+          type: string
+        description: "Innate or learned abilities the creature can perform or activate."
         category: "Ability"
       languages:
-        type: "multi-link"
+        type: multi-link
         items:
-          type: "string"
-        description: "Languages known or used by the creature."
+          type: string
+        description: "Languages the creature can understand, speak, or otherwise use to communicate."
         category: "Language"
+
   World:
-    type: "object"
+    type: object
     properties:
+      status:
+        type: string
+        description: "Current situation or classification of the creature."
       birth_date:
-        type: "integer"
+        type: integer
         maximum: 0
-        description: "Birth date of the creature, often recorded as an integer."
+        description: "The time of the creature's birth, recorded in the world's defined TIME unit."
       location:
-        type: "single-link"
-        description: "Current primary habitat or residence of the creature."
+        type: single-link
+        description: "Specific location where the creature is currently found or most associated with."
         category: "Location"
-      territory:
-        type: "single-link"
-        description: "Territorial range or area commonly occupied by the creature."
-        category: "Territory"
-  Games:
-    type: "object"
+      zone:
+        type: single-link
+        description: "Larger area or region commonly inhabited or currently claimed by the creature."
+        category: "Zone"
+
+  TTRPG:
+    type: object
     properties:
-      lore:
-        type: "string"
-        description: "Background story or mythology associated with the creature."
-      senses:
-        type: "string"
-        description: "Description of the sensory capabilities of the creature."
-      hit_points:
-        type: "integer"
-        maximum: 0
-        description: "Total hit points of the creature, indicating its health."
-      armor_class:
-        type: "integer"
-        maximum: 0
-        description: "Armor class of the creature, reflecting its defensive capabilities."
       challenge_rating:
-        type: "integer"
-        maximum: 0
-        description: "Challenge rating, indicating the difficulty level in combat."
+        type: integer
+        description: "Difficulty or threat level of the creature in a gameplay context."
+      hit_points:
+        type: integer
+        description: "Total health or durability value in combat."
+      armor_class:
+        type: integer
+        description: "Defense rating against physical attacks or effects."
       speed:
-        type: "integer"
-        maximum: 0
-        description: "Movement speed of the creature, typically measured in feet per round."
-      tt_str:
-        type: "integer"
-        maximum: 20
-        description: "Strength attribute, measuring physical power."
-      tt_int:
-        type: "integer"
-        maximum: 20
-        description: "Intelligence attribute, measuring cognitive ability."
-      tt_con:
-        type: "integer"
-        maximum: 20
-        description: "Constitution attribute, measuring endurance."
-      tt_dex:
-        type: "integer"
-        maximum: 20
-        description: "Dexterity attribute, measuring agility."
-      tt_wis:
-        type: "integer"
-        maximum: 20
-        description: "Wisdom attribute, measuring perception and insight."
-      tt_cha:
-        type: "integer"
-        maximum: 20
-        description: "Charisma attribute, measuring force of personality."
+        type: integer
+        description: "Typical movement speed, measured in the world's DISTANCE unit per round."
       actions:
-        type: "multi-link"
+        type: multi-link
         items:
-          type: "string"
-        description: "Combat actions available to the creature."
+          type: string
+        description: "Combat or tactical actions the creature can perform or use."
         category: "Ability"
-      reactions:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Reactive abilities or defensive actions of the creature."
-        category: "Construct"
-      alignment:
-        type: "string"
-        description: "d&d alignment of the creature."

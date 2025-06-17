@@ -11,13 +11,13 @@ properties:
         description: "The character's visible physical features and body attributes."
       mentality:
         type: "string"
-        description: "The character’s mindset, emotional tone, and style of thinking."
+        description: "The character's mindset, emotional tone, and style of thinking."
       height:
         type: "integer"
-        description: "The character’s height, using the world's defined unit of DISTANCE."
+        description: "The character's height, using the world's defined unit of DISTANCE."
       weight:
         type: "integer"
-        description: "The character’s weight, using the world's defined unit of MASS."
+        description: "The character's weight, using the world's defined unit of MASS."
       species:
         type: "multi-link"
         items:
@@ -42,13 +42,13 @@ properties:
     properties:
       background:
         type: "string"
-        description: "The character’s history, upbringing, and formative experiences."
+        description: "The character's history, upbringing, and formative experiences."
       motivations:
         type: "string"
-        description: "Core desires, goals, or values that drive the character’s choices and behavior."
+        description: "Core desires, goals, or values that drive the character's choices and behavior."
       birth_date:
         type: "integer"
-        description: "Character’s date of birth, expressed in the world’s time system."
+        description: "Character's date of birth, expressed in the world's time system."
       birthplace:
         type: "single-link"
         description: "Location where the character was born."
@@ -65,10 +65,10 @@ properties:
     properties:
       reputation:
         type: "string"
-        description: "Brief summary of the character’s current condition, role, or predicament."
+        description: "Brief summary of the character's current condition, role, or predicament."
       location:
         type: "single-link"
-        description: "The character’s present physical location."
+        description: "The character's present physical location."
         category: "Location"
       objects:
         type: "multi-link"
