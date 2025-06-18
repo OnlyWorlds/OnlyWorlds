@@ -1,13 +1,12 @@
 class Language extends BaseElement {
-  // Syntax
-  final String writing;
+  // Structure
   final String phonology;
   final String grammar;
-  final String vocabulary;
+  final String lexicon;
+  final String writing;
   final String classification; //ss construct
-  // Spread
-  final String prose;
-  final int speakers;
+  // World
+  final String status;
+  final String spread; //ms location
   final String dialects; //ms language
-  final String range; //ms location
 }

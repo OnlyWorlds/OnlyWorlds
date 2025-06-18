@@ -3,59 +3,54 @@
     "title": "Language",
     "type": "object",
     "properties": {
-        "Syntax": {
+        "Structure": {
             "type": "object",
             "properties": {
-                "writing": {
-                    "type": "string",
-                    "description": "Written form and script of the language."
-                },
                 "phonology": {
                     "type": "string",
-                    "description": "Sound system and phonetic structure of the language."
+                    "description": "The language's sound systems, including phonemes, tone, and pronunciation rules."
                 },
                 "grammar": {
                     "type": "string",
-                    "description": "Grammatical rules and syntax of the language."
+                    "description": "Rules governing syntax, morphology, and sentence structure."
                 },
-                "vocabulary": {
+                "lexicon": {
                     "type": "string",
-                    "description": "Collection of words and their meanings used in the language."
+                    "description": "Vocabulary principles or full word lists used in the language."
+                },
+                "writing": {
+                    "type": "string",
+                    "description": "Script or notation system used to represent the language in written form."
                 },
                 "classification": {
                     "type": "single-link",
-                    "description": "Linguistic classification of the language, such as language family or group.",
-                    "category": "Construct"
+                    "category": "Construct",
+                    "description": "Linguistic group or typological category the language belongs to."
                 }
             }
         },
-        "Spread": {
+        "World": {
             "type": "object",
             "properties": {
-                "prose": {
+                "status": {
                     "type": "string",
-                    "description": "Stylistic and literary expressions commonly used in the language."
+                    "description": "Current vitality, reputation, or dominance of the language."
                 },
-                "speakers": {
-                    "type": "integer",
-                    "maximum": 0,
-                    "description": "Number of people or entities that speak the language."
+                "spread": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "category": "Location",
+                    "description": "Geographical areas where the language is used or spoken."
                 },
                 "dialects": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Variants or dialects of the language spoken in different regions.",
-                    "category": "Language"
-                },
-                "range": {
-                    "type": "multi-link",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Geographical range or areas where the language is spoken.",
-                    "category": "Location"
+                    "category": "Language",
+                    "description": "Variants or dialect languages derived from the language."
                 }
             }
         }

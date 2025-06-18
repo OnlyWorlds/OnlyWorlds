@@ -1,15 +1,14 @@
 import { BaseElement } from './base_elements';
 
 export interface Language extends BaseElement {
-  // Syntax
-  writing?: string | null;
+  // Structure
   phonology?: string | null;
   grammar?: string | null;
-  vocabulary?: string | null;
+  lexicon?: string | null;
+  writing?: string | null;
   classificationId?: string | null;
-  // Spread
-  prose?: string | null;
-  speakers?: number | null;
+  // World
+  status?: string | null;
+  spreadIds?: string[] | null;
   dialectsIds?: string[] | null;
-  rangeIds?: string[] | null;
 }
