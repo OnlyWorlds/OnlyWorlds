@@ -5,50 +5,61 @@ properties:
   Code:
     type: "object"
     properties:
-      decree:
+      declaration :
         type: "string"
-        description: "Formal statement or decision of the law."
+        description: "The formal wording, expression, or decree of the law."
+      purpose:
+        type: "string"
+        description: "The intent, motivation, or justification for the law's creation."
       date:
         type: "integer"
         maximum: 0
-        description: "Date the law was enacted or officially recorded."
-      purpose:
-        type: "string"
-        description: "The underlying purpose or rationale behind the law."
-      author:
+        description: "Date the law was formally established, in world TIME units."
+      parent_law:
         type: "single-link"
-        description: "The institution or authority that authored the law."
-        category: "Institution"
-  Compulsion:
-    type: "object"
-    properties:
-      jurisdictions:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Geographical or administrative areas where the law applies."
-        category: "Location"
-      prohibitions:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Specific actions or activities that the law forbids."
-        category: "Construct"
+        description: "A law that this law derives from, modifies, or enhances."
+        category: "Law"
       penalties:
         type: "multi-link"
         items:
           type: "string"
-        description: "Consequences or punishments assigned for breaking the law."
+        description: "Consequences applied when the law is contravened."
+        category: "Construct"
+
+  World:
+    type: "object"
+    properties:
+      author:
+        type: "single-link"
+        description: "The institution that created or issued the law."
+        category: "Institution"
+      locations:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Locations where the law is supported or enforced."
+        category: "Location"
+      zones:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Zones where the law is supported or enforced."
+        category: "Zone"
+      prohibitions:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Things that the law explicitly or effectively forbids."
         category: "Construct"
       adjudicators:
         type: "multi-link"
         items:
           type: "string"
-        description: "Titles or roles of officials responsible for judging law cases."
+        description: "Title responsible for interpreting or ruling on the law's application and jurisdiction."
         category: "Title"
       enforcers:
         type: "multi-link"
         items:
           type: "string"
-        description: "Titles or roles of officials responsible for enforcing the law."
+        description: "Titles responsible for enforcing or imposing the law."
         category: "Title"

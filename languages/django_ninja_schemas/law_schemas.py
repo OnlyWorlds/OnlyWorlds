@@ -7,15 +7,17 @@ import uuid
 class LawBaseSchema(AbstractElementBaseSchema):
 
     # Code
-    decree: str | None = None
-    date: int | None = None
+    declaration: str | None = None
     purpose: str | None = None
-    author_id: uuid.UUID | None = None
-
-    # Compulsion
-    jurisdictions_ids: list[uuid.UUID] | None = None
-    prohibitions_ids: list[uuid.UUID] | None = None
+    date: int | None = None
+    parent_law_id: uuid.UUID | None = None
     penalties_ids: list[uuid.UUID] | None = None
+
+    # World
+    author_id: uuid.UUID | None = None
+    locations_ids: list[uuid.UUID] | None = None
+    zones_ids: list[uuid.UUID] | None = None
+    prohibitions_ids: list[uuid.UUID] | None = None
     adjudicators_ids: list[uuid.UUID] | None = None
     enforcers_ids: list[uuid.UUID] | None = None
 
@@ -30,10 +32,12 @@ class LawUpdateInSchema(LawBaseSchema):
 
 
 class LawFilterSchema(BaseFilterSchema):
-    author_id: uuid.UUID | None = Field(None, q='author_id')
-    jurisdictions_ids: uuid.UUID | None = Field(None, q='jurisdictions__id')
-    prohibitions_ids: uuid.UUID | None = Field(None, q='prohibitions__id')
+    parent_law_id: uuid.UUID | None = Field(None, q='parent_law_id')
     penalties_ids: uuid.UUID | None = Field(None, q='penalties__id')
+    author_id: uuid.UUID | None = Field(None, q='author_id')
+    locations_ids: uuid.UUID | None = Field(None, q='locations__id')
+    zones_ids: uuid.UUID | None = Field(None, q='zones__id')
+    prohibitions_ids: uuid.UUID | None = Field(None, q='prohibitions__id')
     adjudicators_ids: uuid.UUID | None = Field(None, q='adjudicators__id')
     enforcers_ids: uuid.UUID | None = Field(None, q='enforcers__id')
 
@@ -41,15 +45,17 @@ class LawFilterSchema(BaseFilterSchema):
 class LawOutSchema(AbstractElementBaseSchema):
 
     # Code
-    decree: str | None = None
-    date: int | None = None
+    declaration: str | None = None
     purpose: str | None = None
-    author: ElementNestedOutSchema | None = None
-
-    # Compulsion
-    jurisdictions: List[ElementNestedOutSchema] = []
-    prohibitions: List[ElementNestedOutSchema] = []
+    date: int | None = None
+    parent_law: ElementNestedOutSchema | None = None
     penalties: List[ElementNestedOutSchema] = []
+
+    # World
+    author: ElementNestedOutSchema | None = None
+    locations: List[ElementNestedOutSchema] = []
+    zones: List[ElementNestedOutSchema] = []
+    prohibitions: List[ElementNestedOutSchema] = []
     adjudicators: List[ElementNestedOutSchema] = []
     enforcers: List[ElementNestedOutSchema] = []
 
