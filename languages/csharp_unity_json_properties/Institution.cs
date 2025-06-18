@@ -6,30 +6,26 @@ using Utils;
 [System.Serializable]
 public class Institution : Element
 {
-    [JsonProperty("premise"), TextAttribute("")]
-    public string premise;
-    [JsonProperty("found_date"), Integer(0)]
-    public int foundDate;
-    [JsonProperty("end_date"), Integer(0)]
-    public int endDate;
+    [JsonProperty("doctrine"), TextAttribute("")]
+    public string doctrine;
+    [JsonProperty("founding_date"), Integer(0)]
+    public int foundingDate;
     [JsonProperty("parent_institution"), ReferenceAttribute(typeof(Institution))]
     public string parentInstitution;
-    [JsonProperty("territories"), ReferenceAttribute(typeof(Territory), true)]
-    public string territories;
+    [JsonProperty("legislation"), ReferenceAttribute(typeof(Law), true)]
+    public string legislation;
+    [JsonProperty("zones"), ReferenceAttribute(typeof(Zone), true)]
+    public string zones;
     [JsonProperty("objects"), ReferenceAttribute(typeof(Object), true)]
     public string objects;
     [JsonProperty("creatures"), ReferenceAttribute(typeof(Creature), true)]
     public string creatures;
-    [JsonProperty("legal"), ReferenceAttribute(typeof(Law), true)]
-    public string legal;
-    [JsonProperty("situation"), TextAttribute("")]
-    public string situation;
-    [JsonProperty("cooperates"), ReferenceAttribute(typeof(Institution), true)]
-    public string cooperates;
-    [JsonProperty("competition"), ReferenceAttribute(typeof(Institution), true)]
-    public string competition;
+    [JsonProperty("status"), TextAttribute("")]
+    public string status;
+    [JsonProperty("allies"), ReferenceAttribute(typeof(Institution), true)]
+    public string allies;
+    [JsonProperty("adversaries"), ReferenceAttribute(typeof(Institution), true)]
+    public string adversaries;
     [JsonProperty("constructs"), ReferenceAttribute(typeof(Construct), true)]
     public string constructs;
-    [JsonProperty("phenomena"), ReferenceAttribute(typeof(Phenomenon), true)]
-    public string phenomena;
 }

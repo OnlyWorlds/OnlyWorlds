@@ -2,78 +2,71 @@ $schema: "http://json-schema.org/draft-07/schema#"
 title: "Institution"
 type: "object"
 properties:
+
   Foundation:
     type: "object"
     properties:
-      premise:
+      doctrine:
         type: "string"
-        description: "Core purpose or fundamental principle of the institution."
-      found_date:
+        description: "Core belief, mission, or purpose that drives the institution."
+      founding_date:
         type: "integer"
         maximum: 0
-        description: "Date the institution was established."
-      end_date:
-        type: "integer"
-        maximum: 0
-        description: "Date the institution was dissolved, if applicable."
+        description: "Date when the institution was established, in the world's TIME format."
       parent_institution:
         type: "single-link"
-        description: "The institution that founded or governs this institution."
+        description: "Institution that governs, embodies, or originated this one."
         category: "Institution"
-  Claim:
+
+  Claims:
     type: "object"
     properties:
-      territories:
+      legislation:
         type: "multi-link"
         items:
           type: "string"
-        description: "Areas of land or regions claimed or controlled by the institution."
-        category: "Territory"
+        description: "Laws, rules, or codes issued or enforced by the institution."
+        category: "Law"
+      zones:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Areas the institution controls or claims authority over."
+        category: "Zone"
       objects:
         type: "multi-link"
         items:
           type: "string"
-        description: "Physical objects owned or significant to the institution."
+        description: "Significant objects owned or tied to the institution's operations, holdings, or identity."
         category: "Object"
       creatures:
         type: "multi-link"
         items:
           type: "string"
-        description: "Creatures associated with or protected by the institution."
+        description: "Creatures under the institution's protection, use, or symbolic control."
         category: "Creature"
-      legal:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Laws or legal frameworks established by the institution."
-        category: "Law"
+
   World:
     type: "object"
     properties:
-      situation:
+      status:
         type: "string"
-        description: "Current state or conditions affecting the institution."
-      cooperates:
+        description: "Current political, cultural, or functional standing of the institution in the world."
+      allies:
         type: "multi-link"
         items:
           type: "string"
-        description: "Other institutions with which this one cooperates."
+        description: "Institutions this one actively cooperates or aligns with."
         category: "Institution"
-      competition:
+      adversaries:
         type: "multi-link"
         items:
           type: "string"
-        description: "Competing institutions or rivals."
+        description: "Institutions this one opposes, competes with, or is in conflict with."
         category: "Institution"
       constructs:
         type: "multi-link"
         items:
           type: "string"
-        description: "Structures, policies, or systems established by the institution."
+        description: "Conceptual, procedural, or structural systems created or maintained by the institution."
         category: "Construct"
-      phenomena:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Natural or social phenomena linked to the institution."
-        category: "Phenomenon"

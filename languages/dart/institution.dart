@@ -1,18 +1,16 @@
 class Institution extends BaseElement {
   // Foundation
-  final String premise;
-  final int foundDate;
-  final int endDate;
+  final String doctrine;
+  final int foundingDate;
   final String parentInstitution; //ss institution
-  // Claim
-  final String territories; //ms territory
+  // Claims
+  final String legislation; //ms law
+  final String zones; //ms zone
   final String objects; //ms object
   final String creatures; //ms creature
-  final String legal; //ms law
   // World
-  final String situation;
-  final String cooperates; //ms institution
-  final String competition; //ms institution
+  final String status;
+  final String allies; //ms institution
+  final String adversaries; //ms institution
   final String constructs; //ms construct
-  final String phenomena; //ms phenomenon
 }

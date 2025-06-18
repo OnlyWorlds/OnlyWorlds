@@ -8,21 +8,19 @@
 - <span class="text-field" data-tooltip="Text">World</span>: {{world}}
 
 ## Foundation
-- <span class="string" data-tooltip="Text">Premise</span>: {{premise}}
-- <span class="integer" data-tooltip="Number, max: 0">Found_date</span>: {{found_date}}
-- <span class="integer" data-tooltip="Number, max: 0">End_date</span>: {{end_date}}
+- <span class="string" data-tooltip="Text">Doctrine</span>: {{doctrine}}
+- <span class="integer" data-tooltip="Number, max: 0">Founding_date</span>: {{founding_date}}
 - <span class="link-field" data-tooltip="Single Institution">Parent_institution</span>: {{linkify parent_institution}}
 
-## Claim
-- <span class="multi-link-field" data-tooltip="Multi Territory">Territories</span>: {{linkify territories}}
+## Claims
+- <span class="multi-link-field" data-tooltip="Multi Law">Legislation</span>: {{linkify legislation}}
+- <span class="multi-link-field" data-tooltip="Multi Zone">Zones</span>: {{linkify zones}}
 - <span class="multi-link-field" data-tooltip="Multi Object">Objects</span>: {{linkify objects}}
 - <span class="multi-link-field" data-tooltip="Multi Creature">Creatures</span>: {{linkify creatures}}
-- <span class="multi-link-field" data-tooltip="Multi Law">Legal</span>: {{linkify legal}}
 
 ## World
-- <span class="string" data-tooltip="Text">Situation</span>: {{situation}}
-- <span class="multi-link-field" data-tooltip="Multi Institution">Cooperates</span>: {{linkify cooperates}}
-- <span class="multi-link-field" data-tooltip="Multi Institution">Competition</span>: {{linkify competition}}
+- <span class="string" data-tooltip="Text">Status</span>: {{status}}
+- <span class="multi-link-field" data-tooltip="Multi Institution">Allies</span>: {{linkify allies}}
+- <span class="multi-link-field" data-tooltip="Multi Institution">Adversaries</span>: {{linkify adversaries}}
 - <span class="multi-link-field" data-tooltip="Multi Construct">Constructs</span>: {{linkify constructs}}
-- <span class="multi-link-field" data-tooltip="Multi Phenomenon">Phenomena</span>: {{linkify phenomena}}
 
