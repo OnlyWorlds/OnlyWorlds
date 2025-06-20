@@ -1,134 +1,158 @@
 $schema: "http://json-schema.org/draft-07/schema#"
 title: "Narrative"
 type: "object"
+
 properties:
-  Nature:
+  Context:
     type: "object"
     properties:
-      history:
+      story:
         type: "string"
-        description: "Historical context and background of the narrative."
+        description: "Content of the narrative, as told or remembered."
       consequences:
         type: "string"
-        description: "Outcomes and impacts resulting from the narrative."
+        description: "Outcomes or legacy of the narrative."
       start_date:
         type: "integer"
         maximum: 0
-        description: "Date on which the narrative began."
+        description: "Date when the narrative begins, measured in world TIME units."
       end_date:
         type: "integer"
         maximum: 0
-        description: "Date on which the narrative concluded." 
-  Involves:
-    type: "object"
-    properties:
+        description: "Date when the narrative ends, measured in world TIME units."
+      order:
+        type: "integer"
+        description: "Position of this narrative within a parent narrative's sequence."
+      parent_narrative:
+        type: "single-link"
+        description: "Larger narrative that this narrative takes place in."
+        category: "Narrative"
       protagonist:
         type: "single-link"
-        description: "The defining character of the narrative."
+        description: "Primary character of the narrative."
         category: "Character"
       antagonist:
         type: "single-link"
-        description: "The character who opposes the protagonist."
+        description: "Opposing character of the narrative."
         category: "Character"
+      narrator:
+        type: "single-link"
+        description: "Character credited with telling or recording the narrative."
+        category: "Character"
+      conservator:
+        type: "single-link"
+        description: "Institution that preserves or curates the narrative."
+        category: "Institution"
+
+
+  Involves:
+    type: "object"
+    properties:
       events:
         type: "multi-link"
         items:
           type: "string"
-        description: "Events involved in the narrative."
+        description: "Events featured in or referenced by the narrative."
         category: "Event"
       characters:
         type: "multi-link"
         items:
           type: "string"
-        description: "Key characters involved in the narrative."
+        description: "Characters involved in or affected by the narrative."
         category: "Character"
       objects:
         type: "multi-link"
         items:
           type: "string"
-        description: "Objects significant to the unfolding of the narrative."
+        description: "Objects that played a role in the narrative."
         category: "Object"
       locations:
         type: "multi-link"
         items:
           type: "string"
-        description: "Locations where the narrative took place."
+        description: "Locations where the narrative takes place or unfolds."
         category: "Location"
       species:
         type: "multi-link"
         items:
           type: "string"
-        description: "Species that played a role in the narrative."
+        description: "Species that participate in or are described in the narrative."
         category: "Species"
       creatures:
         type: "multi-link"
         items:
           type: "string"
-        description: "Creatures involved in the narrative."
+        description: "Creatures mentioned in or involved with the narrative."
         category: "Creature"
       institutions:
         type: "multi-link"
         items:
           type: "string"
-        description: "Institutions implicated in or affected by the narrative."
+        description: "Institutions central to or influenced by the narrative."
         category: "Institution"
       traits:
         type: "multi-link"
         items:
           type: "string"
-        description: "Traits emphasized or revealed by the narrative."
+        description: "Traits highlighted or symbolized within the narrative."
         category: "Trait"
       collectives:
         type: "multi-link"
         items:
           type: "string"
-        description: "Groups or collectives that participated in or were affected by the narrative."
+        description: "Groups that participate in or are formed through the narrative."
         category: "Collective"
       territories:
         type: "multi-link"
         items:
           type: "string"
-        description: "Territorial areas involved in the narrative."
+        description: "Territories involved in or transformed by the narrative."
         category: "Territory"
       abilities:
         type: "multi-link"
         items:
           type: "string"
-        description: "Abilities used or showcased during the narrative."
+        description: "Abilities used or explored in the course of the narrative."
         category: "Ability"
       phenomena:
         type: "multi-link"
         items:
           type: "string"
-        description: "Natural or supernatural phenomena that occurred during the narrative."
+        description: "Phenomena that occur during or define the narrative."
         category: "Phenomenon"
       languages:
         type: "multi-link"
         items:
           type: "string"
-        description: "Languages used or affected by the narrative."
+        description: "Languages spoken, written, or emphasized in the narrative."
         category: "Language"
       families:
         type: "multi-link"
         items:
           type: "string"
-        description: "Families involved in or impacted by the narrative."
+        description: "Families central to the narrative or affected by its events."
         category: "Family"
       relations:
         type: "multi-link"
         items:
           type: "string"
-        description: "Interpersonal or political relations that played a role in the narrative."
+        description: "Relationships emphasized, strained, or changed during the narrative."
         category: "Relation"
       titles:
         type: "multi-link"
         items:
           type: "string"
-        description: "Titles bestowed, contested, or central to the narrative."
+        description: "Titles claimed, lost, or challenged in the course of the narrative."
         category: "Title"
       constructs:
         type: "multi-link"
         items:
           type: "string"
-        description: "Concepts, laws, or built entities that were important to the narrative."
+        description: "Constructs that underpin, emerge from, or are changed by the narrative."
         category: "Construct"
+      laws:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Laws invoked, broken, enacted, or challenged in the narrative."
+        category: "Law"

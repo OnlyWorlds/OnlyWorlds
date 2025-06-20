@@ -23,8 +23,7 @@ properties:
         description: "y coordinate, from bottom left of the map"
       z:
         type: "integer" 
-        description: "z coordinate, in case of depth"
-    required: ["map", "x", "y"]
+        description: "z coordinate, in case of depth" 
 
 
 
