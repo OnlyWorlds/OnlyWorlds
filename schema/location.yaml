@@ -2,246 +2,179 @@ $schema: "http://json-schema.org/draft-07/schema#"
 title: "Location"
 type: "object"
 properties:
-  Locality:
+  Setting:
     type: "object"
     properties:
-      scene:
+      form:
         type: "string"
         description: "Visual and environmental aspects of the location."
-      activity:
+      function:
         type: "string"
-        description: "Common activities or functions performed at this location."
+        description: "Main use, role, or purpose of the location within the world."
       founding_date:
         type: "integer"
         maximum: 0
-        description: "Date on which the location was founded or established."
-      population_size:
-        type: "integer"
-        maximum: 0
-        description: "Current population residing in or registered to the location."
+        description: "Date on which the location was founded, established, or designated."
       parent_location:
         type: "single-link"
-        description: "The larger geographical or administrative area to which this location belongs."
         category: "Location"
+        description: "Wider location that this location is part of."
       populations:
         type: "multi-link"
         items:
           type: "string"
-        description: "Distinct groups or communities within the location."
         category: "Collective"
-  Culture:
+        description: "Distinct groups or communities residing within the location." 
+
+  Politics:
     type: "object"
     properties:
-      traditions:
+      political_climate:
         type: "string"
-        description: "Cultural traditions that characterize the location."
-      celebrations:
-        type: "string"
-        description: "Major local festivals and celebrations."
-      primary_cult:
+        description: "The location's political structure, stability, and dynamics."
+      primary_power:
         type: "single-link"
-        description: "Dominant cultural or religious group in the location."
-        category: "Construct"
-      secondary_cults:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Other significant cultural or religious groups."
-        category: "Construct"
-      delicacies:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Specialty foods or culinary items associated with the location."
-        category: "Species"
-  World:
+        category: "Institution"
+        description: "Main institution established for governance or political control."
+      governing_title:
+          type: "single-link"
+          category: "Title"
+          description: "Title of the governing figure assigned by the location's primary power."
+      secondary_powers:
+          type: "multi-link"
+          items:
+            type: "string"
+          category: "Institution"
+          description: "Significant institutions established for governance or political control."
+      zone:
+        type: "single-link"
+        category: "Zone"
+        description: "Zone of control of interest that is associated with the location."
+      rival:
+        type: "single-link"
+        category: "Location"
+        description: "Location that this one has active, traditional, or historical rivalries with."
+      partner:
+        type: "single-link"
+        category: "Location"
+        description: "Location that this one shares active, cooperative, or historical ties with."
+
+  Production:
     type: "object"
     properties:
-      coordinates:
-        type: "string"
-        description: "Geographic coordinates defining the location."
-      founders:
+      extraction_methods:
         type: "multi-link"
         items:
           type: "string"
-        description: "Individuals or entities who founded the location."
-        category: "Character"
+        category: "Construct"
+        description: "Techniques or strategies used to gather natural resources at the location."
+      extraction_goods:
+          type: "multi-link"
+          items:
+            type: "string"
+          category: "Construct"
+          description: "Products and materials that are gathered or obtained at the location."
+      industry_methods:
+          type: "multi-link"
+          items:
+            type: "string"
+          category: "Construct"
+          description: "Techniques or workflows used to refine or manufacture goods at the location."
+      industry_goods:
+        type: "multi-link"
+        items:
+          type: "string"
+        category: "Construct"
+        description: "Products and materials that are refined or manufactured at the location."
+
+  Commerce:
+    type: "object"
+    properties:
+      infrastructure:
+        type: "string"
+        description: "Roads, ports, and other physical systems that enable the movement of goods and people."
+      extraction_markets:
+        type: "multi-link"
+        items:
+          type: "string"
+        category: "Location"
+        description: "Locations that receive extracted goods through trade, interchange, or seizure."
+      industry_markets:
+        type: "multi-link"
+        items:
+          type: "string"
+        category: "Location"
+        description: "Locations that receive industrial goods through trade, interchange, or seizure."
+      currencies:
+        type: "multi-link"
+        items:
+          type: "string"
+        category: "Construct"
+        description: "Currencies or other trade media recognized or circulated at the location."
+
   Construction:
     type: "object"
     properties:
-      logistics:
-        type: "string"
-        description: "Logistical details concerning the construction and maintenance of the location."
       architecture:
         type: "string"
-        description: "Architectural styles and structures prevalent in the location."
-      construction_rate:
-        type: "integer"
-        maximum: 100
-        description: "Rate at which construction projects are completed in the location."
+        description: "Styles, forms, or materials used in the location's built environment." 
       buildings:
         type: "multi-link"
         items:
           type: "string"
-        description: "Notable buildings and structures within the location."
-        category: "Location"
-      building_expertise:
+        category: "Object"
+        description: "Notable structures at the location."
+      building_methods:
         type: "multi-link"
         items:
           type: "string"
-        description: "Expertise and skills available for construction in the location."
         category: "Construct"
-  Production:
+        description: "Techniques or systems used to construct structures at the location."
+
+  World:
     type: "object"
     properties:
-      extraction:
+      customs:
         type: "string"
-        description: "Natural resources extracted from the location."
-      industry:
-        type: "string"
-        description: "Key industries and economic activities in the location."
-      extraction_output:
-        type: "integer"
-        maximum: 0
-        description: "Quantity of resources extracted annually."
-      industry_output:
-        type: "integer"
-        maximum: 0
-        description: "Output from industrial activities."
-      primary_resource:
-        type: "single-link"
-        description: "Most significant resource extracted from the location."
+        description: "Cultural practices, habits, or traditional behaviors established around the location."
+      founders:
+        type: "multi-link"
+        items:
+          type: "string"
+        category: "Character"
+        description: "Individual(s) who founded or named the location."
+      cults:
+        type: "multi-link"
+        items:
+          type: "string"
         category: "Construct"
-      primary_industry:
-        type: "single-link"
-        description: "Leading industry based in the location."
-        category: "Construct"
-      secondary_resources:
+        description: "Significant religious constructs associated with the location."
+      delicacies:
         type: "multi-link"
         items:
           type: "string"
-        description: "Other important resources available in the location."
-        category: "Construct"
-      secondary_industries:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Other significant industries operating in the location."
-        category: "Construct"
-  Commerce:
-    type: "object"
-    properties:
-      trade:
-        type: "string"
-        description: "Trade practices and common goods exchanged in the location."
-      infrastructure:
-        type: "string"
-        description: "Infrastructure supporting commercial activities."
-      currency:
-        type: "string"
-        description: "Local currency used for trade and transactions."
-      primary_extraction_market:
-        type: "single-link"
-        description: "Main market for the primary resource extracted."
-        category: "Location"
-      primary_industry_market:
-        type: "single-link"
-        description: "Main market for the leading industry's products."
-        category: "Location"
-      secondary_extraction_markets:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Markets for secondary resources extracted from the location."
-        category: "Location"
-      secondary_industry_markets:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Markets for products from other significant industries."
-        category: "Location"
-  LocalPolitics:
-    type: "object"
-    properties:
-      government:
-        type: "string"
-        description: "Governing body or administration of the location."
-      opposition:
-        type: "string"
-        description: "Primary opposition groups or political rivals within the location."
-      governing_title:
-        type: "single-link"
-        description: "Title of the main governing authority."
-        category: "Title"
-      primary_faction:
-        type: "single-link"
-        description: "Leading political or administrative institution."
-        category: "Institution"
-      secondary_factions:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Secondary or minor political factions."
-        category: "Institution"
-  RegionalPolitics:
-    type: "object"
-    properties:
-      territorial_policies:
-        type: "string"
-        description: "Policies that govern territorial claims and management."
-      territory:
-        type: "single-link"
-        description: "Territorial jurisdiction of the location."
-        category: "Territory"
-      rival:
-        type: "single-link"
-        description: "Neighboring rival locations."
-        category: "Location"
-      friend:
-        type: "single-link"
-        description: "Friendly neighboring locations."
-        category: "Location"
-      soft_influence_on:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Locations under the soft influence of this location."
-        category: "Location"
-      hard_influence_on:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Locations under the hard control or influence of this location."
-        category: "Location"
-  Strategics:
+        category: "Species"
+        description: "Organisms or ingredients locally consumed or celebrated as specialty foods."
+
+  Defense:
     type: "object"
     properties:
       defensibility:
         type: "string"
-        description: "Assessment of the location’s defensibility against threats."
-      height:
+        description: "Overall natural and constructed defensive qualities."
+      elevation:
         type: "integer"
         maximum: 0
-        description: "Elevation or strategic height of the location."
-      primary_fighter:
-        type: "single-link"
-        description: "Primary defensive institution or military presence."
-        category: "Institution"
-      secondary_fighters:
+        description: "Height or elevation of the location relative to surrounding terrain, defined in world DISTANCE units."
+      fighters:
         type: "multi-link"
         items:
           type: "string"
-        description: "Supportive or auxiliary defensive forces."
-        category: "Institution"
-      defenses:
+        category: "Construct"
+        description: "Military units or forces responsible for defending the location." 
+      defensive_objects:
         type: "multi-link"
         items:
           type: "string"
-        description: "Defensive structures or mechanisms in place."
-        category: "Location"
-      fortifications:
-        type: "multi-link"
-        items:
-          type: "string"
-        description: "Fortifications built to protect the location."
         category: "Object"
+        description: "Items or installations for defending the location."
