@@ -14,36 +14,24 @@ public class Object : Element
     public int amount;
     [JsonProperty("parent_object"), ReferenceAttribute(typeof(Object))]
     public string parentObject;
+    [JsonProperty("materials"), ReferenceAttribute(typeof(Construct), true)]
+    public string materials;
     [JsonProperty("technology"), ReferenceAttribute(typeof(Construct), true)]
     public string technology;
     [JsonProperty("utility"), TextAttribute("")]
     public string utility;
     [JsonProperty("effects"), ReferenceAttribute(typeof(Phenomenon), true)]
     public string effects;
-    [JsonProperty("enables"), ReferenceAttribute(typeof(Ability), true)]
-    public string enables;
+    [JsonProperty("abilities"), ReferenceAttribute(typeof(Ability), true)]
+    public string abilities;
     [JsonProperty("consumes"), ReferenceAttribute(typeof(Construct), true)]
     public string consumes;
     [JsonProperty("origins"), TextAttribute("")]
     public string origins;
     [JsonProperty("location"), ReferenceAttribute(typeof(Location))]
     public string location;
-    [JsonProperty("craftsmanship"), TextAttribute("")]
-    public string craftsmanship;
-    [JsonProperty("requirements"), TextAttribute("")]
-    public string requirements;
-    [JsonProperty("durability"), TextAttribute("")]
-    public string durability;
-    [JsonProperty("value"), Integer(0)]
-    public int value;
-    [JsonProperty("damage"), Integer(0)]
-    public int damage;
-    [JsonProperty("armor"), Integer(0)]
-    public int armor;
-    [JsonProperty("rarity"), TextAttribute("")]
-    public string rarity;
     [JsonProperty("language"), ReferenceAttribute(typeof(Language))]
     public string language;
-    [JsonProperty("requires"), ReferenceAttribute(typeof(Trait), true)]
-    public string requires;
+    [JsonProperty("affinities"), ReferenceAttribute(typeof(Trait), true)]
+    public string affinities;
 }

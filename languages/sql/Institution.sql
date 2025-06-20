@@ -9,7 +9,6 @@ CREATE TABLE institution (
     doctrine TEXT,
     founding_date INTEGER,
     parent_institution TEXT,
-    legislation TEXT,
     zones TEXT,
     objects TEXT,
     creatures TEXT,

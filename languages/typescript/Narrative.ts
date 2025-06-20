@@ -1,14 +1,18 @@
 import { BaseElement } from './base_elements';
 
 export interface Narrative extends BaseElement {
-  // Nature
-  history?: string | null;
+  // Context
+  story?: string | null;
   consequences?: string | null;
   startDate?: number | null;
   endDate?: number | null;
-  // Involves
+  order?: number | null;
+  parentNarrativeId?: string | null;
   protagonistId?: string | null;
   antagonistId?: string | null;
+  narratorId?: string | null;
+  conservatorId?: string | null;
+  // Involves
   eventsIds?: string[] | null;
   charactersIds?: string[] | null;
   objectsIds?: string[] | null;
@@ -26,4 +30,5 @@ export interface Narrative extends BaseElement {
   relationsIds?: string[] | null;
   titlesIds?: string[] | null;
   constructsIds?: string[] | null;
+  lawsIds?: string[] | null;
 }

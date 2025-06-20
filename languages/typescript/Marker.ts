@@ -2,9 +2,9 @@ import { BaseElement } from './base_elements';
 
 export interface Marker extends BaseElement {
   // Details
-  mapId: string;
-  zoneId?: string | null;
-  x: number;
-  y: number;
+  x?: number | null;
+  y?: number | null;
   z?: number | null;
+  mapId?: string | null;
+  zoneId?: string | null;
 }

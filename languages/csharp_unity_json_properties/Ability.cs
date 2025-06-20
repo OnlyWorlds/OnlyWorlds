@@ -24,8 +24,8 @@ public class Ability : Element
     public string talents;
     [JsonProperty("instruments"), ReferenceAttribute(typeof(Object), true)]
     public string instruments;
-    [JsonProperty("prerequisites"), ReferenceAttribute(typeof(Construct), true)]
-    public string prerequisites;
+    [JsonProperty("requisites"), ReferenceAttribute(typeof(Construct), true)]
+    public string requisites;
     [JsonProperty("prevalence"), TextAttribute("")]
     public string prevalence;
     [JsonProperty("tradition"), ReferenceAttribute(typeof(Construct))]

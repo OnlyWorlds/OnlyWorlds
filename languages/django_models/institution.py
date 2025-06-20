@@ -9,7 +9,6 @@ class Institution(AbstractElementModel):
     parent_institution = models.ForeignKey("Institution", on_delete=models.SET_NULL, blank=True, null=True, related_name="institution_parent_institution")
 
     # Claims
-    legislation = models.ManyToManyField("Law", blank=True, related_name="institution_legislation")
     zones = models.ManyToManyField("Zone", blank=True, related_name="institution_zones")
     objects = models.ManyToManyField("Object", blank=True, related_name="institution_objects")
     creatures = models.ManyToManyField("Creature", blank=True, related_name="institution_creatures")

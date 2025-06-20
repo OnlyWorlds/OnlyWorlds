@@ -3,48 +3,67 @@
     "title": "Narrative",
     "type": "object",
     "properties": {
-        "Nature": {
+        "Context": {
             "type": "object",
             "properties": {
-                "history": {
+                "story": {
                     "type": "string",
-                    "description": "Historical context and background of the narrative."
+                    "description": "Content of the narrative, as told or remembered."
                 },
                 "consequences": {
                     "type": "string",
-                    "description": "Outcomes and impacts resulting from the narrative."
+                    "description": "Outcomes or legacy of the narrative."
                 },
                 "start_date": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Date on which the narrative began."
+                    "description": "Date when the narrative begins, measured in world TIME units."
                 },
                 "end_date": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Date on which the narrative concluded."
+                    "description": "Date when the narrative ends, measured in world TIME units."
+                },
+                "order": {
+                    "type": "integer",
+                    "description": "Position of this narrative within a parent narrative's sequence."
+                },
+                "parent_narrative": {
+                    "type": "single-link",
+                    "description": "Larger narrative that this narrative takes place in.",
+                    "category": "Narrative"
+                },
+                "protagonist": {
+                    "type": "single-link",
+                    "description": "Primary character of the narrative.",
+                    "category": "Character"
+                },
+                "antagonist": {
+                    "type": "single-link",
+                    "description": "Opposing character of the narrative.",
+                    "category": "Character"
+                },
+                "narrator": {
+                    "type": "single-link",
+                    "description": "Character credited with telling or recording the narrative.",
+                    "category": "Character"
+                },
+                "conservator": {
+                    "type": "single-link",
+                    "description": "Institution that preserves or curates the narrative.",
+                    "category": "Institution"
                 }
             }
         },
         "Involves": {
             "type": "object",
             "properties": {
-                "protagonist": {
-                    "type": "single-link",
-                    "description": "The defining character of the narrative.",
-                    "category": "Character"
-                },
-                "antagonist": {
-                    "type": "single-link",
-                    "description": "The character who opposes the protagonist.",
-                    "category": "Character"
-                },
                 "events": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Events involved in the narrative.",
+                    "description": "Events relevant to the narrative.",
                     "category": "Event"
                 },
                 "characters": {
@@ -52,7 +71,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Key characters involved in the narrative.",
+                    "description": "Characters relevant to the narrative.",
                     "category": "Character"
                 },
                 "objects": {
@@ -60,7 +79,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Objects significant to the unfolding of the narrative.",
+                    "description": "Objects relevant to the narrative.",
                     "category": "Object"
                 },
                 "locations": {
@@ -68,7 +87,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Locations where the narrative took place.",
+                    "description": "Locations relevant to the narrative.",
                     "category": "Location"
                 },
                 "species": {
@@ -76,7 +95,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Species that played a role in the narrative.",
+                    "description": "Species relevant to the narrative.",
                     "category": "Species"
                 },
                 "creatures": {
@@ -84,7 +103,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Creatures involved in the narrative.",
+                    "description": "Creatures relevant to the narrative.",
                     "category": "Creature"
                 },
                 "institutions": {
@@ -92,7 +111,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Institutions implicated in or affected by the narrative.",
+                    "description": "Institutions relevant to the narrative.",
                     "category": "Institution"
                 },
                 "traits": {
@@ -100,7 +119,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Traits emphasized or revealed by the narrative.",
+                    "description": "Traits relevant to the narrative.",
                     "category": "Trait"
                 },
                 "collectives": {
@@ -108,7 +127,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Groups or collectives that participated in or were affected by the narrative.",
+                    "description": "Groups relevant to the narrative.",
                     "category": "Collective"
                 },
                 "territories": {
@@ -116,7 +135,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Territorial areas involved in the narrative.",
+                    "description": "Territories relevant to the narrative.",
                     "category": "Territory"
                 },
                 "abilities": {
@@ -124,7 +143,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Abilities used or showcased during the narrative.",
+                    "description": "Abilities relevant to the narrative.",
                     "category": "Ability"
                 },
                 "phenomena": {
@@ -132,7 +151,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Natural or supernatural phenomena that occurred during the narrative.",
+                    "description": "Phenomena relevant to the narrative.",
                     "category": "Phenomenon"
                 },
                 "languages": {
@@ -140,7 +159,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Languages used or affected by the narrative.",
+                    "description": "Languages relevant to the narrative.",
                     "category": "Language"
                 },
                 "families": {
@@ -148,7 +167,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Families involved in or impacted by the narrative.",
+                    "description": "Families relevant to the narrative.",
                     "category": "Family"
                 },
                 "relations": {
@@ -156,7 +175,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Interpersonal or political relations that played a role in the narrative.",
+                    "description": "Relationships relevant to the narrative.",
                     "category": "Relation"
                 },
                 "titles": {
@@ -164,7 +183,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Titles bestowed, contested, or central to the narrative.",
+                    "description": "Titles relevant to the narrative.",
                     "category": "Title"
                 },
                 "constructs": {
@@ -172,8 +191,16 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Concepts, laws, or built entities that were important to the narrative.",
+                    "description": "Constructs relevant to the narrative.",
                     "category": "Construct"
+                },
+                "laws": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Laws relevant to the narrative.",
+                    "category": "Law"
                 }
             }
         }

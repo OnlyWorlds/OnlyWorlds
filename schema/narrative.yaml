@@ -52,107 +52,107 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-        description: "Events featured in or referenced by the narrative."
+        description: "Events relevant to the narrative."
         category: "Event"
       characters:
         type: "multi-link"
         items:
           type: "string"
-        description: "Characters involved in or affected by the narrative."
+        description: "Characters relevant to the narrative."
         category: "Character"
       objects:
         type: "multi-link"
         items:
           type: "string"
-        description: "Objects that played a role in the narrative."
+        description: "Objects relevant to the narrative."
         category: "Object"
       locations:
         type: "multi-link"
         items:
           type: "string"
-        description: "Locations where the narrative takes place or unfolds."
+        description: "Locations relevant to the narrative."
         category: "Location"
       species:
         type: "multi-link"
         items:
           type: "string"
-        description: "Species that participate in or are described in the narrative."
+        description: "Species relevant to the narrative."
         category: "Species"
       creatures:
         type: "multi-link"
         items:
           type: "string"
-        description: "Creatures mentioned in or involved with the narrative."
+        description: "Creatures relevant to the narrative."
         category: "Creature"
       institutions:
         type: "multi-link"
         items:
           type: "string"
-        description: "Institutions central to or influenced by the narrative."
+        description: "Institutions relevant to the narrative."
         category: "Institution"
       traits:
         type: "multi-link"
         items:
           type: "string"
-        description: "Traits highlighted or symbolized within the narrative."
+        description: "Traits relevant to the narrative."
         category: "Trait"
       collectives:
         type: "multi-link"
         items:
           type: "string"
-        description: "Groups that participate in or are formed through the narrative."
+        description: "Groups relevant to the narrative."
         category: "Collective"
       territories:
         type: "multi-link"
         items:
           type: "string"
-        description: "Territories involved in or transformed by the narrative."
+        description: "Territories relevant to the narrative."
         category: "Territory"
       abilities:
         type: "multi-link"
         items:
           type: "string"
-        description: "Abilities used or explored in the course of the narrative."
+        description: "Abilities relevant to the narrative."
         category: "Ability"
       phenomena:
         type: "multi-link"
         items:
           type: "string"
-        description: "Phenomena that occur during or define the narrative."
+        description: "Phenomena relevant to the narrative."
         category: "Phenomenon"
       languages:
         type: "multi-link"
         items:
           type: "string"
-        description: "Languages spoken, written, or emphasized in the narrative."
+        description: "Languages relevant to the narrative."
         category: "Language"
       families:
         type: "multi-link"
         items:
           type: "string"
-        description: "Families central to the narrative or affected by its events."
+        description: "Families relevant to the narrative."
         category: "Family"
       relations:
         type: "multi-link"
         items:
           type: "string"
-        description: "Relationships emphasized, strained, or changed during the narrative."
+        description: "Relationships relevant to the narrative."
         category: "Relation"
       titles:
         type: "multi-link"
         items:
           type: "string"
-        description: "Titles claimed, lost, or challenged in the course of the narrative."
+        description: "Titles relevant to the narrative."
         category: "Title"
       constructs:
         type: "multi-link"
         items:
           type: "string"
-        description: "Constructs that underpin, emerge from, or are changed by the narrative."
+        description: "Constructs relevant to the narrative."
         category: "Construct"
       laws:
         type: "multi-link"
         items:
           type: "string"
-        description: "Laws invoked, broken, enacted, or challenged in the narrative."
+        description: "Laws relevant to the narrative."
         category: "Law"

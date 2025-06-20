@@ -115,7 +115,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Combat or tactical actions the creature can perform or use.",
+                    "description": "Combat or tactical abilities the creature can perform or use.",
                     "category": "Ability"
                 }
             }

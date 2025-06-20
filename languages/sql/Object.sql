@@ -10,20 +10,14 @@ CREATE TABLE object (
     weight INTEGER,
     amount INTEGER,
     parent_object TEXT,
+    materials TEXT,
     technology TEXT,
     utility TEXT,
     effects TEXT,
-    enables TEXT,
+    abilities TEXT,
     consumes TEXT,
     origins TEXT,
     location TEXT,
-    craftsmanship TEXT,
-    requirements TEXT,
-    durability TEXT,
-    value INTEGER,
-    damage INTEGER,
-    armor INTEGER,
-    rarity TEXT,
     language TEXT,
-    requires TEXT
+    affinities TEXT
 );

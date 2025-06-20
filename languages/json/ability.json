@@ -8,20 +8,20 @@
             "properties": {
                 "activation": {
                     "type": "string",
-                    "description": "Explains the method or conditions under which the ability is activated."
+                    "description": "Method or conditions under which the ability is activated."
                 },
                 "duration": {
                     "type": "integer",
-                    "description": "The length of time the ability remains active or its effects persist, measured in TIME units."
+                    "description": "Length of time the ability remains active or its effects persist, measured in TIME units."
                 },
                 "potency": {
                     "type": "integer",
                     "maximum": 100,
-                    "description": "A relative measure of the ability's inherent potency or force, used for scaling or comparison purposes."
+                    "description": "Relative measure of the ability's inherent potency or force, used for scaling or comparison purposes."
                 },
                 "range": {
                     "type": "integer",
-                    "description": "The effective reach or distance at which the ability can be used, measured in DISTANCE units."
+                    "description": "Effective reach or distance at which the ability can be used, measured in DISTANCE units."
                 },
                 "effects": {
                     "type": "multi-link",
@@ -61,7 +61,7 @@
                     "description": "Objects or tools required to activate, channel, or perform the ability.",
                     "category": "Object"
                 },
-                "prerequisites": {
+                "requisites": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"

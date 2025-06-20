@@ -10,7 +10,7 @@ class Ability extends BaseElement {
   final String source; //ss phenomenon
   final String talents; //ms trait
   final String instruments; //ms object
-  final String prerequisites; //ms construct
+  final String requisites; //ms construct
   // World
   final String prevalence;
   final String tradition; //ss construct

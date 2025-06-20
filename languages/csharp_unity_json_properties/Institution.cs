@@ -12,8 +12,6 @@ public class Institution : Element
     public int foundingDate;
     [JsonProperty("parent_institution"), ReferenceAttribute(typeof(Institution))]
     public string parentInstitution;
-    [JsonProperty("legislation"), ReferenceAttribute(typeof(Law), true)]
-    public string legislation;
     [JsonProperty("zones"), ReferenceAttribute(typeof(Zone), true)]
     public string zones;
     [JsonProperty("objects"), ReferenceAttribute(typeof(Object), true)]

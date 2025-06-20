@@ -6,12 +6,16 @@ CREATE TABLE narrative (
     subtype TEXT,
     image_url TEXT,
     world TEXT NOT NULL,
-    history TEXT,
+    story TEXT,
     consequences TEXT,
     start_date INTEGER,
     end_date INTEGER,
+    order INTEGER,
+    parent_narrative TEXT,
     protagonist TEXT,
     antagonist TEXT,
+    narrator TEXT,
+    conservator TEXT,
     events TEXT,
     characters TEXT,
     objects TEXT,
@@ -28,5 +32,6 @@ CREATE TABLE narrative (
     families TEXT,
     relations TEXT,
     titles TEXT,
-    constructs TEXT
+    constructs TEXT,
+    laws TEXT
 );

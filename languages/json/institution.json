@@ -25,14 +25,6 @@
         "Claims": {
             "type": "object",
             "properties": {
-                "legislation": {
-                    "type": "multi-link",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Laws, rules, or codes issued or enforced by the institution.",
-                    "category": "Law"
-                },
                 "zones": {
                     "type": "multi-link",
                     "items": {

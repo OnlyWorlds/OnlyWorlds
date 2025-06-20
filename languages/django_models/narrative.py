@@ -3,15 +3,19 @@ from django.db import models
 
 class Narrative(AbstractElementModel):
 
-    # Nature
-    history = models.TextField(blank=True, null=True)
+    # Context
+    story = models.TextField(blank=True, null=True)
     consequences = models.TextField(blank=True, null=True)
     start_date = models.PositiveIntegerField(blank=True, null=True)
     end_date = models.PositiveIntegerField(blank=True, null=True)
-
-    # Involves
+    order = models.PositiveIntegerField(blank=True, null=True)
+    parent_narrative = models.ForeignKey("Narrative", on_delete=models.SET_NULL, blank=True, null=True, related_name="narrative_parent_narrative")
     protagonist = models.ForeignKey("Character", on_delete=models.SET_NULL, blank=True, null=True, related_name="narrative_protagonist")
     antagonist = models.ForeignKey("Character", on_delete=models.SET_NULL, blank=True, null=True, related_name="narrative_antagonist")
+    narrator = models.ForeignKey("Character", on_delete=models.SET_NULL, blank=True, null=True, related_name="narrative_narrator")
+    conservator = models.ForeignKey("Institution", on_delete=models.SET_NULL, blank=True, null=True, related_name="narrative_conservator")
+
+    # Involves
     events = models.ManyToManyField("Event", blank=True, related_name="narrative_events")
     characters = models.ManyToManyField("Character", blank=True, related_name="narrative_characters")
     objects = models.ManyToManyField("Object", blank=True, related_name="narrative_objects")
@@ -29,6 +33,7 @@ class Narrative(AbstractElementModel):
     relations = models.ManyToManyField("Relation", blank=True, related_name="narrative_relations")
     titles = models.ManyToManyField("Title", blank=True, related_name="narrative_titles")
     constructs = models.ManyToManyField("Construct", blank=True, related_name="narrative_constructs")
+    laws = models.ManyToManyField("Law", blank=True, related_name="narrative_laws")
 
     def __str__(self):
         return self.name

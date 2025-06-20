@@ -18,7 +18,7 @@ class AbilityBaseSchema(AbstractElementBaseSchema):
     source_id: uuid.UUID | None = None
     talents_ids: list[uuid.UUID] | None = None
     instruments_ids: list[uuid.UUID] | None = None
-    prerequisites_ids: list[uuid.UUID] | None = None
+    requisites_ids: list[uuid.UUID] | None = None
 
     # World
     prevalence: str | None = None
@@ -40,7 +40,7 @@ class AbilityFilterSchema(BaseFilterSchema):
     source_id: uuid.UUID | None = Field(None, q='source_id')
     talents_ids: uuid.UUID | None = Field(None, q='talents__id')
     instruments_ids: uuid.UUID | None = Field(None, q='instruments__id')
-    prerequisites_ids: uuid.UUID | None = Field(None, q='prerequisites__id')
+    requisites_ids: uuid.UUID | None = Field(None, q='requisites__id')
     tradition_id: uuid.UUID | None = Field(None, q='tradition_id')
     locus_id: uuid.UUID | None = Field(None, q='locus_id')
 
@@ -59,7 +59,7 @@ class AbilityOutSchema(AbstractElementBaseSchema):
     source: ElementNestedOutSchema | None = None
     talents: List[ElementNestedOutSchema] = []
     instruments: List[ElementNestedOutSchema] = []
-    prerequisites: List[ElementNestedOutSchema] = []
+    requisites: List[ElementNestedOutSchema] = []
 
     # World
     prevalence: str | None = None

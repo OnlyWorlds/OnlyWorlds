@@ -12,7 +12,7 @@ export interface Ability extends BaseElement {
   sourceId?: string | null;
   talentsIds?: string[] | null;
   instrumentsIds?: string[] | null;
-  prerequisitesIds?: string[] | null;
+  requisitesIds?: string[] | null;
   // World
   prevalence?: string | null;
   traditionId?: string | null;

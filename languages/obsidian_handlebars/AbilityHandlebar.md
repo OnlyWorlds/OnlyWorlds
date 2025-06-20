@@ -19,7 +19,7 @@
 - <span class="link-field" data-tooltip="Single Phenomenon">Source</span>: {{linkify source}}
 - <span class="multi-link-field" data-tooltip="Multi Trait">Talents</span>: {{linkify talents}}
 - <span class="multi-link-field" data-tooltip="Multi Object">Instruments</span>: {{linkify instruments}}
-- <span class="multi-link-field" data-tooltip="Multi Construct">Prerequisites</span>: {{linkify prerequisites}}
+- <span class="multi-link-field" data-tooltip="Multi Construct">Requisites</span>: {{linkify requisites}}
 
 ## World
 - <span class="string" data-tooltip="Text">Prevalence</span>: {{prevalence}}

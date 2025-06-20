@@ -30,7 +30,7 @@
                         "type": "string"
                     },
                     "category": "Collective",
-                    "description": "Distinct groups or communities residing within the location."
+                    "description": "Distinct collective groups or communities residing within the location."
                 }
             }
         },
@@ -39,17 +39,17 @@
             "properties": {
                 "political_climate": {
                     "type": "string",
-                    "description": "The location's political structure, stability, and dynamics."
+                    "description": "Political structure, stability, and dynamics of the location."
                 },
                 "primary_power": {
                     "type": "single-link",
                     "category": "Institution",
-                    "description": "Main institution established for governance or political control."
+                    "description": "Institution that has the highest degree of political control over the location."
                 },
                 "governing_title": {
                     "type": "single-link",
                     "category": "Title",
-                    "description": "Title of the governing figure assigned by the location's primary power."
+                    "description": "Governing figure assigned by the location's primary power."
                 },
                 "secondary_powers": {
                     "type": "multi-link",
@@ -57,22 +57,22 @@
                         "type": "string"
                     },
                     "category": "Institution",
-                    "description": "Significant institutions established for governance or political control."
+                    "description": "Institutions with significant political control."
                 },
                 "zone": {
                     "type": "single-link",
                     "category": "Zone",
-                    "description": "Zone of control of interest that is associated with the location."
+                    "description": "Zone of interest that is associated with the location."
                 },
                 "rival": {
                     "type": "single-link",
                     "category": "Location",
-                    "description": "Location that this one has active, traditional, or historical rivalries with."
+                    "description": "Locations with active, traditional, or historical rivalries."
                 },
                 "partner": {
                     "type": "single-link",
                     "category": "Location",
-                    "description": "Location that this one shares active, cooperative, or historical ties with."
+                    "description": "Locations with active, cooperative, or historical ties."
                 }
             }
         },
@@ -85,7 +85,7 @@
                         "type": "string"
                     },
                     "category": "Construct",
-                    "description": "Techniques or strategies used to gather natural resources at the location."
+                    "description": "Techniques or strategies used to gather natural resources."
                 },
                 "extraction_goods": {
                     "type": "multi-link",
@@ -93,7 +93,7 @@
                         "type": "string"
                     },
                     "category": "Construct",
-                    "description": "Products and materials that are gathered or obtained at the location."
+                    "description": "Products and materials that are gathered or obtained."
                 },
                 "industry_methods": {
                     "type": "multi-link",
@@ -101,7 +101,7 @@
                         "type": "string"
                     },
                     "category": "Construct",
-                    "description": "Techniques or workflows used to refine or manufacture goods at the location."
+                    "description": "Techniques or workflows used to refine or manufacture goods."
                 },
                 "industry_goods": {
                     "type": "multi-link",
@@ -109,7 +109,7 @@
                         "type": "string"
                     },
                     "category": "Construct",
-                    "description": "Products and materials that are refined or manufactured at the location."
+                    "description": "Products and materials that are refined or manufactured."
                 }
             }
         },
@@ -142,7 +142,7 @@
                         "type": "string"
                     },
                     "category": "Construct",
-                    "description": "Currencies or other trade media recognized or circulated at the location."
+                    "description": "Trade media recognized or circulated at the location."
                 }
             }
         },
@@ -151,7 +151,7 @@
             "properties": {
                 "architecture": {
                     "type": "string",
-                    "description": "Styles, forms, or materials used in the location's built environment."
+                    "description": "Look, form, and materials used in the built environment and location design."
                 },
                 "buildings": {
                     "type": "multi-link",
@@ -159,7 +159,7 @@
                         "type": "string"
                     },
                     "category": "Object",
-                    "description": "Notable structures at the location."
+                    "description": "Notable structural objects at the location."
                 },
                 "building_methods": {
                     "type": "multi-link",
@@ -176,7 +176,7 @@
             "properties": {
                 "customs": {
                     "type": "string",
-                    "description": "Cultural practices, habits, or traditional behaviors established around the location."
+                    "description": "Cultural practices, habits, or festivals."
                 },
                 "founders": {
                     "type": "multi-link",
@@ -192,7 +192,7 @@
                         "type": "string"
                     },
                     "category": "Construct",
-                    "description": "Significant religious constructs associated with the location."
+                    "description": "Significant religious constructs practiced or recognized at the location."
                 },
                 "delicacies": {
                     "type": "multi-link",
@@ -200,7 +200,7 @@
                         "type": "string"
                     },
                     "category": "Species",
-                    "description": "Organisms or ingredients locally consumed or celebrated as specialty foods."
+                    "description": "Organisms or other species locally consumed or celebrated as specialty foods."
                 }
             }
         },
@@ -209,7 +209,7 @@
             "properties": {
                 "defensibility": {
                     "type": "string",
-                    "description": "Overall natural and constructed defensive qualities."
+                    "description": "Qualities of natural, constructed, and implemented defenses at the location."
                 },
                 "elevation": {
                     "type": "integer",
@@ -230,7 +230,7 @@
                         "type": "string"
                     },
                     "category": "Object",
-                    "description": "Items or installations for defending the location."
+                    "description": "Objects or installations for defending the location."
                 }
             }
         }

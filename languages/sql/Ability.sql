@@ -15,7 +15,7 @@ CREATE TABLE ability (
     source TEXT,
     talents TEXT,
     instruments TEXT,
-    prerequisites TEXT,
+    requisites TEXT,
     prevalence TEXT,
     tradition TEXT,
     locus TEXT

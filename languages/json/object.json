@@ -8,29 +8,37 @@
             "properties": {
                 "aesthetics": {
                     "type": "string",
-                    "description": "Visual and design characteristics of the object."
+                    "description": "Appearance, design, or visual presentation of the object."
                 },
                 "weight": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Physical weight of the object, usually in kilograms or pounds."
+                    "description": "Physical mass of the object, defined by world WEIGHT units."
                 },
                 "amount": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Quantity or count of the object, particularly if it is part of a set or collection."
+                    "description": "The number of identical units in this object entry."
                 },
                 "parent_object": {
                     "type": "single-link",
-                    "description": "Directly related or parent object from which this one is derived or part of.",
+                    "description": "Larger object that this one is part of or contained within.",
                     "category": "Object"
+                },
+                "materials": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The phyiscal matter that constitutes the object.",
+                    "category": "Construct"
                 },
                 "technology": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Technological aspects or mechanisms incorporated within the object.",
+                    "description": "Mechanisms relating the object's design or operation.",
                     "category": "Construct"
                 }
             }
@@ -40,22 +48,22 @@
             "properties": {
                 "utility": {
                     "type": "string",
-                    "description": "Primary function or use of the object."
+                    "description": "Intended purpose or primary use of the object."
                 },
                 "effects": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Effects or outcomes produced by the object when used.",
+                    "description": "Phenomena potentially triggered or emitted on object use.",
                     "category": "Phenomenon"
                 },
-                "enables": {
+                "abilities": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Abilities or actions enabled by using the object.",
+                    "description": "Abilities that the object grant or enables.",
                     "category": "Ability"
                 },
                 "consumes": {
@@ -63,7 +71,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Resources or materials consumed by the object during use.",
+                    "description": "What might be used or depleted on object use.",
                     "category": "Construct"
                 }
             }
@@ -73,60 +81,24 @@
             "properties": {
                 "origins": {
                     "type": "string",
-                    "description": "Origins or historical background of the object."
+                    "description": "Background or history of the object."
                 },
                 "location": {
                     "type": "single-link",
-                    "description": "Current location or usual storage place of the object.",
+                    "description": "Physical place where the object is currently located or stored.",
                     "category": "Location"
-                }
-            }
-        },
-        "Games": {
-            "type": "object",
-            "properties": {
-                "craftsmanship": {
-                    "type": "string",
-                    "description": "Quality of workmanship or level of craftsmanship of the object."
-                },
-                "requirements": {
-                    "type": "string",
-                    "description": "Conditions or prerequisites required to use the object effectively."
-                },
-                "durability": {
-                    "type": "string",
-                    "description": "Measure of the object's resistance to wear and damage."
-                },
-                "value": {
-                    "type": "integer",
-                    "maximum": 0,
-                    "description": "Monetary or trade value of the object."
-                },
-                "damage": {
-                    "type": "integer",
-                    "maximum": 0,
-                    "description": "Potential damage the object can inflict, applicable if used as a weapon."
-                },
-                "armor": {
-                    "type": "integer",
-                    "maximum": 0,
-                    "description": "Armor rating, applicable if the object provides protection."
-                },
-                "rarity": {
-                    "type": "string",
-                    "description": "Scarcity or uniqueness of the object."
                 },
                 "language": {
                     "type": "single-link",
-                    "description": "Language associated with or required to understand the object.",
+                    "description": "Required to read, understand, or activate the object.",
                     "category": "Language"
                 },
-                "requires": {
+                "affinities": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specific traits or skills required to use the object.",
+                    "description": "Traits that resonate with or enhance the object's use, function, or effects.",
                     "category": "Trait"
                 }
             }

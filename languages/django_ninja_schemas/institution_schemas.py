@@ -12,7 +12,6 @@ class InstitutionBaseSchema(AbstractElementBaseSchema):
     parent_institution_id: uuid.UUID | None = None
 
     # Claims
-    legislation_ids: list[uuid.UUID] | None = None
     zones_ids: list[uuid.UUID] | None = None
     objects_ids: list[uuid.UUID] | None = None
     creatures_ids: list[uuid.UUID] | None = None
@@ -35,7 +34,6 @@ class InstitutionUpdateInSchema(InstitutionBaseSchema):
 
 class InstitutionFilterSchema(BaseFilterSchema):
     parent_institution_id: uuid.UUID | None = Field(None, q='parent_institution_id')
-    legislation_ids: uuid.UUID | None = Field(None, q='legislation__id')
     zones_ids: uuid.UUID | None = Field(None, q='zones__id')
     objects_ids: uuid.UUID | None = Field(None, q='objects__id')
     creatures_ids: uuid.UUID | None = Field(None, q='creatures__id')
@@ -52,7 +50,6 @@ class InstitutionOutSchema(AbstractElementBaseSchema):
     parent_institution: ElementNestedOutSchema | None = None
 
     # Claims
-    legislation: List[ElementNestedOutSchema] = []
     zones: List[ElementNestedOutSchema] = []
     objects: List[ElementNestedOutSchema] = []
     creatures: List[ElementNestedOutSchema] = []

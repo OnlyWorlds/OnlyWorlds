@@ -7,16 +7,6 @@
         "Details": {
             "type": "object",
             "properties": {
-                "map": {
-                    "type": "single-link",
-                    "description": "Map this marker is placed on",
-                    "category": "Map"
-                },
-                "zone": {
-                    "type": "single-link",
-                    "description": "Zone that is defined by this marker",
-                    "category": "Zone"
-                },
                 "x": {
                     "type": "integer",
                     "description": "x coordinate, from bottom left of the map"
@@ -28,13 +18,18 @@
                 "z": {
                     "type": "integer",
                     "description": "z coordinate, in case of depth"
+                },
+                "map": {
+                    "type": "single-link",
+                    "description": "Map this marker is placed on",
+                    "category": "Map"
+                },
+                "zone": {
+                    "type": "single-link",
+                    "description": "Zone that is defined by this marker",
+                    "category": "Zone"
                 }
-            },
-            "required": [
-                "map",
-                "x",
-                "y"
-            ]
+            }
         }
     }
 }

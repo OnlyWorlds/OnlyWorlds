@@ -18,7 +18,7 @@
                 "formation_date": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Date the collective was formed, using world-defined TIME units."
+                    "description": "Date the collective was formed, using world TIME units."
                 },
                 "operator": {
                     "type": "single-link",

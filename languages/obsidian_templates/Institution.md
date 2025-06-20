@@ -13,7 +13,6 @@
 - <span class="link-field" data-tooltip="Single Institution">Parent_institution</span>: 
 
 ## Claims
-- <span class="multi-link-field" data-tooltip="Multi Law">Legislation</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Zone">Zones</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Object">Objects</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Creature">Creatures</span>: 

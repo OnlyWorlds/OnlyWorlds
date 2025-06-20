@@ -14,7 +14,7 @@ public class Ability : BaseElement
     public string SourceId;
     public List<string> TalentsIds; = new List<string>();
     public List<string> InstrumentsIds; = new List<string>();
-    public List<string> PrerequisitesIds; = new List<string>();
+    public List<string> RequisitesIds; = new List<string>();
     // World
     public string Prevalence;
     public string TraditionId;

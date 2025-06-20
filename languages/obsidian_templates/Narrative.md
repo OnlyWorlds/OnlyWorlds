@@ -7,15 +7,19 @@
 - <span class="text-field" data-tooltip="Text">Image_URL</span>: 
 - <span class="text-field" data-tooltip="Text">World</span>: 
 
-## Nature
-- <span class="text-field" data-tooltip="Text">History</span>: 
+## Context
+- <span class="text-field" data-tooltip="Text">Story</span>: 
 - <span class="text-field" data-tooltip="Text">Consequences</span>: 
 - <span class="number-field" data-tooltip="Number, max: 0">Start_date</span>: 
 - <span class="number-field" data-tooltip="Number, max: 0">End_date</span>: 
-
-## Involves
+- <span class="number-field" data-tooltip="Number">Order</span>: 
+- <span class="link-field" data-tooltip="Single Narrative">Parent_narrative</span>: 
 - <span class="link-field" data-tooltip="Single Character">Protagonist</span>: 
 - <span class="link-field" data-tooltip="Single Character">Antagonist</span>: 
+- <span class="link-field" data-tooltip="Single Character">Narrator</span>: 
+- <span class="link-field" data-tooltip="Single Institution">Conservator</span>: 
+
+## Involves
 - <span class="multi-link-field" data-tooltip="Multi Event">Events</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Character">Characters</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Object">Objects</span>: 
@@ -33,4 +37,5 @@
 - <span class="multi-link-field" data-tooltip="Multi Relation">Relations</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Title">Titles</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Construct">Constructs</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Law">Laws</span>: 
 

@@ -8,7 +8,6 @@ public class Institution : BaseElement
     public int? FoundingDate;
     public string ParentInstitutionId;
     // Claims
-    public List<string> LegislationIds; = new List<string>();
     public List<string> ZonesIds; = new List<string>();
     public List<string> ObjectsIds; = new List<string>();
     public List<string> CreaturesIds; = new List<string>();

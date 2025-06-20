@@ -10,6 +10,7 @@ class MapBaseSchema(AbstractElementBaseSchema):
     hierarchy: int | None = None
     width: int | None = None
     height: int | None = None
+    depth: int | None = None
     parent_map_id: uuid.UUID | None = None
     location_id: uuid.UUID | None = None
 
@@ -35,6 +36,7 @@ class MapOutSchema(AbstractElementBaseSchema):
     hierarchy: int | None = None
     width: int | None = None
     height: int | None = None
+    depth: int | None = None
     parent_map: ElementNestedOutSchema | None = None
     location: ElementNestedOutSchema | None = None
 

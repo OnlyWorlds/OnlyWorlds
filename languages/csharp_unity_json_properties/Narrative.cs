@@ -6,18 +6,26 @@ using Utils;
 [System.Serializable]
 public class Narrative : Element
 {
-    [JsonProperty("history"), TextAttribute("")]
-    public string history;
+    [JsonProperty("story"), TextAttribute("")]
+    public string story;
     [JsonProperty("consequences"), TextAttribute("")]
     public string consequences;
     [JsonProperty("start_date"), Integer(0)]
     public int startDate;
     [JsonProperty("end_date"), Integer(0)]
     public int endDate;
+    [JsonProperty("order"), Integer(0)]
+    public int order;
+    [JsonProperty("parent_narrative"), ReferenceAttribute(typeof(Narrative))]
+    public string parentNarrative;
     [JsonProperty("protagonist"), ReferenceAttribute(typeof(Character))]
     public string protagonist;
     [JsonProperty("antagonist"), ReferenceAttribute(typeof(Character))]
     public string antagonist;
+    [JsonProperty("narrator"), ReferenceAttribute(typeof(Character))]
+    public string narrator;
+    [JsonProperty("conservator"), ReferenceAttribute(typeof(Institution))]
+    public string conservator;
     [JsonProperty("events"), ReferenceAttribute(typeof(Event), true)]
     public string events;
     [JsonProperty("characters"), ReferenceAttribute(typeof(Character), true)]
@@ -52,4 +60,6 @@ public class Narrative : Element
     public string titles;
     [JsonProperty("constructs"), ReferenceAttribute(typeof(Construct), true)]
     public string constructs;
+    [JsonProperty("laws"), ReferenceAttribute(typeof(Law), true)]
+    public string laws;
 }

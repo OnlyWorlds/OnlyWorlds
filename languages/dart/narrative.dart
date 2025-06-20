@@ -1,12 +1,16 @@
 class Narrative extends BaseElement {
-  // Nature
-  final String history;
+  // Context
+  final String story;
   final String consequences;
   final int startDate;
   final int endDate;
-  // Involves
+  final int order;
+  final String parentNarrative; //ss narrative
   final String protagonist; //ss character
   final String antagonist; //ss character
+  final String narrator; //ss character
+  final String conservator; //ss institution
+  // Involves
   final String events; //ms event
   final String characters; //ms character
   final String objects; //ms object
@@ -24,4 +28,5 @@ class Narrative extends BaseElement {
   final String relations; //ms relation
   final String titles; //ms title
   final String constructs; //ms construct
+  final String laws; //ms law
 }

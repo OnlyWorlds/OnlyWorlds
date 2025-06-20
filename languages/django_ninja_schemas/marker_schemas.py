@@ -6,11 +6,11 @@ import uuid
 class MarkerBaseSchema(AbstractElementBaseSchema):
 
     # Details
-    map_id: uuid.UUID
-    zone_id: uuid.UUID | None = None
-    x: int
-    y: int
+    x: int | None = None
+    y: int | None = None
     z: int | None = None
+    map_id: uuid.UUID | None = None
+    zone_id: uuid.UUID | None = None
 
 
 class MarkerCreateInSchema(MarkerBaseSchema):
@@ -30,9 +30,9 @@ class MarkerFilterSchema(BaseFilterSchema):
 class MarkerOutSchema(AbstractElementBaseSchema):
 
     # Details
-    map: ElementNestedOutSchema
-    zone: ElementNestedOutSchema | None = None
-    x: int
-    y: int
+    x: int | None = None
+    y: int | None = None
     z: int | None = None
+    map: ElementNestedOutSchema | None = None
+    zone: ElementNestedOutSchema | None = None
 

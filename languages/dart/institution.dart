@@ -4,7 +4,6 @@ class Institution extends BaseElement {
   final int foundingDate;
   final String parentInstitution; //ss institution
   // Claims
-  final String legislation; //ms law
   final String zones; //ms zone
   final String objects; //ms object
   final String creatures; //ms creature

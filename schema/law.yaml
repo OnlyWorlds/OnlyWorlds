@@ -23,7 +23,7 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-        description: "Consequences applied when the law is contravened."
+        description: "Consequences intended to beapplied when the law is contravened."
         category: "Construct"
 
   World:
@@ -55,7 +55,7 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-        description: "Title responsible for interpreting or ruling on the law's application and jurisdiction."
+        description: "Titles responsible for interpreting or ruling on the law's application and jurisdiction."
         category: "Title"
       enforcers:
         type: "multi-link"

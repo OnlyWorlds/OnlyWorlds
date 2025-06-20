@@ -16,7 +16,7 @@ class Ability(AbstractElementModel):
     source = models.ForeignKey("Phenomenon", on_delete=models.SET_NULL, blank=True, null=True, related_name="ability_source")
     talents = models.ManyToManyField("Trait", blank=True, related_name="ability_talents")
     instruments = models.ManyToManyField("Object", blank=True, related_name="ability_instruments")
-    prerequisites = models.ManyToManyField("Construct", blank=True, related_name="ability_prerequisites")
+    requisites = models.ManyToManyField("Construct", blank=True, related_name="ability_requisites")
 
     # World
     prevalence = models.TextField(blank=True, null=True)

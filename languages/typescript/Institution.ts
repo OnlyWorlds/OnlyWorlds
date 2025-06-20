@@ -6,7 +6,6 @@ export interface Institution extends BaseElement {
   foundingDate?: number | null;
   parentInstitutionId?: string | null;
   // Claims
-  legislationIds?: string[] | null;
   zonesIds?: string[] | null;
   objectsIds?: string[] | null;
   creaturesIds?: string[] | null;

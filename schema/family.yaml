@@ -15,7 +15,7 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-        description: "Cultural practices, symbols, or customs followed by the family."
+        description: "Cultural practices, symbols, or customs overseen by the family."
         category: "Construct"
       traits:
         type: "multi-link"
@@ -39,7 +39,7 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-        description: "Notable forebears or historic figures in the family's lineage."
+        description: "Notable forebears or historic characters in the family's lineage."
         category: "Character"
 
   World:
