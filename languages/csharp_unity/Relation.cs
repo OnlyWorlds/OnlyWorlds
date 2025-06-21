@@ -4,17 +4,28 @@ using System.Collections.Generic;
 public class Relation : BaseElement
 {
     // Nature
-    public string History;
-    public string Impact;
+    public string Background;
     public int? StartDate;
     public int? EndDate;
-    public int? Debt;
+    public int? Intensity;
+    public string ActorId;
     public List<string> EventsIds; = new List<string>();
     // Involves
-    public string PrimaryCharacterId;
-    public string PrimaryCreatureId;
-    public string PrimaryInstitutionId;
-    public List<string> SecondaryCharactersIds; = new List<string>();
-    public List<string> SecondaryCreaturesIds; = new List<string>();
-    public List<string> SecondaryInstitutionsIds; = new List<string>();
+    public List<string> CharactersIds; = new List<string>();
+    public List<string> ObjectsIds; = new List<string>();
+    public List<string> LocationsIds; = new List<string>();
+    public List<string> SpeciesIds; = new List<string>();
+    public List<string> CreaturesIds; = new List<string>();
+    public List<string> InstitutionsIds; = new List<string>();
+    public List<string> TraitsIds; = new List<string>();
+    public List<string> CollectivesIds; = new List<string>();
+    public List<string> TerritoriesIds; = new List<string>();
+    public List<string> AbilitiesIds; = new List<string>();
+    public List<string> PhenomenaIds; = new List<string>();
+    public List<string> LanguagesIds; = new List<string>();
+    public List<string> FamiliesIds; = new List<string>();
+    public List<string> TitlesIds; = new List<string>();
+    public List<string> ConstructsIds; = new List<string>();
+    public List<string> EventsIds; = new List<string>();
+    public List<string> NarrativesIds; = new List<string>();
 }

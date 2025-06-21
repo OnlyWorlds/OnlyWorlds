@@ -6,35 +6,36 @@
         "Nature": {
             "type": "object",
             "properties": {
-                "history": {
+                "background": {
                     "type": "string",
-                    "description": "Historical background of the relationship, outlining its origins and development"
-                },
-                "impact": {
-                    "type": "string",
-                    "description": "The overall effect or influence the relationship has had on the entities involved"
+                    "description": "History and origin of the relation"
                 },
                 "start_date": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "The date on which the relationship officially began"
+                    "description": "Date when the relation began, defined in world TIME units"
                 },
                 "end_date": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "The date on which the relationship officially ended, if applicable"
+                    "description": "Date when the relation ended if any, defined in world TIME units"
                 },
-                "debt": {
+                "intensity": {
                     "type": "integer",
-                    "maximum": 0,
-                    "description": "Any obligations or debts incurred due to the relationship"
+                    "maximum": 100,
+                    "description": "Significance of the relation, on a relative scale of 0 to 100"
+                },
+                "actor": {
+                    "type": "single-link",
+                    "category": "Character",
+                    "description": "Primary character defining the relation"
                 },
                 "events": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Significant events that have occurred within the context of this relationship",
+                    "description": "Events where the relation is involved or relevant",
                     "category": "Event"
                 }
             }
@@ -42,44 +43,141 @@
         "Involves": {
             "type": "object",
             "properties": {
-                "primary_character": {
-                    "type": "single-link",
-                    "description": "The main character involved in the relationship",
+                "characters": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Characters relevant to the relation",
                     "category": "Character"
                 },
-                "primary_creature": {
-                    "type": "single-link",
-                    "description": "The main creature involved in the relationship",
+                "objects": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Objects relevant to the relation",
+                    "category": "Object"
+                },
+                "locations": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Locations relevant to the relation",
+                    "category": "Location"
+                },
+                "species": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Species relevant to the relation",
+                    "category": "Species"
+                },
+                "creatures": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Creatures relevant to the relation",
                     "category": "Creature"
                 },
-                "primary_institution": {
-                    "type": "single-link",
-                    "description": "The main institution involved in the relationship",
+                "institutions": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Institutions relevant to the relation",
                     "category": "Institution"
                 },
-                "secondary_characters": {
+                "traits": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Other characters who are significantly involved in the relationship",
-                    "category": "Character"
+                    "description": "Traits relevant to the relation",
+                    "category": "Trait"
                 },
-                "secondary_creatures": {
+                "collectives": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Other creatures that play a significant role in the relationship",
-                    "category": "Creature"
+                    "description": "Collectives relevant to the relation",
+                    "category": "Collective"
                 },
-                "secondary_institutions": {
+                "territories": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Other institutions that are significantly involved in the relationship",
-                    "category": "Institution"
+                    "description": "Territories relevant to the relation",
+                    "category": "Territory"
+                },
+                "abilities": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Abilities relevant to the relation",
+                    "category": "Ability"
+                },
+                "phenomena": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Phenomena relevant to the relation",
+                    "category": "Phenomenon"
+                },
+                "languages": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Languages relevant to the relation",
+                    "category": "Language"
+                },
+                "families": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Families relevant to the relation",
+                    "category": "Family"
+                },
+                "titles": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Titles relevant to the relation",
+                    "category": "Title"
+                },
+                "constructs": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Concepts, contracts, or principles relevant to the relation",
+                    "category": "Construct"
+                },
+                "events": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Events relevant to the relation",
+                    "category": "Event"
+                },
+                "narratives": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Narratives relevant to the relation",
+                    "category": "Narrative"
                 }
             }
         }

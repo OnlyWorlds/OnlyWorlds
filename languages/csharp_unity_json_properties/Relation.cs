@@ -6,28 +6,50 @@ using Utils;
 [System.Serializable]
 public class Relation : Element
 {
-    [JsonProperty("history"), TextAttribute("")]
-    public string history;
-    [JsonProperty("impact"), TextAttribute("")]
-    public string impact;
+    [JsonProperty("background"), TextAttribute("")]
+    public string background;
     [JsonProperty("start_date"), Integer(0)]
     public int startDate;
     [JsonProperty("end_date"), Integer(0)]
     public int endDate;
-    [JsonProperty("debt"), Integer(0)]
-    public int debt;
+    [JsonProperty("intensity"), Integer(100)]
+    public int intensity;
+    [JsonProperty("actor"), ReferenceAttribute(typeof(Character))]
+    public string actor;
     [JsonProperty("events"), ReferenceAttribute(typeof(Event), true)]
     public string events;
-    [JsonProperty("primary_character"), ReferenceAttribute(typeof(Character))]
-    public string primaryCharacter;
-    [JsonProperty("primary_creature"), ReferenceAttribute(typeof(Creature))]
-    public string primaryCreature;
-    [JsonProperty("primary_institution"), ReferenceAttribute(typeof(Institution))]
-    public string primaryInstitution;
-    [JsonProperty("secondary_characters"), ReferenceAttribute(typeof(Character), true)]
-    public string secondaryCharacters;
-    [JsonProperty("secondary_creatures"), ReferenceAttribute(typeof(Creature), true)]
-    public string secondaryCreatures;
-    [JsonProperty("secondary_institutions"), ReferenceAttribute(typeof(Institution), true)]
-    public string secondaryInstitutions;
+    [JsonProperty("characters"), ReferenceAttribute(typeof(Character), true)]
+    public string characters;
+    [JsonProperty("objects"), ReferenceAttribute(typeof(Object), true)]
+    public string objects;
+    [JsonProperty("locations"), ReferenceAttribute(typeof(Location), true)]
+    public string locations;
+    [JsonProperty("species"), ReferenceAttribute(typeof(Species), true)]
+    public string species;
+    [JsonProperty("creatures"), ReferenceAttribute(typeof(Creature), true)]
+    public string creatures;
+    [JsonProperty("institutions"), ReferenceAttribute(typeof(Institution), true)]
+    public string institutions;
+    [JsonProperty("traits"), ReferenceAttribute(typeof(Trait), true)]
+    public string traits;
+    [JsonProperty("collectives"), ReferenceAttribute(typeof(Collective), true)]
+    public string collectives;
+    [JsonProperty("territories"), ReferenceAttribute(typeof(Territory), true)]
+    public string territories;
+    [JsonProperty("abilities"), ReferenceAttribute(typeof(Ability), true)]
+    public string abilities;
+    [JsonProperty("phenomena"), ReferenceAttribute(typeof(Phenomenon), true)]
+    public string phenomena;
+    [JsonProperty("languages"), ReferenceAttribute(typeof(Language), true)]
+    public string languages;
+    [JsonProperty("families"), ReferenceAttribute(typeof(Family), true)]
+    public string families;
+    [JsonProperty("titles"), ReferenceAttribute(typeof(Title), true)]
+    public string titles;
+    [JsonProperty("constructs"), ReferenceAttribute(typeof(Construct), true)]
+    public string constructs;
+    [JsonProperty("events"), ReferenceAttribute(typeof(Event), true)]
+    public string events;
+    [JsonProperty("narratives"), ReferenceAttribute(typeof(Narrative), true)]
+    public string narratives;
 }
