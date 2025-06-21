@@ -7,36 +7,36 @@ properties:
     properties:
       phonology:
         type: "string"
-        description: "The language's sound systems, including phonemes, tone, and pronunciation rules."
+        description: "The language's sound systems, including phonemes, tone, and pronunciation rules"
       grammar:
         type: "string"
-        description: "Rules governing syntax, morphology, and sentence structure."
+        description: "Rules governing syntax, morphology, and sentence structure"
       lexicon :
         type: "string"
-        description: "Vocabulary principles or full word lists used in the language."
+        description: "Vocabulary principles or full word lists used in the language"
       writing:
         type: "string"
-        description: "Script or notation system used to represent the language in written form."
+        description: "Script or notation system used to represent the language in written form"
       classification:
         type: "single-link"
         category: "Construct"
-        description: "Linguistic group or typological category the language belongs to."
+        description: "Linguistic group or typological category the language belongs to"
 
   World:
     type: "object"
     properties:
       status:
         type: "string"
-        description: "Current vitality, reputation, or dominance of the language."
+        description: "Current vitality, reputation, or dominance of the language"
       spread:
         type: "multi-link"
         items:
           type: "string"
         category: "Location"
-        description: "Geographical areas where the language is used or spoken."
+        description: "Geographical areas where the language is used or spoken"
       dialects:
         type: "multi-link"
         items:
           type: "string"
         category: "Language"
-        description: "Variants or dialect languages derived from the language."
+        description: "Variants or dialect languages derived from the language"

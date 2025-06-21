@@ -8,24 +8,24 @@ properties:
     properties:
       composition:
         type: "string"
-        description: "Internal structure or demographic makeup of the collective."
+        description: "Internal structure or demographic makeup of the collective"
       count:
         type: "integer"
         maximum: 0
-        description: "Number of members in the collective (approximate or exact)."
+        description: "Number of members in the collective (approximate or exact)"
       formation_date:
         type: "integer"
         maximum: 0
-        description: "Date the collective was formed, using world TIME units."
+        description: "Date the collective was formed, using world TIME units"
       operator:
         type: "single-link"
-        description: "Institution that manages or directs the collective."
+        description: "Institution that manages or directs the collective"
         category: "Institution"
       equipment:
         type: "multi-link"
         items:
           type: "string"
-        description: "Tools or gear in possession of and/or regularly used by the collective."
+        description: "Tools or gear in possession of and/or regularly used by the collective"
         category: "Construct"
 
   Dynamics:
@@ -33,24 +33,24 @@ properties:
     properties:
       activity:
         type: "string"
-        description: "Primary behaviors or actions the collective engages in."
+        description: "Primary behaviors or actions the collective engages in"
       disposition:
         type: "string"
-        description: "Emotional control or volatility expressed by the collective."
+        description: "Emotional control or volatility expressed by the collective"
       state:
         type: "string"
-        description: "Current condition or operational status of the collective."
+        description: "Current condition or operational status of the collective"
       abilities:
         type: "multi-link"
         items:
           type: "string"
-        description: "Abilities commonly shared among members of the collective, or abilities of that collective as a whole."
+        description: "Abilities commonly shared among members of the collective, or abilities of that collective as a whole"
         category: "Ability"
       symbolism:
         type: "multi-link"
         items:
           type: "string"
-        description: "Cultural expressions, rituals, or symbols that unify or distinguish the collective."
+        description: "Cultural expressions, rituals, or symbols that unify or distinguish the collective"
         category: "Construct"
 
   World:
@@ -60,23 +60,23 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-        description: "Species that compose or participate in the collective."
+        description: "Species that compose or participate in the collective"
         category: "Species"
       characters:
         type: "multi-link"
         items:
           type: "string"
-        description: "Characters who are members of the collective."
+        description: "Characters who are members of the collective"
         category: "Character"
       creatures:
         type: "multi-link"
         items:
           type: "string"
-        description: "Creatures associated with or included in the collective."
+        description: "Creatures associated with or included in the collective"
         category: "Creature"
       phenomena:
         type: "multi-link"
         items:
           type: "string"
-        description: "Phenomena that influence or characterize the collective."
+        description: "Phenomena that influence or characterize the collective"
         category: "Phenomenon"

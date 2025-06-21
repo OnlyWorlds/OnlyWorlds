@@ -8,14 +8,14 @@ properties:
     properties:
       doctrine:
         type: "string"
-        description: "Core belief, mission, or purpose that drives the institution."
+        description: "Core belief, mission, or purpose that drives the institution"
       founding_date:
         type: "integer"
         maximum: 0
-        description: "Date when the institution was established, in the world's TIME format."
+        description: "Date when the institution was established, in the world's TIME format"
       parent_institution:
         type: "single-link"
-        description: "Institution that governs, embodies, or originated this one."
+        description: "Institution that governs, embodies, or originated this one"
         category: "Institution"
 
   Claims:
@@ -25,19 +25,19 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-        description: "Areas the institution controls or claims authority over."
+        description: "Areas the institution controls or claims authority over"
         category: "Zone"
       objects:
         type: "multi-link"
         items:
           type: "string"
-        description: "Significant objects owned or tied to the institution's operations, holdings, or identity."
+        description: "Significant objects owned or tied to the institution's operations, holdings, or identity"
         category: "Object"
       creatures:
         type: "multi-link"
         items:
           type: "string"
-        description: "Creatures under the institution's protection, use, or symbolic control."
+        description: "Creatures under the institution's protection, use, or symbolic control"
         category: "Creature"
 
   World:
@@ -45,22 +45,22 @@ properties:
     properties:
       status:
         type: "string"
-        description: "Current political, cultural, or functional standing of the institution in the world."
+        description: "Current political, cultural, or functional standing of the institution in the world"
       allies:
         type: "multi-link"
         items:
           type: "string"
-        description: "Institutions this one actively cooperates or aligns with."
+        description: "Institutions this one actively cooperates or aligns with"
         category: "Institution"
       adversaries:
         type: "multi-link"
         items:
           type: "string"
-        description: "Institutions this one opposes, competes with, or is in conflict with."
+        description: "Institutions this one opposes, competes with, or is in conflict with"
         category: "Institution"
       constructs:
         type: "multi-link"
         items:
           type: "string"
-        description: "Conceptual, procedural, or structural systems created or maintained by the institution."
+        description: "Conceptual, procedural, or structural systems created or maintained by the institution"
         category: "Construct"

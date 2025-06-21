@@ -7,58 +7,58 @@ properties:
     properties:
       history:
         type: "string"
-        description: "Historical background of the relationship, outlining its origins and development."
+        description: "Historical background of the relationship, outlining its origins and development"
       impact:
         type: "string"
-        description: "The overall effect or influence the relationship has had on the entities involved."
+        description: "The overall effect or influence the relationship has had on the entities involved"
       start_date:
         type: "integer"
         maximum: 0
-        description: "The date on which the relationship officially began."
+        description: "The date on which the relationship officially began"
       end_date:
         type: "integer"
         maximum: 0
-        description: "The date on which the relationship officially ended, if applicable."
+        description: "The date on which the relationship officially ended, if applicable"
       debt:
         type: "integer"
         maximum: 0
-        description: "Any obligations or debts incurred due to the relationship."
+        description: "Any obligations or debts incurred due to the relationship"
       events:
         type: "multi-link"
         items:
           type: "string"
-        description: "Significant events that have occurred within the context of this relationship."
+        description: "Significant events that have occurred within the context of this relationship"
         category: "Event"
   Involves:
     type: "object"
     properties:
       primary_character:
         type: "single-link"
-        description: "The main character involved in the relationship."
+        description: "The main character involved in the relationship"
         category: "Character"
       primary_creature:
         type: "single-link"
-        description: "The main creature involved in the relationship."
+        description: "The main creature involved in the relationship"
         category: "Creature"
       primary_institution:
         type: "single-link"
-        description: "The main institution involved in the relationship."
+        description: "The main institution involved in the relationship"
         category: "Institution"
       secondary_characters:
         type: "multi-link"
         items:
           type: "string"
-        description: "Other characters who are significantly involved in the relationship."
+        description: "Other characters who are significantly involved in the relationship"
         category: "Character"
       secondary_creatures:
         type: "multi-link"
         items:
           type: "string"
-        description: "Other creatures that play a significant role in the relationship."
+        description: "Other creatures that play a significant role in the relationship"
         category: "Creature"
       secondary_institutions:
         type: "multi-link"
         items:
           type: "string"
-        description: "Other institutions that are significantly involved in the relationship."
+        description: "Other institutions that are significantly involved in the relationship"
         category: "Institution"

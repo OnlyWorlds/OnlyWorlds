@@ -7,26 +7,26 @@ properties:
     properties:
       history:
         type: "string"
-        description: "Historical context and background of the event."
+        description: "Historical context and background of the event"
       challenges:
         type: "string"
-        description: "Adversity or difficulties faced during the event."
+        description: "Adversity or difficulties faced during the event"
       consequences:
         type: "string"
-        description: "Outcomes and impacts resulting from the event."
+        description: "Outcomes and impacts resulting from the event"
       start_date:
         type: "integer"
         maximum: 0
-        description: "Date on which the event began."
+        description: "Date on which the event began"
       end_date:
         type: "integer"
         maximum: 0
-        description: "Date on which the event concluded."
+        description: "Date on which the event concluded"
       triggers:
         type: "multi-link"
         items:
           type: "string"
-        description: "Events that eventuated the event."
+        description: "Events that eventuated the event"
         category: "Event"
 
   Involves:
@@ -36,95 +36,95 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-        description: "Key characters relevant to the event."
+        description: "Key characters relevant to the event"
         category: "Character"
       objects:
         type: "multi-link"
         items:
           type: "string"
-        description: "Objects relevant to the event."
+        description: "Objects relevant to the event"
         category: "Object"
       locations:
         type: "multi-link"
         items:
           type: "string"
-        description: "Locations relevant to the event."
+        description: "Locations relevant to the event"
         category: "Location"
       species:
         type: "multi-link"
         items:
           type: "string"
-        description: "Species relevant to the event."
+        description: "Species relevant to the event"
         category: "Species"
       creatures:
         type: "multi-link"
         items:
           type: "string"
-        description: "Creatures relevant to the event."
+        description: "Creatures relevant to the event"
         category: "Creature"
       institutions:
         type: "multi-link"
         items:
           type: "string"
-        description: "Institutions relevant to the event."
+        description: "Institutions relevant to the event"
         category: "Institution"
       traits:
         type: "multi-link"
         items:
           type: "string"
-        description: "Traits relevant to the event."
+        description: "Traits relevant to the event"
         category: "Trait"
       collectives:
         type: "multi-link"
         items:
           type: "string"
-        description: "Groups or collectives relevant to the event."
+        description: "Groups or collectives relevant to the event"
         category: "Collective"
       zones:
         type: "multi-link"
         items:
           type: "string"
-        description: "Zones relevant to the event."
+        description: "Zones relevant to the event"
         category: "Zone"
       abilities:
         type: "multi-link"
         items:
           type: "string"
-        description: "Abilities relevant to the event."
+        description: "Abilities relevant to the event"
         category: "Ability"
       phenomena:
         type: "multi-link"
         items:
           type: "string"
-        description: "Natural or supernatural phenomena relevant to the event."
+        description: "Natural or supernatural phenomena relevant to the event"
         category: "Phenomenon"
       languages:
         type: "multi-link"
         items:
           type: "string"
-          description: "Languages relevant to the event."
+          description: "Languages relevant to the event"
         category: "Language"
       families:
         type: "multi-link"
         items:
           type: "string"
-        description: "Families relevant to the event."
+        description: "Families relevant to the event"
         category: "Family"
       relations:
         type: "multi-link"
         items:
           type: "string"
-        description: "Interpersonal or political relations relevant to the event."
+        description: "Interpersonal or political relations relevant to the event"
         category: "Relation"
       titles:
         type: "multi-link"
         items:
           type: "string"
-        description: "Titles relevant to the event."
+        description: "Titles relevant to the event"
         category: "Title"
       constructs:
         type: "multi-link"
         items:
           type: "string"
-        description: "Concepts, laws, or built entities relevant to the event."
+        description: "Concepts, laws, or built entities relevant to the event"
         category: "Construct"

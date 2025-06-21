@@ -9,20 +9,20 @@ properties:
     properties:
       appearance:
         type: string
-        description: "Visual description of the creature."
+        description: "Visual description of the creature"
       weight:
         type: integer
         maximum: 0
-        description: "Approximate or exact weight of the creature, using world MASS units."
+        description: "Approximate or exact weight of the creature, using world MASS units"
       height:
         type: integer
         maximum: 0
-        description: "Approximate height of the creature, using the world's defined LENGTH units."
+        description: "Approximate height of the creature, using the world's defined LENGTH units"
       species:
         type: multi-link
         items:
           type: string
-        description: "Species this creature belongs to."
+        description: "Species this creature belongs to"
         category: "Species"
 
   Behaviour:
@@ -30,27 +30,27 @@ properties:
     properties:
       habits:
         type: string
-        description: "Typical behaviors, instincts, or recurring actions the creature tends to display."
+        description: "Typical behaviors, instincts, or recurring actions the creature tends to display"
       demeanor:
         type: string
-        description: "The emotional tone or attitude the creature conveys through posture, expression, or aggression."
+        description: "The emotional tone or attitude the creature conveys through posture, expression, or aggression"
       traits:
         type: multi-link
         items:
           type: string
-        description: "Traits that influence the creature's behavior, capabilities, or appearance."
+        description: "Traits that influence the creature's behavior, capabilities, or appearance"
         category: "Trait"
       abilities:
         type: multi-link
         items:
           type: string
-        description: "Innate or learned abilities the creature can perform or activate."
+        description: "Innate or learned abilities the creature can perform or activate"
         category: "Ability"
       languages:
         type: multi-link
         items:
           type: string
-        description: "Languages the creature can understand, speak, or otherwise use to communicate."
+        description: "Languages the creature can understand, speak, or otherwise use to communicate"
         category: "Language"
 
   World:
@@ -58,18 +58,18 @@ properties:
     properties:
       status:
         type: string
-        description: "Current situation or classification of the creature."
+        description: "Current situation or classification of the creature"
       birth_date:
         type: integer
         maximum: 0
-        description: "The time of the creature's birth, recorded in the world's defined TIME unit."
+        description: "The time of the creature's birth, recorded in the world's defined TIME unit"
       location:
         type: single-link
-        description: "Specific location where the creature is currently found or most associated with."
+        description: "Specific location where the creature is currently found or most associated with"
         category: "Location"
       zone:
         type: single-link
-        description: "Larger area or region commonly inhabited or currently claimed by the creature."
+        description: "Larger area or region commonly inhabited or currently claimed by the creature"
         category: "Zone"
 
   TTRPG:
@@ -77,19 +77,19 @@ properties:
     properties:
       challenge_rating:
         type: integer
-        description: "Difficulty or threat level of the creature in a gameplay context."
+        description: "Difficulty or threat level of the creature in a gameplay context"
       hit_points:
         type: integer
-        description: "Total health or durability value in combat."
+        description: "Total health or durability value in combat"
       armor_class:
         type: integer
-        description: "Defense rating against physical attacks or effects."
+        description: "Defense rating against physical attacks or effects"
       speed:
         type: integer
-        description: "Typical movement speed, measured in the world's DISTANCE unit per round."
+        description: "Typical movement speed, measured in the world's DISTANCE unit per round"
       actions:
         type: multi-link
         items:
           type: string
-        description: "Combat or tactical abilities the creature can perform or use."
+        description: "Combat or tactical abilities the creature can perform or use"
         category: "Ability"

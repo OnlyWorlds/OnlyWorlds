@@ -1,12 +1,20 @@
-+$schema: "http://json-schema.org/draft-07/schema#"
+$schema: "http://json-schema.org/draft-07/schema#"
 title: "Marker"
-type: Marker
-description: Represents a graphical marker on a Map, such as a line (road, river) or polygon (zone, region)
+type: "object"
+description: "Represents a graphical marker on a Map, such as a line (road, river) or polygon (zone, region)"
 
 properties: 
   Details:
     type: "object"
     properties:
+      map:  
+        type: "single-link"
+        description: "Map this marker is placed on" 
+        category: "Map" 
+      zone:  
+        type: "single-link"
+        description: "Zone that is defined by this marker" 
+        category: "Zone" 
       x:
         type: "integer" 
         description: "x coordinate, from bottom left of the map"
@@ -16,14 +24,7 @@ properties:
       z:
         type: "integer" 
         description: "z coordinate, in case of depth" 
-      map:  
-        type: "single-link"
-        description: "Map this marker is placed on" 
-        category: "Map" 
-      zone:  
-        type: "single-link"
-        description: "Zone that is defined by this marker" 
-        category: "Zone" 
+    required: ["map", "zone", "x", "y"]
 
 
 

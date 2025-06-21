@@ -7,68 +7,68 @@ properties:
     properties:
       privileges:
         type: "string"
-        description: "Specific rights or benefits associated with the title."
+        description: "Specific rights or benefits associated with the title"
       conditions:
         type: "string"
-        description: "Conditions or requirements for obtaining and holding the title."
+        description: "Conditions or requirements for obtaining and holding the title"
       create_date:
         type: "integer"
         maximum: 0
-        description: "Date when the title was first created."
+        description: "Date when the title was first created"
       assign_date:
         type: "integer"
         maximum: 0
-        description: "Date when the title was last assigned to an individual or entity."
+        description: "Date when the title was last assigned to an individual or entity"
       revoke_date:
         type: "integer"
         maximum: 0
-        description: "Date when the title was revoked or nullified, if applicable."
+        description: "Date when the title was revoked or nullified, if applicable"
       hierarchy:
         type: "integer"
         maximum: 0
-        description: "Numerical value indicating the rank or level of the title within a hierarchical system."
+        description: "Numerical value indicating the rank or level of the title within a hierarchical system"
   Issue:
     type: "object"
     properties:
       rights:
         type: "string"
-        description: "Legal or customary rights conferred by the title."
+        description: "Legal or customary rights conferred by the title"
       author:
         type: "single-link"
-        description: "The institution or authority that issued the title."
+        description: "The institution or authority that issued the title"
         category: "Institution"
   World:
     type: "object"
     properties:
       character:
         type: "single-link"
-        description: "Character who currently holds or is associated with the title."
+        description: "Character who currently holds or is associated with the title"
         category: "Character"
       location:
         type: "single-link"
-        description: "Location that is governed by or significantly associated with the title."
+        description: "Location that is governed by or significantly associated with the title"
         category: "Location"
       object:
         type: "single-link"
-        description: "Object that symbolizes or is tied to the title."
+        description: "Object that symbolizes or is tied to the title"
         category: "Object"
       institution:
         type: "single-link"
-        description: "Institution that is linked to the administration or history of the title."
+        description: "Institution that is linked to the administration or history of the title"
         category: "Institution"
       creature:
         type: "single-link"
-        description: "Creature associated with the title, possibly as a symbol or totem."
+        description: "Creature associated with the title, possibly as a symbol or totem"
         category: "Creature"
       zone:
         type: "single-link"
-        description: "Zone under the jurisdiction or influence of the title."
+        description: "Zone under the jurisdiction or influence of the title"
         category: "Zone"
       collective:
         type: "single-link"
-        description: "Group or collective that is integral to the role or function of the title."
+        description: "Group or collective that is integral to the role or function of the title"
         category: "Collective"
       construct:
         type: "single-link"
-        description: "Construct or principle that underpins the philosophical or legal basis of the title."
+        description: "Construct or principle that underpins the philosophical or legal basis of the title"
         category: "Construct"
