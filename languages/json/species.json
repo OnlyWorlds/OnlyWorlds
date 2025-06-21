@@ -8,19 +8,19 @@
             "properties": {
                 "appearance": {
                     "type": "string",
-                    "description": "Typcial physical or form featues of the species"
+                    "description": "Typical physical or form featues of the species"
                 },
                 "life_span": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Average life expectancy of an individual, in world defined TIME units"
+                    "description": "Average or typical life expectancy of an individual, defined in world TIME units"
                 },
-                "typical_weight": {
+                "weight": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Average adult weight, in world defined MASS units"
+                    "description": "Average or typical adult weight, defined in world MASS units"
                 },
-                "diet": {
+                "nourishment": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
@@ -35,6 +35,14 @@
                     },
                     "description": "Reproductive method(s) of the species",
                     "category": "Construct"
+                },
+                "adaptations": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Special physiological or evolutionary abilities",
+                    "category": "Ability"
                 }
             }
         },

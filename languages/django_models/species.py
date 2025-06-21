@@ -7,9 +7,10 @@ class Species(AbstractElementModel):
     # Biology
     appearance = models.TextField(blank=True, null=True)
     life_span = models.PositiveIntegerField(blank=True, null=True)
-    typical_weight = models.PositiveIntegerField(blank=True, null=True)
-    diet = models.ManyToManyField("Species", blank=True, related_name="species_diet")
+    weight = models.PositiveIntegerField(blank=True, null=True)
+    nourishment = models.ManyToManyField("Species", blank=True, related_name="species_nourishment")
     reproduction = models.ManyToManyField("Construct", blank=True, related_name="species_reproduction")
+    adaptations = models.ManyToManyField("Ability", blank=True, related_name="species_adaptations")
 
     # Psychology
     instincts = models.TextField(blank=True, null=True)

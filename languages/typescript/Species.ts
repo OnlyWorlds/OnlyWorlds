@@ -4,9 +4,10 @@ export interface Species extends BaseElement {
   // Biology
   appearance?: string | null;
   lifeSpan?: number | null;
-  typicalWeight?: number | null;
-  dietIds?: string[] | null;
+  weight?: number | null;
+  nourishmentIds?: string[] | null;
   reproductionIds?: string[] | null;
+  adaptationsIds?: string[] | null;
   // Psychology
   instincts?: string | null;
   sociality?: string | null;

@@ -9,9 +9,10 @@ class SpeciesBaseSchema(AbstractElementBaseSchema):
     # Biology
     appearance: str | None = None
     life_span: int | None = None
-    typical_weight: int | None = None
-    diet_ids: list[uuid.UUID] | None = None
+    weight: int | None = None
+    nourishment_ids: list[uuid.UUID] | None = None
     reproduction_ids: list[uuid.UUID] | None = None
+    adaptations_ids: list[uuid.UUID] | None = None
 
     # Psychology
     instincts: str | None = None
@@ -39,8 +40,9 @@ class SpeciesUpdateInSchema(SpeciesBaseSchema):
 
 
 class SpeciesFilterSchema(BaseFilterSchema):
-    diet_ids: uuid.UUID | None = Field(None, q='diet__id')
+    nourishment_ids: uuid.UUID | None = Field(None, q='nourishment__id')
     reproduction_ids: uuid.UUID | None = Field(None, q='reproduction__id')
+    adaptations_ids: uuid.UUID | None = Field(None, q='adaptations__id')
     traits_ids: uuid.UUID | None = Field(None, q='traits__id')
     parent_species_id: uuid.UUID | None = Field(None, q='parent_species_id')
     locations_ids: uuid.UUID | None = Field(None, q='locations__id')
@@ -53,9 +55,10 @@ class SpeciesOutSchema(AbstractElementBaseSchema):
     # Biology
     appearance: str | None = None
     life_span: int | None = None
-    typical_weight: int | None = None
-    diet: List[ElementNestedOutSchema] = []
+    weight: int | None = None
+    nourishment: List[ElementNestedOutSchema] = []
     reproduction: List[ElementNestedOutSchema] = []
+    adaptations: List[ElementNestedOutSchema] = []
 
     # Psychology
     instincts: str | None = None

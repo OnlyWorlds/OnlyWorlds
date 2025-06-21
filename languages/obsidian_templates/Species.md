@@ -10,9 +10,10 @@
 ## Biology
 - <span class="text-field" data-tooltip="Text">Appearance</span>: 
 - <span class="number-field" data-tooltip="Number, max: 0">Life_span</span>: 
-- <span class="number-field" data-tooltip="Number, max: 0">Typical_weight</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Species">Diet</span>: 
+- <span class="number-field" data-tooltip="Number, max: 0">Weight</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Species">Nourishment</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Construct">Reproduction</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Ability">Adaptations</span>: 
 
 ## Psychology
 - <span class="text-field" data-tooltip="Text">Instincts</span>: 

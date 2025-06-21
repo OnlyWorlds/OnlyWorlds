@@ -2,9 +2,10 @@ class Species extends BaseElement {
   // Biology
   final String appearance;
   final int lifeSpan;
-  final int typicalWeight;
-  final String diet; //ms species
+  final int weight;
+  final String nourishment; //ms species
   final String reproduction; //ms construct
+  final String adaptations; //ms ability
   // Psychology
   final String instincts;
   final String sociality;

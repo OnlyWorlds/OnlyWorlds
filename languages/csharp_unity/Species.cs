@@ -6,9 +6,10 @@ public class Species : BaseElement
     // Biology
     public string Appearance;
     public int? LifeSpan;
-    public int? TypicalWeight;
-    public List<string> DietIds; = new List<string>();
+    public int? Weight;
+    public List<string> NourishmentIds; = new List<string>();
     public List<string> ReproductionIds; = new List<string>();
+    public List<string> AdaptationsIds; = new List<string>();
     // Psychology
     public string Instincts;
     public string Sociality;

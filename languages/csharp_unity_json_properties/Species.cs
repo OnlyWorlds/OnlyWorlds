@@ -10,12 +10,14 @@ public class Species : Element
     public string appearance;
     [JsonProperty("life_span"), Integer(0)]
     public int lifeSpan;
-    [JsonProperty("typical_weight"), Integer(0)]
-    public int typicalWeight;
-    [JsonProperty("diet"), ReferenceAttribute(typeof(Species), true)]
-    public string diet;
+    [JsonProperty("weight"), Integer(0)]
+    public int weight;
+    [JsonProperty("nourishment"), ReferenceAttribute(typeof(Species), true)]
+    public string nourishment;
     [JsonProperty("reproduction"), ReferenceAttribute(typeof(Construct), true)]
     public string reproduction;
+    [JsonProperty("adaptations"), ReferenceAttribute(typeof(Ability), true)]
+    public string adaptations;
     [JsonProperty("instincts"), TextAttribute("")]
     public string instincts;
     [JsonProperty("sociality"), TextAttribute("")]
