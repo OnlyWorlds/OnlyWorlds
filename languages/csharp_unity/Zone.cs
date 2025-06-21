@@ -4,13 +4,14 @@ using System.Collections.Generic;
 public class Zone : BaseElement
 {
     // Scope
-    public string Function;
+    public string Role;
     public int? StartDate;
     public int? EndDate;
     public List<string> PhenomenaIds; = new List<string>();
+    public List<string> LinkedZonesIds; = new List<string>();
     // World
-    public string History;
-    public List<string> ClaimedByIds; = new List<string>();
-    public List<string> RoamedByIds; = new List<string>();
+    public string Context;
+    public List<string> PopulationsIds; = new List<string>();
     public List<string> TitlesIds; = new List<string>();
+    public List<string> PrinciplesIds; = new List<string>();
 }

@@ -5,37 +5,52 @@ properties:
   Scope:
     type: "object"
     properties:
-      function:
+      role:
         type: "string"
-        description: "Describes the operational role or purpose of this zone."
+        description: "The operational function or intent of the zone."
       start_date:
         type: "integer"
         maximum: 0
-        description: "Date when the zone becomes active or relevant in the world’s timeline."
+        description: "Date when the zone becomes extant or relevant, defined in world TIME units."
       end_date:
         type: "integer"
         maximum: 0
-        description: "Date when the zone ceases to be meaningful or enforced."
+        description: "Date when the zone ceases to be meaningful or enforced, defined in world TIME units."
       phenomena:
         type: "multi-link"
+        items:
+          type: "string"
+        description: "Phenomena that affect, define, or occur within the zone."
         category: "Phenomenon"
-        description: "Phenomena that affect, define, or occur within this zone."
+      linked_zones:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Other zones that are associated with the zone."
+        category: "Zone"
 
   World:
     type: "object"
     properties:
-      history:
+      context:
         type: "string"
-        description: "Background or key events that explain how this zone came to exist or why it matters."
-      claimed_by:
+        description: "Historical and key knowledge about the zone."
+      populations:
         type: "multi-link"
-        category: "Institution"
-        description: "Institutions that assert ownership or jurisdiction over the zone."
-      roamed_by:
-        type: "multi-link"
-        category: "Creature"
-        description: "Creatures that regularly occupy, control, or move through the zone."
+        items:
+          type: "string"
+        category: "Collective"
+        description: "Distinct collective groups or communities residing within the zone." 
       titles:
         type: "multi-link"
-        category: "Title"
+        items:
+          type: "string"
         description: "Titles assigned to represent, manage, or protect the zone."
+        category: "Title"
+      principles :
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Influential mechanics acted within, upon, or by the zone."
+        category: "Construct"
+

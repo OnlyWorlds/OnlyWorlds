@@ -7,16 +7,17 @@ import uuid
 class ZoneBaseSchema(AbstractElementBaseSchema):
 
     # Scope
-    function: str | None = None
+    role: str | None = None
     start_date: int | None = None
     end_date: int | None = None
     phenomena_ids: list[uuid.UUID] | None = None
+    linked_zones_ids: list[uuid.UUID] | None = None
 
     # World
-    history: str | None = None
-    claimed_by_ids: list[uuid.UUID] | None = None
-    roamed_by_ids: list[uuid.UUID] | None = None
+    context: str | None = None
+    populations_ids: list[uuid.UUID] | None = None
     titles_ids: list[uuid.UUID] | None = None
+    principles_ids: list[uuid.UUID] | None = None
 
 
 class ZoneCreateInSchema(ZoneBaseSchema):
@@ -30,22 +31,24 @@ class ZoneUpdateInSchema(ZoneBaseSchema):
 
 class ZoneFilterSchema(BaseFilterSchema):
     phenomena_ids: uuid.UUID | None = Field(None, q='phenomena__id')
-    claimed_by_ids: uuid.UUID | None = Field(None, q='claimed_by__id')
-    roamed_by_ids: uuid.UUID | None = Field(None, q='roamed_by__id')
+    linked_zones_ids: uuid.UUID | None = Field(None, q='linked_zones__id')
+    populations_ids: uuid.UUID | None = Field(None, q='populations__id')
     titles_ids: uuid.UUID | None = Field(None, q='titles__id')
+    principles_ids: uuid.UUID | None = Field(None, q='principles__id')
 
 
 class ZoneOutSchema(AbstractElementBaseSchema):
 
     # Scope
-    function: str | None = None
+    role: str | None = None
     start_date: int | None = None
     end_date: int | None = None
     phenomena: List[ElementNestedOutSchema] = []
+    linked_zones: List[ElementNestedOutSchema] = []
 
     # World
-    history: str | None = None
-    claimed_by: List[ElementNestedOutSchema] = []
-    roamed_by: List[ElementNestedOutSchema] = []
+    context: str | None = None
+    populations: List[ElementNestedOutSchema] = []
     titles: List[ElementNestedOutSchema] = []
+    principles: List[ElementNestedOutSchema] = []
 

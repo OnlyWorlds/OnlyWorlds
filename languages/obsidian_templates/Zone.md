@@ -8,14 +8,15 @@
 - <span class="text-field" data-tooltip="Text">World</span>: 
 
 ## Scope
-- <span class="text-field" data-tooltip="Text">Function</span>: 
+- <span class="text-field" data-tooltip="Text">Role</span>: 
 - <span class="number-field" data-tooltip="Number, max: 0">Start_date</span>: 
 - <span class="number-field" data-tooltip="Number, max: 0">End_date</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Phenomenon">Phenomena</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Zone">Linked_zones</span>: 
 
 ## World
-- <span class="text-field" data-tooltip="Text">History</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Institution">Claimed_by</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Creature">Roamed_by</span>: 
+- <span class="text-field" data-tooltip="Text">Context</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Collective">Populations</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Title">Titles</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Construct">Principles</span>: 
 

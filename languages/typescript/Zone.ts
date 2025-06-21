@@ -2,13 +2,14 @@ import { BaseElement } from './base_elements';
 
 export interface Zone extends BaseElement {
   // Scope
-  function?: string | null;
+  role?: string | null;
   startDate?: number | null;
   endDate?: number | null;
   phenomenaIds?: string[] | null;
+  linkedZonesIds?: string[] | null;
   // World
-  history?: string | null;
-  claimedByIds?: string[] | null;
-  roamedByIds?: string[] | null;
+  context?: string | null;
+  populationsIds?: string[] | null;
   titlesIds?: string[] | null;
+  principlesIds?: string[] | null;
 }
