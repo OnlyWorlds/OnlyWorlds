@@ -7,14 +7,14 @@ export interface Ability extends BaseElement {
   potency?: number | null;
   range?: number | null;
   effectsIds?: string[] | null;
-  // Enablement
   challenges?: string | null;
-  sourceId?: string | null;
   talentsIds?: string[] | null;
-  instrumentsIds?: string[] | null;
   requisitesIds?: string[] | null;
   // World
   prevalence?: string | null;
   traditionId?: string | null;
+  sourceId?: string | null;
   locusId?: string | null;
+  instrumentsIds?: string[] | null;
+  systemsIds?: string[] | null;
 }

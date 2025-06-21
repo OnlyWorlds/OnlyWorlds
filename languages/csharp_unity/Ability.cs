@@ -9,14 +9,14 @@ public class Ability : BaseElement
     public int? Potency;
     public int? Range;
     public List<string> EffectsIds; = new List<string>();
-    // Enablement
     public string Challenges;
-    public string SourceId;
     public List<string> TalentsIds; = new List<string>();
-    public List<string> InstrumentsIds; = new List<string>();
     public List<string> RequisitesIds; = new List<string>();
     // World
     public string Prevalence;
     public string TraditionId;
+    public string SourceId;
     public string LocusId;
+    public List<string> InstrumentsIds; = new List<string>();
+    public List<string> SystemsIds; = new List<string>();
 }

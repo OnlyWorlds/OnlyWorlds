@@ -18,18 +18,20 @@ public class Ability : Element
     public string effects;
     [JsonProperty("challenges"), TextAttribute("")]
     public string challenges;
-    [JsonProperty("source"), ReferenceAttribute(typeof(Phenomenon))]
-    public string source;
     [JsonProperty("talents"), ReferenceAttribute(typeof(Trait), true)]
     public string talents;
-    [JsonProperty("instruments"), ReferenceAttribute(typeof(Object), true)]
-    public string instruments;
     [JsonProperty("requisites"), ReferenceAttribute(typeof(Construct), true)]
     public string requisites;
     [JsonProperty("prevalence"), TextAttribute("")]
     public string prevalence;
     [JsonProperty("tradition"), ReferenceAttribute(typeof(Construct))]
     public string tradition;
+    [JsonProperty("source"), ReferenceAttribute(typeof(Phenomenon))]
+    public string source;
     [JsonProperty("locus"), ReferenceAttribute(typeof(Location))]
     public string locus;
+    [JsonProperty("instruments"), ReferenceAttribute(typeof(Object), true)]
+    public string instruments;
+    [JsonProperty("systems"), ReferenceAttribute(typeof(Construct), true)]
+    public string systems;
 }

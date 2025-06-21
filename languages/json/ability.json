@@ -30,20 +30,10 @@
                     },
                     "description": "Phenomena that result from the ability's use, such as environmental changes or sensory effects",
                     "category": "Phenomenon"
-                }
-            }
-        },
-        "Enablement": {
-            "type": "object",
-            "properties": {
+                },
                 "challenges": {
                     "type": "string",
                     "description": "Describes specific difficulties or constraints that make the ability hard to master or use effectively"
-                },
-                "source": {
-                    "type": "single-link",
-                    "description": "The phenomenon that serves as the enabling force or condition that allows this ability to function",
-                    "category": "Phenomenon"
                 },
                 "talents": {
                     "type": "multi-link",
@@ -52,14 +42,6 @@
                     },
                     "description": "Traits that naturally enhance or improve performance with this ability",
                     "category": "Trait"
-                },
-                "instruments": {
-                    "type": "multi-link",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Objects or tools required to activate, channel, or perform the ability",
-                    "category": "Object"
                 },
                 "requisites": {
                     "type": "multi-link",
@@ -83,10 +65,31 @@
                     "description": "A construct that expresses the conceptual, social, or institutional system this ability operates within",
                     "category": "Construct"
                 },
+                "source": {
+                    "type": "single-link",
+                    "description": "The phenomenon that serves as the enabling force or condition that allows this ability to function",
+                    "category": "Phenomenon"
+                },
                 "locus": {
                     "type": "single-link",
                     "description": "Location where the ability is most strongly rooted, developed, or traditionally practiced",
                     "category": "Location"
+                },
+                "instruments": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Objects or tools required to activate, channel, or perform the ability",
+                    "category": "Object"
+                },
+                "systems": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Magic frameworks or structures that the ability associates with",
+                    "category": "Construct"
                 }
             }
         }

@@ -12,11 +12,12 @@ CREATE TABLE ability (
     range INTEGER,
     effects TEXT,
     challenges TEXT,
-    source TEXT,
     talents TEXT,
-    instruments TEXT,
     requisites TEXT,
     prevalence TEXT,
     tradition TEXT,
-    locus TEXT
+    source TEXT,
+    locus TEXT,
+    instruments TEXT,
+    systems TEXT
 );
