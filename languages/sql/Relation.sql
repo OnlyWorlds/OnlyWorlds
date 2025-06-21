@@ -20,7 +20,7 @@ CREATE TABLE relation (
     institutions TEXT,
     traits TEXT,
     collectives TEXT,
-    territories TEXT,
+    zones TEXT,
     abilities TEXT,
     phenomena TEXT,
     languages TEXT,

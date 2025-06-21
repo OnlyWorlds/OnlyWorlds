@@ -84,12 +84,12 @@ properties:
           type: "string"
         description: "Collectives relevant to the relation"
         category: "Collective"
-      territories:
+      zones:
         type: "multi-link"
         items:
           type: "string"
-        description: "Territories relevant to the relation"
-        category: "Territory"
+        description: "Zones relevant to the relation"
+        category: "Zone"
       abilities:
         type: "multi-link"
         items:

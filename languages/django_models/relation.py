@@ -21,7 +21,7 @@ class Relation(AbstractElementModel):
     institutions = models.ManyToManyField("Institution", blank=True, related_name="relation_institutions")
     traits = models.ManyToManyField("Trait", blank=True, related_name="relation_traits")
     collectives = models.ManyToManyField("Collective", blank=True, related_name="relation_collectives")
-    territories = models.ManyToManyField("Territory", blank=True, related_name="relation_territories")
+    zones = models.ManyToManyField("Zone", blank=True, related_name="relation_zones")
     abilities = models.ManyToManyField("Ability", blank=True, related_name="relation_abilities")
     phenomena = models.ManyToManyField("Phenomenon", blank=True, related_name="relation_phenomena")
     languages = models.ManyToManyField("Language", blank=True, related_name="relation_languages")

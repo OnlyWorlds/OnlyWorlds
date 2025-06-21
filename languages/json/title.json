@@ -3,95 +3,174 @@
     "title": "Title",
     "type": "object",
     "properties": {
-        "Nature": {
+        "Mandate": {
             "type": "object",
             "properties": {
-                "privileges": {
+                "authority": {
                     "type": "string",
-                    "description": "Specific rights or benefits associated with the title"
+                    "description": "Rights or powers granted by the title"
                 },
-                "conditions": {
+                "eligibility": {
                     "type": "string",
-                    "description": "Conditions or requirements for obtaining and holding the title"
+                    "description": "Conditions or qualifications for receiving or holding the title"
                 },
-                "create_date": {
+                "grant_date": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Date when the title was first created"
-                },
-                "assign_date": {
-                    "type": "integer",
-                    "maximum": 0,
-                    "description": "Date when the title was last assigned to an individual or entity"
+                    "description": "Date on which the title was granted, defined in world TIME units"
                 },
                 "revoke_date": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Date when the title was revoked or nullified, if applicable"
+                    "description": "Date on which the title ended or was revoked, defined in world TIME units"
                 },
-                "hierarchy": {
-                    "type": "integer",
-                    "maximum": 0,
-                    "description": "Numerical value indicating the rank or level of the title within a hierarchical system"
-                }
-            }
-        },
-        "Issue": {
-            "type": "object",
-            "properties": {
-                "rights": {
-                    "type": "string",
-                    "description": "Legal or customary rights conferred by the title"
-                },
-                "author": {
+                "issuer": {
                     "type": "single-link",
-                    "description": "The institution or authority that issued the title",
+                    "description": "Institution that formally created or granted the title",
                     "category": "Institution"
+                },
+                "body": {
+                    "type": "single-link",
+                    "description": "Institution in which the title functions or holds relevance",
+                    "category": "Institution"
+                },
+                "superior_title": {
+                    "type": "single-link",
+                    "description": "Another title that has authority over this one",
+                    "category": "Title"
+                },
+                "holders": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Characters who currently hold or represent the title",
+                    "category": "Character"
+                },
+                "symbols": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Objects that symbolize or authorize the title",
+                    "category": "Object"
                 }
             }
         },
         "World": {
             "type": "object",
             "properties": {
-                "character": {
-                    "type": "single-link",
-                    "description": "Character who currently holds or is associated with the title",
+                "status": {
+                    "type": "string",
+                    "description": "Current state or general condition of the title"
+                },
+                "history": {
+                    "type": "string",
+                    "description": "Background information on the title's origin, evolution, or significance"
+                },
+                "characters": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Characters otherwise relevant to the title",
                     "category": "Character"
                 },
-                "location": {
-                    "type": "single-link",
-                    "description": "Location that is governed by or significantly associated with the title",
-                    "category": "Location"
-                },
-                "object": {
-                    "type": "single-link",
-                    "description": "Object that symbolizes or is tied to the title",
-                    "category": "Object"
-                },
-                "institution": {
-                    "type": "single-link",
-                    "description": "Institution that is linked to the administration or history of the title",
+                "institutions": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Institutions relevant to the title",
                     "category": "Institution"
                 },
-                "creature": {
-                    "type": "single-link",
-                    "description": "Creature associated with the title, possibly as a symbol or totem",
-                    "category": "Creature"
+                "families": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Families relevant to the title",
+                    "category": "Family"
                 },
-                "zone": {
-                    "type": "single-link",
-                    "description": "Zone under the jurisdiction or influence of the title",
+                "zones": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Zones relevant to the title",
                     "category": "Zone"
                 },
-                "collective": {
-                    "type": "single-link",
-                    "description": "Group or collective that is integral to the role or function of the title",
+                "locations": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Locations relevant to the title",
+                    "category": "Location"
+                },
+                "objects": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Objects otherwise relevant to the title",
+                    "category": "Object"
+                },
+                "constructs": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Constructs relevant to the title",
+                    "category": "Construct"
+                },
+                "laws": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Laws relevant to the title",
+                    "category": "Law"
+                },
+                "collectives": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Collectives relevant to the title",
                     "category": "Collective"
                 },
-                "construct": {
-                    "type": "single-link",
-                    "description": "Construct or principle that underpins the philosophical or legal basis of the title",
-                    "category": "Construct"
+                "creatures": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Creatures relevant to the title",
+                    "category": "Creature"
+                },
+                "phenomena": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Phenomena relevant to the title",
+                    "category": "Phenomenon"
+                },
+                "species": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Species relevant to the title",
+                    "category": "Species"
+                },
+                "languages": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Languages relevant to the title",
+                    "category": "Language"
                 }
             }
         }

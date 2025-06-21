@@ -1,7 +1,6 @@
   types:
     Road: []
     River: []
-    Territory: []
     Terrain: []
     Zone: []
  
