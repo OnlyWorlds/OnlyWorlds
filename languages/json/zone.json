@@ -1,0 +1,55 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Zone",
+    "type": "object",
+    "properties": {
+        "Scope": {
+            "type": "object",
+            "properties": {
+                "function": {
+                    "type": "string",
+                    "description": "Describes the operational role or purpose of this zone."
+                },
+                "start_date": {
+                    "type": "integer",
+                    "maximum": 0,
+                    "description": "Date when the zone becomes active or relevant in the world\u2019s timeline."
+                },
+                "end_date": {
+                    "type": "integer",
+                    "maximum": 0,
+                    "description": "Date when the zone ceases to be meaningful or enforced."
+                },
+                "phenomena": {
+                    "type": "multi-link",
+                    "category": "Phenomenon",
+                    "description": "Phenomena that affect, define, or occur within this zone."
+                }
+            }
+        },
+        "World": {
+            "type": "object",
+            "properties": {
+                "history": {
+                    "type": "string",
+                    "description": "Background or key events that explain how this zone came to exist or why it matters."
+                },
+                "claimed_by": {
+                    "type": "multi-link",
+                    "category": "Institution",
+                    "description": "Institutions that assert ownership or jurisdiction over the zone."
+                },
+                "roamed_by": {
+                    "type": "multi-link",
+                    "category": "Creature",
+                    "description": "Creatures that regularly occupy, control, or move through the zone."
+                },
+                "titles": {
+                    "type": "multi-link",
+                    "category": "Title",
+                    "description": "Titles assigned to represent, manage, or protect the zone."
+                }
+            }
+        }
+    }
+}

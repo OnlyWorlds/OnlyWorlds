@@ -15,6 +15,11 @@ export interface Location extends BaseElement {
   zoneId?: string | null;
   rivalId?: string | null;
   partnerId?: string | null;
+  // World
+  customs?: string | null;
+  foundersIds?: string[] | null;
+  cultsIds?: string[] | null;
+  delicaciesIds?: string[] | null;
   // Production
   extractionMethodsIds?: string[] | null;
   extractionGoodsIds?: string[] | null;
@@ -29,11 +34,6 @@ export interface Location extends BaseElement {
   architecture?: string | null;
   buildingsIds?: string[] | null;
   buildingMethodsIds?: string[] | null;
-  // World
-  customs?: string | null;
-  foundersIds?: string[] | null;
-  cultsIds?: string[] | null;
-  delicaciesIds?: string[] | null;
   // Defense
   defensibility?: string | null;
   elevation?: number | null;

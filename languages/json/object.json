@@ -13,7 +13,7 @@
                 "weight": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Physical mass of the object, defined by world MASS units."
+                    "description": "Approximate or exact mass of the object, defined by world MASS units."
                 },
                 "amount": {
                     "type": "integer",

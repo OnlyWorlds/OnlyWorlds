@@ -16,11 +16,11 @@
                 },
                 "height": {
                     "type": "integer",
-                    "description": "The character's height, using the world's defined unit of DISTANCE."
+                    "description": "The character's approximate or exact height, using world LENGTH units."
                 },
                 "weight": {
                     "type": "integer",
-                    "description": "The character's weight, using the world's defined unit of MASS."
+                    "description": "The character's approximate or exact weight, using world MASS units."
                 },
                 "species": {
                     "type": "multi-link",

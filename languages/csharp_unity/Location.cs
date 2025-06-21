@@ -17,6 +17,11 @@ public class Location : BaseElement
     public string ZoneId;
     public string RivalId;
     public string PartnerId;
+    // World
+    public string Customs;
+    public List<string> FoundersIds; = new List<string>();
+    public List<string> CultsIds; = new List<string>();
+    public List<string> DelicaciesIds; = new List<string>();
     // Production
     public List<string> ExtractionMethodsIds; = new List<string>();
     public List<string> ExtractionGoodsIds; = new List<string>();
@@ -31,11 +36,6 @@ public class Location : BaseElement
     public string Architecture;
     public List<string> BuildingsIds; = new List<string>();
     public List<string> BuildingMethodsIds; = new List<string>();
-    // World
-    public string Customs;
-    public List<string> FoundersIds; = new List<string>();
-    public List<string> CultsIds; = new List<string>();
-    public List<string> DelicaciesIds; = new List<string>();
     // Defense
     public string Defensibility;
     public int? Elevation;

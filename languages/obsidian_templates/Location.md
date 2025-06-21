@@ -23,6 +23,12 @@
 - <span class="link-field" data-tooltip="Single Location">Rival</span>: 
 - <span class="link-field" data-tooltip="Single Location">Partner</span>: 
 
+## World
+- <span class="text-field" data-tooltip="Text">Customs</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Character">Founders</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Construct">Cults</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Species">Delicacies</span>: 
+
 ## Production
 - <span class="multi-link-field" data-tooltip="Multi Construct">Extraction_methods</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Construct">Extraction_goods</span>: 
@@ -39,12 +45,6 @@
 - <span class="text-field" data-tooltip="Text">Architecture</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Object">Buildings</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Construct">Building_methods</span>: 
-
-## World
-- <span class="text-field" data-tooltip="Text">Customs</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Character">Founders</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Construct">Cults</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Species">Delicacies</span>: 
 
 ## Defense
 - <span class="text-field" data-tooltip="Text">Defensibility</span>: 

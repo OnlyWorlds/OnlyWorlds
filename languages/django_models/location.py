@@ -19,6 +19,12 @@ class Location(AbstractElementModel):
     rival = models.ForeignKey("Location", on_delete=models.SET_NULL, blank=True, null=True, related_name="location_rival")
     partner = models.ForeignKey("Location", on_delete=models.SET_NULL, blank=True, null=True, related_name="location_partner")
 
+    # World
+    customs = models.TextField(blank=True, null=True)
+    founders = models.ManyToManyField("Character", blank=True, related_name="location_founders")
+    cults = models.ManyToManyField("Construct", blank=True, related_name="location_cults")
+    delicacies = models.ManyToManyField("Species", blank=True, related_name="location_delicacies")
+
     # Production
     extraction_methods = models.ManyToManyField("Construct", blank=True, related_name="location_extraction_methods")
     extraction_goods = models.ManyToManyField("Construct", blank=True, related_name="location_extraction_goods")
@@ -35,12 +41,6 @@ class Location(AbstractElementModel):
     architecture = models.TextField(blank=True, null=True)
     buildings = models.ManyToManyField("Object", blank=True, related_name="location_buildings")
     building_methods = models.ManyToManyField("Construct", blank=True, related_name="location_building_methods")
-
-    # World
-    customs = models.TextField(blank=True, null=True)
-    founders = models.ManyToManyField("Character", blank=True, related_name="location_founders")
-    cults = models.ManyToManyField("Construct", blank=True, related_name="location_cults")
-    delicacies = models.ManyToManyField("Species", blank=True, related_name="location_delicacies")
 
     # Defense
     defensibility = models.TextField(blank=True, null=True)

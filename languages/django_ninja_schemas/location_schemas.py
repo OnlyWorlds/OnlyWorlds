@@ -22,6 +22,12 @@ class LocationBaseSchema(AbstractElementBaseSchema):
     rival_id: uuid.UUID | None = None
     partner_id: uuid.UUID | None = None
 
+    # World
+    customs: str | None = None
+    founders_ids: list[uuid.UUID] | None = None
+    cults_ids: list[uuid.UUID] | None = None
+    delicacies_ids: list[uuid.UUID] | None = None
+
     # Production
     extraction_methods_ids: list[uuid.UUID] | None = None
     extraction_goods_ids: list[uuid.UUID] | None = None
@@ -38,12 +44,6 @@ class LocationBaseSchema(AbstractElementBaseSchema):
     architecture: str | None = None
     buildings_ids: list[uuid.UUID] | None = None
     building_methods_ids: list[uuid.UUID] | None = None
-
-    # World
-    customs: str | None = None
-    founders_ids: list[uuid.UUID] | None = None
-    cults_ids: list[uuid.UUID] | None = None
-    delicacies_ids: list[uuid.UUID] | None = None
 
     # Defense
     defensibility: str | None = None
@@ -70,6 +70,9 @@ class LocationFilterSchema(BaseFilterSchema):
     zone_id: uuid.UUID | None = Field(None, q='zone_id')
     rival_id: uuid.UUID | None = Field(None, q='rival_id')
     partner_id: uuid.UUID | None = Field(None, q='partner_id')
+    founders_ids: uuid.UUID | None = Field(None, q='founders__id')
+    cults_ids: uuid.UUID | None = Field(None, q='cults__id')
+    delicacies_ids: uuid.UUID | None = Field(None, q='delicacies__id')
     extraction_methods_ids: uuid.UUID | None = Field(None, q='extraction_methods__id')
     extraction_goods_ids: uuid.UUID | None = Field(None, q='extraction_goods__id')
     industry_methods_ids: uuid.UUID | None = Field(None, q='industry_methods__id')
@@ -79,9 +82,6 @@ class LocationFilterSchema(BaseFilterSchema):
     currencies_ids: uuid.UUID | None = Field(None, q='currencies__id')
     buildings_ids: uuid.UUID | None = Field(None, q='buildings__id')
     building_methods_ids: uuid.UUID | None = Field(None, q='building_methods__id')
-    founders_ids: uuid.UUID | None = Field(None, q='founders__id')
-    cults_ids: uuid.UUID | None = Field(None, q='cults__id')
-    delicacies_ids: uuid.UUID | None = Field(None, q='delicacies__id')
     fighters_ids: uuid.UUID | None = Field(None, q='fighters__id')
     defensive_objects_ids: uuid.UUID | None = Field(None, q='defensive_objects__id')
 
@@ -104,6 +104,12 @@ class LocationOutSchema(AbstractElementBaseSchema):
     rival: ElementNestedOutSchema | None = None
     partner: ElementNestedOutSchema | None = None
 
+    # World
+    customs: str | None = None
+    founders: List[ElementNestedOutSchema] = []
+    cults: List[ElementNestedOutSchema] = []
+    delicacies: List[ElementNestedOutSchema] = []
+
     # Production
     extraction_methods: List[ElementNestedOutSchema] = []
     extraction_goods: List[ElementNestedOutSchema] = []
@@ -120,12 +126,6 @@ class LocationOutSchema(AbstractElementBaseSchema):
     architecture: str | None = None
     buildings: List[ElementNestedOutSchema] = []
     building_methods: List[ElementNestedOutSchema] = []
-
-    # World
-    customs: str | None = None
-    founders: List[ElementNestedOutSchema] = []
-    cults: List[ElementNestedOutSchema] = []
-    delicacies: List[ElementNestedOutSchema] = []
 
     # Defense
     defensibility: str | None = None

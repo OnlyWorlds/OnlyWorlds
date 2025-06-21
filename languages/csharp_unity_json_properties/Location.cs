@@ -30,6 +30,14 @@ public class Location : Element
     public string rival;
     [JsonProperty("partner"), ReferenceAttribute(typeof(Location))]
     public string partner;
+    [JsonProperty("customs"), TextAttribute("")]
+    public string customs;
+    [JsonProperty("founders"), ReferenceAttribute(typeof(Character), true)]
+    public string founders;
+    [JsonProperty("cults"), ReferenceAttribute(typeof(Construct), true)]
+    public string cults;
+    [JsonProperty("delicacies"), ReferenceAttribute(typeof(Species), true)]
+    public string delicacies;
     [JsonProperty("extraction_methods"), ReferenceAttribute(typeof(Construct), true)]
     public string extractionMethods;
     [JsonProperty("extraction_goods"), ReferenceAttribute(typeof(Construct), true)]
@@ -52,14 +60,6 @@ public class Location : Element
     public string buildings;
     [JsonProperty("building_methods"), ReferenceAttribute(typeof(Construct), true)]
     public string buildingMethods;
-    [JsonProperty("customs"), TextAttribute("")]
-    public string customs;
-    [JsonProperty("founders"), ReferenceAttribute(typeof(Character), true)]
-    public string founders;
-    [JsonProperty("cults"), ReferenceAttribute(typeof(Construct), true)]
-    public string cults;
-    [JsonProperty("delicacies"), ReferenceAttribute(typeof(Species), true)]
-    public string delicacies;
     [JsonProperty("defensibility"), TextAttribute("")]
     public string defensibility;
     [JsonProperty("elevation"), Integer(0)]

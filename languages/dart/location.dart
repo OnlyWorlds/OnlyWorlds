@@ -13,6 +13,11 @@ class Location extends BaseElement {
   final String zone; //ss zone
   final String rival; //ss location
   final String partner; //ss location
+  // World
+  final String customs;
+  final String founders; //ms character
+  final String cults; //ms construct
+  final String delicacies; //ms species
   // Production
   final String extractionMethods; //ms construct
   final String extractionGoods; //ms construct
@@ -27,11 +32,6 @@ class Location extends BaseElement {
   final String architecture;
   final String buildings; //ms object
   final String buildingMethods; //ms construct
-  // World
-  final String customs;
-  final String founders; //ms character
-  final String cults; //ms construct
-  final String delicacies; //ms species
   // Defense
   final String defensibility;
   final int elevation;
