@@ -9,27 +9,27 @@
         },
         "Name": {
             "type": "string",
-            "description": "Name of the element."
+            "description": "Name of the element"
         },
         "Description": {
             "type": "string",
-            "description": "Any kind of details about the element."
+            "description": "Any kind of details about the element"
         },
         "Supertype": {
             "type": "string",
-            "description": "The top level category to which the element belongs."
+            "description": "The top level category to which the element belongs"
         },
         "Subtype": {
             "type": "string",
-            "description": "The sub level category through which the element is further classified."
+            "description": "The sub level category through which the element is further classified"
         },
         "Image_URL": {
             "type": "string",
-            "description": "URL to an image representing the element."
+            "description": "URL to an image representing the element"
         },
         "World": {
             "type": "string",
-            "description": "UUID of the world the element is part of."
+            "description": "UUID of the world the element is part of"
         }
     },
     "required": [

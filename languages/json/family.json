@@ -8,18 +8,18 @@
             "properties": {
                 "spirit": {
                     "type": "string",
-                    "description": "The core values or shared ethos that the family embodies."
+                    "description": "The core values or shared ethos that the family embodies"
                 },
                 "history": {
                     "type": "string",
-                    "description": "Background or origin story of the family."
+                    "description": "Background or origin story of the family"
                 },
                 "traditions": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Cultural practices, symbols, or customs overseen by the family.",
+                    "description": "Cultural practices, symbols, or customs overseen by the family",
                     "category": "Construct"
                 },
                 "traits": {
@@ -27,7 +27,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Traits possibly found among members of the family.",
+                    "description": "Traits possibly found among members of the family",
                     "category": "Trait"
                 },
                 "abilities": {
@@ -35,7 +35,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Abilities or special qualities possibly present in the family.",
+                    "description": "Abilities or special qualities possibly present in the family",
                     "category": "Ability"
                 },
                 "languages": {
@@ -43,7 +43,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Languages spoken by, or associated with the family.",
+                    "description": "Languages spoken by, or associated with the family",
                     "category": "Language"
                 },
                 "ancestors": {
@@ -51,7 +51,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Notable forebears or historic characters in the family's lineage.",
+                    "description": "Notable forebears or historic characters in the family's lineage",
                     "category": "Character"
                 }
             }
@@ -61,14 +61,14 @@
             "properties": {
                 "reputation": {
                     "type": "string",
-                    "description": "Current social, political, or general standing of the family."
+                    "description": "Current social, political, or general standing of the family"
                 },
                 "estates": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Key locations owned, governed, or symbolically tied to the family.",
+                    "description": "Key locations owned, governed, or symbolically tied to the family",
                     "category": "Location"
                 },
                 "governs": {
@@ -76,7 +76,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Institutions administered or managed by the family.",
+                    "description": "Institutions administered or managed by the family",
                     "category": "Institution"
                 },
                 "heirlooms": {
@@ -84,7 +84,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Important objects or artifacts handed down by the family.",
+                    "description": "Important objects or artifacts handed down by the family",
                     "category": "Object"
                 },
                 "creatures": {
@@ -92,7 +92,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Creatures owned, bonded to, or representing the family.",
+                    "description": "Creatures owned, bonded to, or representing the family",
                     "category": "Creature"
                 }
             }

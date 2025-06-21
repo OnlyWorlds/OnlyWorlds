@@ -8,21 +8,21 @@
             "properties": {
                 "aesthetics": {
                     "type": "string",
-                    "description": "Appearance, design, or visual presentation of the object."
+                    "description": "Appearance, design, or visual presentation of the object"
                 },
                 "weight": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Approximate or exact mass of the object, defined by world MASS units."
+                    "description": "Approximate or exact mass of the object, defined by world MASS units"
                 },
                 "amount": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "The number of identical units in this object entry."
+                    "description": "The number of identical units in this object entry"
                 },
                 "parent_object": {
                     "type": "single-link",
-                    "description": "Larger object that this one is part of or contained within.",
+                    "description": "Larger object that this one is part of or contained within",
                     "category": "Object"
                 },
                 "materials": {
@@ -30,7 +30,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The phyiscal matter that constitutes the object.",
+                    "description": "The phyiscal matter that constitutes the object",
                     "category": "Construct"
                 },
                 "technology": {
@@ -38,7 +38,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Mechanisms relating the object's design or operation.",
+                    "description": "Mechanisms relating the object's design or operation",
                     "category": "Construct"
                 }
             }
@@ -48,14 +48,14 @@
             "properties": {
                 "utility": {
                     "type": "string",
-                    "description": "Intended purpose or primary use of the object."
+                    "description": "Intended purpose or primary use of the object"
                 },
                 "effects": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Phenomena potentially triggered or emitted on object use.",
+                    "description": "Phenomena potentially triggered or emitted on object use",
                     "category": "Phenomenon"
                 },
                 "abilities": {
@@ -63,7 +63,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Abilities that the object grant or enables.",
+                    "description": "Abilities that the object grant or enables",
                     "category": "Ability"
                 },
                 "consumes": {
@@ -71,7 +71,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "What might be used or depleted on object use.",
+                    "description": "What might be used or depleted on object use",
                     "category": "Construct"
                 }
             }
@@ -81,16 +81,16 @@
             "properties": {
                 "origins": {
                     "type": "string",
-                    "description": "Background or history of the object."
+                    "description": "Background or history of the object"
                 },
                 "location": {
                     "type": "single-link",
-                    "description": "Physical place where the object is currently located or stored.",
+                    "description": "Physical place where the object is currently located or stored",
                     "category": "Location"
                 },
                 "language": {
                     "type": "single-link",
-                    "description": "Required to read, understand, or activate the object.",
+                    "description": "Required to read, understand, or activate the object",
                     "category": "Language"
                 },
                 "affinities": {
@@ -98,7 +98,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Traits that resonate with or enhance the object's use, function, or effects.",
+                    "description": "Traits that resonate with or enhance the object's use, function, or effects",
                     "category": "Trait"
                 }
             }

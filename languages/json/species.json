@@ -8,24 +8,24 @@
             "properties": {
                 "appearance": {
                     "type": "string",
-                    "description": "Physical description of the species, including notable features."
+                    "description": "Physical description of the species, including notable features"
                 },
                 "life_span": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Average life expectancy of the species under natural conditions."
+                    "description": "Average life expectancy of the species under natural conditions"
                 },
                 "average_weight": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Typical weight range for mature individuals of the species."
+                    "description": "Typical weight range for mature individuals of the species"
                 },
                 "nourishment": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Primary sources of food and nutrition for the species.",
+                    "description": "Primary sources of food and nutrition for the species",
                     "category": "Species"
                 }
             }
@@ -35,23 +35,23 @@
             "properties": {
                 "instincts": {
                     "type": "string",
-                    "description": "Innate behaviors and survival instincts of the species."
+                    "description": "Innate behaviors and survival instincts of the species"
                 },
                 "aggression": {
                     "type": "integer",
                     "maximum": 100,
-                    "description": "Typical level of aggressiveness exhibited by the species."
+                    "description": "Typical level of aggressiveness exhibited by the species"
                 },
                 "agency": {
                     "type": "string",
-                    "description": "Capacity for self-directed behavior and decision-making in the species."
+                    "description": "Capacity for self-directed behavior and decision-making in the species"
                 },
                 "languages": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Languages known or used by the species, if any.",
+                    "description": "Languages known or used by the species, if any",
                     "category": "Language"
                 }
             }
@@ -61,14 +61,14 @@
             "properties": {
                 "impact": {
                     "type": "string",
-                    "description": "Overall effect or influence the species has on its environment."
+                    "description": "Overall effect or influence the species has on its environment"
                 },
                 "habitat": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Primary natural habitats where the species is typically found.",
+                    "description": "Primary natural habitats where the species is typically found",
                     "category": "Location"
                 },
                 "interaction": {
@@ -76,7 +76,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Typical interactions of the species with other species or environmental elements.",
+                    "description": "Typical interactions of the species with other species or environmental elements",
                     "category": "Phenomenon"
                 },
                 "consumables": {
@@ -84,7 +84,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Items that the species commonly consumes or utilizes.",
+                    "description": "Items that the species commonly consumes or utilizes",
                     "category": "Construct"
                 }
             }

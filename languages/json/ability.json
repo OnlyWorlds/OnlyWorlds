@@ -8,27 +8,27 @@
             "properties": {
                 "activation": {
                     "type": "string",
-                    "description": "Method or conditions under which the ability is activated."
+                    "description": "Method or conditions under which the ability is activated"
                 },
                 "duration": {
                     "type": "integer",
-                    "description": "Length of time the ability remains active or its effects persist, measured in TIME units."
+                    "description": "Length of time the ability remains active or its effects persist, measured in TIME units"
                 },
                 "potency": {
                     "type": "integer",
                     "maximum": 100,
-                    "description": "Relative measure of the ability's inherent potency or force, used for scaling or comparison purposes."
+                    "description": "Relative measure of the ability's inherent potency or force, used for scaling or comparison purposes"
                 },
                 "range": {
                     "type": "integer",
-                    "description": "Effective reach or distance at which the ability can be used, measured in DISTANCE units."
+                    "description": "Effective reach or distance at which the ability can be used, measured in DISTANCE units"
                 },
                 "effects": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Phenomena that result from the ability's use, such as environmental changes or sensory effects.",
+                    "description": "Phenomena that result from the ability's use, such as environmental changes or sensory effects",
                     "category": "Phenomenon"
                 }
             }
@@ -38,11 +38,11 @@
             "properties": {
                 "challenges": {
                     "type": "string",
-                    "description": "Describes specific difficulties or constraints that make the ability hard to master or use effectively."
+                    "description": "Describes specific difficulties or constraints that make the ability hard to master or use effectively"
                 },
                 "source": {
                     "type": "single-link",
-                    "description": "The phenomenon that serves as the enabling force or condition that allows this ability to function.",
+                    "description": "The phenomenon that serves as the enabling force or condition that allows this ability to function",
                     "category": "Phenomenon"
                 },
                 "talents": {
@@ -50,7 +50,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Traits that naturally enhance or improve performance with this ability.",
+                    "description": "Traits that naturally enhance or improve performance with this ability",
                     "category": "Trait"
                 },
                 "instruments": {
@@ -58,7 +58,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Objects or tools required to activate, channel, or perform the ability.",
+                    "description": "Objects or tools required to activate, channel, or perform the ability",
                     "category": "Object"
                 },
                 "requisites": {
@@ -66,7 +66,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Constructs that must be satisfied for the ability to be used, such as rituals, permissions, or required roles.",
+                    "description": "Constructs that must be satisfied for the ability to be used, such as rituals, permissions, or required roles",
                     "category": "Construct"
                 }
             }
@@ -76,16 +76,16 @@
             "properties": {
                 "prevalence": {
                     "type": "string",
-                    "description": "How widely the ability is known or practiced, and potential clues to its origins and cultural diffusion."
+                    "description": "How widely the ability is known or practiced, and potential clues to its origins and cultural diffusion"
                 },
                 "tradition": {
                     "type": "single-link",
-                    "description": "A construct that expresses the conceptual, social, or institutional system this ability operates within.",
+                    "description": "A construct that expresses the conceptual, social, or institutional system this ability operates within",
                     "category": "Construct"
                 },
                 "locus": {
                     "type": "single-link",
-                    "description": "Location where the ability is most strongly rooted, developed, or traditionally practiced.",
+                    "description": "Location where the ability is most strongly rooted, developed, or traditionally practiced",
                     "category": "Location"
                 }
             }

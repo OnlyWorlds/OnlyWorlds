@@ -6,9 +6,9 @@ CREATE TABLE marker (
     subtype TEXT,
     image_url TEXT,
     world TEXT NOT NULL,
-    x INTEGER,
-    y INTEGER,
-    z INTEGER,
-    map TEXT,
-    zone TEXT
+    map TEXT NOT NULL,
+    zone TEXT NOT NULL,
+    x INTEGER NOT NULL,
+    y INTEGER NOT NULL,
+    z INTEGER
 );

@@ -8,20 +8,20 @@
             "properties": {
                 "declaration": {
                     "type": "string",
-                    "description": "The formal wording, expression, or decree of the law."
+                    "description": "The formal wording, expression, or decree of the law"
                 },
                 "purpose": {
                     "type": "string",
-                    "description": "The intent, motivation, or justification for the law's creation."
+                    "description": "The intent, motivation, or justification for the law's creation"
                 },
                 "date": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Date the law was formally established, in world TIME units."
+                    "description": "Date the law was formally established, in world TIME units"
                 },
                 "parent_law": {
                     "type": "single-link",
-                    "description": "A law that this law derives from, modifies, or enhances.",
+                    "description": "A law that this law derives from, modifies, or enhances",
                     "category": "Law"
                 },
                 "penalties": {
@@ -29,7 +29,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Consequences intended to beapplied when the law is contravened.",
+                    "description": "Consequences intended to beapplied when the law is contravened",
                     "category": "Construct"
                 }
             }
@@ -39,7 +39,7 @@
             "properties": {
                 "author": {
                     "type": "single-link",
-                    "description": "The institution that created or issued the law.",
+                    "description": "The institution that created or issued the law",
                     "category": "Institution"
                 },
                 "locations": {
@@ -47,7 +47,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Locations where the law is supported or enforced.",
+                    "description": "Locations where the law is supported or enforced",
                     "category": "Location"
                 },
                 "zones": {
@@ -55,7 +55,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Zones where the law is supported or enforced.",
+                    "description": "Zones where the law is supported or enforced",
                     "category": "Zone"
                 },
                 "prohibitions": {
@@ -63,7 +63,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Things that the law explicitly or effectively forbids.",
+                    "description": "Things that the law explicitly or effectively forbids",
                     "category": "Construct"
                 },
                 "adjudicators": {
@@ -71,7 +71,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Titles responsible for interpreting or ruling on the law's application and jurisdiction.",
+                    "description": "Titles responsible for interpreting or ruling on the law's application and jurisdiction",
                     "category": "Title"
                 },
                 "enforcers": {
@@ -79,7 +79,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Titles responsible for enforcing or imposing the law.",
+                    "description": "Titles responsible for enforcing or imposing the law",
                     "category": "Title"
                 }
             }

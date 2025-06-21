@@ -8,49 +8,49 @@
             "properties": {
                 "story": {
                     "type": "string",
-                    "description": "Content of the narrative, as told or remembered."
+                    "description": "Content of the narrative, as told or remembered"
                 },
                 "consequences": {
                     "type": "string",
-                    "description": "Outcomes or legacy of the narrative."
+                    "description": "Outcomes or legacy of the narrative"
                 },
                 "start_date": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Date when the narrative begins, measured in world TIME units."
+                    "description": "Date when the narrative begins, measured in world TIME units"
                 },
                 "end_date": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Date when the narrative ends, measured in world TIME units."
+                    "description": "Date when the narrative ends, measured in world TIME units"
                 },
                 "order": {
                     "type": "integer",
-                    "description": "Position of this narrative within a parent narrative's sequence."
+                    "description": "Position of this narrative within a parent narrative's sequence"
                 },
                 "parent_narrative": {
                     "type": "single-link",
-                    "description": "Larger narrative that this narrative takes place in.",
+                    "description": "Larger narrative that this narrative takes place in",
                     "category": "Narrative"
                 },
                 "protagonist": {
                     "type": "single-link",
-                    "description": "Primary character of the narrative.",
+                    "description": "Primary character of the narrative",
                     "category": "Character"
                 },
                 "antagonist": {
                     "type": "single-link",
-                    "description": "Opposing character of the narrative.",
+                    "description": "Opposing character of the narrative",
                     "category": "Character"
                 },
                 "narrator": {
                     "type": "single-link",
-                    "description": "Character credited with telling or recording the narrative.",
+                    "description": "Character credited with telling or recording the narrative",
                     "category": "Character"
                 },
                 "conservator": {
                     "type": "single-link",
-                    "description": "Institution that preserves or curates the narrative.",
+                    "description": "Institution that preserves or curates the narrative",
                     "category": "Institution"
                 }
             }
@@ -63,7 +63,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Events relevant to the narrative.",
+                    "description": "Events relevant to the narrative",
                     "category": "Event"
                 },
                 "characters": {
@@ -71,7 +71,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Characters relevant to the narrative.",
+                    "description": "Characters relevant to the narrative",
                     "category": "Character"
                 },
                 "objects": {
@@ -79,7 +79,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Objects relevant to the narrative.",
+                    "description": "Objects relevant to the narrative",
                     "category": "Object"
                 },
                 "locations": {
@@ -87,7 +87,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Locations relevant to the narrative.",
+                    "description": "Locations relevant to the narrative",
                     "category": "Location"
                 },
                 "species": {
@@ -95,7 +95,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Species relevant to the narrative.",
+                    "description": "Species relevant to the narrative",
                     "category": "Species"
                 },
                 "creatures": {
@@ -103,7 +103,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Creatures relevant to the narrative.",
+                    "description": "Creatures relevant to the narrative",
                     "category": "Creature"
                 },
                 "institutions": {
@@ -111,7 +111,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Institutions relevant to the narrative.",
+                    "description": "Institutions relevant to the narrative",
                     "category": "Institution"
                 },
                 "traits": {
@@ -119,7 +119,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Traits relevant to the narrative.",
+                    "description": "Traits relevant to the narrative",
                     "category": "Trait"
                 },
                 "collectives": {
@@ -127,7 +127,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Groups relevant to the narrative.",
+                    "description": "Groups relevant to the narrative",
                     "category": "Collective"
                 },
                 "zones": {
@@ -135,7 +135,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Zones relevant to the narrative.",
+                    "description": "Zones relevant to the narrative",
                     "category": "Zone"
                 },
                 "abilities": {
@@ -143,7 +143,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Abilities relevant to the narrative.",
+                    "description": "Abilities relevant to the narrative",
                     "category": "Ability"
                 },
                 "phenomena": {
@@ -151,7 +151,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Phenomena relevant to the narrative.",
+                    "description": "Phenomena relevant to the narrative",
                     "category": "Phenomenon"
                 },
                 "languages": {
@@ -159,7 +159,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Languages relevant to the narrative.",
+                    "description": "Languages relevant to the narrative",
                     "category": "Language"
                 },
                 "families": {
@@ -167,7 +167,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Families relevant to the narrative.",
+                    "description": "Families relevant to the narrative",
                     "category": "Family"
                 },
                 "relations": {
@@ -175,7 +175,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Relationships relevant to the narrative.",
+                    "description": "Relationships relevant to the narrative",
                     "category": "Relation"
                 },
                 "titles": {
@@ -183,7 +183,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Titles relevant to the narrative.",
+                    "description": "Titles relevant to the narrative",
                     "category": "Title"
                 },
                 "constructs": {
@@ -191,7 +191,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Constructs relevant to the narrative.",
+                    "description": "Constructs relevant to the narrative",
                     "category": "Construct"
                 },
                 "laws": {
@@ -199,7 +199,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Laws relevant to the narrative.",
+                    "description": "Laws relevant to the narrative",
                     "category": "Law"
                 }
             }

@@ -8,23 +8,23 @@
             "properties": {
                 "expression": {
                     "type": "string",
-                    "description": "How the phenomenon manifests or takes shape in the world."
+                    "description": "How the phenomenon manifests or takes shape in the world"
                 },
                 "effects": {
                     "type": "string",
-                    "description": "The primary outcomes or changes caused by the phenomenon."
+                    "description": "The primary outcomes or changes caused by the phenomenon"
                 },
                 "duration": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "The amount of time the phenomenon lasts, measured in world TIME units."
+                    "description": "The amount of time the phenomenon lasts, measured in world TIME units"
                 },
                 "catalysts": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Objects or materials that initiate or enhance the phenomenon.",
+                    "description": "Objects or materials that initiate or enhance the phenomenon",
                     "category": "Object"
                 },
                 "empowerments": {
@@ -32,7 +32,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Abilities that initiate or enhance the phenomenon, or are initiated or enhanced by it.",
+                    "description": "Abilities that initiate or enhance the phenomenon, or are initiated or enhanced by it",
                     "category": "Ability"
                 }
             }
@@ -42,11 +42,11 @@
             "properties": {
                 "mythology": {
                     "type": "string",
-                    "description": "Cultural, religious, or narrative meaning associated with the phenomenon."
+                    "description": "Cultural, religious, or narrative meaning associated with the phenomenon"
                 },
                 "system": {
                     "type": "single-link",
-                    "description": "Broader phenomenon that this one is part of or linked to.",
+                    "description": "Broader phenomenon that this one is part of or linked to",
                     "category": "Phenomenon"
                 },
                 "triggers": {
@@ -54,7 +54,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Conceptual mechanisms or patterns that cause the phenomenon to activate.",
+                    "description": "Conceptual mechanisms or patterns that cause the phenomenon to activate",
                     "category": "Construct"
                 },
                 "wielders": {
@@ -62,7 +62,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Characters capable of intentionally directing or controlling the phenomenon.",
+                    "description": "Characters capable of intentionally directing or controlling the phenomenon",
                     "category": "Character"
                 },
                 "environments": {
@@ -70,7 +70,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Locations where the phenomenon occurs or is known to manifest.",
+                    "description": "Locations where the phenomenon occurs or is known to manifest",
                     "category": "Location"
                 }
             }
