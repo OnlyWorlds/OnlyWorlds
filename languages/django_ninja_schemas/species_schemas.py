@@ -9,20 +9,24 @@ class SpeciesBaseSchema(AbstractElementBaseSchema):
     # Biology
     appearance: str | None = None
     life_span: int | None = None
-    average_weight: int | None = None
-    nourishment_ids: list[uuid.UUID] | None = None
+    typical_weight: int | None = None
+    diet_ids: list[uuid.UUID] | None = None
+    reproduction_ids: list[uuid.UUID] | None = None
 
     # Psychology
     instincts: str | None = None
+    sociality: str | None = None
+    temperament: str | None = None
+    communication: str | None = None
     aggression: int | None = Field(None, le=100)
-    agency: str | None = None
-    languages_ids: list[uuid.UUID] | None = None
+    traits_ids: list[uuid.UUID] | None = None
 
     # World
-    impact: str | None = None
-    habitat_ids: list[uuid.UUID] | None = None
-    interaction_ids: list[uuid.UUID] | None = None
-    consumables_ids: list[uuid.UUID] | None = None
+    role: str | None = None
+    parent_species_id: uuid.UUID | None = None
+    locations_ids: list[uuid.UUID] | None = None
+    zones_ids: list[uuid.UUID] | None = None
+    affinities_ids: list[uuid.UUID] | None = None
 
 
 class SpeciesCreateInSchema(SpeciesBaseSchema):
@@ -35,11 +39,13 @@ class SpeciesUpdateInSchema(SpeciesBaseSchema):
 
 
 class SpeciesFilterSchema(BaseFilterSchema):
-    nourishment_ids: uuid.UUID | None = Field(None, q='nourishment__id')
-    languages_ids: uuid.UUID | None = Field(None, q='languages__id')
-    habitat_ids: uuid.UUID | None = Field(None, q='habitat__id')
-    interaction_ids: uuid.UUID | None = Field(None, q='interaction__id')
-    consumables_ids: uuid.UUID | None = Field(None, q='consumables__id')
+    diet_ids: uuid.UUID | None = Field(None, q='diet__id')
+    reproduction_ids: uuid.UUID | None = Field(None, q='reproduction__id')
+    traits_ids: uuid.UUID | None = Field(None, q='traits__id')
+    parent_species_id: uuid.UUID | None = Field(None, q='parent_species_id')
+    locations_ids: uuid.UUID | None = Field(None, q='locations__id')
+    zones_ids: uuid.UUID | None = Field(None, q='zones__id')
+    affinities_ids: uuid.UUID | None = Field(None, q='affinities__id')
 
 
 class SpeciesOutSchema(AbstractElementBaseSchema):
@@ -47,18 +53,22 @@ class SpeciesOutSchema(AbstractElementBaseSchema):
     # Biology
     appearance: str | None = None
     life_span: int | None = None
-    average_weight: int | None = None
-    nourishment: List[ElementNestedOutSchema] = []
+    typical_weight: int | None = None
+    diet: List[ElementNestedOutSchema] = []
+    reproduction: List[ElementNestedOutSchema] = []
 
     # Psychology
     instincts: str | None = None
+    sociality: str | None = None
+    temperament: str | None = None
+    communication: str | None = None
     aggression: int | None = Field(None, le=100)
-    agency: str | None = None
-    languages: List[ElementNestedOutSchema] = []
+    traits: List[ElementNestedOutSchema] = []
 
     # World
-    impact: str | None = None
-    habitat: List[ElementNestedOutSchema] = []
-    interaction: List[ElementNestedOutSchema] = []
-    consumables: List[ElementNestedOutSchema] = []
+    role: str | None = None
+    parent_species: ElementNestedOutSchema | None = None
+    locations: List[ElementNestedOutSchema] = []
+    zones: List[ElementNestedOutSchema] = []
+    affinities: List[ElementNestedOutSchema] = []
 

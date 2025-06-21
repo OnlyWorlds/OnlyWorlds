@@ -8,25 +8,33 @@
             "properties": {
                 "appearance": {
                     "type": "string",
-                    "description": "Physical description of the species, including notable features"
+                    "description": "Typcial physical or form featues of the species"
                 },
                 "life_span": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Average life expectancy of the species under natural conditions"
+                    "description": "Average life expectancy of an individual, in world defined TIME units"
                 },
-                "average_weight": {
+                "typical_weight": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Typical weight range for mature individuals of the species"
+                    "description": "Average adult weight, in world defined MASS units"
                 },
-                "nourishment": {
+                "diet": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Primary sources of food and nutrition for the species",
+                    "description": "Other species consumed as food sources",
                     "category": "Species"
+                },
+                "reproduction": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Reproductive method(s) of the species",
+                    "category": "Construct"
                 }
             }
         },
@@ -35,60 +43,72 @@
             "properties": {
                 "instincts": {
                     "type": "string",
-                    "description": "Innate behaviors and survival instincts of the species"
+                    "description": "Innate behavioral drives and survival tendencies"
+                },
+                "sociality": {
+                    "type": "string",
+                    "description": "Typical patterns of social behavior"
+                },
+                "temperament": {
+                    "type": "string",
+                    "description": "Overall behavioral disposition"
+                },
+                "communication": {
+                    "type": "string",
+                    "description": "Typical methods and approaches of interaction"
                 },
                 "aggression": {
                     "type": "integer",
                     "maximum": 100,
-                    "description": "Typical level of aggressiveness exhibited by the species"
+                    "description": "General aggressiveness level, on relative scale of 0 to 100"
                 },
-                "agency": {
-                    "type": "string",
-                    "description": "Capacity for self-directed behavior and decision-making in the species"
-                },
-                "languages": {
+                "traits": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Languages known or used by the species, if any",
-                    "category": "Language"
+                    "description": "Behavioral patterns associated with the species",
+                    "category": "Trait"
                 }
             }
         },
         "World": {
             "type": "object",
             "properties": {
-                "impact": {
+                "role": {
                     "type": "string",
-                    "description": "Overall effect or influence the species has on its environment"
+                    "description": "The species' ecological or cultural function in the world"
                 },
-                "habitat": {
+                "parent_species": {
+                    "type": "single-link",
+                    "category": "Species",
+                    "description": "Species that the species is considered a subspecies of"
+                },
+                "locations": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Primary natural habitats where the species is typically found",
+                    "description": "Locations associated with the species or its habitat",
                     "category": "Location"
                 },
-                "interaction": {
+                "zones": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Typical interactions of the species with other species or environmental elements",
-                    "category": "Phenomenon"
+                    "description": "Zones associated with the species or its habitat",
+                    "category": "Zone"
                 },
-                "consumables": {
+                "affinities": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Items that the species commonly consumes or utilizes",
-                    "category": "Construct"
+                    "description": "Phenomena associated with the species or its behavior",
+                    "category": "Phenomenon"
                 }
             }
         }
-    },
-    "Note": "The `predators` field, marked with a `ReverseLookupAttribute` in the Unity script, is omitted from this YAML representation as it typically implies indirect relationships or derived properties that are not directly relevant for this type of schema documentation. This YAML configuration offers a detailed view into the biological, psychological, and ecological characteristics of a species, aiming to provide a comprehensive understanding of its role and dynamics within its ecosystem."
+    }
 }
