@@ -25,7 +25,7 @@
 - <span class="link-field" data-tooltip="Single Object">Object</span>: {{linkify object}}
 - <span class="link-field" data-tooltip="Single Institution">Institution</span>: {{linkify institution}}
 - <span class="link-field" data-tooltip="Single Creature">Creature</span>: {{linkify creature}}
-- <span class="link-field" data-tooltip="Single Territory">Territory</span>: {{linkify territory}}
+- <span class="link-field" data-tooltip="Single Zone">Zone</span>: {{linkify zone}}
 - <span class="link-field" data-tooltip="Single Collective">Collective</span>: {{linkify collective}}
 - <span class="link-field" data-tooltip="Single Construct">Construct</span>: {{linkify construct}}
 

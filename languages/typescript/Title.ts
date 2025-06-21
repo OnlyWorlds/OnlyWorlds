@@ -17,7 +17,7 @@ export interface Title extends BaseElement {
   objectId?: string | null;
   institutionId?: string | null;
   creatureId?: string | null;
-  territoryId?: string | null;
+  zoneId?: string | null;
   collectiveId?: string | null;
   constructId?: string | null;
 }

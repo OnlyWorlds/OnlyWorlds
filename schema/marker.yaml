@@ -1,7 +1,7 @@
 +$schema: "http://json-schema.org/draft-07/schema#"
 title: "Marker"
 type: Marker
-description: Represents a graphical marker on a Map, such as a line (road, river) or polygon (territory, region)
+description: Represents a graphical marker on a Map, such as a line (road, river) or polygon (zone, region)
 
 properties: 
   Details:

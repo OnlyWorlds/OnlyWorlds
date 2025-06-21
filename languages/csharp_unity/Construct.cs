@@ -21,7 +21,7 @@ public class Construct : BaseElement
     public List<string> InstitutionsIds; = new List<string>();
     public List<string> TraitsIds; = new List<string>();
     public List<string> CollectivesIds; = new List<string>();
-    public List<string> TerritoriesIds; = new List<string>();
+    public List<string> ZonesIds; = new List<string>();
     public List<string> AbilitiesIds; = new List<string>();
     public List<string> PhenomenaIds; = new List<string>();
     public List<string> LanguagesIds; = new List<string>();

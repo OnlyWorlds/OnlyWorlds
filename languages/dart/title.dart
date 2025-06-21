@@ -15,7 +15,7 @@ class Title extends BaseElement {
   final String object; //ss object
   final String institution; //ss institution
   final String creature; //ss creature
-  final String territory; //ss territory
+  final String zone; //ss zone
   final String collective; //ss collective
   final String construct; //ss construct
 }

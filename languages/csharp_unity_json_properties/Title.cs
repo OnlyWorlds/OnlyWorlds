@@ -32,8 +32,8 @@ public class Title : Element
     public string institution;
     [JsonProperty("creature"), ReferenceAttribute(typeof(Creature))]
     public string creature;
-    [JsonProperty("territory"), ReferenceAttribute(typeof(Territory))]
-    public string territory;
+    [JsonProperty("zone"), ReferenceAttribute(typeof(Zone))]
+    public string zone;
     [JsonProperty("collective"), ReferenceAttribute(typeof(Collective))]
     public string collective;
     [JsonProperty("construct"), ReferenceAttribute(typeof(Construct))]

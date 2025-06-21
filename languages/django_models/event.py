@@ -20,7 +20,7 @@ class Event(AbstractElementModel):
     institutions = models.ManyToManyField("Institution", blank=True, related_name="event_institutions")
     traits = models.ManyToManyField("Trait", blank=True, related_name="event_traits")
     collectives = models.ManyToManyField("Collective", blank=True, related_name="event_collectives")
-    territories = models.ManyToManyField("Territory", blank=True, related_name="event_territories")
+    zones = models.ManyToManyField("Zone", blank=True, related_name="event_zones")
     abilities = models.ManyToManyField("Ability", blank=True, related_name="event_abilities")
     phenomena = models.ManyToManyField("Phenomenon", blank=True, related_name="event_phenomena")
     languages = models.ManyToManyField("Language", blank=True, related_name="event_languages")

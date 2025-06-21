@@ -21,7 +21,7 @@ class Title(AbstractElementModel):
     object = models.ForeignKey("Object", on_delete=models.SET_NULL, blank=True, null=True, related_name="title_object")
     institution = models.ForeignKey("Institution", on_delete=models.SET_NULL, blank=True, null=True, related_name="title_institution")
     creature = models.ForeignKey("Creature", on_delete=models.SET_NULL, blank=True, null=True, related_name="title_creature")
-    territory = models.ForeignKey("Territory", on_delete=models.SET_NULL, blank=True, null=True, related_name="title_territory")
+    zone = models.ForeignKey("Zone", on_delete=models.SET_NULL, blank=True, null=True, related_name="title_zone")
     collective = models.ForeignKey("Collective", on_delete=models.SET_NULL, blank=True, null=True, related_name="title_collective")
     construct = models.ForeignKey("Construct", on_delete=models.SET_NULL, blank=True, null=True, related_name="title_construct")
 

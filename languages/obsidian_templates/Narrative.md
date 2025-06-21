@@ -29,7 +29,7 @@
 - <span class="multi-link-field" data-tooltip="Multi Institution">Institutions</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Trait">Traits</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Collective">Collectives</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Territory">Territories</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Zone">Zones</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Ability">Abilities</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Phenomenon">Phenomena</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Language">Languages</span>: 

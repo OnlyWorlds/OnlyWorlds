@@ -28,7 +28,7 @@ class NarrativeBaseSchema(AbstractElementBaseSchema):
     institutions_ids: list[uuid.UUID] | None = None
     traits_ids: list[uuid.UUID] | None = None
     collectives_ids: list[uuid.UUID] | None = None
-    territories_ids: list[uuid.UUID] | None = None
+    zones_ids: list[uuid.UUID] | None = None
     abilities_ids: list[uuid.UUID] | None = None
     phenomena_ids: list[uuid.UUID] | None = None
     languages_ids: list[uuid.UUID] | None = None
@@ -63,7 +63,7 @@ class NarrativeFilterSchema(BaseFilterSchema):
     institutions_ids: uuid.UUID | None = Field(None, q='institutions__id')
     traits_ids: uuid.UUID | None = Field(None, q='traits__id')
     collectives_ids: uuid.UUID | None = Field(None, q='collectives__id')
-    territories_ids: uuid.UUID | None = Field(None, q='territories__id')
+    zones_ids: uuid.UUID | None = Field(None, q='zones__id')
     abilities_ids: uuid.UUID | None = Field(None, q='abilities__id')
     phenomena_ids: uuid.UUID | None = Field(None, q='phenomena__id')
     languages_ids: uuid.UUID | None = Field(None, q='languages__id')
@@ -98,7 +98,7 @@ class NarrativeOutSchema(AbstractElementBaseSchema):
     institutions: List[ElementNestedOutSchema] = []
     traits: List[ElementNestedOutSchema] = []
     collectives: List[ElementNestedOutSchema] = []
-    territories: List[ElementNestedOutSchema] = []
+    zones: List[ElementNestedOutSchema] = []
     abilities: List[ElementNestedOutSchema] = []
     phenomena: List[ElementNestedOutSchema] = []
     languages: List[ElementNestedOutSchema] = []

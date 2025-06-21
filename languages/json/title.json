@@ -78,10 +78,10 @@
                     "description": "Creature associated with the title, possibly as a symbol or totem.",
                     "category": "Creature"
                 },
-                "territory": {
+                "zone": {
                     "type": "single-link",
-                    "description": "Territory under the jurisdiction or influence of the title.",
-                    "category": "Territory"
+                    "description": "Zone under the jurisdiction or influence of the title.",
+                    "category": "Zone"
                 },
                 "collective": {
                     "type": "single-link",

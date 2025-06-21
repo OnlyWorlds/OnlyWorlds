@@ -19,7 +19,7 @@ CREATE TABLE title (
     object TEXT,
     institution TEXT,
     creature TEXT,
-    territory TEXT,
+    zone TEXT,
     collective TEXT,
     construct TEXT
 );

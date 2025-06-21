@@ -111,13 +111,13 @@
                     "description": "Collectives relevant to the construct.",
                     "category": "Collective"
                 },
-                "territories": {
+                "zones": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Territories relevant to the construct.",
-                    "category": "Territory"
+                    "description": "Zones relevant to the construct.",
+                    "category": "Zone"
                 },
                 "abilities": {
                     "type": "multi-link",

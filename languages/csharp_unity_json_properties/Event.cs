@@ -34,8 +34,8 @@ public class Event : Element
     public string traits;
     [JsonProperty("collectives"), ReferenceAttribute(typeof(Collective), true)]
     public string collectives;
-    [JsonProperty("territories"), ReferenceAttribute(typeof(Territory), true)]
-    public string territories;
+    [JsonProperty("zones"), ReferenceAttribute(typeof(Zone), true)]
+    public string zones;
     [JsonProperty("abilities"), ReferenceAttribute(typeof(Ability), true)]
     public string abilities;
     [JsonProperty("phenomena"), ReferenceAttribute(typeof(Phenomenon), true)]

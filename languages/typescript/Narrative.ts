@@ -22,7 +22,7 @@ export interface Narrative extends BaseElement {
   institutionsIds?: string[] | null;
   traitsIds?: string[] | null;
   collectivesIds?: string[] | null;
-  territoriesIds?: string[] | null;
+  zonesIds?: string[] | null;
   abilitiesIds?: string[] | null;
   phenomenaIds?: string[] | null;
   languagesIds?: string[] | null;

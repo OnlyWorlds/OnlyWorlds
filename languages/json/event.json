@@ -105,13 +105,13 @@
                     "description": "Groups or collectives relevant to the event.",
                     "category": "Collective"
                 },
-                "territories": {
+                "zones": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Territorial areas relevant to the event.",
-                    "category": "Territory"
+                    "description": "Zones relevant to the event.",
+                    "category": "Zone"
                 },
                 "abilities": {
                     "type": "multi-link",

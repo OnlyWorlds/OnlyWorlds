@@ -130,13 +130,13 @@
                     "description": "Groups relevant to the narrative.",
                     "category": "Collective"
                 },
-                "territories": {
+                "zones": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Territories relevant to the narrative.",
-                    "category": "Territory"
+                    "description": "Zones relevant to the narrative.",
+                    "category": "Zone"
                 },
                 "abilities": {
                     "type": "multi-link",

@@ -18,7 +18,7 @@ public class Title : BaseElement
     public string ObjectId;
     public string InstitutionId;
     public string CreatureId;
-    public string TerritoryId;
+    public string ZoneId;
     public string CollectiveId;
     public string ConstructId;
 }

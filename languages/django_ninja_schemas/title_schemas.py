@@ -23,7 +23,7 @@ class TitleBaseSchema(AbstractElementBaseSchema):
     object_id: uuid.UUID | None = None
     institution_id: uuid.UUID | None = None
     creature_id: uuid.UUID | None = None
-    territory_id: uuid.UUID | None = None
+    zone_id: uuid.UUID | None = None
     collective_id: uuid.UUID | None = None
     construct_id: uuid.UUID | None = None
 
@@ -44,7 +44,7 @@ class TitleFilterSchema(BaseFilterSchema):
     object_id: uuid.UUID | None = Field(None, q='object_id')
     institution_id: uuid.UUID | None = Field(None, q='institution_id')
     creature_id: uuid.UUID | None = Field(None, q='creature_id')
-    territory_id: uuid.UUID | None = Field(None, q='territory_id')
+    zone_id: uuid.UUID | None = Field(None, q='zone_id')
     collective_id: uuid.UUID | None = Field(None, q='collective_id')
     construct_id: uuid.UUID | None = Field(None, q='construct_id')
 
@@ -69,7 +69,7 @@ class TitleOutSchema(AbstractElementBaseSchema):
     object: ElementNestedOutSchema | None = None
     institution: ElementNestedOutSchema | None = None
     creature: ElementNestedOutSchema | None = None
-    territory: ElementNestedOutSchema | None = None
+    zone: ElementNestedOutSchema | None = None
     collective: ElementNestedOutSchema | None = None
     construct: ElementNestedOutSchema | None = None
 

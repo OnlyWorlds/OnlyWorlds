@@ -22,7 +22,7 @@ class Construct(AbstractElementModel):
     institutions = models.ManyToManyField("Institution", blank=True, related_name="construct_institutions")
     traits = models.ManyToManyField("Trait", blank=True, related_name="construct_traits")
     collectives = models.ManyToManyField("Collective", blank=True, related_name="construct_collectives")
-    territories = models.ManyToManyField("Territory", blank=True, related_name="construct_territories")
+    zones = models.ManyToManyField("Zone", blank=True, related_name="construct_zones")
     abilities = models.ManyToManyField("Ability", blank=True, related_name="construct_abilities")
     phenomena = models.ManyToManyField("Phenomenon", blank=True, related_name="construct_phenomena")
     languages = models.ManyToManyField("Language", blank=True, related_name="construct_languages")
