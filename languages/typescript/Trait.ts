@@ -4,18 +4,18 @@ export interface Trait extends BaseElement {
   // Qualitative
   socialEffects?: string | null;
   physicalEffects?: string | null;
-  skillEffects?: string | null;
+  functionalEffects?: string | null;
   personalityEffects?: string | null;
-  artisticEffects?: string | null;
   behaviourEffects?: string | null;
   // Quantitative
   charisma?: number | null;
   coercion?: number | null;
-  capability?: number | null;
+  competence?: number | null;
   compassion?: number | null;
   creativity?: number | null;
   courage?: number | null;
   // World
+  significance?: string | null;
   antiTraitId?: string | null;
   empoweredAbilitiesIds?: string[] | null;
 }

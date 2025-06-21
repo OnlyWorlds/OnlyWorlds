@@ -9,20 +9,20 @@ class TraitBaseSchema(AbstractElementBaseSchema):
     # Qualitative
     social_effects: str | None = None
     physical_effects: str | None = None
-    skill_effects: str | None = None
+    functional_effects: str | None = None
     personality_effects: str | None = None
-    artistic_effects: str | None = None
     behaviour_effects: str | None = None
 
     # Quantitative
     charisma: int | None = Field(None, le=100)
     coercion: int | None = Field(None, le=100)
-    capability: int | None = Field(None, le=100)
+    competence: int | None = Field(None, le=100)
     compassion: int | None = Field(None, le=100)
     creativity: int | None = Field(None, le=100)
     courage: int | None = Field(None, le=100)
 
     # World
+    significance: str | None = None
     anti_trait_id: uuid.UUID | None = None
     empowered_abilities_ids: list[uuid.UUID] | None = None
 
@@ -46,20 +46,20 @@ class TraitOutSchema(AbstractElementBaseSchema):
     # Qualitative
     social_effects: str | None = None
     physical_effects: str | None = None
-    skill_effects: str | None = None
+    functional_effects: str | None = None
     personality_effects: str | None = None
-    artistic_effects: str | None = None
     behaviour_effects: str | None = None
 
     # Quantitative
     charisma: int | None = Field(None, le=100)
     coercion: int | None = Field(None, le=100)
-    capability: int | None = Field(None, le=100)
+    competence: int | None = Field(None, le=100)
     compassion: int | None = Field(None, le=100)
     creativity: int | None = Field(None, le=100)
     courage: int | None = Field(None, le=100)
 
     # World
+    significance: str | None = None
     anti_trait: ElementNestedOutSchema | None = None
     empowered_abilities: List[ElementNestedOutSchema] = []
 
