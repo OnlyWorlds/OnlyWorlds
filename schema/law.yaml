@@ -5,7 +5,7 @@ properties:
   Code:
     type: "object"
     properties:
-      declaration :
+      declaration:
         type: "string"
         description: "The formal wording, expression, or decree of the law."
       purpose:

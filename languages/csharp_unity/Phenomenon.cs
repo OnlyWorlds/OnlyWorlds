@@ -3,20 +3,16 @@ using System.Collections.Generic;
 [System.Serializable]
 public class Phenomenon : BaseElement
 {
-    // Manifest
-    public string Presence;
-    public string Scope;
+    // Mechanics
+    public string Expression;
+    public string Effects;
     public int? Duration;
-    public string Intensity;
+    public List<string> CatalystsIds; = new List<string>();
     public List<string> EmpowermentsIds; = new List<string>();
-    public List<string> EnvironmentsIds; = new List<string>();
-    public List<string> CarriersIds; = new List<string>();
-    // Actuate
-    public string Effect;
-    public string CatalystsId;
-    public List<string> WieldersIds; = new List<string>();
-    public List<string> HandlersIds; = new List<string>();
-    public List<string> EnablersIds; = new List<string>();
+    // World
+    public string Mythology;
+    public string SystemId;
     public List<string> TriggersIds; = new List<string>();
-    public List<string> AffinityIds; = new List<string>();
+    public List<string> WieldersIds; = new List<string>();
+    public List<string> EnvironmentsIds; = new List<string>();
 }

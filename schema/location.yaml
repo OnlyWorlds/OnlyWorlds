@@ -59,6 +59,31 @@ properties:
         category: "Location"
         description: "Locations with active, cooperative, or historical ties."
 
+  World:
+    type: "object"
+    properties:
+      customs:
+        type: "string"
+        description: "Cultural practices, habits, or festivals."
+      founders:
+        type: "multi-link"
+        items:
+          type: "string"
+        category: "Character"
+        description: "Individual(s) who founded or named the location."
+      cults:
+        type: "multi-link"
+        items:
+          type: "string"
+        category: "Construct"
+        description: "Significant religious constructs practiced or recognized at the location."
+      delicacies:
+        type: "multi-link"
+        items:
+          type: "string"
+        category: "Species"
+        description: "Organisms or other species locally consumed or celebrated as specialty foods."
+
   Production:
     type: "object"
     properties:
@@ -130,31 +155,6 @@ properties:
           type: "string"
         category: "Construct"
         description: "Techniques or systems used to construct structures at the location."
-
-  World:
-    type: "object"
-    properties:
-      customs:
-        type: "string"
-        description: "Cultural practices, habits, or festivals."
-      founders:
-        type: "multi-link"
-        items:
-          type: "string"
-        category: "Character"
-        description: "Individual(s) who founded or named the location."
-      cults:
-        type: "multi-link"
-        items:
-          type: "string"
-        category: "Construct"
-        description: "Significant religious constructs practiced or recognized at the location."
-      delicacies:
-        type: "multi-link"
-        items:
-          type: "string"
-        category: "Species"
-        description: "Organisms or other species locally consumed or celebrated as specialty foods."
 
   Defense:
     type: "object"

@@ -13,7 +13,7 @@ properties:
       weight:
         type: integer
         maximum: 0
-        description: "Approximate weight of the creature, using the world's defined WEIGHT units."
+        description: "Approximate or exact weight of the creature, using world MASS units."
       height:
         type: integer
         maximum: 0

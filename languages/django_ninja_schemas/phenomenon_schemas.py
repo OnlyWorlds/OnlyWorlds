@@ -6,23 +6,19 @@ import uuid
 
 class PhenomenonBaseSchema(AbstractElementBaseSchema):
 
-    # Manifest
-    presence: str | None = None
-    scope: str | None = None
+    # Mechanics
+    expression: str | None = None
+    effects: str | None = None
     duration: int | None = None
-    intensity: str | None = None
+    catalysts_ids: list[uuid.UUID] | None = None
     empowerments_ids: list[uuid.UUID] | None = None
-    environments_ids: list[uuid.UUID] | None = None
-    carriers_ids: list[uuid.UUID] | None = None
 
-    # Actuate
-    effect: str | None = None
-    catalysts_id: uuid.UUID | None = None
-    wielders_ids: list[uuid.UUID] | None = None
-    handlers_ids: list[uuid.UUID] | None = None
-    enablers_ids: list[uuid.UUID] | None = None
+    # World
+    mythology: str | None = None
+    system_id: uuid.UUID | None = None
     triggers_ids: list[uuid.UUID] | None = None
-    affinity_ids: list[uuid.UUID] | None = None
+    wielders_ids: list[uuid.UUID] | None = None
+    environments_ids: list[uuid.UUID] | None = None
 
 
 class PhenomenonCreateInSchema(PhenomenonBaseSchema):
@@ -35,34 +31,27 @@ class PhenomenonUpdateInSchema(PhenomenonBaseSchema):
 
 
 class PhenomenonFilterSchema(BaseFilterSchema):
+    catalysts_ids: uuid.UUID | None = Field(None, q='catalysts__id')
     empowerments_ids: uuid.UUID | None = Field(None, q='empowerments__id')
-    environments_ids: uuid.UUID | None = Field(None, q='environments__id')
-    carriers_ids: uuid.UUID | None = Field(None, q='carriers__id')
-    catalysts_id: uuid.UUID | None = Field(None, q='catalysts_id')
-    wielders_ids: uuid.UUID | None = Field(None, q='wielders__id')
-    handlers_ids: uuid.UUID | None = Field(None, q='handlers__id')
-    enablers_ids: uuid.UUID | None = Field(None, q='enablers__id')
+    system_id: uuid.UUID | None = Field(None, q='system_id')
     triggers_ids: uuid.UUID | None = Field(None, q='triggers__id')
-    affinity_ids: uuid.UUID | None = Field(None, q='affinity__id')
+    wielders_ids: uuid.UUID | None = Field(None, q='wielders__id')
+    environments_ids: uuid.UUID | None = Field(None, q='environments__id')
 
 
 class PhenomenonOutSchema(AbstractElementBaseSchema):
 
-    # Manifest
-    presence: str | None = None
-    scope: str | None = None
+    # Mechanics
+    expression: str | None = None
+    effects: str | None = None
     duration: int | None = None
-    intensity: str | None = None
+    catalysts: List[ElementNestedOutSchema] = []
     empowerments: List[ElementNestedOutSchema] = []
-    environments: List[ElementNestedOutSchema] = []
-    carriers: List[ElementNestedOutSchema] = []
 
-    # Actuate
-    effect: str | None = None
-    catalysts: ElementNestedOutSchema | None = None
-    wielders: List[ElementNestedOutSchema] = []
-    handlers: List[ElementNestedOutSchema] = []
-    enablers: List[ElementNestedOutSchema] = []
+    # World
+    mythology: str | None = None
+    system: ElementNestedOutSchema | None = None
     triggers: List[ElementNestedOutSchema] = []
-    affinity: List[ElementNestedOutSchema] = []
+    wielders: List[ElementNestedOutSchema] = []
+    environments: List[ElementNestedOutSchema] = []
 
