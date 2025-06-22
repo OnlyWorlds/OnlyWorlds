@@ -1,11 +1,11 @@
 from django.conf import settings
 from django.db import models
 from django.db.models import JSONField
-import uuid
+from uuid_extensions import uuid7  # type: ignore
 
 class World(models.Model):
     objects = models.Manager()
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid7, editable=False)
     api_key = models.CharField(max_length=10, unique=True)
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)

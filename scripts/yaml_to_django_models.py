@@ -60,13 +60,13 @@ def get_django_field_type(yaml_type, field_details=None, model_name=None, is_wor
 
             required_imports.add("contenttypes_fields")
             required_imports.add("contenttypes_models")
-            required_imports.add("uuid")
+            required_imports.add("uuid7")
             return ('generic-link', ct_field_name, obj_id_field_name), required_imports
     elif isinstance(yaml_type, str):
         if yaml_type == 'UUID':
-            required_imports.add("uuid")
+            required_imports.add("uuid7")
             # Primary key is never blank/null
-            return "models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)", required_imports
+            return "models.UUIDField(primary_key=True, default=uuid7, editable=False)", required_imports
         elif yaml_type == 'String':
             if isinstance(field_details, dict) and field_details.get('field_name') == 'api_key':
                  # Special case for API key - assuming unique implies non-null/blank
@@ -93,8 +93,8 @@ def get_base_field_type(field_name, field_details, is_required=False):
 
     # Handle special fields for the base model - ID and Name are inherently required
     if field_name.lower() == 'id':
-        required_imports.add("uuid")
-        return "models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)", description, required_imports
+        required_imports.add("uuid7")
+        return "models.UUIDField(primary_key=True, default=uuid7, editable=False)", description, required_imports
     elif field_name.lower() == 'name':
         return "models.TextField(max_length=255)", description, required_imports # Always required
     elif field_name.lower() == 'description':
@@ -139,7 +139,7 @@ def get_base_field_type(field_name, field_details, is_required=False):
 
 def generate_abstract_element_model(base_properties_path, django_path):
     """Generate abstract base model for all element types."""
-    required_imports = {"models"}
+    required_imports = {"models", "uuid7"}
     model_content = "class AbstractElementModel(models.Model):\n"
     
     # Load base properties
@@ -172,8 +172,8 @@ def get_world_django_field_string(field_name, field_details):
     imports = {"models"} # Base import
 
     if field_name == 'id':
-        imports.add("uuid")
-        return "models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)", imports
+        imports.add("uuid7")
+        return "models.UUIDField(primary_key=True, default=uuid7, editable=False)", imports
     elif field_name == 'api_key':
         # Use maxLength from schema, default to 10 if not specified
         length = max_length if max_length is not None else 10
@@ -282,7 +282,7 @@ def generate_django_model(class_name, fields, required_imports, is_world=False):
     else: # Standard element model generation (including those with generic links)
         # Ensure UUID import if needed by generic link fields
         if any(isinstance(ft, tuple) and ft[0] == 'generic-link' for _, s_fields in fields for _, ft in s_fields):
-            required_imports.add("uuid")
+            required_imports.add("uuid7")
             required_imports.add("contenttypes_fields")
             required_imports.add("contenttypes_models")
 
@@ -312,8 +312,8 @@ def generate_import_statements(required_imports, class_name, is_world, is_abstra
     # Map the collected strings to actual import statements
     if "models" in required_imports:
         import_lines.append("from django.db import models")
-    if "uuid" in required_imports:
-        import_lines.append("import uuid")
+    if "uuid7" in required_imports:
+        import_lines.append("from uuid_extensions import uuid7  # type: ignore")
     if "validators" in required_imports:
         import_lines.append("from django.core.validators import MaxValueValidator")
     # Use distinct keys for GFK imports to avoid ambiguity
@@ -325,6 +325,8 @@ def generate_import_statements(required_imports, class_name, is_world, is_abstra
         import_lines.append("from django.conf import settings")
     if "JSONField" in required_imports:
         import_lines.append("from django.db.models import JSONField")
+    if "abstract_base_model" in required_imports:
+        import_lines.append("from ow.common.models import AbstractBaseModel")
 
     # Add base model import string unless it's the abstract model itself
     if not is_abstract:
