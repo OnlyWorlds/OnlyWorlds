@@ -34,10 +34,10 @@ export interface Character extends BaseElement {
   // TTRPG
   level?: number | null;
   hitPoints?: number | null;
-  sTR?: number | null;
-  dEX?: number | null;
-  cON?: number | null;
-  iNT?: number | null;
-  wIS?: number | null;
-  cHA?: number | null;
+  STR?: number | null;
+  DEX?: number | null;
+  CON?: number | null;
+  INT?: number | null;
+  WIS?: number | null;
+  CHA?: number | null;
 }

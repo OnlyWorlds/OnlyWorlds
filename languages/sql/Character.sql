@@ -33,10 +33,10 @@ CREATE TABLE character (
     rivals TEXT,
     level INTEGER,
     hit_points INTEGER,
-    str INTEGER,
-    dex INTEGER,
-    con INTEGER,
-    int INTEGER,
-    wis INTEGER,
-    cha INTEGER
+    STR INTEGER,
+    DEX INTEGER,
+    CON INTEGER,
+    INT INTEGER,
+    WIS INTEGER,
+    CHA INTEGER
 );
