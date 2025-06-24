@@ -34,18 +34,26 @@ def extract_fields_from_yaml(yaml_data, is_world=False):
     """Extract field definitions from YAML data."""
     fields = []
     
+    def should_preserve_case(field_name):
+        """Preserve case for short all-caps abbreviations (e.g., STR, DEX, API, URL)."""
+        return len(field_name) == 3 and field_name.isupper()
+    
     # Handle the World schema
     if is_world and 'World' in yaml_data:
         for field, field_type in yaml_data['World'].items():
             sql_type = get_sql_type_from_yaml_type(field_type)
-            fields.append((field.lower(), sql_type))
+            # Preserve uppercase for short all-caps abbreviations, otherwise lowercase
+            field_name = field if should_preserve_case(field) else field.lower()
+            fields.append((field_name, sql_type))
     # Handle schemas with 'properties' structure
     elif 'properties' in yaml_data:
         for section, section_data in yaml_data['properties'].items():
             if isinstance(section_data, dict) and 'properties' in section_data:
                 for field, field_details in section_data['properties'].items():
                     sql_type = get_sql_type_from_yaml_type(field_details)
-                    fields.append((field.lower(), sql_type))
+                    # Preserve uppercase for short all-caps abbreviations, otherwise lowercase
+                    field_name = field if should_preserve_case(field) else field.lower()
+                    fields.append((field_name, sql_type))
     
     return fields
 
@@ -86,14 +94,19 @@ def generate_element_sql(element_yaml_data, base_yaml_data, sql_path):
 
     all_fields_sql = []
     required_base_fields = base_yaml_data.get('required', [])
+    
+    def should_preserve_case(field_name):
+        """Preserve case for short all-caps abbreviations (e.g., STR, DEX, API, URL)."""
+        return len(field_name) == 3 and field_name.isupper()
 
     for field, details in base_yaml_data.get('properties', {}).items():
-        field_name_lower = field.lower()
+        # Preserve uppercase for short all-caps abbreviations, otherwise lowercase
+        field_name = field if should_preserve_case(field) else field.lower()
         sql_type = get_sql_type_from_yaml_type(details)
         not_null_constraint = " NOT NULL" if field in required_base_fields else ""
-        if field_name_lower == 'id':
+        if field_name.lower() == 'id':
             not_null_constraint = " NOT NULL PRIMARY KEY"
-        all_fields_sql.append(f"    {field_name_lower} {sql_type}{not_null_constraint}")
+        all_fields_sql.append(f"    {field_name} {sql_type}{not_null_constraint}")
 
     if 'properties' in element_yaml_data:
         for section, section_content in element_yaml_data['properties'].items():
@@ -102,10 +115,11 @@ def generate_element_sql(element_yaml_data, base_yaml_data, sql_path):
                 nested_required_fields = section_content.get('required', [])
 
                 for field, details in nested_properties.items():
-                    field_name_lower = field.lower()
+                    # Preserve uppercase for short all-caps abbreviations, otherwise lowercase
+                    field_name = field if should_preserve_case(field) else field.lower()
                     sql_type = get_sql_type_from_yaml_type(details)
                     not_null_constraint = " NOT NULL" if field in nested_required_fields else ""
-                    all_fields_sql.append(f"    {field_name_lower} {sql_type}{not_null_constraint}")
+                    all_fields_sql.append(f"    {field_name} {sql_type}{not_null_constraint}")
 
     with open(sql_path, 'w') as sql_file:
         sql_file.write(f"CREATE TABLE {table_name} (\n")
