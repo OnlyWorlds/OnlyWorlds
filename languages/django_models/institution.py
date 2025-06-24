@@ -1,5 +1,6 @@
 from .abstract_element_model import AbstractElementModel
 from django.db import models
+from ow.elements.models.object import Object as ObjectModel
 
 class Institution(AbstractElementModel):
 
@@ -10,7 +11,7 @@ class Institution(AbstractElementModel):
 
     # Claims
     zones = models.ManyToManyField("Zone", blank=True, related_name="institution_zones")
-    objects = models.ManyToManyField("Object", blank=True, related_name="institution_objects")
+    objects = models.ManyToManyField(ObjectModel, blank=True, related_name="institution_objects")  # type: ignore
     creatures = models.ManyToManyField("Creature", blank=True, related_name="institution_creatures")
 
     # World

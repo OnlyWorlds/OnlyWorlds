@@ -1,6 +1,7 @@
 from .abstract_element_model import AbstractElementModel
 from django.core.validators import MaxValueValidator
 from django.db import models
+from ow.elements.models.object import Object as ObjectModel
 
 class Relation(AbstractElementModel):
 
@@ -14,7 +15,7 @@ class Relation(AbstractElementModel):
 
     # Involves
     characters = models.ManyToManyField("Character", blank=True, related_name="relation_characters")
-    objects = models.ManyToManyField("Object", blank=True, related_name="relation_objects")
+    objects = models.ManyToManyField(ObjectModel, blank=True, related_name="relation_objects")  # type: ignore
     locations = models.ManyToManyField("Location", blank=True, related_name="relation_locations")
     species = models.ManyToManyField("Species", blank=True, related_name="relation_species")
     creatures = models.ManyToManyField("Creature", blank=True, related_name="relation_creatures")

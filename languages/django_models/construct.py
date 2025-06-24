@@ -1,5 +1,6 @@
 from .abstract_element_model import AbstractElementModel
 from django.db import models
+from ow.elements.models.object import Object as ObjectModel
 
 class Construct(AbstractElementModel):
 
@@ -15,7 +16,7 @@ class Construct(AbstractElementModel):
 
     # Involves
     characters = models.ManyToManyField("Character", blank=True, related_name="construct_characters")
-    objects = models.ManyToManyField("Object", blank=True, related_name="construct_objects")
+    objects = models.ManyToManyField(ObjectModel, blank=True, related_name="construct_objects")  # type: ignore
     locations = models.ManyToManyField("Location", blank=True, related_name="construct_locations")
     species = models.ManyToManyField("Species", blank=True, related_name="construct_species")
     creatures = models.ManyToManyField("Creature", blank=True, related_name="construct_creatures")

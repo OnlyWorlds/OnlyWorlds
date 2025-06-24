@@ -1,5 +1,6 @@
 from .abstract_element_model import AbstractElementModel
 from django.db import models
+from ow.elements.models.object import Object as ObjectModel
 
 class Narrative(AbstractElementModel):
 
@@ -18,7 +19,7 @@ class Narrative(AbstractElementModel):
     # Involves
     events = models.ManyToManyField("Event", blank=True, related_name="narrative_events")
     characters = models.ManyToManyField("Character", blank=True, related_name="narrative_characters")
-    objects = models.ManyToManyField("Object", blank=True, related_name="narrative_objects")
+    objects = models.ManyToManyField(ObjectModel, blank=True, related_name="narrative_objects")  # type: ignore
     locations = models.ManyToManyField("Location", blank=True, related_name="narrative_locations")
     species = models.ManyToManyField("Species", blank=True, related_name="narrative_species")
     creatures = models.ManyToManyField("Creature", blank=True, related_name="narrative_creatures")

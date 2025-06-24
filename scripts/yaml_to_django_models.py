@@ -36,8 +36,15 @@ def get_django_field_type(yaml_type, field_details=None, model_name=None, is_wor
                 field_name = field_details.get('field_name', '')
                 related_name = f'"{model_name.lower()}_{field_name}"' if model_name and field_name else None
                 related_name_str = f", related_name={related_name}" if related_name else ""
-                field_str = f'models.ManyToManyField("{category}"{m2m_attrs}{related_name_str})'
-                return field_str, required_imports
+                
+                # Special handling for Object category when field name is 'objects'
+                if category == "Object" and field_name == "objects":
+                    required_imports.add("object_model")
+                    field_str = f'models.ManyToManyField(ObjectModel{m2m_attrs}{related_name_str})  # type: ignore'
+                    return field_str, required_imports
+                else:
+                    field_str = f'models.ManyToManyField("{category}"{m2m_attrs}{related_name_str})'
+                    return field_str, required_imports
             return f'models.ManyToManyField("Element"{m2m_attrs})', required_imports
         elif yaml_type_str == 'single-link':
             if isinstance(field_details, dict) and 'category' in field_details:
@@ -327,6 +334,8 @@ def generate_import_statements(required_imports, class_name, is_world, is_abstra
         import_lines.append("from django.db.models import JSONField")
     if "abstract_base_model" in required_imports:
         import_lines.append("from ow.common.models import AbstractBaseModel")
+    if "object_model" in required_imports:
+        import_lines.append("from ow.elements.models.object import Object as ObjectModel")
 
     # Add base model import string unless it's the abstract model itself
     if not is_abstract:

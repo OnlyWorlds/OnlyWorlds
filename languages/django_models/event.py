@@ -1,5 +1,6 @@
 from .abstract_element_model import AbstractElementModel
 from django.db import models
+from ow.elements.models.object import Object as ObjectModel
 
 class Event(AbstractElementModel):
 
@@ -13,7 +14,7 @@ class Event(AbstractElementModel):
 
     # Involves
     characters = models.ManyToManyField("Character", blank=True, related_name="event_characters")
-    objects = models.ManyToManyField("Object", blank=True, related_name="event_objects")
+    objects = models.ManyToManyField(ObjectModel, blank=True, related_name="event_objects")  # type: ignore
     locations = models.ManyToManyField("Location", blank=True, related_name="event_locations")
     species = models.ManyToManyField("Species", blank=True, related_name="event_species")
     creatures = models.ManyToManyField("Creature", blank=True, related_name="event_creatures")

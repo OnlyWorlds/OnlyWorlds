@@ -1,5 +1,6 @@
 from .abstract_element_model import AbstractElementModel
 from django.db import models
+from ow.elements.models.object import Object as ObjectModel
 
 class Title(AbstractElementModel):
 
@@ -22,7 +23,7 @@ class Title(AbstractElementModel):
     families = models.ManyToManyField("Family", blank=True, related_name="title_families")
     zones = models.ManyToManyField("Zone", blank=True, related_name="title_zones")
     locations = models.ManyToManyField("Location", blank=True, related_name="title_locations")
-    objects = models.ManyToManyField("Object", blank=True, related_name="title_objects")
+    objects = models.ManyToManyField(ObjectModel, blank=True, related_name="title_objects")  # type: ignore
     constructs = models.ManyToManyField("Construct", blank=True, related_name="title_constructs")
     laws = models.ManyToManyField("Law", blank=True, related_name="title_laws")
     collectives = models.ManyToManyField("Collective", blank=True, related_name="title_collectives")
