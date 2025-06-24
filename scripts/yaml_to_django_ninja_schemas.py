@@ -123,6 +123,25 @@ def generate_field_definition(field_name, yaml_details, imports_tracker, context
         assign = default_assignment if not is_required else ""
         return [f"{py_field_name}: {py_type_hint}{assign}"]
 
+def generate_objects_resolver(category_name):
+    """Generate the objects field resolver method for Django schemas."""
+    return f'''
+    @staticmethod
+    def resolve_objects(obj) -> List[ElementNestedOutSchema]:
+        """Resolves the 'objects' field overlap for django by querying the reverse M2M relation."""
+        try:
+            Object = apps.get_model("elements", "Object") 
+            return list(Object.objects.filter({category_name.lower()}_objects=obj)) # type: ignore
+        except LookupError:
+            print("Error: Could not find Object model in resolve_objects.")
+            return []
+        except AttributeError: 
+            print(f"Error: Attribute error resolving objects for {category_name} {{obj.pk}}. Check related_name.")
+            return []
+        except Exception as e:
+            print(f"Error resolving objects for {category_name} {{obj.pk}}: {{e}}")
+            return []'''
+
 def generate_category_schema(category_name, category_yaml_path, output_file):
     category_yaml = safe_load_yaml(category_yaml_path)
     if not category_yaml or 'properties' not in category_yaml:
@@ -135,7 +154,8 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
         'base': f"from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema",
         'ninja': "from ninja import Field # type: ignore",
         'typing_List': "from typing import List",
-        'uuid': "import uuid"
+        'uuid': "import uuid",
+        'apps': "from django.apps import apps"
     }
     imports_tracker = defaultdict(bool)
     imports_tracker['base'] = True
@@ -145,6 +165,7 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
     base_schema_fields_dict = defaultdict(list)
     out_schema_fields_dict = defaultdict(list)
     filter_schema_fields = []
+    has_objects_field = False
 
     for section, section_data in category_yaml.get('properties', {}).items():
         if isinstance(section_data, dict) and 'properties' in section_data:
@@ -155,6 +176,11 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
                 original_field_name = field
                 is_field_required = original_field_name in nested_required
                 yaml_link_type = details.get('type') if isinstance(details, dict) else None
+
+                # Check if this is the 'objects' field
+                if original_field_name == 'objects' and yaml_link_type == 'multi-link':
+                    has_objects_field = True
+                    imports_tracker['apps'] = True
 
                 py_schema_name = original_field_name
                 py_explicit_alias_for_base = None
@@ -223,6 +249,7 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
     if imports_tracker['typing_List']: typing_imports.append("List")
     if typing_imports: final_import_lines.append(f"from typing import {', '.join(typing_imports)}")
     if imports_tracker['uuid']: final_import_lines.append(imports_needed['uuid'])
+    if imports_tracker['apps']: final_import_lines.append(imports_needed['apps'])
     content = "\n".join(final_import_lines) + "\n\n\n"
 
     content += f"class {class_name_base}BaseSchema(AbstractElementBaseSchema):\n"
@@ -268,6 +295,11 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
             added_out_fields = True
     if not added_out_fields:
         content += "    pass\n"
+    
+    # Add the objects resolver if the schema has an objects field
+    if has_objects_field:
+        content += generate_objects_resolver(category_name)
+    
     content += "\n"
 
     with open(output_file, 'w', encoding='utf-8') as f:

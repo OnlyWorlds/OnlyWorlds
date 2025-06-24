@@ -2,6 +2,7 @@ from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, Bas
 from ninja import Field # type: ignore
 from typing import List
 import uuid
+from django.apps import apps
 
 
 class NarrativeBaseSchema(AbstractElementBaseSchema):
@@ -108,3 +109,18 @@ class NarrativeOutSchema(AbstractElementBaseSchema):
     constructs: List[ElementNestedOutSchema] = []
     laws: List[ElementNestedOutSchema] = []
 
+    @staticmethod
+    def resolve_objects(obj) -> List[ElementNestedOutSchema]:
+        """Resolves the 'objects' field overlap for django by querying the reverse M2M relation."""
+        try:
+            Object = apps.get_model("elements", "Object") 
+            return list(Object.objects.filter(narrative_objects=obj)) # type: ignore
+        except LookupError:
+            print("Error: Could not find Object model in resolve_objects.")
+            return []
+        except AttributeError: 
+            print(f"Error: Attribute error resolving objects for narrative {obj.pk}. Check related_name.")
+            return []
+        except Exception as e:
+            print(f"Error resolving objects for narrative {obj.pk}: {e}")
+            return []
