@@ -14,7 +14,7 @@ public class Collective : Element
     public int formationDate;
     [JsonProperty("operator"), ReferenceAttribute(typeof(Institution))]
     public string operator;
-    [JsonProperty("equipment"), ReferenceAttribute(typeof(Construct), true)]
+    [JsonProperty("equipment"), ReferenceAttribute(typeof(Object), true)]
     public string equipment;
     [JsonProperty("activity"), TextAttribute("")]
     public string activity;

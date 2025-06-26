@@ -31,7 +31,7 @@
                         "type": "string"
                     },
                     "description": "Tools or gear in possession of and/or regularly used by the collective",
-                    "category": "Construct"
+                    "category": "Object"
                 }
             }
         },

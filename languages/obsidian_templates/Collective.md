@@ -12,7 +12,7 @@
 - <span class="number-field" data-tooltip="Number, max: 0">Count</span>: 
 - <span class="number-field" data-tooltip="Number, max: 0">Formation_date</span>: 
 - <span class="link-field" data-tooltip="Single Institution">Operator</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Construct">Equipment</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Object">Equipment</span>: 
 
 ## Dynamics
 - <span class="text-field" data-tooltip="Text">Activity</span>: 

@@ -8,7 +8,7 @@ class Collective(AbstractElementModel):
     count = models.PositiveIntegerField(blank=True, null=True)
     formation_date = models.PositiveIntegerField(blank=True, null=True)
     operator = models.ForeignKey("Institution", on_delete=models.SET_NULL, blank=True, null=True, related_name="collective_operator")
-    equipment = models.ManyToManyField("Construct", blank=True, related_name="collective_equipment")
+    equipment = models.ManyToManyField("Object", blank=True, related_name="collective_equipment")
 
     # Dynamics
     activity = models.TextField(blank=True, null=True)

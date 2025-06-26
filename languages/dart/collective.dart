@@ -4,7 +4,7 @@ class Collective extends BaseElement {
   final int count;
   final int formationDate;
   final String operator; //ss institution
-  final String equipment; //ms construct
+  final String equipment; //ms object
   // Dynamics
   final String activity;
   final String disposition;
