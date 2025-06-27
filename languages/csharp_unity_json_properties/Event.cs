@@ -8,14 +8,16 @@ public class Event : Element
 {
     [JsonProperty("history"), TextAttribute("")]
     public string history;
+    [JsonProperty("challenges"), TextAttribute("")]
+    public string challenges;
     [JsonProperty("consequences"), TextAttribute("")]
     public string consequences;
     [JsonProperty("start_date"), Integer(0)]
     public int startDate;
     [JsonProperty("end_date"), Integer(0)]
     public int endDate;
-    [JsonProperty("adversity"), TextAttribute("")]
-    public string adversity;
+    [JsonProperty("triggers"), ReferenceAttribute(typeof(Event), true)]
+    public string triggers;
     [JsonProperty("characters"), ReferenceAttribute(typeof(Character), true)]
     public string characters;
     [JsonProperty("objects"), ReferenceAttribute(typeof(Object), true)]
@@ -32,8 +34,8 @@ public class Event : Element
     public string traits;
     [JsonProperty("collectives"), ReferenceAttribute(typeof(Collective), true)]
     public string collectives;
-    [JsonProperty("territories"), ReferenceAttribute(typeof(Territory), true)]
-    public string territories;
+    [JsonProperty("zones"), ReferenceAttribute(typeof(Zone), true)]
+    public string zones;
     [JsonProperty("abilities"), ReferenceAttribute(typeof(Ability), true)]
     public string abilities;
     [JsonProperty("phenomena"), ReferenceAttribute(typeof(Phenomenon), true)]

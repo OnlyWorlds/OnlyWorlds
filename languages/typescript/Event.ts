@@ -3,10 +3,11 @@ import { BaseElement } from './base_elements';
 export interface Event extends BaseElement {
   // Nature
   history?: string | null;
+  challenges?: string | null;
   consequences?: string | null;
   startDate?: number | null;
   endDate?: number | null;
-  adversity?: string | null;
+  triggersIds?: string[] | null;
   // Involves
   charactersIds?: string[] | null;
   objectsIds?: string[] | null;
@@ -16,7 +17,7 @@ export interface Event extends BaseElement {
   institutionsIds?: string[] | null;
   traitsIds?: string[] | null;
   collectivesIds?: string[] | null;
-  territoriesIds?: string[] | null;
+  zonesIds?: string[] | null;
   abilitiesIds?: string[] | null;
   phenomenaIds?: string[] | null;
   languagesIds?: string[] | null;

@@ -22,14 +22,18 @@
                     "type": "integer",
                     "description": "In pixels"
                 },
+                "depth": {
+                    "type": "integer",
+                    "description": "In pixels"
+                },
                 "parent_map": {
                     "type": "single-link",
-                    "description": "Map that represents an area that entirely contains this map",
+                    "description": "Map within which this map is contained",
                     "category": "Map"
                 },
                 "location": {
                     "type": "single-link",
-                    "description": "Location element that is directly associated with this map",
+                    "description": "Location element that this map represents",
                     "category": "Location"
                 }
             }

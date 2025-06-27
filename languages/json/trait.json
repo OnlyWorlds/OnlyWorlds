@@ -8,27 +8,23 @@
             "properties": {
                 "social_effects": {
                     "type": "string",
-                    "description": "Effects of the trait on social interactions and relationships."
+                    "description": "Relating to social relationships, reputation, or interaction dynamics"
                 },
                 "physical_effects": {
                     "type": "string",
-                    "description": "Physical changes or impacts caused by the trait."
+                    "description": "Relating to physical changes, limitations, or enhancements"
                 },
-                "skill_effects": {
+                "functional_effects": {
                     "type": "string",
-                    "description": "Influences of the trait on the skills or abilities of an individual."
+                    "description": "Relating to practical or learned performance or aptitude"
                 },
                 "personality_effects": {
                     "type": "string",
-                    "description": "How the trait affects personality or mental states."
-                },
-                "artistic_effects": {
-                    "type": "string",
-                    "description": "Impact of the trait on artistic abilities or perceptions."
+                    "description": "Relating to temperament, mental state, or personality expression"
                 },
                 "behaviour_effects": {
                     "type": "string",
-                    "description": "Changes in behavior attributed to the trait."
+                    "description": "Relating to visible aspects and patterns of behavior"
                 }
             }
         },
@@ -37,42 +33,52 @@
             "properties": {
                 "charisma": {
                     "type": "integer",
+                    "minimum": -100,
                     "maximum": 100,
-                    "description": "Influence of the trait on charisma scores."
+                    "description": "Affecting a character's charisma score"
                 },
                 "coercion": {
                     "type": "integer",
+                    "minimum": -100,
                     "maximum": 100,
-                    "description": "Effect of the trait on coercion capabilities."
+                    "description": "Affecting a character's coercion score"
                 },
-                "capability": {
+                "competence": {
                     "type": "integer",
+                    "minimum": -100,
                     "maximum": 100,
-                    "description": "Impact of the trait on overall capability."
+                    "description": "Affecting a character's competence score"
                 },
                 "compassion": {
                     "type": "integer",
+                    "minimum": -100,
                     "maximum": 100,
-                    "description": "Influence of the trait on compassion levels."
+                    "description": "Affecting a character's compassion score"
                 },
                 "creativity": {
                     "type": "integer",
+                    "minimum": -100,
                     "maximum": 100,
-                    "description": "Effect of the trait on creativity scores."
+                    "description": "Affecting a character's creativity score"
                 },
                 "courage": {
                     "type": "integer",
+                    "minimum": -100,
                     "maximum": 100,
-                    "description": "Contribution of the trait to courage."
+                    "description": "Affecting a character's courage score"
                 }
             }
         },
         "World": {
             "type": "object",
             "properties": {
+                "significance": {
+                    "type": "string",
+                    "description": "Describes the trait's societal, symbolic, or systemic presence"
+                },
                 "anti_trait": {
                     "type": "single-link",
-                    "description": "A trait that opposes or negates this trait.",
+                    "description": "Opposing trait that contradicts or nullifies the trait",
                     "category": "Trait"
                 },
                 "empowered_abilities": {
@@ -80,7 +86,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Abilities that are enhanced or activated by this trait.",
+                    "description": "Abilities strengthened or enabled by the trait",
                     "category": "Ability"
                 }
             }

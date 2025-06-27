@@ -4,14 +4,16 @@ using System.Collections.Generic;
 public class Law : BaseElement
 {
     // Code
-    public string Decree;
-    public int? Date;
+    public string Declaration;
     public string Purpose;
-    public string AuthorId;
-    // Compulsion
-    public List<string> JurisdictionsIds; = new List<string>();
-    public List<string> ProhibitionsIds; = new List<string>();
+    public int? Date;
+    public string ParentLawId;
     public List<string> PenaltiesIds; = new List<string>();
+    // World
+    public string AuthorId;
+    public List<string> LocationsIds; = new List<string>();
+    public List<string> ZonesIds; = new List<string>();
+    public List<string> ProhibitionsIds; = new List<string>();
     public List<string> AdjudicatorsIds; = new List<string>();
     public List<string> EnforcersIds; = new List<string>();
 }

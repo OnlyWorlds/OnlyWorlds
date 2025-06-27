@@ -9,10 +9,11 @@
 
 ## Nature
 - <span class="string" data-tooltip="Text">History</span>: {{history}}
+- <span class="string" data-tooltip="Text">Challenges</span>: {{challenges}}
 - <span class="string" data-tooltip="Text">Consequences</span>: {{consequences}}
 - <span class="integer" data-tooltip="Number, max: 0">Start_date</span>: {{start_date}}
 - <span class="integer" data-tooltip="Number, max: 0">End_date</span>: {{end_date}}
-- <span class="string" data-tooltip="Text">Adversity</span>: {{adversity}}
+- <span class="multi-link-field" data-tooltip="Multi Event">Triggers</span>: {{linkify triggers}}
 
 ## Involves
 - <span class="multi-link-field" data-tooltip="Multi Character">Characters</span>: {{linkify characters}}
@@ -23,7 +24,7 @@
 - <span class="multi-link-field" data-tooltip="Multi Institution">Institutions</span>: {{linkify institutions}}
 - <span class="multi-link-field" data-tooltip="Multi Trait">Traits</span>: {{linkify traits}}
 - <span class="multi-link-field" data-tooltip="Multi Collective">Collectives</span>: {{linkify collectives}}
-- <span class="multi-link-field" data-tooltip="Multi Territory">Territories</span>: {{linkify territories}}
+- <span class="multi-link-field" data-tooltip="Multi Zone">Zones</span>: {{linkify zones}}
 - <span class="multi-link-field" data-tooltip="Multi Ability">Abilities</span>: {{linkify abilities}}
 - <span class="multi-link-field" data-tooltip="Multi Phenomenon">Phenomena</span>: {{linkify phenomena}}
 - <span class="multi-link-field" data-tooltip="Multi Language">Languages</span>: {{linkify languages}}

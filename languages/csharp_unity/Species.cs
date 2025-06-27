@@ -6,16 +6,21 @@ public class Species : BaseElement
     // Biology
     public string Appearance;
     public int? LifeSpan;
-    public int? AverageWeight;
+    public int? Weight;
     public List<string> NourishmentIds; = new List<string>();
+    public List<string> ReproductionIds; = new List<string>();
+    public List<string> AdaptationsIds; = new List<string>();
     // Psychology
     public string Instincts;
+    public string Sociality;
+    public string Temperament;
+    public string Communication;
     public int? Aggression;
-    public string Agency;
-    public List<string> LanguagesIds; = new List<string>();
+    public List<string> TraitsIds; = new List<string>();
     // World
-    public string Impact;
-    public List<string> HabitatIds; = new List<string>();
-    public List<string> InteractionIds; = new List<string>();
-    public List<string> ConsumablesIds; = new List<string>();
+    public string Role;
+    public string ParentSpeciesId;
+    public List<string> LocationsIds; = new List<string>();
+    public List<string> ZonesIds; = new List<string>();
+    public List<string> AffinitiesIds; = new List<string>();
 }

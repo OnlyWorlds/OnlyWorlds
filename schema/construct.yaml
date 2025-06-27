@@ -5,31 +5,35 @@ properties:
   Nature:
     type: "object"
     properties:
+      rationale:
+        type: "string"
+        description: "The internal reasoning, structure, or justification of how the construct functions or makes sense within the world"
       history:
         type: "string"
-        description: "Historical background of the construct."
-      understanding:
+        description: "The historical development or ideation of the construct, and its place in wider historical contexts"
+      status:
         type: "string"
-        description: "Level of understanding or knowledge about the construct."
-      state:
+        description: "The present condition or operational status of the construct"
+      reach:
         type: "string"
-        description: "Current state or condition of the construct."
+        description: "The geographic, cultural, or political extent of the construct's influence"
       start_date:
         type: "integer"
         maximum: 0
-        description: "Date when the construct was initiated, represented as an integer (e.g., YYYYMMDD)."
+        description: "The point in time when the construct began or was first established (uses world's TIME definition)"
       end_date:
         type: "integer"
         maximum: 0
-        description: "Date when the construct was concluded or terminated, if applicable."
+        description: "The point in time when the construct ceased to function or lost its meaning"
       founder:
         type: "single-link"
-        description: "Character who founded or initiated the construct"
+        description: "Character who conceived or initiated the construct"
         category: "Character"
-      organiser:
+      custodian:
         type: "single-link"
-        description: "Institution responsible for organising or managing the construct"
+        description: "Institution maintaining, enforcing, or exploiting the construct"
         category: "Institution"
+
   Involves:
     type: "object"
     properties:
@@ -37,95 +41,107 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-        description: "Characters involved in or associated with the construct"
+        description: "Characters relevant to the construct"
         category: "Character"
       objects:
         type: "multi-link"
         items:
           type: "string"
-        description: "Objects integral to the construct"
+        description: "Objects relevant to the construct"
         category: "Object"
       locations:
         type: "multi-link"
         items:
           type: "string"
-        description: "Locations where the construct is relevant or operational"
+        description: "Locations relevant to the construct"
         category: "Location"
       species:
         type: "multi-link"
         items:
           type: "string"
-        description: "Species involved or affected by the construct"
+        description: "Species relevant to the construct"
         category: "Species"
       creatures:
         type: "multi-link"
         items:
           type: "string"
-        description: "Creatures associated with the construct"
+        description: "Creatures relevant to the construct"
         category: "Creature"
       institutions:
         type: "multi-link"
         items:
           type: "string"
-        description: "Institutions that play a role in the construct"
+        description: "Institutions relevant to the construct"
         category: "Institution"
       traits:
         type: "multi-link"
         items:
           type: "string"
-        description: "Traits that are emphasized or affected by the construct"
+        description: "Traits relevant to the construct"
         category: "Trait"
       collectives:
         type: "multi-link"
         items:
           type: "string"
-        description: "Collectives that are part of or formed because of the construct"
+        description: "Collectives relevant to the construct"
         category: "Collective"
-      territories:
+      zones:
         type: "multi-link"
         items:
           type: "string"
-        description: "Territories under the influence or control of the construct"
-        category: "Territory"
+        description: "Zones relevant to the construct"
+        category: "Zone"
       abilities:
         type: "multi-link"
         items:
           type: "string"
-        description: "Abilities developed or required by the construct"
+        description: "Abilities relevant to the construct"
         category: "Ability"
       phenomena:
         type: "multi-link"
         items:
           type: "string"
-        description: "Phenomena that occur or are studied within the construct"
+        description: "Phenomena relevant to the construct"
         category: "Phenomenon"
       languages:
         type: "multi-link"
         items:
           type: "string"
-        description: "Languages used or promoted by the construct"
+        description: "Languages relevant to the construct"
         category: "Language"
       families:
         type: "multi-link"
         items:
           type: "string"
-        description: "Families that are central or integral to the construct"
+        description: "Families relevant to the construct"
         category: "Family"
       relations:
         type: "multi-link"
         items:
           type: "string"
-        description: "Relations forged or affected by the construct"
+          description: "Relations relevant to the construct"
         category: "Relation"
       titles:
         type: "multi-link"
         items:
           type: "string"
-        description: "Titles granted or recognized within the construct"
+        description: "Titles relevant to the construct"
         category: "Title"
       constructs:
         type: "multi-link"
         items:
           type: "string"
-        description: "Other constructs that are connected to or derived from this construct"
+        description: "Other constructs relevant to the construct"
         category: "Construct"
+      events:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Events relevant to the construct"
+        category: "Event"
+      narratives:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Narratives relevant to the construct"
+        category: "Narrative"

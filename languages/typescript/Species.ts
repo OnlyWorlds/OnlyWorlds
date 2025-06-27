@@ -4,16 +4,21 @@ export interface Species extends BaseElement {
   // Biology
   appearance?: string | null;
   lifeSpan?: number | null;
-  averageWeight?: number | null;
+  weight?: number | null;
   nourishmentIds?: string[] | null;
+  reproductionIds?: string[] | null;
+  adaptationsIds?: string[] | null;
   // Psychology
   instincts?: string | null;
+  sociality?: string | null;
+  temperament?: string | null;
+  communication?: string | null;
   aggression?: number | null;
-  agency?: string | null;
-  languagesIds?: string[] | null;
+  traitsIds?: string[] | null;
   // World
-  impact?: string | null;
-  habitatIds?: string[] | null;
-  interactionIds?: string[] | null;
-  consumablesIds?: string[] | null;
+  role?: string | null;
+  parentSpeciesId?: string | null;
+  locationsIds?: string[] | null;
+  zonesIds?: string[] | null;
+  affinitiesIds?: string[] | null;
 }

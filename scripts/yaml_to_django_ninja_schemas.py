@@ -123,6 +123,57 @@ def generate_field_definition(field_name, yaml_details, imports_tracker, context
         assign = default_assignment if not is_required else ""
         return [f"{py_field_name}: {py_type_hint}{assign}"]
 
+def generate_objects_resolver(category_name):
+    """Generate the objects field resolver method for Django schemas."""
+    return f'''
+    @staticmethod
+    def resolve_objects(obj) -> List[ElementNestedOutSchema]:
+        """Resolves the 'objects' field overlap for django by querying the reverse M2M relation."""
+        try:
+            Object = apps.get_model("elements", "Object") 
+            return list(Object.objects.filter({category_name.lower()}_objects=obj)) # type: ignore
+        except LookupError:
+            print("Error: Could not find Object model in resolve_objects.")
+            return []
+        except AttributeError: 
+            print(f"Error: Attribute error resolving objects for {category_name} {{obj.pk}}. Check related_name.")
+            return []
+        except Exception as e:
+            print(f"Error resolving objects for {category_name} {{obj.pk}}: {{e}}")
+            return []'''
+
+def get_pin_field_requirements(field_name, schema_type):
+    """Define Pin-specific field requirement overrides based on schema type."""
+    pin_overrides = {
+        'base': {
+            'element_type': False,  # Optional in base (even though YAML says required)
+            'element_id': False,    # Optional in base (even though YAML says required)
+        },
+        'create': {
+            'element_type': True,  # Required in create
+            'element_id': True,    # Required in create
+        },
+        'update': {
+            'map_id': False,      # Optional in update 
+            'x': False,           # Optional in update
+            'y': False,           # Optional in update
+        }
+    }
+    
+    if schema_type in pin_overrides:
+        return pin_overrides[schema_type].get(field_name, None)
+    return None
+
+def generate_pin_validator():
+    """Generate the ContentType validator for Pin OutSchema."""
+    return '''
+    @field_validator('element_type', mode='before')
+    @classmethod
+    def validate_element_type_output(cls, value):
+        if isinstance(value, ContentType):
+            return value.model.capitalize() 
+        return value'''
+
 def generate_category_schema(category_name, category_yaml_path, output_file):
     category_yaml = safe_load_yaml(category_yaml_path)
     if not category_yaml or 'properties' not in category_yaml:
@@ -130,21 +181,31 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
         return
 
     class_name_base = category_name.capitalize()
+    is_pin = category_name.lower() == 'pin'
 
     imports_needed = {
         'base': f"from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, BaseFilterSchema",
         'ninja': "from ninja import Field # type: ignore",
         'typing_List': "from typing import List",
-        'uuid': "import uuid"
+        'uuid': "import uuid",
+        'apps': "from django.apps import apps",
+        'contenttypes': "from django.contrib.contenttypes.models import ContentType",
+        'field_validator': "from pydantic import field_validator"
     }
     imports_tracker = defaultdict(bool)
     imports_tracker['base'] = True
     imports_tracker['ninja'] = True
     imports_tracker['uuid'] = True
 
+    # Pin-specific imports
+    if is_pin:
+        imports_tracker['contenttypes'] = True
+        imports_tracker['field_validator'] = True
+
     base_schema_fields_dict = defaultdict(list)
     out_schema_fields_dict = defaultdict(list)
     filter_schema_fields = []
+    has_objects_field = False
 
     for section, section_data in category_yaml.get('properties', {}).items():
         if isinstance(section_data, dict) and 'properties' in section_data:
@@ -155,6 +216,11 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
                 original_field_name = field
                 is_field_required = original_field_name in nested_required
                 yaml_link_type = details.get('type') if isinstance(details, dict) else None
+
+                # Check if this is the 'objects' field
+                if original_field_name == 'objects' and yaml_link_type == 'multi-link':
+                    has_objects_field = True
+                    imports_tracker['apps'] = True
 
                 py_schema_name = original_field_name
                 py_explicit_alias_for_base = None
@@ -167,11 +233,22 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
 
                 py_final_schema_name_for_out = py_schema_name
 
+                # Apply Pin-specific overrides for base schema
+                base_field_required = is_field_required
+                if is_pin and yaml_link_type == 'generic-link':
+                    # For Pin's generic-link fields, check our override rules
+                    ct_field_name = details.get('content_type_field_name', 'element_type')
+                    obj_id_field_name = details.get('object_id_field_name', 'element_id')
+                    ct_override = get_pin_field_requirements(ct_field_name, 'base')
+                    obj_override = get_pin_field_requirements(obj_id_field_name, 'base')
+                    if ct_override is not None:
+                        base_field_required = ct_override
+
                 field_defs_base = generate_field_definition(
                     py_schema_name_for_base_link if yaml_link_type in ['single-link', 'multi-link'] else original_field_name,
                     details, imports_tracker, context="base",
                     alias=py_explicit_alias_for_base,
-                    is_required=is_field_required
+                    is_required=base_field_required
                 )
                 base_schema_fields_dict[section].extend(field_defs_base)
 
@@ -187,9 +264,17 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
                 elif yaml_link_type == 'generic-link':
                     ct_field_name = details.get('content_type_field_name', 'content_type')
                     obj_id_field_name = details.get('object_id_field_name', 'object_id')
-                    ct_type = "str" if is_field_required else "str | None"
-                    obj_type = "uuid.UUID" if is_field_required else "uuid.UUID | None"
-                    default_assignment = "" if is_field_required else " = None"
+                    
+                    # Apply Pin-specific overrides for out schema too
+                    out_field_required = is_field_required
+                    if is_pin:
+                        ct_override = get_pin_field_requirements(ct_field_name, 'base')  # Use base rules for out schema too
+                        if ct_override is not None:
+                            out_field_required = ct_override
+                    
+                    ct_type = "str" if out_field_required else "str | None"
+                    obj_type = "uuid.UUID" if out_field_required else "uuid.UUID | None"
+                    default_assignment = "" if out_field_required else " = None"
                     out_schema_fields_dict[section].append(f"{ct_field_name}: {ct_type}{default_assignment}")
                     out_schema_fields_dict[section].append(f"{obj_id_field_name}: {obj_type}{default_assignment}")
                     imports_tracker['uuid'] = True
@@ -219,10 +304,13 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
     if imports_tracker['base']: final_import_lines.append(imports_needed['base'])
     if imports_tracker['Field'] or filter_schema_fields:
         final_import_lines.append(imports_needed['ninja'])
+    if imports_tracker['contenttypes']: final_import_lines.append(imports_needed['contenttypes'])
     typing_imports = []
     if imports_tracker['typing_List']: typing_imports.append("List")
     if typing_imports: final_import_lines.append(f"from typing import {', '.join(typing_imports)}")
     if imports_tracker['uuid']: final_import_lines.append(imports_needed['uuid'])
+    if imports_tracker['field_validator']: final_import_lines.append(imports_needed['field_validator'])
+    if imports_tracker['apps']: final_import_lines.append(imports_needed['apps'])
     content = "\n".join(final_import_lines) + "\n\n\n"
 
     content += f"class {class_name_base}BaseSchema(AbstractElementBaseSchema):\n"
@@ -236,19 +324,28 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
         content += "    pass\n"
     content += "\n\n"
 
+    # CreateInSchema with Pin-specific overrides
     content += f"class {class_name_base}CreateInSchema({class_name_base}BaseSchema):\n"
     content += "    id: uuid.UUID | None = Field(None, exclude=True)\n"
+    
+    if is_pin:
+        # Add Pin-specific required fields for create
+        content += "    element_type: str\n"
+        content += "    element_id: uuid.UUID\n"
+    
     content += "\n\n"
 
+    # UpdateInSchema with Pin-specific overrides  
     content += f"class {class_name_base}UpdateInSchema({class_name_base}BaseSchema):\n"
     content += "    id: uuid.UUID | None = Field(None, exclude=True)\n"
     content += "    name: str | None = None\n"
-    for section, fields in base_schema_fields_dict.items():
-         for field_def in fields:
-             field_name = field_def.split(":")[0].strip()
-             if field_name not in ['id', 'name']:
-                 pass
-    if imports_tracker['Field']: imports_tracker['ninja'] = True
+    
+    if is_pin:
+        # Add Pin-specific optional fields for update
+        content += "    map_id: uuid.UUID | None = None\n"
+        content += "    x: int | None = None\n"
+        content += "    y: int | None = None\n"
+    
     content += "\n\n"
 
     content += f"class {class_name_base}FilterSchema(BaseFilterSchema):\n"
@@ -268,11 +365,22 @@ def generate_category_schema(category_name, category_yaml_path, output_file):
             added_out_fields = True
     if not added_out_fields:
         content += "    pass\n"
+    
+    # Add Pin-specific validator
+    if is_pin:
+        content += generate_pin_validator()
+    
+    # Add the objects resolver if the schema has an objects field
+    if has_objects_field:
+        content += generate_objects_resolver(category_name)
+    
     content += "\n"
 
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(content)
-    print(f"Generated {output_file}")
+    
+    suffix = " (with custom Pin logic)" if is_pin else ""
+    print(f"Generated {output_file}{suffix}")
 
 if __name__ == "__main__":
     print("Starting Django Ninja schema generation...")

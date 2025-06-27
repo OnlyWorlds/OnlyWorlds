@@ -1,13 +1,15 @@
 class Law extends BaseElement {
   // Code
-  final String decree;
-  final int date;
+  final String declaration;
   final String purpose;
-  final String author; //ss institution
-  // Compulsion
-  final String jurisdictions; //ms location
-  final String prohibitions; //ms construct
+  final int date;
+  final String parentLaw; //ss law
   final String penalties; //ms construct
+  // World
+  final String author; //ss institution
+  final String locations; //ms location
+  final String zones; //ms zone
+  final String prohibitions; //ms construct
   final String adjudicators; //ms title
   final String enforcers; //ms title
 }

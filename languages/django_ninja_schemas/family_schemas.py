@@ -6,28 +6,21 @@ import uuid
 
 class FamilyBaseSchema(AbstractElementBaseSchema):
 
-    # Community
+    # Identity
     spirit: str | None = None
-    alliances_ids: list[uuid.UUID] | None = None
-    rivalries_ids: list[uuid.UUID] | None = None
-
-    # Lineage
     history: str | None = None
-    ancestors_ids: list[uuid.UUID] | None = None
+    traditions_ids: list[uuid.UUID] | None = None
     traits_ids: list[uuid.UUID] | None = None
     abilities_ids: list[uuid.UUID] | None = None
     languages_ids: list[uuid.UUID] | None = None
+    ancestors_ids: list[uuid.UUID] | None = None
 
     # World
-    status: str | None = None
-    competition_ids: list[uuid.UUID] | None = None
-    administrates_ids: list[uuid.UUID] | None = None
-    creatures_ids: list[uuid.UUID] | None = None
-
-    # Legacy
-    traditions: str | None = None
-    estate_id: uuid.UUID | None = None
+    reputation: str | None = None
+    estates_ids: list[uuid.UUID] | None = None
+    governs_ids: list[uuid.UUID] | None = None
     heirlooms_ids: list[uuid.UUID] | None = None
+    creatures_ids: list[uuid.UUID] | None = None
 
 
 class FamilyCreateInSchema(FamilyBaseSchema):
@@ -40,41 +33,32 @@ class FamilyUpdateInSchema(FamilyBaseSchema):
 
 
 class FamilyFilterSchema(BaseFilterSchema):
-    alliances_ids: uuid.UUID | None = Field(None, q='alliances__id')
-    rivalries_ids: uuid.UUID | None = Field(None, q='rivalries__id')
-    ancestors_ids: uuid.UUID | None = Field(None, q='ancestors__id')
+    traditions_ids: uuid.UUID | None = Field(None, q='traditions__id')
     traits_ids: uuid.UUID | None = Field(None, q='traits__id')
     abilities_ids: uuid.UUID | None = Field(None, q='abilities__id')
     languages_ids: uuid.UUID | None = Field(None, q='languages__id')
-    competition_ids: uuid.UUID | None = Field(None, q='competition__id')
-    administrates_ids: uuid.UUID | None = Field(None, q='administrates__id')
-    creatures_ids: uuid.UUID | None = Field(None, q='creatures__id')
-    estate_id: uuid.UUID | None = Field(None, q='estate_id')
+    ancestors_ids: uuid.UUID | None = Field(None, q='ancestors__id')
+    estates_ids: uuid.UUID | None = Field(None, q='estates__id')
+    governs_ids: uuid.UUID | None = Field(None, q='governs__id')
     heirlooms_ids: uuid.UUID | None = Field(None, q='heirlooms__id')
+    creatures_ids: uuid.UUID | None = Field(None, q='creatures__id')
 
 
 class FamilyOutSchema(AbstractElementBaseSchema):
 
-    # Community
+    # Identity
     spirit: str | None = None
-    alliances: List[ElementNestedOutSchema] = []
-    rivalries: List[ElementNestedOutSchema] = []
-
-    # Lineage
     history: str | None = None
-    ancestors: List[ElementNestedOutSchema] = []
+    traditions: List[ElementNestedOutSchema] = []
     traits: List[ElementNestedOutSchema] = []
     abilities: List[ElementNestedOutSchema] = []
     languages: List[ElementNestedOutSchema] = []
+    ancestors: List[ElementNestedOutSchema] = []
 
     # World
-    status: str | None = None
-    competition: List[ElementNestedOutSchema] = []
-    administrates: List[ElementNestedOutSchema] = []
-    creatures: List[ElementNestedOutSchema] = []
-
-    # Legacy
-    traditions: str | None = None
-    estate: ElementNestedOutSchema | None = None
+    reputation: str | None = None
+    estates: List[ElementNestedOutSchema] = []
+    governs: List[ElementNestedOutSchema] = []
     heirlooms: List[ElementNestedOutSchema] = []
+    creatures: List[ElementNestedOutSchema] = []
 

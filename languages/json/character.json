@@ -8,28 +8,26 @@
             "properties": {
                 "physicality": {
                     "type": "string",
-                    "description": "Physical traits and appearance descriptions.."
+                    "description": "The character's visible physical features and body attributes"
                 },
-                "psychology": {
+                "mentality": {
                     "type": "string",
-                    "description": "Psychological traits and mindset descriptions"
+                    "description": "The character's mindset, emotional tone, and style of thinking"
                 },
                 "height": {
                     "type": "integer",
-                    "maximum": 0,
-                    "description": "Height of the character in appropriate units"
+                    "description": "The character's approximate or exact height, using world LENGTH units"
                 },
                 "weight": {
                     "type": "integer",
-                    "maximum": 0,
-                    "description": "Weight of the character in appropriate units"
+                    "description": "The character's approximate or exact weight, using world MASS units"
                 },
                 "species": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Species of the character",
+                    "description": "Species the character might belong to",
                     "category": "Species"
                 },
                 "traits": {
@@ -37,7 +35,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Traits of the character",
+                    "description": "Traits for notable behavioral, physical, or systemic characteristics",
                     "category": "Trait"
                 },
                 "abilities": {
@@ -45,7 +43,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Abilities of the character",
+                    "description": "Abilities the character might perform, control, or invoke",
                     "category": "Ability"
                 }
             }
@@ -55,19 +53,19 @@
             "properties": {
                 "background": {
                     "type": "string",
-                    "description": "The character's background story."
+                    "description": "History, upbringing, or formative experiences of the character"
                 },
                 "motivations": {
                     "type": "string",
-                    "description": "Driving motivations behind the character's actions."
+                    "description": "Core desires, goals, or values that drive the character's choices and behavior"
                 },
                 "birth_date": {
                     "type": "integer",
-                    "description": "Birth date of the character."
+                    "description": "Moment of birth, expressed in the world's TIME units"
                 },
                 "birthplace": {
                     "type": "single-link",
-                    "description": "Birthplace of the character",
+                    "description": "Location where the character was born",
                     "category": "Location"
                 },
                 "languages": {
@@ -75,7 +73,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Languages the character can speak",
+                    "description": "Languages the character can understand, speak, or use for communication",
                     "category": "Language"
                 }
             }
@@ -83,29 +81,21 @@
         "World": {
             "type": "object",
             "properties": {
-                "situation": {
+                "reputation": {
                     "type": "string",
-                    "description": "Current situation or predicament of the character."
+                    "description": "Brief summary of the character's current condition, role, or predicament"
                 },
                 "location": {
                     "type": "single-link",
-                    "description": "The character's current location",
+                    "description": "The character's present physical location",
                     "category": "Location"
-                },
-                "titles": {
-                    "type": "multi-link",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Titles held by the character",
-                    "category": "Title"
                 },
                 "objects": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Objects owned or associated with the character",
+                    "description": "Key objects owned by or symbolically linked to the character",
                     "category": "Object"
                 },
                 "institutions": {
@@ -113,7 +103,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Institutions associated with the character",
+                    "description": "Institutions the character is affiliated with",
                     "category": "Institution"
                 }
             }
@@ -124,32 +114,32 @@
                 "charisma": {
                     "type": "integer",
                     "maximum": 100,
-                    "description": "Charisma score of the character.."
+                    "description": "Ability to attract, inspire, and influence others"
                 },
                 "coercion": {
                     "type": "integer",
                     "maximum": 100,
-                    "description": "Coercion score of the character."
+                    "description": "Capacity to dominate, intimidate, or apply force to shape outcomes"
                 },
-                "capability": {
+                "competence": {
                     "type": "integer",
                     "maximum": 100,
-                    "description": "Capability score of the character."
+                    "description": "Skill in planning, understanding, and managing complex systems or situations"
                 },
                 "compassion": {
                     "type": "integer",
                     "maximum": 100,
-                    "description": "Compassion score of the character."
+                    "description": "Willingness to empathize with and care for others"
                 },
                 "creativity": {
                     "type": "integer",
                     "maximum": 100,
-                    "description": "Creativity score of the character."
+                    "description": "Ability to generate novel ideas, perspectives, or solutions"
                 },
                 "courage": {
                     "type": "integer",
                     "maximum": 100,
-                    "description": "Courage score of the character."
+                    "description": "Readiness to face danger, risk, or adversity"
                 }
             }
         },
@@ -161,7 +151,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Family members of the character",
+                    "description": "Families the character belongs to by blood or adoption",
                     "category": "Family"
                 },
                 "friends": {
@@ -169,7 +159,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Friends of the character",
+                    "description": "Characters the character considers close allies or companions",
                     "category": "Character"
                 },
                 "rivals": {
@@ -177,125 +167,45 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Rivals of the character",
+                    "description": "Characters the character is in active opposition or competition with",
                     "category": "Character"
                 }
             }
         },
-        "Games": {
+        "TTRPG": {
             "type": "object",
             "properties": {
-                "backstory": {
-                    "type": "string",
-                    "description": "The backstory of the character."
-                },
                 "level": {
                     "type": "integer",
-                    "maximum": 0,
-                    "description": "Level of the character."
-                },
-                "power": {
-                    "type": "integer",
-                    "maximum": 0,
-                    "description": "Power level of the character."
-                },
-                "price": {
-                    "type": "integer",
-                    "description": "Price or value associated with the character."
+                    "description": "Progression rank of the character in a game system"
                 },
                 "hit_points": {
                     "type": "integer",
-                    "description": "Total hit points of the character."
+                    "description": "Total health available to the character"
                 },
-                "skill_stealth": {
+                "STR": {
                     "type": "integer",
-                    "description": "Stealth skill level of the character."
+                    "description": "Physical force and carrying capacity"
                 },
-                "tt_str": {
+                "DEX": {
                     "type": "integer",
-                    "maximum": 20,
-                    "description": "Strength attribute of the character."
+                    "description": "Agility, coordination, and reflexes"
                 },
-                "tt_int": {
+                "CON": {
                     "type": "integer",
-                    "maximum": 20,
-                    "description": "Intelligence attribute of the character."
+                    "description": "Endurance and resistance to strain"
                 },
-                "tt_con": {
+                "INT": {
                     "type": "integer",
-                    "maximum": 20,
-                    "description": "Constitution attribute of the character."
+                    "description": "Reasoning, memory, and learning"
                 },
-                "tt_dex": {
+                "WIS": {
                     "type": "integer",
-                    "maximum": 20,
-                    "description": "Dexterity attribute of the character."
+                    "description": "Intuition, awareness, and judgment"
                 },
-                "tt_wis": {
+                "CHA": {
                     "type": "integer",
-                    "maximum": 20,
-                    "description": "Wisdom attribute of the character."
-                },
-                "tt_cha": {
-                    "type": "integer",
-                    "maximum": 20,
-                    "description": "Charisma attribute of the character."
-                },
-                "class": {
-                    "type": "string",
-                    "description": "Class of the character."
-                },
-                "alignment": {
-                    "type": "string",
-                    "description": "Alignment of the character."
-                },
-                "equipment": {
-                    "type": "multi-link",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Equipment carried by the character",
-                    "category": "Object"
-                },
-                "backpack": {
-                    "type": "multi-link",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Items in the character's backpack",
-                    "category": "Object"
-                },
-                "proficiencies": {
-                    "type": "multi-link",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Proficiencies of the character",
-                    "category": "Construct"
-                },
-                "features": {
-                    "type": "multi-link",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Features of the character",
-                    "category": "Trait"
-                },
-                "spells": {
-                    "type": "multi-link",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Spells known by the character",
-                    "category": "Ability"
-                },
-                "inspirations": {
-                    "type": "multi-link",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Inspirations of the character",
-                    "category": "Construct"
+                    "description": "Persuasiveness and personal magnetism"
                 }
             }
         }

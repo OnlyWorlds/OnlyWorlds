@@ -1,0 +1,56 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+title: "Zone"
+type: "object"
+properties:
+  Scope:
+    type: "object"
+    properties:
+      role:
+        type: "string"
+        description: "The operational function or intent of the zone"
+      start_date:
+        type: "integer"
+        maximum: 0
+        description: "Date when the zone becomes extant or relevant, defined in world TIME units"
+      end_date:
+        type: "integer"
+        maximum: 0
+        description: "Date when the zone ceases to be meaningful or enforced, defined in world TIME units"
+      phenomena:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Phenomena that affect, define, or occur within the zone"
+        category: "Phenomenon"
+      linked_zones:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Other zones that are associated with the zone"
+        category: "Zone"
+
+  World:
+    type: "object"
+    properties:
+      context:
+        type: "string"
+        description: "Historical and key knowledge about the zone"
+      populations:
+        type: "multi-link"
+        items:
+          type: "string"
+        category: "Collective"
+        description: "Distinct collective groups or communities residing within the zone"
+      titles:
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Titles assigned to represent, manage, or protect the zone"
+        category: "Title"
+      principles :
+        type: "multi-link"
+        items:
+          type: "string"
+        description: "Influential mechanics acted within, upon, or by the zone"
+        category: "Construct"
+

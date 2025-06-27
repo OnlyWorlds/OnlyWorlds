@@ -7,7 +7,7 @@ class MarkerBaseSchema(AbstractElementBaseSchema):
 
     # Details
     map_id: uuid.UUID
-    zone_id: uuid.UUID | None = None
+    zone_id: uuid.UUID
     x: int
     y: int
     z: int | None = None
@@ -31,7 +31,7 @@ class MarkerOutSchema(AbstractElementBaseSchema):
 
     # Details
     map: ElementNestedOutSchema
-    zone: ElementNestedOutSchema | None = None
+    zone: ElementNestedOutSchema
     x: int
     y: int
     z: int | None = None

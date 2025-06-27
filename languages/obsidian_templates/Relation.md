@@ -8,18 +8,29 @@
 - <span class="text-field" data-tooltip="Text">World</span>: 
 
 ## Nature
-- <span class="text-field" data-tooltip="Text">History</span>: 
-- <span class="text-field" data-tooltip="Text">Impact</span>: 
+- <span class="text-field" data-tooltip="Text">Background</span>: 
 - <span class="number-field" data-tooltip="Number, max: 0">Start_date</span>: 
 - <span class="number-field" data-tooltip="Number, max: 0">End_date</span>: 
-- <span class="number-field" data-tooltip="Number, max: 0">Debt</span>: 
+- <span class="number-field" data-tooltip="Number, max: 100">Intensity</span>: 
+- <span class="link-field" data-tooltip="Single Character">Actor</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Event">Events</span>: 
 
 ## Involves
-- <span class="link-field" data-tooltip="Single Character">Primary_character</span>: 
-- <span class="link-field" data-tooltip="Single Creature">Primary_creature</span>: 
-- <span class="link-field" data-tooltip="Single Institution">Primary_institution</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Character">Secondary_characters</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Creature">Secondary_creatures</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Institution">Secondary_institutions</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Character">Characters</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Object">Objects</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Location">Locations</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Species">Species</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Creature">Creatures</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Institution">Institutions</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Trait">Traits</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Collective">Collectives</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Zone">Zones</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Ability">Abilities</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Phenomenon">Phenomena</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Language">Languages</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Family">Families</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Title">Titles</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Construct">Constructs</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Event">Events</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Narrative">Narratives</span>: 
 

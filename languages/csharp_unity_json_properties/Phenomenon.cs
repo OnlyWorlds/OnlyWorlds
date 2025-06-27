@@ -6,32 +6,24 @@ using Utils;
 [System.Serializable]
 public class Phenomenon : Element
 {
-    [JsonProperty("presence"), TextAttribute("")]
-    public string presence;
-    [JsonProperty("scope"), TextAttribute("")]
-    public string scope;
+    [JsonProperty("expression"), TextAttribute("")]
+    public string expression;
+    [JsonProperty("effects"), TextAttribute("")]
+    public string effects;
     [JsonProperty("duration"), Integer(0)]
     public int duration;
-    [JsonProperty("intensity"), TextAttribute("")]
-    public string intensity;
-    [JsonProperty("empowerments"), ReferenceAttribute(typeof(Trait), true)]
-    public string empowerments;
-    [JsonProperty("environments"), ReferenceAttribute(typeof(Location), true)]
-    public string environments;
-    [JsonProperty("carriers"), ReferenceAttribute(typeof(Species), true)]
-    public string carriers;
-    [JsonProperty("effect"), TextAttribute("")]
-    public string effect;
-    [JsonProperty("catalysts"), ReferenceAttribute(typeof(Object))]
+    [JsonProperty("catalysts"), ReferenceAttribute(typeof(Object), true)]
     public string catalysts;
-    [JsonProperty("wielders"), ReferenceAttribute(typeof(Character), true)]
-    public string wielders;
-    [JsonProperty("handlers"), ReferenceAttribute(typeof(Institution), true)]
-    public string handlers;
-    [JsonProperty("enablers"), ReferenceAttribute(typeof(Character), true)]
-    public string enablers;
+    [JsonProperty("empowerments"), ReferenceAttribute(typeof(Ability), true)]
+    public string empowerments;
+    [JsonProperty("mythology"), TextAttribute("")]
+    public string mythology;
+    [JsonProperty("system"), ReferenceAttribute(typeof(Phenomenon))]
+    public string system;
     [JsonProperty("triggers"), ReferenceAttribute(typeof(Construct), true)]
     public string triggers;
-    [JsonProperty("affinity"), ReferenceAttribute(typeof(Phenomenon), true)]
-    public string affinity;
+    [JsonProperty("wielders"), ReferenceAttribute(typeof(Character), true)]
+    public string wielders;
+    [JsonProperty("environments"), ReferenceAttribute(typeof(Location), true)]
+    public string environments;
 }

@@ -16,6 +16,11 @@ def to_camel_case(snake_str):
     """Converts snake_case, PascalCase or kebab-case to camelCase."""
     if not snake_str:
         return ""
+    
+    # Preserve short all-caps abbreviations (e.g., STR, DEX, API, URL)
+    if len(snake_str) == 3 and snake_str.isupper():
+        return snake_str
+    
     # Special case for names that are already camelCase or PascalCase but contain underscores/hyphens
     components = re.split('_|-', snake_str)
     # Make first letter of first component lowercase, capitalize first letter of subsequent components

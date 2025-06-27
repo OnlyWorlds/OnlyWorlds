@@ -1,12 +1,13 @@
   types:
+    Natural: []
+    Supernatural: []
+    Conceptual: []
+    Temporal: []
+    Magical: []
     Barrier: []
-    Biological:
-    - Organism
-    - Process
-    - Disease
+    Biological: []
     Chemical: []
-    Cosmic: []
-    Divine: []
+    Cosmic: [] 
     Energy: []
     Entity:
     - Physical
@@ -20,7 +21,6 @@
     - Drift
     - Igneous
     - Glaciation
-    Magical: []
     Meteorological:
     - Atmosphere
     - Precipitation
@@ -28,8 +28,6 @@
     - Radiation
     - Temperature
     - Discharge
-    - Wind
-    Planetary: []
+    - Wind 
     Social: []
-    Supernatural: []
-    Temporal: []
+

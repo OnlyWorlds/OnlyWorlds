@@ -1,8 +1,8 @@
 from django.db import models
-import uuid
+from uuid_extensions import uuid7  # type: ignore
 
 class AbstractElementModel(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid7, editable=False)
     name = models.TextField(max_length=255)
     description = models.TextField(blank=True, null=True)
     supertype = models.CharField(max_length=255, blank=True, null=True)

@@ -7,6 +7,7 @@ public class Map : BaseElement
     public int? Hierarchy;
     public int? Width;
     public int? Height;
+    public int? Depth;
     public string ParentMapId;
     public string LocationId;
 }

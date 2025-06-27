@@ -2,13 +2,14 @@ from .base_schemas import AbstractElementBaseSchema, ElementNestedOutSchema, Bas
 from ninja import Field # type: ignore
 from typing import List
 import uuid
+from django.apps import apps
 
 
 class CharacterBaseSchema(AbstractElementBaseSchema):
 
     # Constitution
     physicality: str | None = None
-    psychology: str | None = None
+    mentality: str | None = None
     height: int | None = None
     weight: int | None = None
     species_ids: list[uuid.UUID] | None = None
@@ -23,16 +24,15 @@ class CharacterBaseSchema(AbstractElementBaseSchema):
     languages_ids: list[uuid.UUID] | None = None
 
     # World
-    situation: str | None = None
+    reputation: str | None = None
     location_id: uuid.UUID | None = None
-    titles_ids: list[uuid.UUID] | None = None
     objects_ids: list[uuid.UUID] | None = None
     institutions_ids: list[uuid.UUID] | None = None
 
     # Personality
     charisma: int | None = Field(None, le=100)
     coercion: int | None = Field(None, le=100)
-    capability: int | None = Field(None, le=100)
+    competence: int | None = Field(None, le=100)
     compassion: int | None = Field(None, le=100)
     creativity: int | None = Field(None, le=100)
     courage: int | None = Field(None, le=100)
@@ -42,27 +42,15 @@ class CharacterBaseSchema(AbstractElementBaseSchema):
     friends_ids: list[uuid.UUID] | None = None
     rivals_ids: list[uuid.UUID] | None = None
 
-    # Games
-    backstory: str | None = None
+    # Ttrpg
     level: int | None = None
-    power: int | None = None
-    price: int | None = None
     hit_points: int | None = None
-    skill_stealth: int | None = None
-    tt_str: int | None = Field(None, le=20)
-    tt_int: int | None = Field(None, le=20)
-    tt_con: int | None = Field(None, le=20)
-    tt_dex: int | None = Field(None, le=20)
-    tt_wis: int | None = Field(None, le=20)
-    tt_cha: int | None = Field(None, le=20)
-    class: str | None = None
-    alignment: str | None = None
-    equipment_ids: list[uuid.UUID] | None = None
-    backpack_ids: list[uuid.UUID] | None = None
-    proficiencies_ids: list[uuid.UUID] | None = None
-    features_ids: list[uuid.UUID] | None = None
-    spells_ids: list[uuid.UUID] | None = None
-    inspirations_ids: list[uuid.UUID] | None = None
+    STR: int | None = None
+    DEX: int | None = None
+    CON: int | None = None
+    INT: int | None = None
+    WIS: int | None = None
+    CHA: int | None = None
 
 
 class CharacterCreateInSchema(CharacterBaseSchema):
@@ -81,25 +69,18 @@ class CharacterFilterSchema(BaseFilterSchema):
     birthplace_id: uuid.UUID | None = Field(None, q='birthplace_id')
     languages_ids: uuid.UUID | None = Field(None, q='languages__id')
     location_id: uuid.UUID | None = Field(None, q='location_id')
-    titles_ids: uuid.UUID | None = Field(None, q='titles__id')
     objects_ids: uuid.UUID | None = Field(None, q='objects__id')
     institutions_ids: uuid.UUID | None = Field(None, q='institutions__id')
     family_ids: uuid.UUID | None = Field(None, q='family__id')
     friends_ids: uuid.UUID | None = Field(None, q='friends__id')
     rivals_ids: uuid.UUID | None = Field(None, q='rivals__id')
-    equipment_ids: uuid.UUID | None = Field(None, q='equipment__id')
-    backpack_ids: uuid.UUID | None = Field(None, q='backpack__id')
-    proficiencies_ids: uuid.UUID | None = Field(None, q='proficiencies__id')
-    features_ids: uuid.UUID | None = Field(None, q='features__id')
-    spells_ids: uuid.UUID | None = Field(None, q='spells__id')
-    inspirations_ids: uuid.UUID | None = Field(None, q='inspirations__id')
 
 
 class CharacterOutSchema(AbstractElementBaseSchema):
 
     # Constitution
     physicality: str | None = None
-    psychology: str | None = None
+    mentality: str | None = None
     height: int | None = None
     weight: int | None = None
     species: List[ElementNestedOutSchema] = []
@@ -114,16 +95,15 @@ class CharacterOutSchema(AbstractElementBaseSchema):
     languages: List[ElementNestedOutSchema] = []
 
     # World
-    situation: str | None = None
+    reputation: str | None = None
     location: ElementNestedOutSchema | None = None
-    titles: List[ElementNestedOutSchema] = []
     objects: List[ElementNestedOutSchema] = []
     institutions: List[ElementNestedOutSchema] = []
 
     # Personality
     charisma: int | None = Field(None, le=100)
     coercion: int | None = Field(None, le=100)
-    capability: int | None = Field(None, le=100)
+    competence: int | None = Field(None, le=100)
     compassion: int | None = Field(None, le=100)
     creativity: int | None = Field(None, le=100)
     courage: int | None = Field(None, le=100)
@@ -133,25 +113,28 @@ class CharacterOutSchema(AbstractElementBaseSchema):
     friends: List[ElementNestedOutSchema] = []
     rivals: List[ElementNestedOutSchema] = []
 
-    # Games
-    backstory: str | None = None
+    # Ttrpg
     level: int | None = None
-    power: int | None = None
-    price: int | None = None
     hit_points: int | None = None
-    skill_stealth: int | None = None
-    tt_str: int | None = Field(None, le=20)
-    tt_int: int | None = Field(None, le=20)
-    tt_con: int | None = Field(None, le=20)
-    tt_dex: int | None = Field(None, le=20)
-    tt_wis: int | None = Field(None, le=20)
-    tt_cha: int | None = Field(None, le=20)
-    character_class: str | None = None
-    alignment: str | None = None
-    equipment: List[ElementNestedOutSchema] = []
-    backpack: List[ElementNestedOutSchema] = []
-    proficiencies: List[ElementNestedOutSchema] = []
-    features: List[ElementNestedOutSchema] = []
-    spells: List[ElementNestedOutSchema] = []
-    inspirations: List[ElementNestedOutSchema] = []
+    STR: int | None = None
+    DEX: int | None = None
+    CON: int | None = None
+    INT: int | None = None
+    WIS: int | None = None
+    CHA: int | None = None
 
+    @staticmethod
+    def resolve_objects(obj) -> List[ElementNestedOutSchema]:
+        """Resolves the 'objects' field overlap for django by querying the reverse M2M relation."""
+        try:
+            Object = apps.get_model("elements", "Object") 
+            return list(Object.objects.filter(character_objects=obj)) # type: ignore
+        except LookupError:
+            print("Error: Could not find Object model in resolve_objects.")
+            return []
+        except AttributeError: 
+            print(f"Error: Attribute error resolving objects for character {obj.pk}. Check related_name.")
+            return []
+        except Exception as e:
+            print(f"Error resolving objects for character {obj.pk}: {e}")
+            return []

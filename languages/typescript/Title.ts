@@ -1,23 +1,30 @@
 import { BaseElement } from './base_elements';
 
 export interface Title extends BaseElement {
-  // Nature
-  privileges?: string | null;
-  conditions?: string | null;
-  createDate?: number | null;
-  assignDate?: number | null;
+  // Mandate
+  authority?: string | null;
+  eligibility?: string | null;
+  grantDate?: number | null;
   revokeDate?: number | null;
-  hierarchy?: number | null;
-  // Issue
-  rights?: string | null;
-  authorId?: string | null;
+  issuerId?: string | null;
+  bodyId?: string | null;
+  superiorTitleId?: string | null;
+  holdersIds?: string[] | null;
+  symbolsIds?: string[] | null;
   // World
-  characterId?: string | null;
-  locationId?: string | null;
-  objectId?: string | null;
-  institutionId?: string | null;
-  creatureId?: string | null;
-  territoryId?: string | null;
-  collectiveId?: string | null;
-  constructId?: string | null;
+  status?: string | null;
+  history?: string | null;
+  charactersIds?: string[] | null;
+  institutionsIds?: string[] | null;
+  familiesIds?: string[] | null;
+  zonesIds?: string[] | null;
+  locationsIds?: string[] | null;
+  objectsIds?: string[] | null;
+  constructsIds?: string[] | null;
+  lawsIds?: string[] | null;
+  collectivesIds?: string[] | null;
+  creaturesIds?: string[] | null;
+  phenomenaIds?: string[] | null;
+  speciesIds?: string[] | null;
+  languagesIds?: string[] | null;
 }

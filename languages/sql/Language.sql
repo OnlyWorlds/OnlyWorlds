@@ -6,13 +6,12 @@ CREATE TABLE language (
     subtype TEXT,
     image_url TEXT,
     world TEXT NOT NULL,
-    writing TEXT,
     phonology TEXT,
     grammar TEXT,
-    vocabulary TEXT,
+    lexicon TEXT,
+    writing TEXT,
     classification TEXT,
-    prose TEXT,
-    speakers INTEGER,
-    dialects TEXT,
-    range TEXT
+    status TEXT,
+    spread TEXT,
+    dialects TEXT
 );

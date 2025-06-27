@@ -15,3 +15,8 @@
     - Flying
     - Landbound
     - Waterbound
+    Entity:
+    - Corporal
+    - Immaterial 
+    - Mythical 
+    - Celestial

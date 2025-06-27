@@ -13,11 +13,12 @@ class CollectiveBaseSchema(AbstractElementBaseSchema):
     operator_id: uuid.UUID | None = None
     equipment_ids: list[uuid.UUID] | None = None
 
-    # Agency
+    # Dynamics
     activity: str | None = None
-    temperance: str | None = None
-    skills_ids: list[uuid.UUID] | None = None
-    rituals_ids: list[uuid.UUID] | None = None
+    disposition: str | None = None
+    state: str | None = None
+    abilities_ids: list[uuid.UUID] | None = None
+    symbolism_ids: list[uuid.UUID] | None = None
 
     # World
     species_ids: list[uuid.UUID] | None = None
@@ -38,8 +39,8 @@ class CollectiveUpdateInSchema(CollectiveBaseSchema):
 class CollectiveFilterSchema(BaseFilterSchema):
     operator_id: uuid.UUID | None = Field(None, q='operator_id')
     equipment_ids: uuid.UUID | None = Field(None, q='equipment__id')
-    skills_ids: uuid.UUID | None = Field(None, q='skills__id')
-    rituals_ids: uuid.UUID | None = Field(None, q='rituals__id')
+    abilities_ids: uuid.UUID | None = Field(None, q='abilities__id')
+    symbolism_ids: uuid.UUID | None = Field(None, q='symbolism__id')
     species_ids: uuid.UUID | None = Field(None, q='species__id')
     characters_ids: uuid.UUID | None = Field(None, q='characters__id')
     creatures_ids: uuid.UUID | None = Field(None, q='creatures__id')
@@ -55,11 +56,12 @@ class CollectiveOutSchema(AbstractElementBaseSchema):
     operator: ElementNestedOutSchema | None = None
     equipment: List[ElementNestedOutSchema] = []
 
-    # Agency
+    # Dynamics
     activity: str | None = None
-    temperance: str | None = None
-    skills: List[ElementNestedOutSchema] = []
-    rituals: List[ElementNestedOutSchema] = []
+    disposition: str | None = None
+    state: str | None = None
+    abilities: List[ElementNestedOutSchema] = []
+    symbolism: List[ElementNestedOutSchema] = []
 
     # World
     species: List[ElementNestedOutSchema] = []

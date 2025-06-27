@@ -8,15 +8,17 @@
 - <span class="text-field" data-tooltip="Text">World</span>: 
 
 ## Code
-- <span class="text-field" data-tooltip="Text">Decree</span>: 
-- <span class="number-field" data-tooltip="Number, max: 0">Date</span>: 
+- <span class="text-field" data-tooltip="Text">Declaration</span>: 
 - <span class="text-field" data-tooltip="Text">Purpose</span>: 
-- <span class="link-field" data-tooltip="Single Institution">Author</span>: 
-
-## Compulsion
-- <span class="multi-link-field" data-tooltip="Multi Location">Jurisdictions</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Construct">Prohibitions</span>: 
+- <span class="number-field" data-tooltip="Number, max: 0">Date</span>: 
+- <span class="link-field" data-tooltip="Single Law">Parent_law</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Construct">Penalties</span>: 
+
+## World
+- <span class="link-field" data-tooltip="Single Institution">Author</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Location">Locations</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Zone">Zones</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Construct">Prohibitions</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Title">Adjudicators</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Title">Enforcers</span>: 
 

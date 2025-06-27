@@ -1,6 +1,6 @@
   types:
     Artificial: []
-    Signal: []
-    Spoken: []
+    Natural: []
+    Symbolic: []
     Visual: []
-    Written: []
+    Hybrid: []

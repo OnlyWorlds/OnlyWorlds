@@ -7,20 +7,25 @@ class Species(AbstractElementModel):
     # Biology
     appearance = models.TextField(blank=True, null=True)
     life_span = models.PositiveIntegerField(blank=True, null=True)
-    average_weight = models.PositiveIntegerField(blank=True, null=True)
+    weight = models.PositiveIntegerField(blank=True, null=True)
     nourishment = models.ManyToManyField("Species", blank=True, related_name="species_nourishment")
+    reproduction = models.ManyToManyField("Construct", blank=True, related_name="species_reproduction")
+    adaptations = models.ManyToManyField("Ability", blank=True, related_name="species_adaptations")
 
     # Psychology
     instincts = models.TextField(blank=True, null=True)
+    sociality = models.TextField(blank=True, null=True)
+    temperament = models.TextField(blank=True, null=True)
+    communication = models.TextField(blank=True, null=True)
     aggression = models.PositiveIntegerField(validators=[MaxValueValidator(100)], blank=True, null=True)
-    agency = models.TextField(blank=True, null=True)
-    languages = models.ManyToManyField("Language", blank=True, related_name="species_languages")
+    traits = models.ManyToManyField("Trait", blank=True, related_name="species_traits")
 
     # World
-    impact = models.TextField(blank=True, null=True)
-    habitat = models.ManyToManyField("Location", blank=True, related_name="species_habitat")
-    interaction = models.ManyToManyField("Phenomenon", blank=True, related_name="species_interaction")
-    consumables = models.ManyToManyField("Construct", blank=True, related_name="species_consumables")
+    role = models.TextField(blank=True, null=True)
+    parent_species = models.ForeignKey("Species", on_delete=models.SET_NULL, blank=True, null=True, related_name="species_parent_species")
+    locations = models.ManyToManyField("Location", blank=True, related_name="species_locations")
+    zones = models.ManyToManyField("Zone", blank=True, related_name="species_zones")
+    affinities = models.ManyToManyField("Phenomenon", blank=True, related_name="species_affinities")
 
     def __str__(self):
         return self.name

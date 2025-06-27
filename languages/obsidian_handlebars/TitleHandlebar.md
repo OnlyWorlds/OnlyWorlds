@@ -7,25 +7,31 @@
 - <span class="text-field" data-tooltip="Text">Image_url</span>: {{image_url}}
 - <span class="text-field" data-tooltip="Text">World</span>: {{world}}
 
-## Nature
-- <span class="string" data-tooltip="Text">Privileges</span>: {{privileges}}
-- <span class="string" data-tooltip="Text">Conditions</span>: {{conditions}}
-- <span class="integer" data-tooltip="Number, max: 0">Create_date</span>: {{create_date}}
-- <span class="integer" data-tooltip="Number, max: 0">Assign_date</span>: {{assign_date}}
+## Mandate
+- <span class="string" data-tooltip="Text">Authority</span>: {{authority}}
+- <span class="string" data-tooltip="Text">Eligibility</span>: {{eligibility}}
+- <span class="integer" data-tooltip="Number, max: 0">Grant_date</span>: {{grant_date}}
 - <span class="integer" data-tooltip="Number, max: 0">Revoke_date</span>: {{revoke_date}}
-- <span class="integer" data-tooltip="Number, max: 0">Hierarchy</span>: {{hierarchy}}
-
-## Issue
-- <span class="string" data-tooltip="Text">Rights</span>: {{rights}}
-- <span class="link-field" data-tooltip="Single Institution">Author</span>: {{linkify author}}
+- <span class="link-field" data-tooltip="Single Institution">Issuer</span>: {{linkify issuer}}
+- <span class="link-field" data-tooltip="Single Institution">Body</span>: {{linkify body}}
+- <span class="link-field" data-tooltip="Single Title">Superior_title</span>: {{linkify superior_title}}
+- <span class="multi-link-field" data-tooltip="Multi Character">Holders</span>: {{linkify holders}}
+- <span class="multi-link-field" data-tooltip="Multi Object">Symbols</span>: {{linkify symbols}}
 
 ## World
-- <span class="link-field" data-tooltip="Single Character">Character</span>: {{linkify character}}
-- <span class="link-field" data-tooltip="Single Location">Location</span>: {{linkify location}}
-- <span class="link-field" data-tooltip="Single Object">Object</span>: {{linkify object}}
-- <span class="link-field" data-tooltip="Single Institution">Institution</span>: {{linkify institution}}
-- <span class="link-field" data-tooltip="Single Creature">Creature</span>: {{linkify creature}}
-- <span class="link-field" data-tooltip="Single Territory">Territory</span>: {{linkify territory}}
-- <span class="link-field" data-tooltip="Single Collective">Collective</span>: {{linkify collective}}
-- <span class="link-field" data-tooltip="Single Construct">Construct</span>: {{linkify construct}}
+- <span class="string" data-tooltip="Text">Status</span>: {{status}}
+- <span class="string" data-tooltip="Text">History</span>: {{history}}
+- <span class="multi-link-field" data-tooltip="Multi Character">Characters</span>: {{linkify characters}}
+- <span class="multi-link-field" data-tooltip="Multi Institution">Institutions</span>: {{linkify institutions}}
+- <span class="multi-link-field" data-tooltip="Multi Family">Families</span>: {{linkify families}}
+- <span class="multi-link-field" data-tooltip="Multi Zone">Zones</span>: {{linkify zones}}
+- <span class="multi-link-field" data-tooltip="Multi Location">Locations</span>: {{linkify locations}}
+- <span class="multi-link-field" data-tooltip="Multi Object">Objects</span>: {{linkify objects}}
+- <span class="multi-link-field" data-tooltip="Multi Construct">Constructs</span>: {{linkify constructs}}
+- <span class="multi-link-field" data-tooltip="Multi Law">Laws</span>: {{linkify laws}}
+- <span class="multi-link-field" data-tooltip="Multi Collective">Collectives</span>: {{linkify collectives}}
+- <span class="multi-link-field" data-tooltip="Multi Creature">Creatures</span>: {{linkify creatures}}
+- <span class="multi-link-field" data-tooltip="Multi Phenomenon">Phenomena</span>: {{linkify phenomena}}
+- <span class="multi-link-field" data-tooltip="Multi Species">Species</span>: {{linkify species}}
+- <span class="multi-link-field" data-tooltip="Multi Language">Languages</span>: {{linkify languages}}
 

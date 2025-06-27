@@ -1,7 +1,6 @@
-+$schema: "http://json-schema.org/draft-07/schema#"
-title: Pin 
-type: object 
-description: Represents a clickable point on a Map that links to a specific world Element using generic relations.
+$schema: "http://json-schema.org/draft-07/schema#"
+title: "Pin"
+type: "object"
 
 properties:
   Details:
@@ -9,7 +8,7 @@ properties:
     properties:
       map:
         type: "single-link"
-        description: "Map this pin is placed on"
+        description: "Map that the pin is placed on"
         category: "Map"
       element: 
         type: "generic-link" 

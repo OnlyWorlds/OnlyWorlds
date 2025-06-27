@@ -5,10 +5,11 @@ public class Event : BaseElement
 {
     // Nature
     public string History;
+    public string Challenges;
     public string Consequences;
     public int? StartDate;
     public int? EndDate;
-    public string Adversity;
+    public List<string> TriggersIds; = new List<string>();
     // Involves
     public List<string> CharactersIds; = new List<string>();
     public List<string> ObjectsIds; = new List<string>();
@@ -18,7 +19,7 @@ public class Event : BaseElement
     public List<string> InstitutionsIds; = new List<string>();
     public List<string> TraitsIds; = new List<string>();
     public List<string> CollectivesIds; = new List<string>();
-    public List<string> TerritoriesIds; = new List<string>();
+    public List<string> ZonesIds; = new List<string>();
     public List<string> AbilitiesIds; = new List<string>();
     public List<string> PhenomenaIds; = new List<string>();
     public List<string> LanguagesIds; = new List<string>();

@@ -3,63 +3,42 @@ using System.Collections.Generic;
 [System.Serializable]
 public class Location : BaseElement
 {
-    // Locality
-    public string Scene;
-    public string Activity;
+    // Setting
+    public string Form;
+    public string Function;
     public int? FoundingDate;
-    public int? PopulationSize;
     public string ParentLocationId;
     public List<string> PopulationsIds; = new List<string>();
-    // Culture
-    public string Traditions;
-    public string Celebrations;
-    public string PrimaryCultId;
-    public List<string> SecondaryCultsIds; = new List<string>();
-    public List<string> DelicaciesIds; = new List<string>();
-    // World
-    public string Coordinates;
-    public List<string> FoundersIds; = new List<string>();
-    // Construction
-    public string Logistics;
-    public string Architecture;
-    public int? ConstructionRate;
-    public List<string> BuildingsIds; = new List<string>();
-    public List<string> BuildingExpertiseIds; = new List<string>();
-    // Production
-    public string Extraction;
-    public string Industry;
-    public int? ExtractionOutput;
-    public int? IndustryOutput;
-    public string PrimaryResourceId;
-    public string PrimaryIndustryId;
-    public List<string> SecondaryResourcesIds; = new List<string>();
-    public List<string> SecondaryIndustriesIds; = new List<string>();
-    // Commerce
-    public string Trade;
-    public string Infrastructure;
-    public string Currency;
-    public string PrimaryExtractionMarketId;
-    public string PrimaryIndustryMarketId;
-    public List<string> SecondaryExtractionMarketsIds; = new List<string>();
-    public List<string> SecondaryIndustryMarketsIds; = new List<string>();
-    // LocalPolitics
-    public string Government;
-    public string Opposition;
+    // Politics
+    public string PoliticalClimate;
+    public string PrimaryPowerId;
     public string GoverningTitleId;
-    public string PrimaryFactionId;
-    public List<string> SecondaryFactionsIds; = new List<string>();
-    // RegionalPolitics
-    public string TerritorialPolicies;
-    public string TerritoryId;
+    public List<string> SecondaryPowersIds; = new List<string>();
+    public string ZoneId;
     public string RivalId;
-    public string FriendId;
-    public List<string> SoftInfluenceOnIds; = new List<string>();
-    public List<string> HardInfluenceOnIds; = new List<string>();
-    // Strategics
+    public string PartnerId;
+    // World
+    public string Customs;
+    public List<string> FoundersIds; = new List<string>();
+    public List<string> CultsIds; = new List<string>();
+    public List<string> DelicaciesIds; = new List<string>();
+    // Production
+    public List<string> ExtractionMethodsIds; = new List<string>();
+    public List<string> ExtractionGoodsIds; = new List<string>();
+    public List<string> IndustryMethodsIds; = new List<string>();
+    public List<string> IndustryGoodsIds; = new List<string>();
+    // Commerce
+    public string Infrastructure;
+    public List<string> ExtractionMarketsIds; = new List<string>();
+    public List<string> IndustryMarketsIds; = new List<string>();
+    public List<string> CurrenciesIds; = new List<string>();
+    // Construction
+    public string Architecture;
+    public List<string> BuildingsIds; = new List<string>();
+    public List<string> BuildingMethodsIds; = new List<string>();
+    // Defense
     public string Defensibility;
-    public int? Height;
-    public string PrimaryFighterId;
-    public List<string> SecondaryFightersIds; = new List<string>();
-    public List<string> DefensesIds; = new List<string>();
-    public List<string> FortificationsIds; = new List<string>();
+    public int? Elevation;
+    public List<string> FightersIds; = new List<string>();
+    public List<string> DefensiveObjectsIds; = new List<string>();
 }

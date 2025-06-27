@@ -9,9 +9,9 @@
 
 ## Constitution
 - <span class="text-field" data-tooltip="Text">Physicality</span>: 
-- <span class="text-field" data-tooltip="Text">Psychology</span>: 
-- <span class="number-field" data-tooltip="Number, max: 0">Height</span>: 
-- <span class="number-field" data-tooltip="Number, max: 0">Weight</span>: 
+- <span class="text-field" data-tooltip="Text">Mentality</span>: 
+- <span class="number-field" data-tooltip="Number">Height</span>: 
+- <span class="number-field" data-tooltip="Number">Weight</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Species">Species</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Trait">Traits</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Ability">Abilities</span>: 
@@ -24,16 +24,15 @@
 - <span class="multi-link-field" data-tooltip="Multi Language">Languages</span>: 
 
 ## World
-- <span class="text-field" data-tooltip="Text">Situation</span>: 
+- <span class="text-field" data-tooltip="Text">Reputation</span>: 
 - <span class="link-field" data-tooltip="Single Location">Location</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Title">Titles</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Object">Objects</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Institution">Institutions</span>: 
 
 ## Personality
 - <span class="number-field" data-tooltip="Number, max: 100">Charisma</span>: 
 - <span class="number-field" data-tooltip="Number, max: 100">Coercion</span>: 
-- <span class="number-field" data-tooltip="Number, max: 100">Capability</span>: 
+- <span class="number-field" data-tooltip="Number, max: 100">Competence</span>: 
 - <span class="number-field" data-tooltip="Number, max: 100">Compassion</span>: 
 - <span class="number-field" data-tooltip="Number, max: 100">Creativity</span>: 
 - <span class="number-field" data-tooltip="Number, max: 100">Courage</span>: 
@@ -43,25 +42,13 @@
 - <span class="multi-link-field" data-tooltip="Multi Character">Friends</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Character">Rivals</span>: 
 
-## Games
-- <span class="text-field" data-tooltip="Text">Backstory</span>: 
-- <span class="number-field" data-tooltip="Number, max: 0">Level</span>: 
-- <span class="number-field" data-tooltip="Number, max: 0">Power</span>: 
-- <span class="number-field" data-tooltip="Number">Price</span>: 
+## Ttrpg
+- <span class="number-field" data-tooltip="Number">Level</span>: 
 - <span class="number-field" data-tooltip="Number">Hit_points</span>: 
-- <span class="number-field" data-tooltip="Number">Skill_stealth</span>: 
-- <span class="number-field" data-tooltip="Number, max: 20">Tt_str</span>: 
-- <span class="number-field" data-tooltip="Number, max: 20">Tt_int</span>: 
-- <span class="number-field" data-tooltip="Number, max: 20">Tt_con</span>: 
-- <span class="number-field" data-tooltip="Number, max: 20">Tt_dex</span>: 
-- <span class="number-field" data-tooltip="Number, max: 20">Tt_wis</span>: 
-- <span class="number-field" data-tooltip="Number, max: 20">Tt_cha</span>: 
-- <span class="text-field" data-tooltip="Text">Class</span>: 
-- <span class="text-field" data-tooltip="Text">Alignment</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Object">Equipment</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Object">Backpack</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Construct">Proficiencies</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Trait">Features</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Ability">Spells</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Construct">Inspirations</span>: 
+- <span class="number-field" data-tooltip="Number">Str</span>: 
+- <span class="number-field" data-tooltip="Number">Dex</span>: 
+- <span class="number-field" data-tooltip="Number">Con</span>: 
+- <span class="number-field" data-tooltip="Number">Int</span>: 
+- <span class="number-field" data-tooltip="Number">Wis</span>: 
+- <span class="number-field" data-tooltip="Number">Cha</span>: 
 

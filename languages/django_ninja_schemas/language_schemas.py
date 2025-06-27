@@ -6,18 +6,17 @@ import uuid
 
 class LanguageBaseSchema(AbstractElementBaseSchema):
 
-    # Syntax
-    writing: str | None = None
+    # Structure
     phonology: str | None = None
     grammar: str | None = None
-    vocabulary: str | None = None
+    lexicon: str | None = None
+    writing: str | None = None
     classification_id: uuid.UUID | None = None
 
-    # Spread
-    prose: str | None = None
-    speakers: int | None = None
+    # World
+    status: str | None = None
+    spread_ids: list[uuid.UUID] | None = None
     dialects_ids: list[uuid.UUID] | None = None
-    range_ids: list[uuid.UUID] | None = None
 
 
 class LanguageCreateInSchema(LanguageBaseSchema):
@@ -31,22 +30,21 @@ class LanguageUpdateInSchema(LanguageBaseSchema):
 
 class LanguageFilterSchema(BaseFilterSchema):
     classification_id: uuid.UUID | None = Field(None, q='classification_id')
+    spread_ids: uuid.UUID | None = Field(None, q='spread__id')
     dialects_ids: uuid.UUID | None = Field(None, q='dialects__id')
-    range_ids: uuid.UUID | None = Field(None, q='range__id')
 
 
 class LanguageOutSchema(AbstractElementBaseSchema):
 
-    # Syntax
-    writing: str | None = None
+    # Structure
     phonology: str | None = None
     grammar: str | None = None
-    vocabulary: str | None = None
+    lexicon: str | None = None
+    writing: str | None = None
     classification: ElementNestedOutSchema | None = None
 
-    # Spread
-    prose: str | None = None
-    speakers: int | None = None
+    # World
+    status: str | None = None
+    spread: List[ElementNestedOutSchema] = []
     dialects: List[ElementNestedOutSchema] = []
-    range: List[ElementNestedOutSchema] = []
 

@@ -3,15 +3,14 @@ using System.Collections.Generic;
 [System.Serializable]
 public class Language : BaseElement
 {
-    // Syntax
-    public string Writing;
+    // Structure
     public string Phonology;
     public string Grammar;
-    public string Vocabulary;
+    public string Lexicon;
+    public string Writing;
     public string ClassificationId;
-    // Spread
-    public string Prose;
-    public int? Speakers;
+    // World
+    public string Status;
+    public List<string> SpreadIds; = new List<string>();
     public List<string> DialectsIds; = new List<string>();
-    public List<string> RangeIds; = new List<string>();
 }

@@ -4,13 +4,14 @@ using System.Collections.Generic;
 public class Construct : BaseElement
 {
     // Nature
+    public string Rationale;
     public string History;
-    public string Understanding;
-    public string State;
+    public string Status;
+    public string Reach;
     public int? StartDate;
     public int? EndDate;
     public string FounderId;
-    public string OrganiserId;
+    public string CustodianId;
     // Involves
     public List<string> CharactersIds; = new List<string>();
     public List<string> ObjectsIds; = new List<string>();
@@ -20,7 +21,7 @@ public class Construct : BaseElement
     public List<string> InstitutionsIds; = new List<string>();
     public List<string> TraitsIds; = new List<string>();
     public List<string> CollectivesIds; = new List<string>();
-    public List<string> TerritoriesIds; = new List<string>();
+    public List<string> ZonesIds; = new List<string>();
     public List<string> AbilitiesIds; = new List<string>();
     public List<string> PhenomenaIds; = new List<string>();
     public List<string> LanguagesIds; = new List<string>();
@@ -28,4 +29,6 @@ public class Construct : BaseElement
     public List<string> RelationsIds; = new List<string>();
     public List<string> TitlesIds; = new List<string>();
     public List<string> ConstructsIds; = new List<string>();
+    public List<string> EventsIds; = new List<string>();
+    public List<string> NarrativesIds; = new List<string>();
 }

@@ -3,330 +3,234 @@
     "title": "Location",
     "type": "object",
     "properties": {
-        "Locality": {
+        "Setting": {
             "type": "object",
             "properties": {
-                "scene": {
+                "form": {
                     "type": "string",
-                    "description": "Visual and environmental aspects of the location."
+                    "description": "Visual and environmental aspects of the location"
                 },
-                "activity": {
+                "function": {
                     "type": "string",
-                    "description": "Common activities or functions performed at this location."
+                    "description": "Main use, role, or purpose of the location within the world"
                 },
                 "founding_date": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Date on which the location was founded or established."
-                },
-                "population_size": {
-                    "type": "integer",
-                    "maximum": 0,
-                    "description": "Current population residing in or registered to the location."
+                    "description": "Date on which the location was founded, established, or designated"
                 },
                 "parent_location": {
                     "type": "single-link",
-                    "description": "The larger geographical or administrative area to which this location belongs.",
-                    "category": "Location"
+                    "category": "Location",
+                    "description": "Wider location that this location is part of"
                 },
                 "populations": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Distinct groups or communities within the location.",
-                    "category": "Collective"
+                    "category": "Collective",
+                    "description": "Distinct collective groups or communities residing within the location"
                 }
             }
         },
-        "Culture": {
+        "Politics": {
             "type": "object",
             "properties": {
-                "traditions": {
+                "political_climate": {
                     "type": "string",
-                    "description": "Cultural traditions that characterize the location."
+                    "description": "Political structure, stability, and dynamics of the location"
                 },
-                "celebrations": {
-                    "type": "string",
-                    "description": "Major local festivals and celebrations."
-                },
-                "primary_cult": {
+                "primary_power": {
                     "type": "single-link",
-                    "description": "Dominant cultural or religious group in the location.",
-                    "category": "Construct"
+                    "category": "Institution",
+                    "description": "Institution that has the highest degree of political control over the location"
                 },
-                "secondary_cults": {
+                "governing_title": {
+                    "type": "single-link",
+                    "category": "Title",
+                    "description": "Governing figure assigned by the location's primary power"
+                },
+                "secondary_powers": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Other significant cultural or religious groups.",
-                    "category": "Construct"
+                    "category": "Institution",
+                    "description": "Institutions with significant political control"
                 },
-                "delicacies": {
-                    "type": "multi-link",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Specialty foods or culinary items associated with the location.",
-                    "category": "Species"
+                "zone": {
+                    "type": "single-link",
+                    "category": "Zone",
+                    "description": "Zone of interest that is associated with the location"
+                },
+                "rival": {
+                    "type": "single-link",
+                    "category": "Location",
+                    "description": "Locations with active, traditional, or historical rivalries"
+                },
+                "partner": {
+                    "type": "single-link",
+                    "category": "Location",
+                    "description": "Locations with active, cooperative, or historical ties"
                 }
             }
         },
         "World": {
             "type": "object",
             "properties": {
-                "coordinates": {
+                "customs": {
                     "type": "string",
-                    "description": "Geographic coordinates defining the location."
+                    "description": "Cultural practices, habits, or festivals"
                 },
                 "founders": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Individuals or entities who founded the location.",
-                    "category": "Character"
-                }
-            }
-        },
-        "Construction": {
-            "type": "object",
-            "properties": {
-                "logistics": {
-                    "type": "string",
-                    "description": "Logistical details concerning the construction and maintenance of the location."
+                    "category": "Character",
+                    "description": "Individual(s) who founded or named the location"
                 },
-                "architecture": {
-                    "type": "string",
-                    "description": "Architectural styles and structures prevalent in the location."
-                },
-                "construction_rate": {
-                    "type": "integer",
-                    "maximum": 100,
-                    "description": "Rate at which construction projects are completed in the location."
-                },
-                "buildings": {
+                "cults": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Notable buildings and structures within the location.",
-                    "category": "Location"
+                    "category": "Construct",
+                    "description": "Significant religious constructs practiced or recognized at the location"
                 },
-                "building_expertise": {
+                "delicacies": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Expertise and skills available for construction in the location.",
-                    "category": "Construct"
+                    "category": "Species",
+                    "description": "Organisms or other species locally consumed or celebrated as specialty foods"
                 }
             }
         },
         "Production": {
             "type": "object",
             "properties": {
-                "extraction": {
-                    "type": "string",
-                    "description": "Natural resources extracted from the location."
-                },
-                "industry": {
-                    "type": "string",
-                    "description": "Key industries and economic activities in the location."
-                },
-                "extraction_output": {
-                    "type": "integer",
-                    "maximum": 0,
-                    "description": "Quantity of resources extracted annually."
-                },
-                "industry_output": {
-                    "type": "integer",
-                    "maximum": 0,
-                    "description": "Output from industrial activities."
-                },
-                "primary_resource": {
-                    "type": "single-link",
-                    "description": "Most significant resource extracted from the location.",
-                    "category": "Construct"
-                },
-                "primary_industry": {
-                    "type": "single-link",
-                    "description": "Leading industry based in the location.",
-                    "category": "Construct"
-                },
-                "secondary_resources": {
+                "extraction_methods": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Other important resources available in the location.",
-                    "category": "Construct"
+                    "category": "Construct",
+                    "description": "Techniques or strategies used to gather natural resources"
                 },
-                "secondary_industries": {
+                "extraction_goods": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Other significant industries operating in the location.",
-                    "category": "Construct"
+                    "category": "Construct",
+                    "description": "Products and materials that are gathered or obtained"
+                },
+                "industry_methods": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "category": "Construct",
+                    "description": "Techniques or workflows used to refine or manufacture goods"
+                },
+                "industry_goods": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "category": "Construct",
+                    "description": "Products and materials that are refined or manufactured"
                 }
             }
         },
         "Commerce": {
             "type": "object",
             "properties": {
-                "trade": {
-                    "type": "string",
-                    "description": "Trade practices and common goods exchanged in the location."
-                },
                 "infrastructure": {
                     "type": "string",
-                    "description": "Infrastructure supporting commercial activities."
+                    "description": "Roads, ports, and other physical systems that enable the movement of goods and people"
                 },
-                "currency": {
-                    "type": "string",
-                    "description": "Local currency used for trade and transactions."
-                },
-                "primary_extraction_market": {
-                    "type": "single-link",
-                    "description": "Main market for the primary resource extracted.",
-                    "category": "Location"
-                },
-                "primary_industry_market": {
-                    "type": "single-link",
-                    "description": "Main market for the leading industry's products.",
-                    "category": "Location"
-                },
-                "secondary_extraction_markets": {
+                "extraction_markets": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Markets for secondary resources extracted from the location.",
-                    "category": "Location"
+                    "category": "Location",
+                    "description": "Locations that receive extracted goods through trade, interchange, or seizure"
                 },
-                "secondary_industry_markets": {
+                "industry_markets": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Markets for products from other significant industries.",
-                    "category": "Location"
+                    "category": "Location",
+                    "description": "Locations that receive industrial goods through trade, interchange, or seizure"
+                },
+                "currencies": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "category": "Construct",
+                    "description": "Trade media recognized or circulated at the location"
                 }
             }
         },
-        "LocalPolitics": {
+        "Construction": {
             "type": "object",
             "properties": {
-                "government": {
+                "architecture": {
                     "type": "string",
-                    "description": "Governing body or administration of the location."
+                    "description": "Look, form, and materials used in the built environment and location design"
                 },
-                "opposition": {
-                    "type": "string",
-                    "description": "Primary opposition groups or political rivals within the location."
-                },
-                "governing_title": {
-                    "type": "single-link",
-                    "description": "Title of the main governing authority.",
-                    "category": "Title"
-                },
-                "primary_faction": {
-                    "type": "single-link",
-                    "description": "Leading political or administrative institution.",
-                    "category": "Institution"
-                },
-                "secondary_factions": {
+                "buildings": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Secondary or minor political factions.",
-                    "category": "Institution"
+                    "category": "Object",
+                    "description": "Notable structural objects at the location"
+                },
+                "building_methods": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "category": "Construct",
+                    "description": "Techniques or systems used to construct structures at the location"
                 }
             }
         },
-        "RegionalPolitics": {
-            "type": "object",
-            "properties": {
-                "territorial_policies": {
-                    "type": "string",
-                    "description": "Policies that govern territorial claims and management."
-                },
-                "territory": {
-                    "type": "single-link",
-                    "description": "Territorial jurisdiction of the location.",
-                    "category": "Territory"
-                },
-                "rival": {
-                    "type": "single-link",
-                    "description": "Neighboring rival locations.",
-                    "category": "Location"
-                },
-                "friend": {
-                    "type": "single-link",
-                    "description": "Friendly neighboring locations.",
-                    "category": "Location"
-                },
-                "soft_influence_on": {
-                    "type": "multi-link",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Locations under the soft influence of this location.",
-                    "category": "Location"
-                },
-                "hard_influence_on": {
-                    "type": "multi-link",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Locations under the hard control or influence of this location.",
-                    "category": "Location"
-                }
-            }
-        },
-        "Strategics": {
+        "Defense": {
             "type": "object",
             "properties": {
                 "defensibility": {
                     "type": "string",
-                    "description": "Assessment of the location\u2019s defensibility against threats."
+                    "description": "Qualities of natural, constructed, and implemented defenses at the location"
                 },
-                "height": {
+                "elevation": {
                     "type": "integer",
                     "maximum": 0,
-                    "description": "Elevation or strategic height of the location."
+                    "description": "Height or elevation of the location relative to surrounding terrain, defined in world DISTANCE units"
                 },
-                "primary_fighter": {
-                    "type": "single-link",
-                    "description": "Primary defensive institution or military presence.",
-                    "category": "Institution"
-                },
-                "secondary_fighters": {
+                "fighters": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Supportive or auxiliary defensive forces.",
-                    "category": "Institution"
+                    "category": "Construct",
+                    "description": "Military units or forces responsible for defending the location"
                 },
-                "defenses": {
+                "defensive_objects": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Defensive structures or mechanisms in place.",
-                    "category": "Location"
-                },
-                "fortifications": {
-                    "type": "multi-link",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Fortifications built to protect the location.",
-                    "category": "Object"
+                    "category": "Object",
+                    "description": "Objects or installations for defending the location"
                 }
             }
         }

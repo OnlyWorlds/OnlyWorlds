@@ -3,52 +3,31 @@
     "title": "Family",
     "type": "object",
     "properties": {
-        "Community": {
+        "Identity": {
             "type": "object",
             "properties": {
                 "spirit": {
                     "type": "string",
-                    "description": "The core values or ethos of the family."
+                    "description": "The core values or shared ethos that the family embodies"
                 },
-                "alliances": {
-                    "type": "multi-link",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Allied families or entities connected to this family.",
-                    "category": "Family"
-                },
-                "rivalries": {
-                    "type": "multi-link",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Rival families or entities opposed to this family.",
-                    "category": "Family"
-                }
-            }
-        },
-        "Lineage": {
-            "type": "object",
-            "properties": {
                 "history": {
                     "type": "string",
-                    "description": "The historical background of the family."
+                    "description": "Background or origin story of the family"
                 },
-                "ancestors": {
+                "traditions": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Ancestors and significant forebears of the family.",
-                    "category": "Character"
+                    "description": "Cultural practices, symbols, or customs overseen by the family",
+                    "category": "Construct"
                 },
                 "traits": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Character traits commonly found among family members.",
+                    "description": "Traits possibly found among members of the family",
                     "category": "Trait"
                 },
                 "abilities": {
@@ -56,7 +35,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Special abilities or powers prevalent in the family.",
+                    "description": "Abilities or special qualities possibly present in the family",
                     "category": "Ability"
                 },
                 "languages": {
@@ -64,63 +43,57 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Languages spoken by family members.",
+                    "description": "Languages spoken by, or associated with the family",
                     "category": "Language"
+                },
+                "ancestors": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Notable forebears or historic characters in the family's lineage",
+                    "category": "Character"
                 }
             }
         },
         "World": {
             "type": "object",
             "properties": {
-                "status": {
+                "reputation": {
                     "type": "string",
-                    "description": "The current social or political status of the family."
+                    "description": "Current social, political, or general standing of the family"
                 },
-                "competition": {
+                "estates": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Competing institutions or entities.",
-                    "category": "Institution"
-                },
-                "administrates": {
-                    "type": "multi-link",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Institutions or domains under the family's administration.",
-                    "category": "Institution"
-                },
-                "creatures": {
-                    "type": "multi-link",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Creatures associated with or owned by the family.",
-                    "category": "Creature"
-                }
-            }
-        },
-        "Legacy": {
-            "type": "object",
-            "properties": {
-                "traditions": {
-                    "type": "string",
-                    "description": "Cultural or familial traditions passed down through generations."
-                },
-                "estate": {
-                    "type": "single-link",
-                    "description": "Primary residence or land owned by the family.",
+                    "description": "Key locations owned, governed, or symbolically tied to the family",
                     "category": "Location"
+                },
+                "governs": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Institutions administered or managed by the family",
+                    "category": "Institution"
                 },
                 "heirlooms": {
                     "type": "multi-link",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Valuable or significant objects passed down within the family.",
+                    "description": "Important objects or artifacts handed down by the family",
                     "category": "Object"
+                },
+                "creatures": {
+                    "type": "multi-link",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Creatures owned, bonded to, or representing the family",
+                    "category": "Creature"
                 }
             }
         }

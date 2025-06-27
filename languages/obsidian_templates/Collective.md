@@ -12,13 +12,14 @@
 - <span class="number-field" data-tooltip="Number, max: 0">Count</span>: 
 - <span class="number-field" data-tooltip="Number, max: 0">Formation_date</span>: 
 - <span class="link-field" data-tooltip="Single Institution">Operator</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Construct">Equipment</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Object">Equipment</span>: 
 
-## Agency
+## Dynamics
 - <span class="text-field" data-tooltip="Text">Activity</span>: 
-- <span class="text-field" data-tooltip="Text">Temperance</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Ability">Skills</span>: 
-- <span class="multi-link-field" data-tooltip="Multi Construct">Rituals</span>: 
+- <span class="text-field" data-tooltip="Text">Disposition</span>: 
+- <span class="text-field" data-tooltip="Text">State</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Ability">Abilities</span>: 
+- <span class="multi-link-field" data-tooltip="Multi Construct">Symbolism</span>: 
 
 ## World
 - <span class="multi-link-field" data-tooltip="Multi Species">Species</span>: 

@@ -7,11 +7,12 @@ export interface Collective extends BaseElement {
   formationDate?: number | null;
   operatorId?: string | null;
   equipmentIds?: string[] | null;
-  // Agency
+  // Dynamics
   activity?: string | null;
-  temperance?: string | null;
-  skillsIds?: string[] | null;
-  ritualsIds?: string[] | null;
+  disposition?: string | null;
+  state?: string | null;
+  abilitiesIds?: string[] | null;
+  symbolismIds?: string[] | null;
   // World
   speciesIds?: string[] | null;
   charactersIds?: string[] | null;

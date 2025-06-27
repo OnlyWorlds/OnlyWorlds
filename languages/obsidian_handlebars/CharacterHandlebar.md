@@ -9,9 +9,9 @@
 
 ## Constitution
 - <span class="string" data-tooltip="Text">Physicality</span>: {{physicality}}
-- <span class="string" data-tooltip="Text">Psychology</span>: {{psychology}}
-- <span class="integer" data-tooltip="Number, max: 0">Height</span>: {{height}}
-- <span class="integer" data-tooltip="Number, max: 0">Weight</span>: {{weight}}
+- <span class="string" data-tooltip="Text">Mentality</span>: {{mentality}}
+- <span class="integer" data-tooltip="Number">Height</span>: {{height}}
+- <span class="integer" data-tooltip="Number">Weight</span>: {{weight}}
 - <span class="multi-link-field" data-tooltip="Multi Species">Species</span>: {{linkify species}}
 - <span class="multi-link-field" data-tooltip="Multi Trait">Traits</span>: {{linkify traits}}
 - <span class="multi-link-field" data-tooltip="Multi Ability">Abilities</span>: {{linkify abilities}}
@@ -24,16 +24,15 @@
 - <span class="multi-link-field" data-tooltip="Multi Language">Languages</span>: {{linkify languages}}
 
 ## World
-- <span class="string" data-tooltip="Text">Situation</span>: {{situation}}
+- <span class="string" data-tooltip="Text">Reputation</span>: {{reputation}}
 - <span class="link-field" data-tooltip="Single Location">Location</span>: {{linkify location}}
-- <span class="multi-link-field" data-tooltip="Multi Title">Titles</span>: {{linkify titles}}
 - <span class="multi-link-field" data-tooltip="Multi Object">Objects</span>: {{linkify objects}}
 - <span class="multi-link-field" data-tooltip="Multi Institution">Institutions</span>: {{linkify institutions}}
 
 ## Personality
 - <span class="integer" data-tooltip="Number, max: 100">Charisma</span>: {{charisma}}
 - <span class="integer" data-tooltip="Number, max: 100">Coercion</span>: {{coercion}}
-- <span class="integer" data-tooltip="Number, max: 100">Capability</span>: {{capability}}
+- <span class="integer" data-tooltip="Number, max: 100">Competence</span>: {{competence}}
 - <span class="integer" data-tooltip="Number, max: 100">Compassion</span>: {{compassion}}
 - <span class="integer" data-tooltip="Number, max: 100">Creativity</span>: {{creativity}}
 - <span class="integer" data-tooltip="Number, max: 100">Courage</span>: {{courage}}
@@ -43,25 +42,13 @@
 - <span class="multi-link-field" data-tooltip="Multi Character">Friends</span>: {{linkify friends}}
 - <span class="multi-link-field" data-tooltip="Multi Character">Rivals</span>: {{linkify rivals}}
 
-## Games
-- <span class="string" data-tooltip="Text">Backstory</span>: {{backstory}}
-- <span class="integer" data-tooltip="Number, max: 0">Level</span>: {{level}}
-- <span class="integer" data-tooltip="Number, max: 0">Power</span>: {{power}}
-- <span class="integer" data-tooltip="Number">Price</span>: {{price}}
+## Ttrpg
+- <span class="integer" data-tooltip="Number">Level</span>: {{level}}
 - <span class="integer" data-tooltip="Number">Hit_points</span>: {{hit_points}}
-- <span class="integer" data-tooltip="Number">Skill_stealth</span>: {{skill_stealth}}
-- <span class="integer" data-tooltip="Number, max: 20">Tt_str</span>: {{tt_str}}
-- <span class="integer" data-tooltip="Number, max: 20">Tt_int</span>: {{tt_int}}
-- <span class="integer" data-tooltip="Number, max: 20">Tt_con</span>: {{tt_con}}
-- <span class="integer" data-tooltip="Number, max: 20">Tt_dex</span>: {{tt_dex}}
-- <span class="integer" data-tooltip="Number, max: 20">Tt_wis</span>: {{tt_wis}}
-- <span class="integer" data-tooltip="Number, max: 20">Tt_cha</span>: {{tt_cha}}
-- <span class="string" data-tooltip="Text">Class</span>: {{class}}
-- <span class="string" data-tooltip="Text">Alignment</span>: {{alignment}}
-- <span class="multi-link-field" data-tooltip="Multi Object">Equipment</span>: {{linkify equipment}}
-- <span class="multi-link-field" data-tooltip="Multi Object">Backpack</span>: {{linkify backpack}}
-- <span class="multi-link-field" data-tooltip="Multi Construct">Proficiencies</span>: {{linkify proficiencies}}
-- <span class="multi-link-field" data-tooltip="Multi Trait">Features</span>: {{linkify features}}
-- <span class="multi-link-field" data-tooltip="Multi Ability">Spells</span>: {{linkify spells}}
-- <span class="multi-link-field" data-tooltip="Multi Construct">Inspirations</span>: {{linkify inspirations}}
+- <span class="integer" data-tooltip="Number">Str</span>: {{str}}
+- <span class="integer" data-tooltip="Number">Dex</span>: {{dex}}
+- <span class="integer" data-tooltip="Number">Con</span>: {{con}}
+- <span class="integer" data-tooltip="Number">Int</span>: {{int}}
+- <span class="integer" data-tooltip="Number">Wis</span>: {{wis}}
+- <span class="integer" data-tooltip="Number">Cha</span>: {{cha}}
 
