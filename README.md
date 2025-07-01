@@ -1,35 +1,72 @@
-## OnlyWorlds 
- 
-OnlyWorlds is an **open-source worldbuilding** framework designed to create, store, and exchange structured world data across different applications. 
+# OnlyWorlds
 
-Whether you're writing a novel, developing a game, or simulating a historical economy, OnlyWorlds provides a universal format that offers **portability, interoperability, collaboration, and long-term storage** for world builders.
+OnlyWorlds is an open-source worldbuilding framework for creating, storing, and exchanging structured world data across tools and applications.
 
-### Why OnlyWorlds? 
+This repository contains the **schema definitions** used to describe world elements. The schemas are defined in YAML and automatically converted into multiple programming languages to support a growing tool ecosystem.
 
-Most worldbuilding tools lock users into **proprietary formats** or **isolated ecosystems**. 
+The schema is under active development and subject to change based on community input.
 
-OnlyWorlds provides:
-- A **standardized schema** for representing worlds, characters, locations, and 16 other category types.
-- **Interoperability** between writing tools, map editors, TTRPG apps, game engines, and more.
-- **Flexibility** for different genres, styles, and levels of complexity.
-- **Open-source governance**, and a creators-first philosophy to keep full creative and practical control over your work. 
-- Facilitation of **infrastructure** and a **developer ecosystem** with no commercial restrictions or limits.
+## Overview
 
-### How It Works
-- At its core, OnlyWorlds provides a **structured data model** for properties of worlds and their elements.
-- These are defined in a central YAML-based schema, with auto conversion into many other languages.
-- They are **subject to community input**: a collaborative effort towards intuitive building blocks for the widest range of worlds, applications, and socio-political-economic dynamics.
+OnlyWorlds provides a shared structure for digital worlds. The goal is to enable creators to build interoperable, portable, and reusable world data, regardless of genre or application.
 
-### Example Use Cases
-- **Writers**: Create intricate and well-organized worlds that can be adapted to various medias.
-- **TTRPG Game Masters**: Organize maps, content, world lore, and track or generate party progress.
-- **Game Developers**: Employ world data in game-ready formats (e.g. in Unity editor plugins, Unreal, Godot).
-- **Educators & Academics**: Use structured data for world simulation and historical recreation.
+It is used across domains such as:
+- Narrative writing and world bibles
+- Tabletop roleplaying tools
+- Game engines and map editors
+- Historical simulations and educational applications
 
-### Getting Started
-- Read the [technical documentation](https://onlyworlds.github.io/) and try free existing tools.
-- Create a free account at [https://www.onlyworlds.com](https://www.onlyworlds.com) to start createing and managing your worlds.
-- Contribute by testing and [discussing](https://github.com/OnlyWorlds/OnlyWorlds/discussions) and the format, or by developing new or existing applications that support the format.
+For more information and an overview of current tools, visit:  
+**[https://onlyworlds.github.io](https://onlyworlds.github.io)**
 
+This repository is the central reference for the OnlyWorlds schema. It includes:
+- YAML schemas for all world element categories (see `/schema`)
+- Automated exports to other formats/languages (see `/languages`)
+- A discussion section for organized feedback
 
+This repository defines the shared data layer. Tools that use it may live in other repos or be independently developed.
 
+## Contribution
+
+OnlyWorlds is an open standard. Contributions are highly encouraged from both technical and non-technical participants. The current schema is a first draft, created to provide a practical starting point. It is not final or authoritative, adn the goal is for this structure to grow through open discussion and shared work. Contributions, critiques, and reimaginings are highly encouraged.
+
+### For Developers
+
+Developers can contribute by building or integrating tools that use the schema. This may include editors, viewers, generators, converters, games, or any other applications that operate with (parts of) world data.
+
+Key resources:
+- The `/schema` directory (YAML-based schema definitions)
+- The `/languages` directory (ready conversions of the YAML schema)
+- The [OnlyWorlds API](https://onlyworlds.com/api/docs) for transferring worlds 
+
+Schema updates and structural proposals can be discussed and proposed through GitHub pull requests, [Discord](https://discord.gg/twCjqvVBwb),  or the [Discussions section](https://github.com/OnlyWorlds/OnlyWorlds/discussions).
+
+### For Creators and Non-Technical Users
+
+Feedback is welcome (necessary!) from anyone using or exploring the format. This includes:
+- Requests for new or changed element categories or fields 
+- Notes on missing features or mismatches with your worldbuilding needs
+- Tool ideas or UI-related concerns
+
+Feedback can be submitted via:
+- [GitHub Discussions](https://github.com/OnlyWorlds/OnlyWorlds/discussions)
+- [OnlyWorlds Discord](https://discord.gg/twCjqvVBwb)
+- [Parse Tool](https://onlyworlds.com/parse_tool/)
+
+## OpenAPI & API Access
+
+The [OnlyWorlds API](https://onlyworlds.com/api/docs) provides world-level access to create, modify, and sync world data across applications. It follows the OpenAPI 3 specification and supports authentication via world-specific API keys and user PINs. 
+
+## License
+
+This project is licensed under a permissive open-source license. The schema and data model are free to use, adapt, and distribute. There are no commercial restrictions or ecosystem lock-in.
+
+See `LICENSE` for details.
+
+## Related Resources
+
+- [Main site](https://onlyworlds.com)
+- [Documentation & Tool Directory](https://onlyworlds.github.io)
+- [API Reference](https://onlyworlds.com/api/docs)
+- [GitHub Discussions](https://github.com/OnlyWorlds/OnlyWorlds/discussions)
+- [Discord Server](https://discord.gg/twCjqvVBwb)
