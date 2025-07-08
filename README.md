@@ -30,7 +30,7 @@ Developers can contribute by building or integrating tools that use the schema. 
 Key resources:
 - The `/schema` directory (YAML-based schema definitions)
 - The `/languages` directory (ready conversions of the YAML schema)
-- The [OnlyWorlds API](https://onlyworlds.com/api/docs) for transferring worlds
+- The [OnlyWorlds OpenAPI](https://onlyworlds.com/api/docs) for transferring worlds
 
 Schema updates and structural proposals can be proposed and discussed through GitHub pull requests, [Discord](https://discord.gg/twCjqvVBwb), or the [Discussions section](https://github.com/OnlyWorlds/OnlyWorlds/discussions).
 
