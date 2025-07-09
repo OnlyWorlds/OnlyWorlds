@@ -3,13 +3,13 @@ import yaml
 
 def generate_handlebars_template(base_properties, yaml_content, template_path):
     with open(template_path, 'w') as md_file:
-        # Fields to move to the bottom metadata section
-        metadata_fields = {'Id', 'Image_URL', 'World'}
+        # Fields to exclude entirely
+        excluded_fields = {'Id', 'Image_URL', 'World'}
         
-        # Write the 'Base' properties first (excluding metadata fields)
+        # Write the 'Base' properties first (excluding excluded fields)
         md_file.write("## Base\n")
         for field, details in base_properties.items():
-            if field not in metadata_fields:
+            if field not in excluded_fields:
                 field_name = field.capitalize()
                 field_variable = field.lower()
                 tooltip = "Text" if details.get('type', 'string') == 'string' else "Number"
@@ -47,7 +47,8 @@ def generate_handlebars_template(base_properties, yaml_content, template_path):
                     md_file.write(f"- <span class=\"{field_type}\" data-tooltip=\"{tooltip}\">{field_name}</span>: {handlebars_value}\n")
                 md_file.write("\n")
         
-        # Write metadata fields at the bottom (without header)
+        # Write remaining metadata fields at the bottom (without header)
+        metadata_fields = {'Id', 'Image_URL'}
         for field, details in base_properties.items():
             if field in metadata_fields:
                 field_name = field.capitalize().replace('_', ' ')

@@ -32,5 +32,4 @@
 
 - <span class="text-field" data-tooltip="Text">Id</span>: {{id}}
 - <span class="text-field" data-tooltip="Text">Image url</span>: {{image_url}}
-- <span class="text-field" data-tooltip="Text">World</span>: {{world}}
 
