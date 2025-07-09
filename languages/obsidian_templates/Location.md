@@ -49,7 +49,6 @@
 - <span class="multi-link-field" data-tooltip="Multi Construct">Fighters</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Object">Defensive_objects</span>: 
 
-## Base Metadata
 - <span class="text-field" data-tooltip="Text">Id</span>: 
 - <span class="text-field" data-tooltip="Text">Image url</span>: 
 - <span class="text-field" data-tooltip="Text">World</span>: 

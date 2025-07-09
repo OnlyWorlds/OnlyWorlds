@@ -24,7 +24,6 @@
 - <span class="link-field" data-tooltip="Single Trait">Anti_trait</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Ability">Empowered_abilities</span>: 
 
-## Base Metadata
 - <span class="text-field" data-tooltip="Text">Id</span>: 
 - <span class="text-field" data-tooltip="Text">Image url</span>: 
 - <span class="text-field" data-tooltip="Text">World</span>: 

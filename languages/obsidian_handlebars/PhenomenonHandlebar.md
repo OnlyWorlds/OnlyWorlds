@@ -18,7 +18,6 @@
 - <span class="multi-link-field" data-tooltip="Multi Character">Wielders</span>: {{linkify wielders}}
 - <span class="multi-link-field" data-tooltip="Multi Location">Environments</span>: {{linkify environments}}
 
-## Base Metadata
 - <span class="text-field" data-tooltip="Text">Id</span>: {{id}}
 - <span class="text-field" data-tooltip="Text">Image url</span>: {{image_url}}
 - <span class="text-field" data-tooltip="Text">World</span>: {{world}}

@@ -17,7 +17,6 @@
 - <span class="multi-link-field" data-tooltip="Multi Title">Titles</span>: {{linkify titles}}
 - <span class="multi-link-field" data-tooltip="Multi Construct">Principles</span>: {{linkify principles}}
 
-## Base Metadata
 - <span class="text-field" data-tooltip="Text">Id</span>: {{id}}
 - <span class="text-field" data-tooltip="Text">Image url</span>: {{image_url}}
 - <span class="text-field" data-tooltip="Text">World</span>: {{world}}

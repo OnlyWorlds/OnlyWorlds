@@ -24,7 +24,6 @@
 - <span class="multi-link-field" data-tooltip="Multi Creature">Creatures</span>: {{linkify creatures}}
 - <span class="multi-link-field" data-tooltip="Multi Phenomenon">Phenomena</span>: {{linkify phenomena}}
 
-## Base Metadata
 - <span class="text-field" data-tooltip="Text">Id</span>: {{id}}
 - <span class="text-field" data-tooltip="Text">Image url</span>: {{image_url}}
 - <span class="text-field" data-tooltip="Text">World</span>: {{world}}

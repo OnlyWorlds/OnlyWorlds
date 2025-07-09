@@ -30,7 +30,6 @@
 - <span class="number-field" data-tooltip="Number">Speed</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Ability">Actions</span>: 
 
-## Base Metadata
 - <span class="text-field" data-tooltip="Text">Id</span>: 
 - <span class="text-field" data-tooltip="Text">Image url</span>: 
 - <span class="text-field" data-tooltip="Text">World</span>: 

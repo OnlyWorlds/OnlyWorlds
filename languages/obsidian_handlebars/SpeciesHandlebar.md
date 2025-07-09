@@ -27,7 +27,6 @@
 - <span class="multi-link-field" data-tooltip="Multi Zone">Zones</span>: {{linkify zones}}
 - <span class="multi-link-field" data-tooltip="Multi Phenomenon">Affinities</span>: {{linkify affinities}}
 
-## Base Metadata
 - <span class="text-field" data-tooltip="Text">Id</span>: {{id}}
 - <span class="text-field" data-tooltip="Text">Image url</span>: {{image_url}}
 - <span class="text-field" data-tooltip="Text">World</span>: {{world}}

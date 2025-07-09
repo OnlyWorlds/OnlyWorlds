@@ -44,8 +44,7 @@ def generate_obsidian_template(base_properties, yaml_content, template_path):
                     md_file.write(f"- <span class=\"{field_type}\" data-tooltip=\"{tooltip}\">{field_name}</span>: \n")
                 md_file.write("\n")
         
-        # Write metadata fields at the bottom
-        md_file.write("## Base Metadata\n")
+        # Write metadata fields at the bottom (without header)
         for field, details in base_properties.items():
             if field in metadata_fields:
                 field_name = field.capitalize().replace('_', ' ')

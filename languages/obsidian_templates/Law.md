@@ -19,7 +19,6 @@
 - <span class="multi-link-field" data-tooltip="Multi Title">Adjudicators</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Title">Enforcers</span>: 
 
-## Base Metadata
 - <span class="text-field" data-tooltip="Text">Id</span>: 
 - <span class="text-field" data-tooltip="Text">Image url</span>: 
 - <span class="text-field" data-tooltip="Text">World</span>: 

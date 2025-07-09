@@ -30,7 +30,6 @@
 - <span class="integer" data-tooltip="Number">Speed</span>: {{speed}}
 - <span class="multi-link-field" data-tooltip="Multi Ability">Actions</span>: {{linkify actions}}
 
-## Base Metadata
 - <span class="text-field" data-tooltip="Text">Id</span>: {{id}}
 - <span class="text-field" data-tooltip="Text">Image url</span>: {{image_url}}
 - <span class="text-field" data-tooltip="Text">World</span>: {{world}}

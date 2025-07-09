@@ -36,7 +36,6 @@
 - <span class="multi-link-field" data-tooltip="Multi Construct">Constructs</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Law">Laws</span>: 
 
-## Base Metadata
 - <span class="text-field" data-tooltip="Text">Id</span>: 
 - <span class="text-field" data-tooltip="Text">Image url</span>: 
 - <span class="text-field" data-tooltip="Text">World</span>: 

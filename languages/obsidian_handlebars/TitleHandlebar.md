@@ -32,7 +32,6 @@
 - <span class="multi-link-field" data-tooltip="Multi Species">Species</span>: {{linkify species}}
 - <span class="multi-link-field" data-tooltip="Multi Language">Languages</span>: {{linkify languages}}
 
-## Base Metadata
 - <span class="text-field" data-tooltip="Text">Id</span>: {{id}}
 - <span class="text-field" data-tooltip="Text">Image url</span>: {{image_url}}
 - <span class="text-field" data-tooltip="Text">World</span>: {{world}}

@@ -31,7 +31,6 @@
 - <span class="multi-link-field" data-tooltip="Multi Event">Events</span>: {{linkify events}}
 - <span class="multi-link-field" data-tooltip="Multi Narrative">Narratives</span>: {{linkify narratives}}
 
-## Base Metadata
 - <span class="text-field" data-tooltip="Text">Id</span>: {{id}}
 - <span class="text-field" data-tooltip="Text">Image url</span>: {{image_url}}
 - <span class="text-field" data-tooltip="Text">World</span>: {{world}}

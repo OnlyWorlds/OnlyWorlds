@@ -16,7 +16,6 @@
 - <span class="multi-link-field" data-tooltip="Multi Location">Spread</span>: {{linkify spread}}
 - <span class="multi-link-field" data-tooltip="Multi Language">Dialects</span>: {{linkify dialects}}
 
-## Base Metadata
 - <span class="text-field" data-tooltip="Text">Id</span>: {{id}}
 - <span class="text-field" data-tooltip="Text">Image url</span>: {{image_url}}
 - <span class="text-field" data-tooltip="Text">World</span>: {{world}}
