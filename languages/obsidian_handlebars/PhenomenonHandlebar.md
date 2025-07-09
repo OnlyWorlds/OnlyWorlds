@@ -1,11 +1,8 @@
 ## Base
-- <span class="text-field" data-tooltip="Text">Id</span>: {{id}}
 - <span class="text-field" data-tooltip="Text">Name</span>: {{name}}
 - <span class="text-field" data-tooltip="Text">Description</span>: {{description}}
 - <span class="text-field" data-tooltip="Text">Supertype</span>: {{supertype}}
 - <span class="text-field" data-tooltip="Text">Subtype</span>: {{subtype}}
-- <span class="text-field" data-tooltip="Text">Image_url</span>: {{image_url}}
-- <span class="text-field" data-tooltip="Text">World</span>: {{world}}
 
 ## Mechanics
 - <span class="string" data-tooltip="Text">Expression</span>: {{expression}}
@@ -20,4 +17,9 @@
 - <span class="multi-link-field" data-tooltip="Multi Construct">Triggers</span>: {{linkify triggers}}
 - <span class="multi-link-field" data-tooltip="Multi Character">Wielders</span>: {{linkify wielders}}
 - <span class="multi-link-field" data-tooltip="Multi Location">Environments</span>: {{linkify environments}}
+
+## Base Metadata
+- <span class="text-field" data-tooltip="Text">Id</span>: {{id}}
+- <span class="text-field" data-tooltip="Text">Image url</span>: {{image_url}}
+- <span class="text-field" data-tooltip="Text">World</span>: {{world}}
 

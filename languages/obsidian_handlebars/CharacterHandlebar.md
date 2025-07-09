@@ -1,11 +1,8 @@
 ## Base
-- <span class="text-field" data-tooltip="Text">Id</span>: {{id}}
 - <span class="text-field" data-tooltip="Text">Name</span>: {{name}}
 - <span class="text-field" data-tooltip="Text">Description</span>: {{description}}
 - <span class="text-field" data-tooltip="Text">Supertype</span>: {{supertype}}
 - <span class="text-field" data-tooltip="Text">Subtype</span>: {{subtype}}
-- <span class="text-field" data-tooltip="Text">Image_url</span>: {{image_url}}
-- <span class="text-field" data-tooltip="Text">World</span>: {{world}}
 
 ## Constitution
 - <span class="string" data-tooltip="Text">Physicality</span>: {{physicality}}
@@ -51,4 +48,9 @@
 - <span class="integer" data-tooltip="Number">Int</span>: {{int}}
 - <span class="integer" data-tooltip="Number">Wis</span>: {{wis}}
 - <span class="integer" data-tooltip="Number">Cha</span>: {{cha}}
+
+## Base Metadata
+- <span class="text-field" data-tooltip="Text">Id</span>: {{id}}
+- <span class="text-field" data-tooltip="Text">Image url</span>: {{image_url}}
+- <span class="text-field" data-tooltip="Text">World</span>: {{world}}
 

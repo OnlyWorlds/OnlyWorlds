@@ -1,11 +1,8 @@
 ## Base
-- <span class="text-field" data-tooltip="Text">Id</span>: 
 - <span class="text-field" data-tooltip="Text">Name</span>: 
 - <span class="text-field" data-tooltip="Text">Description</span>: 
 - <span class="text-field" data-tooltip="Text">Supertype</span>: 
 - <span class="text-field" data-tooltip="Text">Subtype</span>: 
-- <span class="text-field" data-tooltip="Text">Image_URL</span>: 
-- <span class="text-field" data-tooltip="Text">World</span>: 
 
 ## Identity
 - <span class="text-field" data-tooltip="Text">Spirit</span>: 
@@ -22,4 +19,9 @@
 - <span class="multi-link-field" data-tooltip="Multi Institution">Governs</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Object">Heirlooms</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Creature">Creatures</span>: 
+
+## Base Metadata
+- <span class="text-field" data-tooltip="Text">Id</span>: 
+- <span class="text-field" data-tooltip="Text">Image url</span>: 
+- <span class="text-field" data-tooltip="Text">World</span>: 
 

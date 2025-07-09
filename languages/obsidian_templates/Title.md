@@ -1,11 +1,8 @@
 ## Base
-- <span class="text-field" data-tooltip="Text">Id</span>: 
 - <span class="text-field" data-tooltip="Text">Name</span>: 
 - <span class="text-field" data-tooltip="Text">Description</span>: 
 - <span class="text-field" data-tooltip="Text">Supertype</span>: 
 - <span class="text-field" data-tooltip="Text">Subtype</span>: 
-- <span class="text-field" data-tooltip="Text">Image_URL</span>: 
-- <span class="text-field" data-tooltip="Text">World</span>: 
 
 ## Mandate
 - <span class="text-field" data-tooltip="Text">Authority</span>: 
@@ -34,4 +31,9 @@
 - <span class="multi-link-field" data-tooltip="Multi Phenomenon">Phenomena</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Species">Species</span>: 
 - <span class="multi-link-field" data-tooltip="Multi Language">Languages</span>: 
+
+## Base Metadata
+- <span class="text-field" data-tooltip="Text">Id</span>: 
+- <span class="text-field" data-tooltip="Text">Image url</span>: 
+- <span class="text-field" data-tooltip="Text">World</span>: 
 

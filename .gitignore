@@ -3,3 +3,8 @@
 run_all_generators.sh
 onlyworlds_llm_guide.txt
 onlyworlds_complete_schema.yaml
+
+
+# AI tooling
+.claude
+CLAUDE.md

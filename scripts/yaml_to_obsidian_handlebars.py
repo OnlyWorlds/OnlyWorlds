@@ -3,14 +3,18 @@ import yaml
 
 def generate_handlebars_template(base_properties, yaml_content, template_path):
     with open(template_path, 'w') as md_file:
-        # Write the 'Base' properties first
+        # Fields to move to the bottom metadata section
+        metadata_fields = {'Id', 'Image_URL', 'World'}
+        
+        # Write the 'Base' properties first (excluding metadata fields)
         md_file.write("## Base\n")
         for field, details in base_properties.items():
-            field_name = field.capitalize()
-            field_variable = field.lower()
-            tooltip = "Text" if details.get('type', 'string') == 'string' else "Number"
-            handlebars_value = f"{{{{{field_variable}}}}}"
-            md_file.write(f"- <span class=\"text-field\" data-tooltip=\"{tooltip}\">{field_name}</span>: {handlebars_value}\n")
+            if field not in metadata_fields:
+                field_name = field.capitalize()
+                field_variable = field.lower()
+                tooltip = "Text" if details.get('type', 'string') == 'string' else "Number"
+                handlebars_value = f"{{{{{field_variable}}}}}"
+                md_file.write(f"- <span class=\"text-field\" data-tooltip=\"{tooltip}\">{field_name}</span>: {handlebars_value}\n")
         md_file.write("\n")
 
         # Then write other properties from the category
@@ -42,6 +46,17 @@ def generate_handlebars_template(base_properties, yaml_content, template_path):
                     # Write the field to the markdown file
                     md_file.write(f"- <span class=\"{field_type}\" data-tooltip=\"{tooltip}\">{field_name}</span>: {handlebars_value}\n")
                 md_file.write("\n")
+        
+        # Write metadata fields at the bottom
+        md_file.write("## Base Metadata\n")
+        for field, details in base_properties.items():
+            if field in metadata_fields:
+                field_name = field.capitalize().replace('_', ' ')
+                field_variable = field.lower()
+                tooltip = "Text" if details.get('type', 'string') == 'string' else "Number"
+                handlebars_value = f"{{{{{field_variable}}}}}"
+                md_file.write(f"- <span class=\"text-field\" data-tooltip=\"{tooltip}\">{field_name}</span>: {handlebars_value}\n")
+        md_file.write("\n")
 
 def convert_yaml_to_handlebars(base_properties, yaml_path, handlebars_path):
     with open(yaml_path, 'r') as yaml_file:

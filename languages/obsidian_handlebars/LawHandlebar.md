@@ -1,11 +1,8 @@
 ## Base
-- <span class="text-field" data-tooltip="Text">Id</span>: {{id}}
 - <span class="text-field" data-tooltip="Text">Name</span>: {{name}}
 - <span class="text-field" data-tooltip="Text">Description</span>: {{description}}
 - <span class="text-field" data-tooltip="Text">Supertype</span>: {{supertype}}
 - <span class="text-field" data-tooltip="Text">Subtype</span>: {{subtype}}
-- <span class="text-field" data-tooltip="Text">Image_url</span>: {{image_url}}
-- <span class="text-field" data-tooltip="Text">World</span>: {{world}}
 
 ## Code
 - <span class="string" data-tooltip="Text">Declaration</span>: {{declaration}}
@@ -21,4 +18,9 @@
 - <span class="multi-link-field" data-tooltip="Multi Construct">Prohibitions</span>: {{linkify prohibitions}}
 - <span class="multi-link-field" data-tooltip="Multi Title">Adjudicators</span>: {{linkify adjudicators}}
 - <span class="multi-link-field" data-tooltip="Multi Title">Enforcers</span>: {{linkify enforcers}}
+
+## Base Metadata
+- <span class="text-field" data-tooltip="Text">Id</span>: {{id}}
+- <span class="text-field" data-tooltip="Text">Image url</span>: {{image_url}}
+- <span class="text-field" data-tooltip="Text">World</span>: {{world}}
 

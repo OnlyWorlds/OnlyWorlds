@@ -1,11 +1,8 @@
 ## Base
-- <span class="text-field" data-tooltip="Text">Id</span>: {{id}}
 - <span class="text-field" data-tooltip="Text">Name</span>: {{name}}
 - <span class="text-field" data-tooltip="Text">Description</span>: {{description}}
 - <span class="text-field" data-tooltip="Text">Supertype</span>: {{supertype}}
 - <span class="text-field" data-tooltip="Text">Subtype</span>: {{subtype}}
-- <span class="text-field" data-tooltip="Text">Image_url</span>: {{image_url}}
-- <span class="text-field" data-tooltip="Text">World</span>: {{world}}
 
 ## Setting
 - <span class="string" data-tooltip="Text">Form</span>: {{form}}
@@ -51,4 +48,9 @@
 - <span class="integer" data-tooltip="Number, max: 0">Elevation</span>: {{elevation}}
 - <span class="multi-link-field" data-tooltip="Multi Construct">Fighters</span>: {{linkify fighters}}
 - <span class="multi-link-field" data-tooltip="Multi Object">Defensive_objects</span>: {{linkify defensive_objects}}
+
+## Base Metadata
+- <span class="text-field" data-tooltip="Text">Id</span>: {{id}}
+- <span class="text-field" data-tooltip="Text">Image url</span>: {{image_url}}
+- <span class="text-field" data-tooltip="Text">World</span>: {{world}}
 

@@ -1,11 +1,8 @@
 ## Base
-- <span class="text-field" data-tooltip="Text">Id</span>: {{id}}
 - <span class="text-field" data-tooltip="Text">Name</span>: {{name}}
 - <span class="text-field" data-tooltip="Text">Description</span>: {{description}}
 - <span class="text-field" data-tooltip="Text">Supertype</span>: {{supertype}}
 - <span class="text-field" data-tooltip="Text">Subtype</span>: {{subtype}}
-- <span class="text-field" data-tooltip="Text">Image_url</span>: {{image_url}}
-- <span class="text-field" data-tooltip="Text">World</span>: {{world}}
 
 ## Biology
 - <span class="string" data-tooltip="Text">Appearance</span>: {{appearance}}
@@ -29,4 +26,9 @@
 - <span class="multi-link-field" data-tooltip="Multi Location">Locations</span>: {{linkify locations}}
 - <span class="multi-link-field" data-tooltip="Multi Zone">Zones</span>: {{linkify zones}}
 - <span class="multi-link-field" data-tooltip="Multi Phenomenon">Affinities</span>: {{linkify affinities}}
+
+## Base Metadata
+- <span class="text-field" data-tooltip="Text">Id</span>: {{id}}
+- <span class="text-field" data-tooltip="Text">Image url</span>: {{image_url}}
+- <span class="text-field" data-tooltip="Text">World</span>: {{world}}
 
