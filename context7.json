@@ -1,0 +1,30 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "OnlyWorlds",
+  "description": "Open standard for portable worldbuilding data with 22 element types, YAML schemas, and RESTful API",
+  "folders": [
+    "schema",
+    "types",
+    "scripts"
+  ],
+  "excludeFolders": [
+    "languages",
+    "images"
+  ],
+  "excludeFiles": [],
+  "rules": [
+    "YAML schemas in /schema are the source of truth - do not edit generated files in /languages",
+    "All elements inherit base_properties.yaml: id (UUIDv7), name (required), description, world (required), image_url, supertype, subtype",
+    "Run yaml_to_* scripts after schema changes to regenerate language bindings",
+    "22 element types available - see /schema for complete list with fields and relationships",
+    "Fields can be: string, text, integer, single_link (one element), multi_link (many elements)",
+    "API pattern: GET/POST/PUT/DELETE to /api/worldapi/{element_type}/",
+    "Authentication: API-Key and API-Pin headers (get from onlyworlds.com profile)",
+    "Use name__icontains for search, world={uuid} to filter by world",
+    "Map/Pin/Marker are elements for spatial data; World is the container table",
+    "Check onlyworlds_complete_schema.yaml for consolidated schema reference",
+    "MCP server available: npx @onlyworlds/mcp-client",
+    "Documentation at https://onlyworlds.github.io"
+  ],
+  "previousVersions": []
+}
