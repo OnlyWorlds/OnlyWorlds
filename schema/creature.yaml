@@ -25,7 +25,7 @@ properties:
         description: "Species this creature belongs to"
         category: "Species"
 
-  Behaviour:
+  Behavior:
     type: object
     properties:
       habits:

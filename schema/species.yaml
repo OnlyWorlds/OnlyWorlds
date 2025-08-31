@@ -7,7 +7,7 @@ properties:
     properties:
       appearance:
         type: "string"
-        description: "Typical physical or form featues of the species"
+        description: "Typical physical or form features of the species"
       life_span:
         type: "integer"
         maximum: 0
