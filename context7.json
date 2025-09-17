@@ -1,16 +1,13 @@
   {
     "$schema": "https://context7.com/schema/context7.json",
     "projectTitle": "OnlyWorlds",
-    "description": "Open standard for portable worldbuilding data with 22 element types, Django REST API, and
-  comprehensive tooling ecosystem",
+    "description": "Open standard for portable worldbuilding data with 22 element types, Django REST API, and comprehensive tooling ecosystem",
     "rules": [
-      "22 element types: Ability, Character, Collective, Construct, Creature, Event, Family, Institution, Language,
-  Law, Location, Map, Marker, Narrative, Object, Phenomenon, Pin, Relation, Species, Title, Trait, Zone",
-      "Base fields (all elements): id (UUIDv7), name, description, world, image_url, supertype, subtype, created_at,
-   updated_at",
+      "22 element types: Ability, Character, Collective, Construct, Creature, Event, Family, Institution, Language, Law, Location, Map, Marker, Narrative, Object,
+   Phenomenon, Pin, Relation, Species, Title, Trait, Zone",
+      "Base fields (all elements): id (UUIDv7), name, description, world, image_url, supertype, subtype, created_at, updated_at",
       "Field types: text, number, single_link (FK to one element), multi_link (M2M to elements)",
-      "API relationship fields: Use _id suffix for single_link (e.g., 'character_id'), _ids suffix for multi_link
-  (e.g., 'abilities_ids')",
+      "API relationship fields: Use _id suffix for single_link (e.g., 'character_id'), _ids suffix for multi_link (e.g., 'abilities_ids')",
       "UUIDv7 specifics: Time-sortable UUIDs for chronological ordering of elements",
       "Relationships: relation_single links to one element, relation_many links to multiple elements",
       "API endpoints: /api/worldapi/{element_type}/ supports GET/POST/PUT/PATCH/DELETE",
