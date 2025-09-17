@@ -1,30 +1,25 @@
 {
-  "$schema": "https://context7.com/schema/context7.json",
-  "projectTitle": "OnlyWorlds",
-  "description": "Open standard for portable worldbuilding data with 22 element types, YAML schemas, and RESTful API",
-  "folders": [
-    "schema",
-    "types",
-    "scripts"
-  ],
-  "excludeFolders": [
-    "languages",
-    "images"
-  ],
-  "excludeFiles": [],
-  "rules": [
-    "YAML schemas in /schema are the source of truth - do not edit generated files in /languages",
-    "All elements inherit base_properties.yaml: id (UUIDv7), name (required), description, world (required), image_url, supertype, subtype",
-    "Run yaml_to_* scripts after schema changes to regenerate language bindings",
-    "22 element types available - see /schema for complete list with fields and relationships",
-    "Fields can be: string, text, integer, single_link (one element), multi_link (many elements)",
-    "API pattern: GET/POST/PUT/DELETE to /api/worldapi/{element_type}/",
-    "Authentication: API-Key and API-Pin headers (get from onlyworlds.com profile)",
-    "Use name__icontains for search, world={uuid} to filter by world",
-    "Map/Pin/Marker are elements for spatial data; World is the container table",
-    "Check onlyworlds_complete_schema.yaml for consolidated schema reference",
-    "MCP server available: npx @onlyworlds/mcp-client",
-    "Documentation at https://onlyworlds.github.io"
-  ],
-  "previousVersions": []
-}
+    "$schema": "https://context7.com/schema/context7.json",
+    "projectTitle": "OnlyWorlds",
+    "description": "Open standard for portable worldbuilding data with 22 element types, Django REST API, and
+  comprehensive tooling ecosystem",
+    "rules": [
+      "Schema source of truth: typed_schema.json defines all element fields and types",
+      "22 element types: Ability, Character, Collective, Construct, Creature, Event, Family, Institution, Language,
+  Law, Location, Map, Marker, Narrative, Object, Phenomenon, Pin, Relation, Species, Title, Trait, Zone",
+      "Base fields (all elements): id (UUIDv7), name, description, world, image_url, supertype, subtype, created_at,
+   updated_at",
+      "Field types: text, number, single_link (FK to one element), multi_link (M2M to elements)",
+      "Relationships: relation_single links to one element, relation_many links to multiple elements",
+      "API endpoints: /api/worldapi/{element_type}/ supports GET/POST/PUT/PATCH/DELETE",
+      "Authentication: Headers require API-Key and API-Pin (get from www.onlyworlds.com/profile)",
+      "Query params: ?world={uuid} to filter, ?name__icontains for search, ?ordering for sort",
+      "World vs Map: World is database container, Map/Pin/Marker are spatial elements within worlds",
+      "Session API: /api/worldapi/session/ for authenticated web users only",
+      "Bulk operations: /api/worldsync/ for import/export of complete world data",
+      "MCP server: Install with 'npx @onlyworlds/mcp-client', provides 10 tools for AI assistants",
+      "Production: Hosted on PythonAnywhere at www.onlyworlds.com",
+      "API docs: www.onlyworlds.com/api/docs (Django Ninja OpenAPI specification)",
+      "GitHub: github.com/OnlyWorlds/OnlyWorlds (public schema repository)"
+    ]
+  }
