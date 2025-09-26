@@ -14,9 +14,12 @@
       "Query params: ?world={uuid} to filter, ?name__icontains for search, ?ordering for sort",
       "World vs Map: World is database container, Map/Pin/Marker are spatial elements within worlds",
       "Session API: /api/worldapi/session/ for authenticated web users only",
-      "Bulk operations: /api/worldsync/ for import/export of complete world data",
-      "MCP server: Install with 'npx @onlyworlds/mcp-client', provides 10 tools for AI assistants",
-      "Production: Hosted on PythonAnywhere at www.onlyworlds.com, PostgreSQL database",
+      "WorldSync endpoints: GET /api/worldsync/export/{world_id}/ exports complete world JSON, POST /api/worldsync/import/ imports world with conflict resolution",
+      "JSON structure: {'World': {world_metadata}, 'Character': [...], 'Location': [...]} format enabling offline editing and version control workflows",
+      "Import modes: merge_mode='update'|'replace'|'create_new', dry_run=true for validation, conflict resolution for duplicates",
+      "Local workflows: Export for backup/versioning, edit JSON locally, import updates - supports distributed worldbuilding collaboration",
+      "MCP integration: @onlyworlds/mcp-client provides 24+ resources covering schema, authentication, endpoints, and bulk operations",
+      "Production: Hosted on PythonAnywhere at www.onlyworlds.com, MySQL database",
       "API docs: www.onlyworlds.com/api/docs (Django Ninja OpenAPI specification)",
       "GitHub: github.com/OnlyWorlds/OnlyWorlds (public schema repository)"
     ]
