@@ -7,7 +7,7 @@ OnlyWorlds provides a universal language and supporting infrastructure for descr
 ### What This Repository Contains
 
 - `/schema` - Core YAML definitions for 22 element categories and their fields
-- `/languages` - Auto-generated exports (TypeScript, Python, etc.) 
+- `/languages` - Auto-generated exports to coding languages or frameworks (TypeScript, python, etc.) 
 
 ### Quick Links
 
@@ -51,4 +51,5 @@ The [REST API](https://onlyworlds.com/api/docs) provides programmatic access to 
 ### License
 
 Open source with no commercial restrictions. Free to use, adapt, and distribute.
+
 
