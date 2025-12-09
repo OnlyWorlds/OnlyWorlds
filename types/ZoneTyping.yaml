@@ -1,4 +1,4 @@
   types:
-    Territory: []
-    Route: []
+    Line: []
+    Polygon: []
     
