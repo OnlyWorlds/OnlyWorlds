@@ -1,26 +1,29 @@
-  {
-    "$schema": "https://context7.com/schema/context7.json",
-    "projectTitle": "OnlyWorlds",
-    "description": "Open standard for portable worldbuilding data with 22 element types, Django REST API, and comprehensive tooling ecosystem",
-    "rules": [
-      "22 element types: Ability, Character, Collective, Construct, Creature, Event, Family, Institution, Language, Law, Location, Map, Marker, Narrative, Object, Phenomenon, Pin, Relation, Species, Title, Trait, Zone",
-      "Base fields (all elements): id (UUIDv7), name, description, world, image_url, supertype, subtype, created_at, updated_at",
-      "Field types: text, number, single_link (FK to one element), multi_link (M2M to elements)",
-      "API relationship fields: Use _id suffix for single_link (e.g., 'character_id'), _ids suffix for multi_link (e.g., 'abilities_ids')",
-      "UUIDv7 specifics: Time-sortable UUIDs for chronological ordering of elements",
-      "Relationships: relation_single links to one element, relation_many links to multiple elements",
-      "API endpoints: /api/worldapi/{element_type}/ supports GET/POST/PUT/PATCH/DELETE",
-      "Authentication: Headers require API-Key and API-Pin (get PIN from www.onlyworlds.com/profile)",
-      "Query params: ?world={uuid} to filter, ?name__icontains for search, ?ordering for sort",
-      "World vs Map: World is database container, Map/Pin/Marker are spatial elements within worlds",
-      "Session API: /api/worldapi/session/ for authenticated web users only",
-      "WorldSync endpoints: GET /api/worldsync/export/{world_id}/ exports complete world JSON, POST /api/worldsync/import/ imports world with conflict resolution",
-      "JSON structure: {'World': {world_metadata}, 'Character': [...], 'Location': [...]} format enabling offline editing and version control workflows",
-      "Import modes: merge_mode='update'|'replace'|'create_new', dry_run=true for validation, conflict resolution for duplicates",
-      "Local workflows: Export for backup/versioning, edit JSON locally, import updates - supports distributed worldbuilding collaboration",
-      "MCP integration: @onlyworlds/mcp-client provides 24+ resources covering schema, authentication, endpoints, and bulk operations",
-      "Production: Hosted on PythonAnywhere at www.onlyworlds.com, MySQL database",
-      "API docs: www.onlyworlds.com/api/docs (Django Ninja OpenAPI specification)",
-      "GitHub: github.com/OnlyWorlds/OnlyWorlds (public schema repository)"
-    ]
-  }
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "OnlyWorlds",
+  "description": "Open standard for portable worldbuilding data: 22 typed element types with typed relations, a free REST API (v2), an official MCP server, and a local-first folder format. Free and open source.",
+  "rules": [
+    "OnlyWorlds is a DATA STANDARD, not an app. 22 element types with typed links between them; the schema is the product and the graph is the value. Canonical schema: github.com/OnlyWorlds/OnlyWorlds/schema/*.yaml (YAML, one file per type).",
+    "The 22 element types: Ability, Character, Collective, Construct, Creature, Event, Family, Institution, Language, Law, Location, Map, Marker, Narrative, Object, Phenomenon, Pin, Relation, Species, Title, Trait, Zone.",
+    "Base fields on every element: id (client-mintable UUID), name, description, supertype, subtype, image_url, created_at, updated_at, change_seq, and type (the lowercase slug, present in the body).",
+    "Field kinds: string, integer (NULLABLE - null means UNSET and is semantically distinct from 0), single-link (one UUID), multi-link (array of UUIDs), plus one generic link (pin.element, whose target type is resolved at the application layer).",
+    "THE CURRENT API IS v2, at https://www.onlyworlds.com/api/v2/. Endpoints are GET/POST/PUT/PATCH/DELETE /api/v2/{element_type}/ where element_type is the LOWERCASE SINGULAR slug: /api/v2/character/, /api/v2/location/, /api/v2/narrative/.",
+    "v2 LINK FIELDS USE BARE SCHEMA NAMES, both directions. A single-link is `location`; a multi-link is `characters`. NOT `location_id`, NOT `characters_ids`. The `_id`/`_ids` suffixes belong to the legacy v1 dialect only.",
+    "Links are UUID references, never embedded objects: a single-link serializes as a UUID string or null; a multi-link serializes as an array of UUID strings.",
+    "List responses are an envelope: {\"data\": [...], \"has_more\": bool, \"next_cursor\": string|null}. ALWAYS PAGINATE - never assume one page is the whole set. `limit` is supported; element lists silently clamp at 1000.",
+    "Authentication: the headers `API-Key` and `API-Pin`, spelled exactly that way. Keys are per-WORLD and the key determines which world you are operating in - so NEVER send a `world` field in a POST or PATCH body; it is rejected. Use host www.onlyworlds.com (not the bare domain).",
+    "Key formats: prefixed `ow_w_...` (write) and `ow_r_...` (read-only), plus legacy 10-digit numeric keys which remain valid. Read-only keys are the share-with-your-players default. The PIN is a string, not an integer.",
+    "PATCH IS DESTRUCTIVE - it replaces the fields you send rather than merging them. GET the current state first, then send the merged value: text fields need existing + new, multi-links need the full merged array. Sending a partial array deletes the rest.",
+    "Element ids are client-mintable UUIDs, so a POST may carry its own id; POSTing an id that already exists returns 409 `id_conflict`. PUT is the upsert. DELETE is idempotent. A failed POST is most often a bad foreign key - verify referenced UUIDs exist before reshaping the payload.",
+    "Sync: GET /api/v2/changes/ is a per-world monotonic change feed. It returns {\"cursor\", \"changes\", \"has_more\", \"head\"}, where each change is a RECORD - {id, type, op, change_seq, deleted_at} - and NOT the element body. Fetch bodies from the per-type endpoints. `?head=true` cheaply reads the cursor tip. Walking from the zero cursor enumerates everything.",
+    "Extension fields: names under `x_*` (open to any tool), plus `atlas_*` and `shadow_*`, are accepted on write, stored opaquely, and returned verbatim - which is what makes lossless round-trips real for tool-specific state. Any OTHER unrecognized field is a loud 422 rather than silent storage, so a typo'd field name errors instead of vanishing.",
+    "Errors use one envelope: {\"error\": {\"type\", \"code\", \"message\", \"param\", \"doc_url\"}}. Types: invalid_request, authentication_error, permission_error, not_found, rate_limited, idempotency_error, api_error. Unknown query parameters return 422 rather than being silently ignored.",
+    "Bulk: POST /api/v2/bulk/ accepts mixed-type batches. Partial failures are reported per item - check the result rather than assuming all-or-nothing.",
+    "THE FOLDER FORMAT is the at-rest twin of the API: one world is one folder - `world.json` plus one JSON file per element under `elements/<type>/`. The id inside the file is identity and the filename is presentation, so files can be renamed safely. Plain JSON on disk means any tool can read a world with no API and no account.",
+    "MCP: an official OnlyWorlds MCP server is published in the MCP registry as `com.onlyworlds/mcp` - it connects an AI assistant directly to a world's typed data.",
+    "Official clients: TypeScript/JavaScript via the `@onlyworlds/sdk` npm package - current major is **4.x, which is ESM-only and v2-only**. Do not generate code against SDK 3.x idioms or the v1 dialect. The canonical schema YAML is the single source of truth from which typed clients are generated.",
+    "Cross-tool prose reference convention: `ow://type/uuid`.",
+    "Platform: onlyworlds.com - free, open source, no paywall, data exportable. API docs at www.onlyworlds.com/api/docs, OpenAPI at www.onlyworlds.com/api/v2/openapi.json, guides at onlyworlds.github.io, source at github.com/OnlyWorlds.",
+    "LEGACY: /api/worldapi/ is the v1 API, still served as a thin compatibility adapter over the v2 core. It uses the `_id`/`_ids` dialect and returns bare arrays instead of the list envelope. Build new integrations against v2."
+  ]
+}

@@ -6,8 +6,17 @@ OnlyWorlds provides a universal language and supporting infrastructure for descr
 
 ### What This Repository Contains
 
-- `/schema` - Core YAML definitions for 22 element categories and their fields
-- `/languages` - Auto-generated exports to coding languages or frameworks (TypeScript, python, etc.) 
+- `/schema` - Core YAML definitions for 22 element categories and their fields. **This is the standard.** Everything else in the ecosystem is generated from it or validated against it.
+- `/types` - Element type listings
+- `onlyworlds_complete_schema.yaml` - the whole schema rolled into one file, for tools that prefer a single document
+
+Typed clients are **not** kept here — they live with the tools that maintain them, generated from the schema above:
+
+| Language | Where |
+|---|---|
+| TypeScript / JavaScript | [`@onlyworlds/sdk`](https://www.npmjs.com/package/@onlyworlds/sdk) |
+| MCP (any AI assistant) | [`@onlyworlds/mcp-client`](https://www.npmjs.com/package/@onlyworlds/mcp-client), registry id `com.onlyworlds/mcp` |
+| Anything else | Read the YAML - it is small, and the [API reference](https://onlyworlds.com/api/docs) documents the wire shapes |
 
 ### Quick Links
 
@@ -46,7 +55,9 @@ See [developer documentation](https://onlyworlds.github.io/docs/development/) fo
 
 ### API Access
 
-The [REST API](https://onlyworlds.com/api/docs) provides programmatic access to create, modify, and sync world data. It follows OpenAPI 3 specification and uses API-Key and API-Pin header authentication. 
+The [REST API](https://onlyworlds.com/api/docs) provides programmatic access to create, modify, and sync world data. It follows the OpenAPI 3 specification and uses `API-Key` and `API-Pin` header authentication.
+
+The current API is **v2**, at `https://www.onlyworlds.com/api/v2/`. Link fields use bare schema names (`location`, `characters`) — the `_id`/`_ids` suffixes belong to the legacy v1 dialect, which is still served as a compatibility adapter at `/api/worldapi/`. List responses are paginated in a `{data, has_more, next_cursor}` envelope, and `GET /api/v2/changes/` is a per-world change feed for incremental sync.
  
 ### License
 
