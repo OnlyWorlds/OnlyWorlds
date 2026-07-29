@@ -46,7 +46,7 @@ You can feed the [documentation](https://onlyworlds.github.io), the [API referen
 
 - **JavaScript / TypeScript**: `npm install @onlyworlds/sdk`
 - **AI assistants**: connect to the hosted MCP server at `https://www.onlyworlds.com/mcp`, use the [claude code toolkit](https://github.com/OnlyWorlds/toolkit) for local harnesses, or use the SDK for typed API access and project context.
-- **Python**: a client package is published under `onlyworlds`
+- **Python**: no client package yet. The API is plain REST, so `requests` and the [API reference](https://onlyworlds.com/api/docs) are enough.
 
 See the [developer guides](https://onlyworlds.github.io/docs/development/) and [onlyworlds.com/develop](https://onlyworlds.com/develop) for integration walkthroughs.
 
