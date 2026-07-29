@@ -117,7 +117,7 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-          description: "Relations relevant to the construct"
+        description: "Relations relevant to the construct"
         category: "Relation"
       titles:
         type: "multi-link"

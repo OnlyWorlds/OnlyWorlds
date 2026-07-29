@@ -100,7 +100,7 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-          description: "Languages relevant to the event"
+        description: "Languages relevant to the event"
         category: "Language"
       families:
         type: "multi-link"
