@@ -15,6 +15,7 @@ properties:
         description: "Length of time the ability remains active or its effects persist, measured in TIME units"
       potency:
         type: "integer"
+        minimum: 0
         maximum: 100
         description: "Relative measure of the ability's inherent potency or force, used for scaling or comparison purposes"
       range:
