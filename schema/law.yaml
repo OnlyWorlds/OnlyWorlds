@@ -13,7 +13,6 @@ properties:
         description: "The intent, motivation, or justification for the law's creation"
       date:
         type: "integer"
-        maximum: 0
         description: "Date the law was formally established, in world TIME units"
       parent_law:
         type: "single-link"

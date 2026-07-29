@@ -10,11 +10,9 @@ properties:
         description: "The operational function or intent of the zone"
       start_date:
         type: "integer"
-        maximum: 0
         description: "Date when the zone becomes extant or relevant, defined in world TIME units"
       end_date:
         type: "integer"
-        maximum: 0
         description: "Date when the zone ceases to be meaningful or enforced, defined in world TIME units"
       phenomena:
         type: "multi-link"

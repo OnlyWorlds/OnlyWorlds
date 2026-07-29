@@ -10,11 +10,9 @@ properties:
         description: "Appearance, design, or visual presentation of the object"
       weight:
         type: "integer"
-        maximum: 0
         description: "Approximate or exact mass of the object, defined by world MASS units"
       amount:
         type: "integer"
-        maximum: 0
         description: "The number of identical units in this object entry"
       parent_object:
         type: "single-link"

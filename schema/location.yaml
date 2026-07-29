@@ -13,7 +13,6 @@ properties:
         description: "Main use, role, or purpose of the location within the world"
       founding_date:
         type: "integer"
-        maximum: 0
         description: "Date on which the location was founded, established, or designated"
       parent_location:
         type: "single-link"
@@ -164,7 +163,6 @@ properties:
         description: "Qualities of natural, constructed, and implemented defenses at the location"
       elevation:
         type: "integer"
-        maximum: 0
         description: "Height or elevation of the location relative to surrounding terrain, defined in world DISTANCE units"
       fighters:
         type: "multi-link"

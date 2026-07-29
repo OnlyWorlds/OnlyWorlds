@@ -14,11 +14,9 @@ properties:
         description: "Outcomes or legacy of the narrative"
       start_date:
         type: "integer"
-        maximum: 0
         description: "Date when the narrative begins, measured in world TIME units"
       end_date:
         type: "integer"
-        maximum: 0
         description: "Date when the narrative ends, measured in world TIME units"
       order:
         type: "integer"

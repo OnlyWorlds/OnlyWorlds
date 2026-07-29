@@ -19,11 +19,9 @@ properties:
         description: "The geographic, cultural, or political extent of the construct's influence"
       start_date:
         type: "integer"
-        maximum: 0
         description: "The point in time when the construct began or was first established (uses world's TIME definition)"
       end_date:
         type: "integer"
-        maximum: 0
         description: "The point in time when the construct ceased to function or lost its meaning"
       founder:
         type: "single-link"

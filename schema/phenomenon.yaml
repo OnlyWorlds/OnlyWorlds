@@ -13,7 +13,6 @@ properties:
         description: "The primary outcomes or changes caused by the phenomenon"
       duration:
         type: "integer"
-        maximum: 0
         description: "The amount of time the phenomenon lasts, measured in world TIME units"
       catalysts:
         type: "multi-link"

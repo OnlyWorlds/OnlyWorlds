@@ -10,11 +10,9 @@ properties:
         description: "Typical physical or form features of the species"
       life_span:
         type: "integer"
-        maximum: 0
         description: "Average or typical life expectancy of an individual, defined in world TIME units"
       weight:
         type: "integer"
-        maximum: 0
         description: "Average or typical adult weight, defined in world MASS units"
       nourishment:
         type: "multi-link"
@@ -52,6 +50,7 @@ properties:
         description: "Typical methods and approaches of interaction"
       aggression:
         type: "integer"
+        minimum: 0
         maximum: 100
         description: "General aggressiveness level, on relative scale of 0 to 100"
       traits:

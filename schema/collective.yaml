@@ -11,11 +11,9 @@ properties:
         description: "Internal structure or demographic makeup of the collective"
       count:
         type: "integer"
-        maximum: 0
         description: "Number of members in the collective (approximate or exact)"
       formation_date:
         type: "integer"
-        maximum: 0
         description: "Date the collective was formed, using world TIME units"
       operator:
         type: "single-link"

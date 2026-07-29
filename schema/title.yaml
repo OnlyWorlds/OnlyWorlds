@@ -14,11 +14,9 @@ properties:
         description: "Conditions or qualifications for receiving or holding the title"
       grant_date:
         type: integer
-        maximum: 0
         description: "Date on which the title was granted, defined in world TIME units"
       revoke_date:
         type: integer
-        maximum: 0
         description: "Date on which the title ended or was revoked, defined in world TIME units"
       issuer:
         type: single-link

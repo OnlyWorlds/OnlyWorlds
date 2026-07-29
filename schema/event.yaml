@@ -16,11 +16,9 @@ properties:
         description: "Outcomes and impacts resulting from the event"
       start_date:
         type: "integer"
-        maximum: 0
         description: "Date on which the event began"
       end_date:
         type: "integer"
-        maximum: 0
         description: "Date on which the event concluded"
       triggers:
         type: "multi-link"

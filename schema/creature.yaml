@@ -12,11 +12,9 @@ properties:
         description: "Visual description of the creature"
       weight:
         type: integer
-        maximum: 0
         description: "Approximate or exact weight of the creature, using world MASS units"
       height:
         type: integer
-        maximum: 0
         description: "Approximate height of the creature, using the world's defined LENGTH units"
       species:
         type: multi-link
@@ -61,7 +59,6 @@ properties:
         description: "Current situation or classification of the creature"
       birth_date:
         type: integer
-        maximum: 0
         description: "The time of the creature's birth, recorded in the world's defined TIME unit"
       location:
         type: single-link
