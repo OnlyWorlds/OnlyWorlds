@@ -129,7 +129,7 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-        description: "Events relevant to the relation"
+        description: "Events where the relation is involved or relevant"
         category: "Event"
       narratives:
         type: "multi-link"

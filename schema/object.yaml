@@ -22,13 +22,13 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-        description: "The phyiscal matter that constitutes the object"
+        description: "The physical matter that constitutes the object"
         category: "Construct"
       technology:
         type: "multi-link"
         items:
           type: "string"
-        description: "Mechanisms relating the object's design or operation"
+        description: "Mechanisms relating to the object's design or operation"
         category: "Construct"
 
   Function:
@@ -47,7 +47,7 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-        description: "Abilities that the object grant or enables"
+        description: "Abilities that the object grants or enables"
         category: "Ability"
       consumes:
         type: "multi-link"

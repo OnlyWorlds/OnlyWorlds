@@ -22,7 +22,7 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-        description: "Consequences intended to beapplied when the law is contravened"
+        description: "Consequences intended to be applied when the law is contravened"
         category: "Construct"
 
   World:
