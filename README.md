@@ -12,6 +12,8 @@ A world in this shape can be read and written by any tool that speaks it: a desk
 
 The 22 types: Character, Creature, Species, Family, Collective, Institution, Location, Object, Construct, Ability, Trait, Title, Language, Law, Event, Narrative, Phenomenon, Relation, Map, Pin, Marker, Zone.
 
+In world data, keys are lowercase (`id`, `name`, `image_url`), a single link holds one element's UUID, and a multi-link holds a list of UUIDs.
+
 ## Making a world
 
 [Atlas](https://atlas.onlyworlds.com) is the main workspace. A world is a folder of plain files on your own machine, and no account is needed to start. An account on [onlyworlds.com](https://www.onlyworlds.com) hosts worlds online, with sharing and API access. Other tools, including an Obsidian plugin and converters from other apps, are listed at [onlyworlds.com/tools](https://www.onlyworlds.com/tools).
@@ -27,6 +29,8 @@ Get the schema from [schema-dist](https://github.com/OnlyWorlds/schema-dist): it
 | Unity / C# | [unity-sdk](https://github.com/OnlyWorlds/unity-sdk) |
 | AI assistants | the MCP server at `https://www.onlyworlds.com/mcp` |
 | Claude Code | the [toolkit](https://github.com/OnlyWorlds/toolkit) plugin |
+
+Using Godot, Unreal or another engine without an SDK: see [Games](https://onlyworlds.github.io/docs/development/games) in the docs.
 
 The REST API is at `https://www.onlyworlds.com/api/v2/`, with an interactive reference at [/api/docs](https://www.onlyworlds.com/api/docs). Keys are per world, sent as `API-Key` and `API-Pin` headers. The developer docs are at [onlyworlds.github.io](https://onlyworlds.github.io).
 

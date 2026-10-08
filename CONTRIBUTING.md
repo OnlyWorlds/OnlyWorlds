@@ -1,70 +1,32 @@
 # Contributing to OnlyWorlds
 
-Start with the [README](./README.md) and [Official Docs](https://onlyworlds.github.io) to get an overview.
+Start with the [README](./README.md) and the [docs](https://onlyworlds.github.io).
 
----
+## Ideas, questions and requests
 
-##  Quick Start
+- [Discussions](https://github.com/OnlyWorlds/OnlyWorlds/discussions) for ideas, schema questions and requests for new fields or types.
+- The [Council](https://council.onlyworlds.com), where changes to the schema are proposed as motions and voted on.
+- [Discord](https://discord.gg/twCjqvVBwb) to talk it through.
+- [Issues](https://github.com/OnlyWorlds/OnlyWorlds/issues) for something wrong in the files.
 
-### To propose a change or idea:
+Feedback from non-developers counts as much as code: which fields your world needs, which names are unclear, what doesn't fit.
 
-* Start a discussion in the [GitHub Discussions](https://github.com/OnlyWorlds/OnlyWorlds/discussions) section
-* Or join the [OnlyWorlds Discord](https://discord.gg/twCjqvVBwb) for live collaboration
+## Changing the files
 
-### To contribute code or schema updates:
+1. Fork the repository and create a branch.
+2. Make your change in `schema/` or `types/`.
+3. Open a pull request that says what the change is for.
 
-1. **Fork** this repository
-2. **Create a new branch** for your change
-3. Make your changes in `schema/`, `types/`, `scripts/`, or `languages/`
-4. Run validation (scripts TBD)
-5. **Open a pull request**, and explain your intent clearly
+A change tools must react to (a new field, a renamed one, a new type) goes through the Council as a motion first. Corrections to descriptions and typos can come straight as a pull request. Backwards-compatible changes are preferred.
 
----
-
-## 🔹 Contribution Types
-
-### ✍️ Non-Technical
-
-* Feedback on specific world elements or categories
-* Suggestions for clarity, naming, or organization
-* Requests for new fields, categories, or structures
-* Questions about schema usage or worldbuilding needs
-
-### 💻 Technical / Developer
-
-* Schema improvements (in `/schema` or `/types`)
-* Bug fixes, structural updates, or validation logic
-* Tooling (scripts, format converters)
-* API usage feedback
-* Integrations with other tools or platforms
-
----
-
-## 🔧 Schema Philosophy
-
-OnlyWorlds is designed as a **flexible, open foundation**. The schema is:
-
-* Structured with **JSON Schema** (in YAML format)
-* Extensible by design
-* Community-evolving: we treat this as a shared standard, not a fixed spec
-
-We strongly prefer evolutionary, backwards-compatible changes when possible.
-
----
-
-## 📊 Folder Structure
+## Layout
 
 ```
-/schema        # Main YAML schema files
-/types         # Typing system and categories
-/languages     # Auto-converted schema formats
-/scripts       # Tools and helpers (e.g. for validation)
+schema/   one YAML file per element type, plus base_properties.yaml and world.yaml
+types/    suggested supertypes and subtypes per type
+VERSION   the schema version
 ```
 
----
+## Code of conduct
 
-## ✉️ Where to Ask Questions
-
-* Open a topic in [GitHub Discussions](https://github.com/OnlyWorlds/OnlyWorlds/discussions) 
-* Join the [Discord Server](https://discord.gg/twCjqvVBwb) for informal or quick input
- 
+See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
