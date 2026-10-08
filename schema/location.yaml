@@ -52,11 +52,11 @@ properties:
       rival:
         type: "single-link"
         category: "Location"
-        description: "Locations with active, traditional, or historical rivalries"
+        description: "Location with an active, traditional, or historical rivalry with this one"
       partner:
         type: "single-link"
         category: "Location"
-        description: "Locations with active, cooperative, or historical ties"
+        description: "Location with active, cooperative, or historical ties to this one"
 
   World:
     type: "object"
