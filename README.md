@@ -4,6 +4,8 @@ An open standard for worldbuilding data: 22 element types, their fields, and the
 
 A world in this shape can be read and written by any tool that speaks it: a desktop app, an Obsidian vault, a game engine, an AI assistant. Every element needs only a name; every other field is optional.
 
+![Admiral Fluffington, a Character in the demo world Moppetopia, as the standard's YAML, the API's JSON, an AI client's search, his page in Atlas beside the space map, and the Unity World Browser](https://media.onlyworlds.com/onlyworlds/readme/fluffington-plate.webp)
+
 ## What is here
 
 - `schema/`: one YAML file per element type, plus `base_properties.yaml` (the fields every element has) and `world.yaml` (the world itself). This is the standard.
@@ -11,6 +13,11 @@ A world in this shape can be read and written by any tool that speaks it: a desk
 - `VERSION`: the schema version.
 
 The 22 types: Character, Creature, Species, Family, Collective, Institution, Location, Object, Construct, Ability, Trait, Title, Language, Law, Event, Narrative, Phenomenon, Relation, Map, Pin, Marker, Zone.
+
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="https://media.onlyworlds.com/onlyworlds/readme/types-row-light.webp">
+  <img alt="The 22 element types, each with its icon, in alphabetical order" src="https://media.onlyworlds.com/onlyworlds/readme/types-row-dark.webp">
+</picture>
 
 In world data, keys are lowercase (`id`, `name`, `image_url`), a single link holds one element's UUID, and a multi-link holds a list of UUIDs.
 
