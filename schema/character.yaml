@@ -14,10 +14,10 @@ properties:
         description: "The character's mindset, emotional tone, and style of thinking"
       height:
         type: "integer"
-        description: "The character's approximate or exact height, using world LENGTH units"
+        description: "The character's approximate or exact height, in the world's length unit (World length_unit)"
       weight:
         type: "integer"
-        description: "The character's approximate or exact weight, using world MASS units"
+        description: "The character's approximate or exact weight, in the world's mass unit (World mass_unit)"
       species:
         type: "multi-link"
         items:

@@ -60,4 +60,13 @@ properties:
     type: "integer"
     description: "The current point in time within the world's timeline" 
     default: 0
+  length_unit:
+    type: "string"
+    description: "The unit the world's lengths are counted in (Character and Creature height), as free text. Recommended: 'mm', 'cm', 'm', 'in', 'ft'; a world's own unit ('hands') is shown as written"
+  mass_unit:
+    type: "string"
+    description: "The unit the world's masses are counted in (Character, Creature, Object and Species weight), as free text. Recommended: 'g', 'kg', 't', 'lb'; a world's own unit ('stone') is shown as written"
+  distance_unit:
+    type: "string"
+    description: "The unit the world's distances are counted in (Ability range, Creature speed, Location elevation), as free text. Recommended: 'm', 'km', 'ft', 'mi'; a world's own unit ('leagues') is shown as written"
  

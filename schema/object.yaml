@@ -10,7 +10,7 @@ properties:
         description: "Appearance, design, or visual presentation of the object"
       weight:
         type: "integer"
-        description: "Approximate or exact mass of the object, defined by world MASS units"
+        description: "Approximate or exact mass of the object, in the world's mass unit (World mass_unit)"
       amount:
         type: "integer"
         description: "The number of identical units in this object entry"

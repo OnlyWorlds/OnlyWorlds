@@ -20,7 +20,7 @@ properties:
         description: "Relative measure of the ability's inherent potency or force, used for scaling or comparison purposes"
       range:
         type: "integer"
-        description: "Effective reach or distance at which the ability can be used, measured in DISTANCE units"
+        description: "Effective reach or distance at which the ability can be used, in the world's distance unit (World distance_unit)"
       effects:
         type: "multi-link"
         items:

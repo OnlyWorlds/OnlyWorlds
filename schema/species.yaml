@@ -13,7 +13,7 @@ properties:
         description: "Average or typical life expectancy of an individual, defined in world TIME units"
       weight:
         type: "integer"
-        description: "Average or typical adult weight, defined in world MASS units"
+        description: "Average or typical adult weight, in the world's mass unit (World mass_unit)"
       nourishment:
         type: "multi-link"
         items:
