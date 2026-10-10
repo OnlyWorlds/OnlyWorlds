@@ -15,8 +15,8 @@ A world in this shape can be read and written by any tool that speaks it: a desk
 The 22 types: Character, Creature, Species, Family, Collective, Institution, Location, Object, Construct, Ability, Trait, Title, Language, Law, Event, Narrative, Phenomenon, Relation, Map, Pin, Marker, Zone.
 
 <picture>
-  <source media="(prefers-color-scheme: light)" srcset="https://media.onlyworlds.com/onlyworlds/readme/types-row-light.webp">
-  <img alt="The 22 element types, each with its icon, in alphabetical order" src="https://media.onlyworlds.com/onlyworlds/readme/types-row-dark.webp">
+  <source media="(prefers-color-scheme: light)" srcset="https://media.onlyworlds.com/onlyworlds/readme/types-row-light-2.webp">
+  <img alt="The 22 element types, each with its icon, in alphabetical order" src="https://media.onlyworlds.com/onlyworlds/readme/types-row-dark-2.webp">
 </picture>
 
 In world data, keys are lowercase (`id`, `name`, `image_url`), a single link holds one element's UUID, and a multi-link holds a list of UUIDs.
