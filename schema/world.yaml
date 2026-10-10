@@ -20,18 +20,20 @@ properties:
     format: "url"
     description: "URL to an image representing the world"
  
-  api_key:
+  created_at:
     type: "string"
-    description: "Unique API key for external access (uniqueness enforced by application)"
-    maxLength: 10
-  version:
+    format: "date-time"
+    description: "When the world was created, as the tool holding it recorded it"
+    readOnly: true
+  updated_at:
     type: "string"
-    description: "The version of the OnlyWorlds data format this world instance conforms to" 
-    default: "0.20.10"
-  user:
-    type: "string"
-    format: "uuid"
-    description: "UUID of the user who owns this world"
+    format: "date-time"
+    description: "When the world's own settings last changed (its name, description, image, time and units)"
+    readOnly: true
+  public_read:
+    type: "boolean"
+    description: "Whether the world can be read by anyone, without a credential"
+    default: false
   time_format_equivalents:
     type: "array"
     description: "List of integers representing the equivalent number of basic units for each time format step (e.g., [1, 7, 30, 365] for Day, Week, Month, Year if basic unit is Day)"
