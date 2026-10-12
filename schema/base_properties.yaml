@@ -4,7 +4,7 @@ type: "object"
 properties:
   Id:
     type: "string"
-    description: "Unique identifier for the element, uuidv7 format"
+    description: "Unique identifier for the element, a UUID. New ids are minted as uuidv7; ids minted earlier as uuidv4 remain valid"
   Name:
     type: "string"
     description: "Name of the element"
