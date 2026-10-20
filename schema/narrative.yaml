@@ -14,10 +14,10 @@ properties:
         description: "Outcomes or legacy of the narrative"
       start_date:
         type: "integer"
-        description: "Date when the narrative begins, measured in world TIME units"
+        description: "Date when the narrative is first told or recorded, measured in world TIME units; the span it recounts lives on its events"
       end_date:
         type: "integer"
-        description: "Date when the narrative ends, measured in world TIME units"
+        description: "Date when the narrative stops being told, measured in world TIME units; empty while it is still told"
       order:
         type: "integer"
         description: "Position of this narrative within a parent narrative's sequence"

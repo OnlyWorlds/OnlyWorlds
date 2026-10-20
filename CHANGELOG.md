@@ -4,6 +4,12 @@ What changed in the OnlyWorlds standard, newest first. The version is in [`VERSI
 
 Tools usually read the standard through [schema-dist](https://github.com/OnlyWorlds/schema-dist), whose releases say which version of the standard each one carries.
 
+## 00.32.02 (2026-10-20)
+
+Editorial: two descriptions sharpened, no field changed.
+
+- **Narrative**: `start_date` now reads "Date when the narrative is first told or recorded, measured in world TIME units; the span it recounts lives on its events", and `end_date` "Date when the narrative stops being told, measured in world TIME units; empty while it is still told", where both read "Date when the narrative begins/ends". A story is known once it is told, so a tool that shows a Character what she knows as of a date can trust these fields; the time a story covers is its events' own dates.
+
 ## 00.32.01 (2026-10-20)
 
 Editorial: a description sharpened, no field changed.
