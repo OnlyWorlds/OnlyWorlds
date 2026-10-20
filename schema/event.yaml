@@ -34,7 +34,7 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-        description: "Key characters relevant to the event"
+        description: "Characters who know about the event: they were present, aware of it, or involved in it"
         category: "Character"
       objects:
         type: "multi-link"

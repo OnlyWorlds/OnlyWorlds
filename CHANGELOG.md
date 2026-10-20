@@ -4,6 +4,12 @@ What changed in the OnlyWorlds standard, newest first. The version is in [`VERSI
 
 Tools usually read the standard through [schema-dist](https://github.com/OnlyWorlds/schema-dist), whose releases say which version of the standard each one carries.
 
+## 00.32.01 (2026-10-20)
+
+Editorial: a description sharpened, no field changed.
+
+- **Event**: `characters` now reads "Characters who know about the event: they were present, aware of it, or involved in it", where it read "Key characters relevant to the event". A Character only mentioned in an event (discussed, not there) is linked from a Narrative's `characters` or named in the text instead, so a tool that shows a Character what it knows can trust this field. Narrative's `characters` stays as it was: the people a story is about.
+
 ## 00.32.00 (2026-10-10)
 
 - **World**: `created_at`, `updated_at` and `public_read` join the definition. Every reader already saw them on the wire. `api_key`, `user` and `version` leave the definition: they were leftovers from v1 that describe a platform, not a world. Nothing for a tool to react to, because the v2 API never served the removed keys and the added ones are optional.
