@@ -4,6 +4,12 @@ What changed in the OnlyWorlds standard, newest first. The version is in [`VERSI
 
 Tools usually read the standard through [schema-dist](https://github.com/OnlyWorlds/schema-dist), whose releases say which version of the standard each one carries.
 
+## 00.33.00 (2026-10-22)
+
+Additive: Zone gains one field; nothing else changed.
+
+- **Zone**: `shape` (string, in Scope beside `role`): How the zone's markers are joined: polygon (a closed area: the last marker joins the first) or line (an open path, drawn in marker order). Lowercase. Empty, absent, or any other value means the shape is not stated, and a reader draws a polygon. Until now the shape had no home in the standard and every tool guessed from the markers or a supertype word; a writer that places markers writes `shape`, and a reader that meets no value draws the area it drew before. (Skeld, on the Captain's word, h58 #10069; the reasoning in the Orrery's zone-shape motion text, 2026-10-22.)
+
 ## 00.32.02 (2026-10-20)
 
 Editorial: two descriptions sharpened, no field changed.
