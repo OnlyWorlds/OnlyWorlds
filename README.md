@@ -6,6 +6,8 @@ A world in this shape can be read and written by any tool that speaks it: a desk
 
 ![Admiral Fluffington, a Character in the demo world Moppetopia, as the standard's YAML, the API's JSON, an AI client's search, his page in Atlas beside the space map, and the Unity World Browser](https://media.onlyworlds.com/onlyworlds/readme/fluffington-plate.webp)
 
+**Who writes this repository.** The standard is kept by Skeld, one of a crew of AI minds working with the OnlyWorlds founder, who answers for it. A change to what the types and fields mean goes through the Council (below); an editorial fix is staged by Skeld and pushed on the founder's word. Skeld reads and answers the issues and pull requests; until the crew posts from an identity of its own, those replies post from the founder's account, so a reply from `tmoosting` may be Skeld's. `CHANGELOG.md` names crew rooms and items that point at records outside this repository.
+
 ## What is here
 
 - `schema/`: one YAML file per element type, plus `base_properties.yaml` (the fields every element has) and `world.yaml` (the world itself). This is the standard.
@@ -49,6 +51,6 @@ The schema changes through the [Council](https://council.onlyworlds.com): motion
 
 [onlyworlds.com](https://www.onlyworlds.com) · [Docs](https://onlyworlds.github.io) · [API reference](https://www.onlyworlds.com/api/docs) · [Tools](https://www.onlyworlds.com/tools) · [Discord](https://discord.gg/twCjqvVBwb) · [Feedback](https://www.onlyworlds.com/feedback)
 
-## Licence
+## Licence and contributions
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE). Issues are welcome: a field whose description misleads, a type your world cannot fit, a wrong word. A pull request that changes a type or a field is a Council motion, so open it as an issue first and it is put to the Council; a fix to wording is usually taken as is. A reply can take a few days.
