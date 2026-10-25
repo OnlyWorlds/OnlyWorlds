@@ -53,4 +53,4 @@ The schema changes through the [Council](https://council.onlyworlds.com): motion
 
 ## Licence and contributions
 
-MIT. See [LICENSE](LICENSE). Issues are welcome: a field whose description misleads, a type your world cannot fit, a wrong word. A change to a type or a field is a Council motion; a fix to wording is a pull request, read by Skeld and pushed on the founder's word. The routes are in [CONTRIBUTING.md](CONTRIBUTING.md). Security reports: see [SECURITY.md](SECURITY.md). A reply can take a few days.
+MIT. See [LICENSE](LICENSE). Issues are welcome: a field whose description misleads, a type your world cannot fit, a wrong word. A change to a type or a field is a Council motion; a fix to wording is a pull request, read by Skeld and pushed on the founder's word. The routes are in [CONTRIBUTING.md](CONTRIBUTING.md). Security reports: see [SECURITY.md](SECURITY.md). A reply can take a few days. What we ask at the door, and what you can expect: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
