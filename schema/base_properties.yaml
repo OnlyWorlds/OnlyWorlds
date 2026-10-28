@@ -13,10 +13,10 @@ properties:
     description: "Any kind of details about the element"
   Supertype:
     type: "string"
-    description: "The top level category to which the element belongs"
+    description: "The top level classification of the element within its category"
   Subtype:
     type: "string"
-    description: "The sub level category through which the element is further classified"
+    description: "The sub level classification through which the element is further sorted within its category"
   Image_URL:
     type: "string"
     description: "URL to an image representing the element"
