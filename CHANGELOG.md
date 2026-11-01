@@ -4,6 +4,12 @@ What changed in the OnlyWorlds standard, newest first. The version is in [`VERSI
 
 Tools usually read the standard through [schema-dist](https://github.com/OnlyWorlds/schema-dist), whose releases say which version of the standard each one carries.
 
+## 00.34.00 (2026-11-01)
+
+Additive: Location gains one field; nothing else changed. A motion the Council passed.
+
+- **Location**: `vehicle` (single link to an Object, in Setting beside `parent_location`): The Object this place is the inside of: a ship, a train, an airship, a walking city, a station that moves. Set it when the place moves with the thing; a place inside another place uses parent_location instead. The thing's own whereabouts are its location. A ship, a train or a walking city is two elements: the Object (made, owned, traded, standing at a dock by its `location`) and the Location one can be inside (its rooms under it by `parent_location`, its own Map). Until now nothing linked the two. A reader finds where a place is by `parent_location` first; if that is empty, by `vehicle` and then that Object's `location`; it repeats until a place has neither, and stops when it meets a place a second time. One place names one vehicle. A Location with both fields set reads by `parent_location`. Tools that wrote the convention (`x_vehicle` on the Location, `x_interior` on the Object) move the Location's value into `vehicle`.
+
 ## 00.33.00 (2026-10-22)
 
 Additive: Zone gains one field; nothing else changed.
