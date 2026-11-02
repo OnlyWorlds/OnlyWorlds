@@ -18,6 +18,10 @@ properties:
         type: "single-link"
         category: "Location"
         description: "Wider location that this location is part of"
+      vehicle:
+        type: "single-link"
+        category: "Object"
+        description: "The Object this place is the inside of: a ship, a train, an airship, a walking city, a station that moves. Set it when the place moves with the thing; a place inside another place uses parent_location instead"
       populations:
         type: "multi-link"
         items:
