@@ -124,5 +124,5 @@ properties:
         type: "multi-link"
         items:
           type: "string"
-        description: "Concepts, laws, or built entities relevant to the event"
+        description: "Concepts, systems or built entities relevant to the event"
         category: "Construct"

@@ -11,7 +11,7 @@ properties:
         description: "Core belief, mission, or purpose that drives the institution"
       founding_date:
         type: "integer"
-        description: "Date when the institution was established, in the world's TIME format"
+        description: "Date when the institution was established, in the world's time unit (World time_basic_unit)"
       parent_institution:
         type: "single-link"
         description: "Institution that governs, embodies, or originated this one"

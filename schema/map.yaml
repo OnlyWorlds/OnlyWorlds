@@ -10,7 +10,7 @@ properties:
         description: "Color of the space around the map when zoomed out"
       hierarchy:
         type: "integer"
-        description: "To associate or differentiate between maps with a common parent"
+        description: "An integer to order or group the maps that share a parent; how a tool reads it is the tool's own"
       width:
         type: "integer"
         description: "In pixels" 

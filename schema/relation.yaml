@@ -10,10 +10,10 @@ properties:
         description: "History and origin of the relation"
       start_date:
         type: "integer"
-        description: "Date when the relation began, defined in world TIME units"
+        description: "Date when the relation began, in the world's time unit (World time_basic_unit)"
       end_date:
         type: "integer"
-        description: "Date when the relation ended if any, defined in world TIME units"
+        description: "Date when the relation ended if any, in the world's time unit (World time_basic_unit)"
       intensity:
         type: "integer"
         minimum: 0
