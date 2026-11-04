@@ -14,7 +14,7 @@ properties:
         description: "Number of members in the collective (approximate or exact)"
       formation_date:
         type: "integer"
-        description: "Date the collective was formed, using world TIME units"
+        description: "Date the collective was formed, in the world's time unit (World time_basic_unit)"
       operator:
         type: "single-link"
         description: "Institution that manages or directs the collective"

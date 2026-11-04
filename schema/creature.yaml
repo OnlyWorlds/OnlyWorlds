@@ -59,7 +59,7 @@ properties:
         description: "Current situation or classification of the creature"
       birth_date:
         type: integer
-        description: "The time of the creature's birth, recorded in the world's defined TIME unit"
+        description: "The time of the creature's birth, in the world's time unit (World time_basic_unit)"
       location:
         type: single-link
         description: "Specific location where the creature is currently found or most associated with"

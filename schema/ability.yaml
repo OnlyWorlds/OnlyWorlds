@@ -12,7 +12,7 @@ properties:
         description: "Method or conditions under which the ability is activated"
       duration:
         type: "integer"
-        description: "Length of time the ability remains active or its effects persist, measured in TIME units"
+        description: "Length of time the ability remains active or its effects persist, in the world's time unit (World time_basic_unit)"
       potency:
         type: "integer"
         minimum: 0

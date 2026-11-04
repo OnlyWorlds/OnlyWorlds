@@ -10,7 +10,7 @@ properties:
         description: "Typical physical or form features of the species"
       life_span:
         type: "integer"
-        description: "Average or typical life expectancy of an individual, defined in world TIME units"
+        description: "Average or typical life expectancy of an individual, in the world's time unit (World time_basic_unit)"
       weight:
         type: "integer"
         description: "Average or typical adult weight, in the world's mass unit (World mass_unit)"

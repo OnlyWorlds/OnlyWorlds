@@ -48,7 +48,7 @@ properties:
         description: "Core desires, goals, or values that drive the character's choices and behavior"
       birth_date:
         type: "integer"
-        description: "Moment of birth, expressed in the world's TIME units"
+        description: "Moment of birth, in the world's time unit (World time_basic_unit)"
       birthplace:
         type: "single-link"
         description: "Location where the character was born"

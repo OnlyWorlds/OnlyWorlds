@@ -13,10 +13,10 @@ properties:
         description: "How the zone's markers are joined: polygon (a closed area: the last marker joins the first) or line (an open path, drawn in marker order). Lowercase. Empty, absent, or any other value means the shape is not stated, and a reader draws a polygon"
       start_date:
         type: "integer"
-        description: "Date when the zone becomes extant or relevant, defined in world TIME units"
+        description: "Date when the zone becomes extant or relevant, in the world's time unit (World time_basic_unit)"
       end_date:
         type: "integer"
-        description: "Date when the zone ceases to be meaningful or enforced, defined in world TIME units"
+        description: "Date when the zone ceases to be meaningful or enforced, in the world's time unit (World time_basic_unit)"
       phenomena:
         type: "multi-link"
         items:

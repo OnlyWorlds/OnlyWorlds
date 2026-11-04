@@ -13,7 +13,7 @@ properties:
         description: "The intent, motivation, or justification for the law's creation"
       date:
         type: "integer"
-        description: "Date the law was formally established, in world TIME units"
+        description: "Date the law was formally established, in the world's time unit (World time_basic_unit)"
       parent_law:
         type: "single-link"
         description: "A law that this law derives from, modifies, or enhances"
