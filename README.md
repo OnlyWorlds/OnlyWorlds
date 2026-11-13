@@ -19,7 +19,7 @@ The 22 types: Character, Creature, Species, Family, Collective, Institution, Loc
   <img alt="The 22 element types, each with its icon, in alphabetical order" src="https://media.onlyworlds.com/onlyworlds/readme/types-row-dark-2.webp">
 </picture>
 
-In world data, keys are lowercase (`id`, `name`, `image_url`), a single link holds one element's UUID, and a multi-link holds a list of UUIDs.
+In world data, keys are lowercase (`id`, `name`, `image_url`), a single link holds one element's UUID, and a multi-link holds a list of UUIDs. The YAML files in `schema/` spell some names with capitals (`Id`, `Name`, `Image_URL` in `base_properties.yaml`); that is how the YAML presents them, and the keys on the wire and in a world folder are the lowercase ones. The files also declare `$schema: draft-07`, but they use OnlyWorlds' own field types (single-link, multi-link, generic-link) and section groupings and are not meant for a JSON Schema validator: to read them from code, use [schema-dist](https://github.com/OnlyWorlds/schema-dist) and its walk.
 
 ## Making a world
 
@@ -32,9 +32,9 @@ Get the schema from [schema-dist](https://github.com/OnlyWorlds/schema-dist): it
 | | |
 |---|---|
 | TypeScript | `npm install @onlyworlds/sdk` ([sdk](https://github.com/OnlyWorlds/sdk)) |
-| Python | [python-sdk](https://github.com/OnlyWorlds/python-sdk) (pre-release) |
+| Python | `pip install onlyworlds`, published on [PyPI](https://pypi.org/project/onlyworlds/) ([python-sdk](https://github.com/OnlyWorlds/python-sdk)) |
 | Unity / C# | [unity-sdk](https://github.com/OnlyWorlds/unity-sdk) |
-| AI assistants | the MCP server at `https://www.onlyworlds.com/mcp` |
+| AI assistants | the MCP server, a connector address for an MCP client: `https://www.onlyworlds.com/mcp` (a bare GET, such as curl, answers 405) |
 | Claude Code | the [toolkit](https://github.com/OnlyWorlds/toolkit) plugin |
 
 Using Godot, Unreal or another engine without an SDK: see [Games](https://onlyworlds.github.io/docs/development/games) in the docs.
