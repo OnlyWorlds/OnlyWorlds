@@ -4,6 +4,13 @@ What changed in the OnlyWorlds standard, newest first. The version is in [`VERSI
 
 Tools usually read the standard through [schema-dist](https://github.com/OnlyWorlds/schema-dist), whose releases say which version of the standard each one carries.
 
+## 00.34.01 (2026-11-13)
+
+Editorial: one description sharpened, no field changed; and three description fixes of 2026-11-03, listed here late.
+
+- **Map**: `hierarchy` now reads "Orders the maps that stand side by side (floors, decks, layers): the maps with the same parent_map; without one, the maps of the same location; without either, the maps of the world itself. Lower is deeper or earlier. Nesting is said by parent_map and location, not by this number", where it read "An integer to order or group the maps that share a parent; how a tool reads it is the tool's own". The number is the order among sibling maps and nothing more: a bakery's cellar, ground floor and first floor are three maps of one location, side by side, and the number puts them in order; which map sits inside which is said by `parent_map` and `location`, which a tool walks for depth. A tool that read the number as a nesting level reads the tree instead; the values worlds hold stay as they are.
+- Made on 2026-11-03 under 00.34.00 and not listed then: **Event** `constructs` reads "Concepts, systems or built entities relevant to the event" (no Event field links a Law, so the old "laws" named nothing); the seventeen date and duration fields that are measured in world time (Ability `duration`, Character `birth_date`, Collective `formation_date`, Construct `start_date`, Creature `birth_date`, Institution `founding_date`, Law `date`, Narrative `start_date` and `end_date`, Phenomenon `duration`, Relation `start_date` and `end_date`, Species `life_span`, Title `grant_date` and `revoke_date`, Zone `start_date` and `end_date`) say "in the world's time unit (World time_basic_unit)" one way, as the length fields name `length_unit`; and **Map** `hierarchy` gained the words this entry replaces.
+
 ## 00.34.00 (2026-11-01)
 
 Additive: Location gains one field; nothing else changed. A motion the Council passed.
